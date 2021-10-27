@@ -8,6 +8,7 @@ import ProTip from './ProTip';
 import AppBar from './AppBar';
 import { Button } from '@mui/material';
 
+import IconSidebar from './IconSidebar';
 
 
 
@@ -26,10 +27,12 @@ const decreaseCounter = () => {
 
   return (
     <> {/* fragment */}
-    <AppBar/><Container maxWidth="sm">
+    <Container maxWidth="sm">
+      
+    <IconSidebar></IconSidebar>
+    <Box sx={{ my: 0 }}>
       <Button onClick={incrementCounter} >Count {count}</Button>
       <Button onClick={decreaseCounter} >-1</Button>
-    <Box sx={{ my: 4 }}>
       <Typography variant="h4" component="h1" gutterBottom>
         React App v5 example with TypeScript
       </Typography>
