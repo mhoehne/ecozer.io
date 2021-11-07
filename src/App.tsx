@@ -30,7 +30,8 @@ const decreaseCounter = () => {
     <Container maxWidth="sm">
       
     <IconSidebar></IconSidebar>
-    <Box sx={{ my: 0 }}>
+    <Box sx={{
+              marginLeft: '50px',}}>
       <Button onClick={incrementCounter} >Count {count}</Button>
       <Button onClick={decreaseCounter} >-1</Button>
       <Typography variant="h4" component="h1" gutterBottom>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
+import { styled, useTheme, Theme, CSSObject, alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
@@ -15,13 +15,51 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import AppsIcon from '@mui/icons-material/Apps';
 import SearchIcon from '@mui/icons-material/Search';
-import { Apps } from '@mui/icons-material';
+import InputBase from '@mui/material/InputBase';
 
 const drawerWidth = 240;
+
+const Search = styled('div')(({ theme }) => ({
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    '&:hover': {
+      backgroundColor: alpha(theme.palette.common.white, 0.25),
+    },
+    marginRight: theme.spacing(2),
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(3),
+      width: 'auto',
+    },
+  }));
+  
+  const SearchIconWrapper = styled('div')(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }));
+
+  const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: 'inherit',
+    '& .MuiInputBase-input': {
+      padding: theme.spacing(1, 1, 1, 0),
+      // vertical padding + font size from searchIcon
+      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+      transition: theme.transitions.create('width'),
+      width: '100%',
+      [theme.breakpoints.up('md')]: {
+        width: '20ch',
+      },
+    },
+  }));
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
@@ -124,6 +162,15 @@ export default function MiniDrawer() {
           <Typography variant="h6" noWrap component="div">
             ecozer
           </Typography>
+          <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </Search>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
@@ -134,25 +181,17 @@ export default function MiniDrawer() {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Zero Start', 'First Page', 'Second Page', 'Third Page'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 1 === 0 ? <AppsIcon/> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon><ListItemText>Page 1</ListItemText></ListItem>
+          <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon><ListItemText>Page 2</ListItemText></ListItem>
+          <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon><ListItemText>Page 3</ListItemText></ListItem>
+          <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon><ListItemText>Page 4</ListItemText></ListItem>
         </List>
         <Divider />
         <List>
-          {['Fourth Page', 'Fifth Page', 'Sixth Page'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+        <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon><ListItemText>Page 5</ListItemText></ListItem>
+        <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon><ListItemText>Page 6</ListItemText></ListItem>
+        <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon><ListItemText>Page 7</ListItemText></ListItem>
+
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
