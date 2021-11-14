@@ -24,12 +24,12 @@ const theme = createTheme({
       main: '#76B900',
     },
     text: {
-      primary: '#292929',
-      secondary: '#2929ff',
+      primary: '#000',
+      secondary: '#292929',
       disabled: '#AFAFAF',
     },
     background: {
-      paper: '#EBEBEB',
+      paper: '#fff',
       default: '#EBEBEB',
     }
 
