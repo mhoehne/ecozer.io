@@ -11,6 +11,7 @@
     "@types/react-dom": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-router-dom": "^6.0.2",
     "react-scripts": "latest",
     "typescript": "latest",
     "yarn": "^1.22.17"
