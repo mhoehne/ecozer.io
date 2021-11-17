@@ -4,6 +4,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import SampleImg from './images/sample-img.png';
+
+declare module '*.jpg';
+declare module '*.png';
 
 export default function ImgMediaCard() {
   return (
@@ -12,7 +16,7 @@ export default function ImgMediaCard() {
         component="img"
         alt="green iguana"
         height="140"
-        image="./images/sample-img.png"
+        image={SampleImg}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">

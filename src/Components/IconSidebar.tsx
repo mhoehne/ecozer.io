@@ -15,7 +15,6 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
 import AppsIcon from '@mui/icons-material/Apps';
 import MailIcon from '@mui/icons-material/Mail';
 import Badge from '@mui/material/Badge';
@@ -23,8 +22,6 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import SearchBar from './SearchBar';
 import AccountMenu from './AccountMenu';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { ListItemButton } from '@mui/material';
 
 
 
@@ -187,24 +184,23 @@ export default function MiniDrawer() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <Router>
+
         <List>
-            <Link to="/"><ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Home</ListItem></Link>
-            <Link to="/1"><ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Page 1</ListItem></Link>
-            <Link to="/2"><ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Page 2</ListItem></Link>
-            <Link to="/3"><ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Page 3</ListItem></Link>
+            <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Home</ListItem>
+            <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Page 1</ListItem>
+            <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Page 2</ListItem>
+            <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Page 3</ListItem>
         </List>
 
         <Divider />
 
         <List>
-            <Link to="/4"><ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Page 4</ListItem></Link>
-            <Link to="/5"><ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Page 5</ListItem></Link>
-            <Link to="/6"><ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Page 6</ListItem></Link>
-            <Link to="/7"><ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Page 7</ListItem></Link>
+            <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Page 4</ListItem>
+            <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Page 5</ListItem>
+            <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Page 6</ListItem>
+            <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Page 7</ListItem>
 
         </List>
-        </Router>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
