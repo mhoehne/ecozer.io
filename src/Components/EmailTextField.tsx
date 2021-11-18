@@ -1,12 +1,16 @@
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
+
+
 export default function FormPropsTextFields() {
+
+
   return (
     <Box
       component="form"
       sx={{
-        '& .MuiTextField-root': { m: 2, width: '40ch' },
+        '& .MuiTextField-root': { m: 2, width: '10rem', margin: '0rem', },
       }}
       noValidate
       autoComplete="off"
@@ -14,13 +18,11 @@ export default function FormPropsTextFields() {
       <div>
         <TextField
           id="outlined-required"
-          size="small"
+          size="medium"
           label="E-Mail"
           defaultValue="hello@world.com"
         />
       </div>
-      
-      
     </Box>
   );
 }

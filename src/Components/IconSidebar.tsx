@@ -3,25 +3,17 @@ import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import AppsIcon from '@mui/icons-material/Apps';
-import MailIcon from '@mui/icons-material/Mail';
-import Badge from '@mui/material/Badge';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import SearchBar from './SearchBar';
-import AccountMenu from './AccountMenu';
+import AppBarTop from './AppBarTop';
+import { Link } from 'react-router-dom';
 
 
 
@@ -97,6 +89,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function MiniDrawer() {
+
+
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -120,85 +114,35 @@ export default function MiniDrawer() {
     setAnchorEl(null);
   };
 
-  const menuId = 'primary-search-account-menu';
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
-  );
 
 
   return (
     <Box sx={{ display: 'flex' }} >
       <CssBaseline />
-      <AppBar position="fixed" open={open} sx= {{backgroundColor: "#fff"}}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: '36px',
-              ...(open && { display: 'none' }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            HTWlogo BUIS
-          </Typography>
-          <SearchBar/>
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit"><NotificationsIcon/></IconButton>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-
-            <AccountMenu/>
-          </Box>
-        </Toolbar>
-      </AppBar>
+      <AppBarTop open={open} setOpen={setOpen}/>
+      
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
+          </IconButton> 
         </DrawerHeader>
         <Divider />
 
         <List>
-            <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Home</ListItem>
-            <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Page 1</ListItem>
-            <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Page 2</ListItem>
-            <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Page 3</ListItem>
+          <ListItem component={Link} to="/"><ListItemIcon><AppsIcon/></ListItemIcon>Home</ListItem>
+          <ListItem component={Link} to="/page1"><ListItemIcon><AppsIcon/></ListItemIcon>Page 1</ListItem>
+          <ListItem component={Link} to="/page2"><ListItemIcon><AppsIcon/></ListItemIcon>Page 2</ListItem>
+          <ListItem component={Link} to="/page3"><ListItemIcon><AppsIcon/></ListItemIcon>Page 3</ListItem>
         </List>
 
         <Divider />
 
         <List>
-            <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Page 4</ListItem>
-            <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Page 5</ListItem>
-            <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Page 6</ListItem>
-            <ListItem button><ListItemIcon><AppsIcon/></ListItemIcon>Page 7</ListItem>
+        <ListItem component={Link} to="/page4"><ListItemIcon><AppsIcon/></ListItemIcon>Page 4</ListItem>
+        <ListItem component={Link} to="/page5"><ListItemIcon><AppsIcon/></ListItemIcon>Page 5</ListItem>
+        <ListItem component={Link} to="/page6"><ListItemIcon><AppsIcon/></ListItemIcon>Page 6</ListItem>
+        <ListItem component={Link} to="/page7"><ListItemIcon><AppsIcon/></ListItemIcon>Page 7</ListItem>
 
         </List>
       </Drawer>

@@ -4,10 +4,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import SampleImg from './images/sample-img.png';
+import SampleImg from '../images/sample-img.png';
 
-declare module '*.jpg';
-declare module '*.png';
 
 export default function ImgMediaCard() {
   return (

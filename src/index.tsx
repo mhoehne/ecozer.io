@@ -4,8 +4,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import App from './App';
 import theme from './theme';
 
-declare module '*.jpg';
-declare module '*.png';
+
 
 ReactDOM.render(
   <ThemeProvider theme={theme} >

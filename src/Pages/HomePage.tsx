@@ -7,7 +7,13 @@ import ImgMediaCard from '../Components/ImgMediaCard';
 import Grid from '@mui/material/Grid';
 import CustomSeparator from '../Components/Breadcrumbs';
 import TextField from '@mui/material/TextField';
-
+import Navigation from '../Components/Navigation';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import earth_image from '../images/earth_image.png';
+import EmailTextField from '../Components/EmailTextField';
 
 
 
@@ -24,35 +30,43 @@ const Item = styled(Paper)(({ theme }) => ({
 
   return (
     < > {/* fragment */}
-    <Container sx={{marginTop: '5rem',}}></Container>
-    <Container><CustomSeparator/></Container>
-
+    <Navigation />
+    
+    
     <Container>
-      <Grid container spacing={5}>
+    
+      <Grid container spacing={0}>
         <Grid item xs={7}>
-          <Item>
-            <Typography gutterBottom variant="h4" component="div">Why You Should Sign Up Now!</Typography>
-            <Typography variant="body2" color="text.secondary">
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-            </Typography> 
-            <Stack spacing={2} direction="row">
-            <TextField
-          id="outlined-required"
-          size="small"
-          label="E-Mail"
-          defaultValue="hello@world.com"
-        /><Button size="large" variant="contained" color="primary">Sign Up</Button>
+          <Card sx={{ margin: '1rem', padding: '1rem', }}>
+      
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          Feature
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        </Typography>
+      </CardContent>
+            <Stack spacing={20} direction="row"  >
+              <EmailTextField/>
+              <Button size="large" variant="contained" color="primary">Sign Up</Button>
             </Stack>
-          </Item>
+            </Card>
+          
         </Grid>
         <Grid item xs={5}>
-          <Item>IMAGE</Item>
+        <Card sx={{ margin: '1rem', padding: '1rem', }}>
+      <CardMedia
+        component="img"
+        alt="green iguana"
+        height="400"
+        image={earth_image}
+      />
+      </Card>
         </Grid>
       </Grid>
-    </Container>
 
-    <Container>
-    <Grid container spacing={4}>
+      <Grid container spacing={0}>
       <Grid item xs={4}>
         <ImgMediaCard/>
       </Grid>
@@ -63,10 +77,15 @@ const Item = styled(Paper)(({ theme }) => ({
         <ImgMediaCard/>
       </Grid>
     </Grid>
+    </Container>
 
-    <IconSidebar/>
+    
+    
+    <Container>
+      <CustomSeparator />
+    </Container>
+    
     <Container sx={{backgroundColor: '#303030'}}>Footer with Grid</Container>
-  </Container>
   <Container fixed maxWidth={false} sx={{backgroundColor: '#303030'}}>Footer with Grid</Container>
   </>
     

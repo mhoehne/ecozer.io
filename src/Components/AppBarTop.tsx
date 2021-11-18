@@ -40,30 +40,24 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
+type AppBarTopProps = {open: boolean, setOpen: Function}
 
-export default function AppBarTop() {
-
-
-  const [open, setOpen] = React.useState(false);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+export default function AppBarTop(props: AppBarTopProps) {
 
 
   return (
     <Box sx={{ display: 'flex' }} >
       <CssBaseline />
-      <AppBar position="fixed" open={open} sx= {{backgroundColor: "#000"}}>
+      <AppBar position="fixed" open={props.open} sx= {{backgroundColor: "#fff"}}>
         <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={handleDrawerOpen}
+            onClick={ () => props.setOpen(true) }
             edge="start"
             sx={{
               marginRight: '36px',
-              ...(open && { display: 'none' }),
+              ...(props.open && { display: 'none' }),
             }}
           >
             <MenuIcon />
