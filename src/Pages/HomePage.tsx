@@ -2,14 +2,11 @@ import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { Button, Paper, Stack } from '@mui/material';
-import IconSidebar from '../Components/IconSidebar';
 import ImgMediaCard from '../Components/ImgMediaCard';
 import Grid from '@mui/material/Grid';
 import CustomSeparator from '../Components/Breadcrumbs';
-import TextField from '@mui/material/TextField';
 import Navigation from '../Components/Navigation';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import earth_image from '../images/earth_image.png';
@@ -37,7 +34,7 @@ const Item = styled(Paper)(({ theme }) => ({
     
       <Grid container spacing={0}>
         <Grid item xs={7}>
-          <Card sx={{ margin: '1rem', padding: '1rem', }}>
+          <Card sx={{ margin: '1rem', padding: '1rem', height: '30rem',}}>
       
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -55,11 +52,11 @@ const Item = styled(Paper)(({ theme }) => ({
           
         </Grid>
         <Grid item xs={5}>
-        <Card sx={{ margin: '1rem', padding: '1rem', }}>
+        <Card sx={{ margin: '1rem', padding: '1rem', height: '30rem',}}>
       <CardMedia
         component="img"
         alt="green iguana"
-        height="400"
+        height="370"
         image={earth_image}
       />
       </Card>
