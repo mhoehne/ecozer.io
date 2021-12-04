@@ -1,0 +1,753 @@
+
+{
+  "products" : [
+    {
+      "id":1,
+      "productName": "Umberto 5",
+      "zielgruppe": [
+        "Umweltbeauftragte",
+        "Fachabteilung"
+      ],
+      "anwendungsbereich": [
+        "Ökobilanzierung",
+        "Entscheidungsunterstützung"
+      ],
+      "gradDerIntegrierung": [
+        "Stand-Alone"
+      ],
+      "objektAspekt": [
+        "Abfall",
+        "Emissionen",
+        "Energie",
+        "Stoffe/Stoffströme",
+        "Kosten"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb",
+        "Prozess",
+        "Produkt"
+      ],
+      "betrachtungskonzept": [
+        "Bewertungszentriert"
+      ]
+    },
+
+    {
+      "id":2,
+      "productName": "Quentic",
+      "zielgruppe": [
+        "Geschäftsführung",
+        "Umweltbeauftragte",
+        "Fachabteilung",
+        "Mitarbeiter",
+        "externe Stakeholder",
+        "Behörden"
+      ],
+      "anwendungsbereich": [
+        "Gesetzeskonformität",
+        "Zertifizierung",
+        "Ökobilanzierung",
+        "Berichterstattung",
+        "Entscheidungsunterstützung",
+        "Arbeitsschutz"
+      ],
+      "gradDerIntegrierung": [
+        "Stand-Alone",
+        "SaaS-Lösung"
+      ],
+      "objektAspekt": [
+        "Abfall",
+        "Anlagen",
+        "Gefahrstoffe",
+        "Stoffe/Stoffströme",
+        "Kosten"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb"
+      ],
+      "betrachtungskonzept": [
+        "Verwaltungszentriert",
+        "Managementzentriert"
+      ]
+    },
+
+    {
+      "id":3,
+      "productName": "Paul - Plattform für Arbeitsschutz- und Umweltrecht",
+      "zielgruppe": [
+        "Umweltbeauftragte",
+        "Fachabteilung",
+        "Mitarbeiter"
+      ],
+      "anwendungsbereich": [
+        "Gesetzeskonformität",
+        "Zertifizierung",
+        "Berichterstattung",
+        "Arbeitsschutz"
+      ],
+      "gradDerIntegrierung": [
+        "SaaS-Lösung"
+      ],
+      "objektAspekt": [
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb",
+        "Prozess"
+      ],
+      "betrachtungskonzept": [
+        "Verwaltungszentriert"
+      ]
+    },
+
+    {
+      "id":4,
+      "productName": "GaBI",
+      "zielgruppe": [
+        "Umweltbeauftragte",
+        "Fachabteilung",
+        "externe Stakeholder"
+      ],
+      "anwendungsbereich": [
+        "Ökobilanzierung",
+        "Berichterstattung",
+        "Entscheidungsunterstützung"
+      ],
+      "gradDerIntegrierung": [
+        "Stand-Alone"
+      ],
+      "objektAspekt": [
+        "Emissionen",
+        "Energie",
+        "Stoffe/Stoffströme"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb",
+        "Prozess",
+        "Produkt"
+      ],
+      "betrachtungskonzept": [
+        "Bewertungszentriert",
+        "Managementzentriert"
+      ]
+    },
+
+    {
+      "id":5,
+      "productName": "360report",
+      "zielgruppe": [
+        "Geschäftsführung",
+        "Umweltbeauftragte",
+        "Fachabteilung",
+        "externe Stakeholder",
+        "Behörden"
+      ],
+      "anwendungsbereich": [
+        "Gesetzeskonformität",
+        "Zertifizierung",
+        "Ökobilanzierung"
+      ],
+      "gradDerIntegrierung": [
+        "SaaS-Lösung"
+      ],
+      "objektAspekt": [
+        "Emissionen"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb"
+      ],
+      "betrachtungskonzept": [
+        "Bewertungszentriert"
+      ]
+    },
+
+    {
+      "id":6,
+      "productName": "e!Sankey",
+      "zielgruppe": [
+        "Geschäftsführung",
+        "Umweltbeauftragte"
+      ],
+      "anwendungsbereich": [
+        "Ökobilanzierung",
+        "Entscheidungsunterstützung"
+      ],
+      "gradDerIntegrierung": [
+        "Stand-Alone"
+      ],
+      "objektAspekt": [
+        "Abfall",
+        "Emissionen",
+        "Energie",
+        "Stoffe/Stoffströme",
+        "Kosten"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb",
+        "Prozess"
+      ],
+      "betrachtungskonzept": [
+        "Bewertungszentriert"
+      ]
+    },
+
+    {
+      "id":7,
+      "productName": "IUWA-Abfallmanager",
+      "zielgruppe": [
+        "Umweltbeauftragte",
+        "Fachabteilung"
+      ],
+      "anwendungsbereich": [
+        "Gesetzeskonformität",
+        "Zertifizierung",
+        "Berichterstattung"
+      ],
+      "gradDerIntegrierung": [
+        "Stand-Alone",
+        "SaaS-Lösung"
+      ],
+      "objektAspekt": [
+        "Abfall",
+        "Gefahrstoffe",
+        "Stoffe/Stoffströme",
+        "Kosten"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb",
+        "Produkt"
+      ],
+      "betrachtungskonzept": [
+        "Verwaltungszentriert"
+      ]
+    },
+
+    {
+      "id":8,
+      "productName": "360 Sustainability Essentials Software",
+      "zielgruppe": [
+        "Geschäftsführung",
+        "Umweltbeauftragte",
+        "Fachabteilung",
+        "externe Stakeholder",
+        "Behörden"
+      ],
+      "anwendungsbereich": [
+        "Gesetzeskonformität",
+        "Zertifizierung",
+        "Ökobilanzierung"
+      ],
+      "gradDerIntegrierung": [
+        "Stand-Alone",
+        "SaaS-Lösung"
+      ],
+      "objektAspekt": [
+        "Emissionen"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb"
+      ],
+      "betrachtungskonzept": [
+        "Bewertungszentriert",
+        "Managementzentriert"
+      ]
+    },
+
+    {
+      "id":9,
+      "productName": "DataCross",
+      "zielgruppe": [
+        "Umweltbeauftragte",
+        "Fachabteilung",
+        "externe Stakeholder"
+      ],
+      "anwendungsbereich": [
+        "Gesetzeskonformität",
+        "Entscheidungsunterstützung"
+      ],
+      "gradDerIntegrierung": [
+        "Add-On",
+        "SaaS-Lösung"
+      ],
+      "objektAspekt": [
+        "Anlagen",
+        "Gefahrstoffe",
+        "Stoffe/Stoffströme"
+      ],
+      "systemgrenzen": [
+        "Prozess",
+        "Produkt"
+      ],
+      "betrachtungskonzept": [
+        "Verwaltungszentriert",
+        "Bewertungszentriert"
+      ]
+    },
+
+    {
+      "id":10,
+      "productName": "Eco-Cockpit",
+      "zielgruppe": [
+        "Umweltbeauftragte",
+        "Fachabteilung",
+        "Mitarbeiter"
+      ],
+      "anwendungsbereich": [
+        "Ökobilanzierung",
+        "Entscheidungsunterstützung"
+      ],
+      "gradDerIntegrierung": [
+        "SaaS-Lösung"
+      ],
+      "objektAspekt": [
+        "Emissionen"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb",
+        "Prozess",
+        "Produkt"
+      ],
+      "betrachtungskonzept": [
+        "Bewertungszentriert"
+      ]
+    },
+
+    {
+      "id":11,
+      "productName": "Efficio",
+      "zielgruppe": [
+        "Umweltbeauftragte",
+        "Fachabteilung",
+        "Mitarbeiter"
+      ],
+      "anwendungsbereich": [
+        "Zertifizierung",
+        "Berichterstattung",
+        "Entscheidungsunterstützung"
+      ],
+      "gradDerIntegrierung": [
+        "SaaS-Lösung"
+      ],
+      "objektAspekt": [
+        "Anlagen",
+        "Energie",
+        "Kosten"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb",
+        "Prozess",
+        "Produkt"
+      ],
+      "betrachtungskonzept": [
+        "Bewertungszentriert",
+        "Managementzentriert"
+      ]
+    },
+
+    {
+      "id":12,
+      "productName": "ENIT Agent",
+      "zielgruppe": [
+        "Umweltbeauftragte",
+        "Fachabteilung",
+        "Mitarbeiter"
+      ],
+      "anwendungsbereich": [
+        "Zertifizierung",
+        "Berichterstattung",
+        "Entscheidungsunterstützung"
+      ],
+      "gradDerIntegrierung": [
+        "Stand-Alone"
+      ],
+      "objektAspekt": [
+        "Anlagen",
+        "Emissionen",
+        "Energie",
+        "Kosten"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb",
+        "Prozess"
+      ],
+      "betrachtungskonzept": [
+        "Bewertungszentriert",
+        "Managementzentriert"
+      ]
+    },
+
+    {
+      "id":13,
+      "productName": "eSight",
+      "zielgruppe": [
+        "Umweltbeauftragte",
+        "Fachabteilung",
+        "Mitarbeiter"
+      ],
+      "anwendungsbereich": [
+        "Zertifizierung",
+        "Berichterstattung",
+        "Entscheidungsunterstützung"
+      ],
+      "gradDerIntegrierung": [
+      ],
+      "objektAspekt": [
+        "Emissionen",
+        "Energie",
+        "Kosten"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb",
+        "Prozess"
+      ],
+      "betrachtungskonzept": [
+        "Bewertungszentriert",
+        "Managementzentriert"
+      ]
+    },
+
+    {
+      "id":14,
+      "productName": "gutwin",
+      "zielgruppe": [
+        "Umweltbeauftragte",
+        "Fachabteilung",
+        "externe Stakeholder",
+        "Behörden"
+      ],
+      "anwendungsbereich": [
+        "Gesetzeskonformität",
+        "Entscheidungsunterstützung",
+        "Arbeitsschutz"
+      ],
+      "gradDerIntegrierung": [
+        "Stand-Alone"
+      ],
+      "objektAspekt": [
+        "Abfall",
+        "Anlagen",
+        "Gefahrstoffe",
+        "Stoffe/Stoffströme"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb"
+      ],
+      "betrachtungskonzept": [
+        "Verwaltungszentriert",
+        "Managementzentriert"
+      ]
+    },
+
+    {
+      "id":15,
+      "productName": "FridaCarb",
+      "zielgruppe": [
+        "Umweltbeauftragte",
+        "Fachabteilung",
+        "externe Stakeholder"
+      ],
+      "anwendungsbereich": [
+        "Ökobilanzierung",
+        "Entscheidungsunterstützung"
+      ],
+      "gradDerIntegrierung": [
+        "Stand-Alone"
+      ],
+      "objektAspekt": [
+        "Emissionen"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb",
+        "Produkt"
+      ],
+      "betrachtungskonzept": [
+        "Bewertungszentriert"
+      ]
+    },
+
+    {
+      "id":16,
+      "productName": "Envis - Environmental System",
+      "zielgruppe": [
+        "Geschäftsführung",
+        "Umweltbeauftragte",
+        "Fachabteilung"
+      ],
+      "anwendungsbereich": [
+        "Gesetzeskonformität",
+        "Ökobilanzierung",
+        "Arbeitsschutz"
+      ],
+      "gradDerIntegrierung": [
+        "Stand-Alone"
+      ],
+      "objektAspekt": [
+        "Abfall",
+        "Gefahrstoffe"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb",
+        "Prozess"
+      ],
+      "betrachtungskonzept": [
+        "Managementzentriert"
+      ]
+    },
+
+    {
+      "id":17,
+      "productName": "IngSoft InterWatt",
+      "zielgruppe": [
+        "Umweltbeauftragte"
+      ],
+      "anwendungsbereich": [
+        "Zertifizierung",
+        "Entscheidungsunterstützung"
+      ],
+      "gradDerIntegrierung": [
+        "Stand-Alone"
+      ],
+      "objektAspekt": [
+        "Energie"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb",
+        "Prozess"
+      ],
+      "betrachtungskonzept": [
+        "Managementzentriert"
+      ]
+    },
+
+    {
+      "id":18,
+      "productName": "Velocity EHS",
+      "zielgruppe": [
+        "Geschäftsführung",
+        "Umweltbeauftragte"
+      ],
+      "anwendungsbereich": [
+        "Gesetzeskonformität",
+        "Ökobilanzierung",
+        "Arbeitsschutz"
+      ],
+      "gradDerIntegrierung": [
+        "Stand-Alone"
+      ],
+      "objektAspekt": [
+        "Abfall",
+        "Gefahrstoffe",
+        "Emissionen"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb"
+      ],
+      "betrachtungskonzept": [
+        "Managementzentriert"
+      ]
+    },
+
+    {
+      "id":19,
+      "productName": "EHS Software AURIGA+",
+      "zielgruppe": [
+        "Geschäftsführung",
+        "Umweltbeauftragte",
+        "Behörden"
+      ],
+      "anwendungsbereich": [
+        "Gesetzeskonformität",
+        "Ökobilanzierung",
+        "Arbeitsschutz"
+      ],
+      "gradDerIntegrierung": [
+        "Stand-Alone"
+      ],
+      "objektAspekt": [
+        "Anlagen"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb",
+        "Prozess"
+      ],
+      "betrachtungskonzept": [
+        "Verwaltungszentriert",
+        "Managementzentriert"
+      ]
+    },
+
+    {
+      "id":20,
+      "productName": "iSystain",
+      "zielgruppe": [
+        "Geschäftsführung",
+        "Umweltbeauftragte",
+        "externe Stakeholder"
+      ],
+      "anwendungsbereich": [
+        "Ökobilanzierung",
+        "Entscheidungsunterstützung"
+      ],
+      "gradDerIntegrierung": [
+        "SaaS-Lösung"
+      ],
+      "objektAspekt": [
+        "Emissionen",
+        "Energie",
+        "Stoffe/Stoffströme"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb",
+        "Produkt"
+      ],
+      "betrachtungskonzept": [
+        "Bewertungszentriert"
+      ]
+    },
+
+    {
+      "id":21,
+      "productName": "QUMcheck 4.0",
+      "zielgruppe": [
+        "Umweltbeauftragte"
+      ],
+      "anwendungsbereich": [
+        "Zertifizierung"
+      ],
+      "gradDerIntegrierung": [
+        "Stand-Alone"
+      ],
+      "objektAspekt": [
+        "Anlagen",
+        "Emissionen",
+        "Energie"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb",
+        "Prozess"
+      ],
+      "betrachtungskonzept": [
+        "Verwaltungszentriert",
+        "Managementzentriert"
+      ]
+    },
+
+    {
+      "id":22,
+      "productName": "QuB-Tool",
+      "zielgruppe": [
+        "Geschäftsführung",
+        "Umweltbeauftragte",
+        "Behörden"
+      ],
+      "anwendungsbereich": [
+        "Gesetzeskonformität",
+        "Zertifizierung",
+        "Ökobilanzierung",
+        "Berichterstattung",
+        "Entscheidungsunterstützung"
+      ],
+      "gradDerIntegrierung": [
+        "Stand-Alone"
+      ],
+      "objektAspekt": [
+        "Abfall",
+        "Emissionen",
+        "Energie"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb"
+      ],
+      "betrachtungskonzept": [
+        "Verwaltungszentriert"
+      ]
+    },
+
+    {
+      "id":23,
+      "productName": "PE International SoFI Software",
+      "zielgruppe": [
+        "Umweltbeauftragte",
+        "Behörden"
+      ],
+      "anwendungsbereich": [
+        "Zertifizierung"
+      ],
+      "gradDerIntegrierung": [
+        "Stand-Alone"
+      ],
+      "objektAspekt": [
+        "Anlagen",
+        "Emissionen",
+        "Energie"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb"
+      ],
+      "betrachtungskonzept": [
+        "Bewertungszentriert",
+        "Managementzentriert"
+      ]
+    },
+
+    {
+      "id":24,
+      "productName": "QEHS-Management",
+      "zielgruppe": [
+        "Geschäftsführung",
+        "Umweltbeauftragte",
+        "Fachabteilung"
+      ],
+      "anwendungsbereich": [
+        "Ökobilanzierung",
+        "Berichterstattung",
+        "Entscheidungsunterstützung",
+        "Arbeitsschutz"
+      ],
+      "gradDerIntegrierung": [
+        "Stand-Alone"
+      ],
+      "objektAspekt": [
+        "Abfall",
+        "Gefahrstoffe",
+        "Emissionen"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb"
+      ],
+      "betrachtungskonzept": [
+        "Bewertungszentriert",
+        "Managementzentriert"
+      ]
+    },
+
+    {
+      "id":25,
+      "productName": "Nachhaltigkeitslösung von Oracle",
+      "zielgruppe": [
+        "Geschäftsführung",
+        "Umweltbeauftragte"
+      ],
+      "anwendungsbereich": [
+        "Ökobilanzierung",
+        "Entscheidungsunterstützung",
+        "Arbeitsschutz"
+      ],
+      "gradDerIntegrierung": [
+        "Stand-Alone"
+      ],
+      "objektAspekt": [
+        "Abfall",
+        "Emissionen",
+        "Energie",
+        "Stoffe/Stoffströme",
+        "Kosten"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb"
+      ],
+      "betrachtungskonzept": [
+        "Managementzentriert"
+      ]
+    }
+  ]    
+}
