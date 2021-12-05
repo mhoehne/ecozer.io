@@ -1,7 +1,7 @@
 import Navigation from '../Components/Navigation';
 
 
-export default function Page1() {
+export default function Page2() {
 
 
   return (

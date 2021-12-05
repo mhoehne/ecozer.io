@@ -2,6 +2,37 @@
 {
   "products" : [
     {
+      "id":0,
+      "productName": "Umberto 5",
+      "zielgruppe": [
+        "Umweltbeauftragte",
+        "Fachabteilung"
+      ],
+      "anwendungsbereich": [
+        "Ökobilanzierung",
+        "Entscheidungsunterstützung"
+      ],
+      "gradDerIntegrierung": [
+        "Stand-Alone"
+      ],
+      "objektAspekt": [
+        "Abfall",
+        "Emissionen",
+        "Energie",
+        "Stoffe/Stoffströme",
+        "Kosten"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb",
+        "Prozess",
+        "Produkt"
+      ],
+      "betrachtungskonzept": [
+        "Bewertungszentriert"
+      ]
+    },
+
+    {
       "id":1,
       "productName": "Umberto 5",
       "zielgruppe": [

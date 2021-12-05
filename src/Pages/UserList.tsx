@@ -1,7 +1,7 @@
 import Navigation from '../Components/Navigation';
 
 
-export default function Page4() {
+export default function UserList() {
 
 
   return (

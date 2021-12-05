@@ -131,19 +131,27 @@ export default function MiniDrawer() {
 
         <List>
           <ListItem component={Link} to="/"><ListItemIcon><AppsIcon/></ListItemIcon>Home</ListItem>
-          <ListItem component={Link} to="/page1"><ListItemIcon><AppsIcon/></ListItemIcon>Page 1</ListItem>
-          <ListItem component={Link} to="/page2"><ListItemIcon><AppsIcon/></ListItemIcon>Page 2</ListItem>
-          <ListItem component={Link} to="/page3"><ListItemIcon><AppsIcon/></ListItemIcon>Page 3</ListItem>
+          <ListItem component={Link} to="/overview"><ListItemIcon><AppsIcon/></ListItemIcon>Overview</ListItem>
+          <ListItem component={Link} to="/search"><ListItemIcon><AppsIcon/></ListItemIcon>Search</ListItem>
+          <ListItem component={Link} to="/product-detail"><ListItemIcon><AppsIcon/></ListItemIcon>Product Detail</ListItem>
         </List>
 
         <Divider />
 
         <List>
-        <ListItem component={Link} to="/page4"><ListItemIcon><AppsIcon/></ListItemIcon>Page 4</ListItem>
-        <ListItem component={Link} to="/page5"><ListItemIcon><AppsIcon/></ListItemIcon>Page 5</ListItem>
-        <ListItem component={Link} to="/page6"><ListItemIcon><AppsIcon/></ListItemIcon>Page 6</ListItem>
-        <ListItem component={Link} to="/page7"><ListItemIcon><AppsIcon/></ListItemIcon>Page 7</ListItem>
+        <ListItem component={Link} to="/account"><ListItemIcon><AppsIcon/></ListItemIcon>Account</ListItem>
+        <ListItem component={Link} to="/my-products"><ListItemIcon><AppsIcon/></ListItemIcon>My Product</ListItem>
+        <ListItem component={Link} to="/add-product"><ListItemIcon><AppsIcon/></ListItemIcon>Add Product</ListItem>
+        <ListItem component={Link} to="/signup"><ListItemIcon><AppsIcon/></ListItemIcon>SignUp</ListItem>
+        <ListItem component={Link} to="/signin"><ListItemIcon><AppsIcon/></ListItemIcon>SignIn</ListItem>
+        </List>
 
+        <Divider />
+
+        <List>
+        <ListItem component={Link} to="/approval"><ListItemIcon><AppsIcon/></ListItemIcon>Admin Approval</ListItem>  
+        <ListItem component={Link} to="/approval-detail"><ListItemIcon><AppsIcon/></ListItemIcon>Admin Approval Detail</ListItem>
+        <ListItem component={Link} to="/user-list"><ListItemIcon><AppsIcon/></ListItemIcon>User List</ListItem>
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>

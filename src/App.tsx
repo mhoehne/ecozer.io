@@ -5,13 +5,17 @@ import {
   Link
 } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
-import Page1 from "./Pages/Page1";
-import Page2 from "./Pages/Page2";
-import Page3 from "./Pages/Page3";
-import Page4 from "./Pages/Page4";
-import Page5 from "./Pages/Page5";
-import Page6 from "./Pages/Page6";
-import Page7 from "./Pages/Page7";
+import Overview from "./Pages/Overview";
+import Search from "./Pages/Search";
+import ProductDetail from "./Pages/ProductDetail";
+import Account from "./Pages/Account";
+import MyProducts from "./Pages/MyProducts";
+import AddProduct from "./Pages/AddProduct";
+import SignIn from "./Pages/SignIn";
+import SignUp from "./Pages/SignUp";
+import AdminApproval from "./Pages/AdminApproval";
+import AdminApprovalDetail from "./Pages/AdminApprovalDetail";
+import UserList from "./Pages/UserList";
 
 export default function App() {
   return (
@@ -21,13 +25,17 @@ export default function App() {
         renders the first one that matches the current URL. */}
         <Routes>
           <Route path='/' element={<HomePage/>}></Route>
-          <Route path='/page1' element={<Page1/>}></Route>
-          <Route path='/page2' element={<Page2/>}></Route>
-          <Route path='/page3' element={<Page3/>}></Route>
-          <Route path='/page4' element={<Page4/>}></Route>
-          <Route path='/page5' element={<Page5/>}></Route>
-          <Route path='/page6' element={<Page6/>}></Route>
-          <Route path='/page7' element={<Page7/>}></Route>
+          <Route path='/overview' element={<Overview/>}></Route>
+          <Route path='/search' element={<Search/>}></Route>
+          <Route path='/product-detail' element={<ProductDetail/>}></Route>
+          <Route path='/account' element={<Account/>}></Route>
+          <Route path='/my-products' element={<MyProducts/>}></Route>
+          <Route path='/add-product' element={<AddProduct/>}></Route>
+          <Route path='/signin' element={<SignIn/>}></Route>
+          <Route path='/signup' element={<SignUp/>}></Route>
+          <Route path='/approval' element={<AdminApproval/>}></Route>
+          <Route path='/approval-detail' element={<AdminApprovalDetail/>}></Route>
+          <Route path='/user-list' element={<UserList/>}></Route>
         </Routes>
       </div>
     </Router>

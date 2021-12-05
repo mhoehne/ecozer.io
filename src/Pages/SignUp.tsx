@@ -1,8 +1,7 @@
 import Navigation from '../Components/Navigation';
 
 
-
-export default function Page6() {
+export default function SignUp() {
 
 
   return (

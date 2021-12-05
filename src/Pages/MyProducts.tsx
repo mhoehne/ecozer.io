@@ -1,7 +1,7 @@
 import Navigation from '../Components/Navigation';
 
 
-export default function Page5() {
+export default function MyProducts() {
 
 
   return (
