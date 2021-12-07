@@ -3,38 +3,63 @@
   "products" : [
     {
       "id":0,
-      "productName": "Umberto 5",
-      "zielgruppe": [
+      "account_id": 0,
+      "productName": "default",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
+      "Zielgruppe": [
+        "Geschäftsführung",
         "Umweltbeauftragte",
-        "Fachabteilung"
+        "Fachabteilung",
+        "Mitarbeiter",
+        "externe Stakeholder",
+        "Behörden"
       ],
-      "anwendungsbereich": [
+      "Anwendungsbereich": [
+        "Gesetzeskonformität",
+        "Zertifizierung",
         "Ökobilanzierung",
-        "Entscheidungsunterstützung"
+        "Berichterstattung",
+        "Entscheidungsunterstützung",
+        "Arbeitsschutz"
       ],
-      "gradDerIntegrierung": [
-        "Stand-Alone"
+      "Grad der Integrierung": [
+        "integriert",
+        "Add-On",
+        "Stand-Alone",
+        "SaaS-Lösung"
       ],
-      "objektAspekt": [
+      "Objekt/Aspekt": [
         "Abfall",
+        "Anlagen",
+        "Gefahrstoffe",
         "Emissionen",
         "Energie",
         "Stoffe/Stoffströme",
         "Kosten"
       ],
-      "systemgrenzen": [
+      "Systemgrenzen": [
         "Standort/Betrieb",
         "Prozess",
         "Produkt"
       ],
-      "betrachtungskonzept": [
-        "Bewertungszentriert"
+      "Betrachtungskonzept": [
+        "Verwaltungszentriert",
+        "Bewertungszentriert",
+        "Managementzentriert"
       ]
     },
 
     {
       "id":1,
+      "account_id": 1,
       "productName": "Umberto 5",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Umweltbeauftragte",
         "Fachabteilung"
@@ -65,7 +90,12 @@
 
     {
       "id":2,
+      "account_id": 1,
       "productName": "Quentic",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Geschäftsführung",
         "Umweltbeauftragte",
@@ -104,7 +134,12 @@
 
     {
       "id":3,
+      "account_id": 1,
       "productName": "Paul - Plattform für Arbeitsschutz- und Umweltrecht",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Umweltbeauftragte",
         "Fachabteilung",
@@ -132,7 +167,12 @@
 
     {
       "id":4,
+      "account_id": 1,
       "productName": "GaBI",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Umweltbeauftragte",
         "Fachabteilung",
@@ -164,7 +204,12 @@
 
     {
       "id":5,
+      "account_id": 1,
       "productName": "360report",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Geschäftsführung",
         "Umweltbeauftragte",
@@ -193,7 +238,12 @@
 
     {
       "id":6,
+      "account_id": 2,
       "productName": "e!Sankey",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Geschäftsführung",
         "Umweltbeauftragte"
@@ -223,7 +273,12 @@
 
     {
       "id":7,
+      "account_id": 2,
       "productName": "IUWA-Abfallmanager",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Umweltbeauftragte",
         "Fachabteilung"
@@ -254,7 +309,12 @@
 
     {
       "id":8,
+      "account_id": 2,
       "productName": "360 Sustainability Essentials Software",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Geschäftsführung",
         "Umweltbeauftragte",
@@ -285,7 +345,12 @@
 
     {
       "id":9,
+      "account_id": 2,
       "productName": "DataCross",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Umweltbeauftragte",
         "Fachabteilung",
@@ -316,7 +381,12 @@
 
     {
       "id":10,
+      "account_id": 2,
       "productName": "Eco-Cockpit",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Umweltbeauftragte",
         "Fachabteilung",
@@ -344,7 +414,12 @@
 
     {
       "id":11,
+      "account_id": 2,
       "productName": "Efficio",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Umweltbeauftragte",
         "Fachabteilung",
@@ -376,7 +451,12 @@
 
     {
       "id":12,
+      "account_id": 2,
       "productName": "ENIT Agent",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Umweltbeauftragte",
         "Fachabteilung",
@@ -408,7 +488,12 @@
 
     {
       "id":13,
+      "account_id": 2,
       "productName": "eSight",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Umweltbeauftragte",
         "Fachabteilung",
@@ -438,7 +523,12 @@
 
     {
       "id":14,
+      "account_id": 2,
       "productName": "gutwin",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Umweltbeauftragte",
         "Fachabteilung",
@@ -470,7 +560,12 @@
 
     {
       "id":15,
+      "account_id": 3,
       "productName": "FridaCarb",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Umweltbeauftragte",
         "Fachabteilung",
@@ -497,7 +592,12 @@
 
     {
       "id":16,
+      "account_id": 3,
       "productName": "Envis - Environmental System",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Geschäftsführung",
         "Umweltbeauftragte",
@@ -526,7 +626,12 @@
 
     {
       "id":17,
+      "account_id": 3,
       "productName": "IngSoft InterWatt",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Umweltbeauftragte"
       ],
@@ -551,7 +656,12 @@
 
     {
       "id":18,
+      "account_id": 3,
       "productName": "Velocity EHS",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Geschäftsführung",
         "Umweltbeauftragte"
@@ -579,7 +689,12 @@
 
     {
       "id":19,
+      "account_id": 3,
       "productName": "EHS Software AURIGA+",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Geschäftsführung",
         "Umweltbeauftragte",
@@ -608,7 +723,12 @@
 
     {
       "id":20,
+      "account_id": 3,
       "productName": "iSystain",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Geschäftsführung",
         "Umweltbeauftragte",
@@ -637,7 +757,12 @@
 
     {
       "id":21,
+      "account_id": 3,
       "productName": "QUMcheck 4.0",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Umweltbeauftragte"
       ],
@@ -664,7 +789,12 @@
 
     {
       "id":22,
+      "account_id": 3,
       "productName": "QuB-Tool",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Geschäftsführung",
         "Umweltbeauftragte",
@@ -695,7 +825,12 @@
 
     {
       "id":23,
+      "account_id": 3,
       "productName": "PE International SoFI Software",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Umweltbeauftragte",
         "Behörden"
@@ -722,7 +857,12 @@
 
     {
       "id":24,
+      "account_id": 3,
       "productName": "QEHS-Management",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Geschäftsführung",
         "Umweltbeauftragte",
@@ -753,7 +893,12 @@
 
     {
       "id":25,
+      "account_id": 3,
       "productName": "Nachhaltigkeitslösung von Oracle",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
       "zielgruppe": [
         "Geschäftsführung",
         "Umweltbeauftragte"

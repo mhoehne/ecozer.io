@@ -11,11 +11,12 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import earth_image from '../images/earth_image.png';
 import EmailTextField from '../Components/EmailTextField';
+import Footer from '../Components/Footer';
 
 
 
 
-export default function HomePage() {
+export default function Home() {
 
 /* GRID START*/  
 const Item = styled(Paper)(({ theme }) => ({
@@ -81,9 +82,7 @@ const Item = styled(Paper)(({ theme }) => ({
     <Container>
       <CustomSeparator />
     </Container>
-    
-    <Container sx={{backgroundColor: '#303030'}}>Footer with Grid</Container>
-  <Container fixed maxWidth={false} sx={{backgroundColor: '#303030'}}>Footer with Grid</Container>
+    <Footer/>
   </>
     
   );
