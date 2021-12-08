@@ -1,0 +1,38 @@
+{
+  "productDetail" : [
+    {
+      "id":1,
+      "productName": "Umberto 5",
+      "productImage": {},
+      "productLink": {},
+      "productCompany": "ABC Software Company",
+      "productDescription": "This software makes your live easier! I promise.",
+      "zielgruppe": [
+        "Umweltbeauftragte",
+        "Fachabteilung"
+      ],
+      "anwendungsbereich": [
+        "Ökobilanzierung",
+        "Entscheidungsunterstützung"
+      ],
+      "gradDerIntegrierung": [
+        "Stand-Alone"
+      ],
+      "objektAspekt": [
+        "Abfall",
+        "Emissionen",
+        "Energie",
+        "Stoffe/Stoffströme",
+        "Kosten"
+      ],
+      "systemgrenzen": [
+        "Standort/Betrieb",
+        "Prozess",
+        "Produkt"
+      ],
+      "betrachtungskonzept": [
+        "Bewertungszentriert"
+      ]
+    }
+  ]
+}
