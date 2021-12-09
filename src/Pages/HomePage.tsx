@@ -4,7 +4,6 @@ import Typography from '@mui/material/Typography';
 import { Button, Paper, Stack } from '@mui/material';
 import ImgMediaCard from '../Components/ImgMediaCard';
 import Grid from '@mui/material/Grid';
-import CustomSeparator from '../Components/Breadcrumbs';
 import Navigation from '../Components/Navigation';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -80,7 +79,6 @@ const Item = styled(Paper)(({ theme }) => ({
     
     
     <Container>
-      <CustomSeparator />
     </Container>
     <Footer/>
   </>

@@ -56,6 +56,7 @@ export default function AppBarTop(props: AppBarTopProps) {
             onClick={ () => props.setOpen(true) }
             edge="start"
             sx={{
+              fontSize: 'large',
               marginRight: '36px',
               ...(props.open && { display: 'none' }),
             }}
@@ -65,16 +66,11 @@ export default function AppBarTop(props: AppBarTopProps) {
           <Typography variant="h6" noWrap component="div">
             HTWlogo BUIS
           </Typography>
+
           <SearchBar/>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit"><NotificationsIcon/></IconButton>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-
+            <IconButton size="large" aria-label="show 4 new mails" color="inherit"><Badge badgeContent={4} color="error"><NotificationsIcon/></Badge></IconButton>
             <AccountMenu/>
           </Box>
         </Toolbar>
