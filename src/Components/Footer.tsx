@@ -14,7 +14,8 @@ const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
   marginLeft: '3rem',
   textAlign: 'left',
-  color: theme.palette.text.primary,
+  color: theme.palette.background.paper,
+  borderRadius: 0,
 }));
 
 export default function Footer() {

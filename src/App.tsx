@@ -25,16 +25,22 @@ export default function App() {
         renders the first one that matches the current URL. */}
         <Routes>
           <Route path='/' element={<HomePage/>}></Route>
-          <Route path='/overview' element={<Overview/>}></Route>
-          <Route path='/search' element={<Search/>}></Route>
-          <Route path='/product-detail' element={<ProductDetail/>}></Route>
+          <Route path='/overview' element={<Overview/>}>
+            <Route path='/overview/product-detail' element={<ProductDetail/>} />
+          </Route>
+          <Route path='/search' element={<Search/>}>
+            <Route path='/search/product-detail' element={<ProductDetail/>} />
+          </Route>
+          
           <Route path='/account' element={<Account/>}></Route>
-          <Route path='/my-products' element={<MyProducts/>}></Route>
-          <Route path='/add-product' element={<AddProduct/>}></Route>
+          <Route path='/my-products' element={<MyProducts/>}>
+            <Route path='/my-products/add-product' element={<AddProduct/>} />
+          </Route>
+            
           <Route path='/signin' element={<SignIn/>}></Route>
           <Route path='/signup' element={<SignUp/>}></Route>
           <Route path='/approval' element={<AdminApproval/>}></Route>
-          <Route path='/approval-detail' element={<AdminApprovalDetail/>}></Route>
+            <Route path='/approval/approval-detail' element={<AdminApprovalDetail/>} />
           <Route path='/user-list' element={<UserList/>}></Route>
         </Routes>
       </div>
