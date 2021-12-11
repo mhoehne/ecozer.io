@@ -20,14 +20,13 @@ import UserList from "./Pages/UserList";
 export default function App() {
   return (
     <Router>
-      <div>
         {/* A <Switch> or <Routes> (in react-router-dom v6) looks through its children <Route>s and
         renders the first one that matches the current URL. */}
         <Routes>
           <Route path='/' element={<HomePage/>}></Route>
-          <Route path='/overview' element={<Overview/>}>
-            <Route path='/overview/product-detail' element={<ProductDetail/>} />
+          <Route path='overview' element={<Overview/>}>
           </Route>
+          <Route path='overview/product-detail' element={<ProductDetail/>}></Route>
           <Route path='/search' element={<Search/>}>
             <Route path='/search/product-detail' element={<ProductDetail/>} />
           </Route>
@@ -43,7 +42,6 @@ export default function App() {
             <Route path='/approval/approval-detail' element={<AdminApprovalDetail/>} />
           <Route path='/user-list' element={<UserList/>}></Route>
         </Routes>
-      </div>
     </Router>
   );
 }

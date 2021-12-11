@@ -12,6 +12,7 @@
     "@mui/x-data-grid-generator": "^5.2.0",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "axios": "^0.24.0",
     "react": "latest",
     "react-dom": "latest",
     "react-router-dom": "^6.0.2",

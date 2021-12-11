@@ -25,13 +25,17 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
+Item.defaultProps = {
+  square: true,
+};
+
   return (
     < > {/* fragment */}
     <Navigation />
     
     
     <Container>
-    
+    <Item>Test</Item>
       <Grid container spacing={0}>
         <Grid item xs={7}>
           <Card sx={{ margin: '1rem', padding: '1rem', height: '30rem',}}>

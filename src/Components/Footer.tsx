@@ -1,6 +1,8 @@
 import { Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
+import { StyledComponent } from '@emotion/styled';
 
 const Div = styled('div')(({ theme }) => ({
   ...theme.typography.button,
@@ -18,6 +20,10 @@ const Item = styled(Paper)(({ theme }) => ({
   borderRadius: 0,
 }));
 
+Item.defaultProps = {
+  square: true,
+};
+
 export default function Footer() {
   return <Div>
     <Grid container spacing={2}>
@@ -25,20 +31,20 @@ export default function Footer() {
         <Item>logo here</Item>
       </Grid>
       <Grid item xs={4}>
-        <Item>row with links</Item>
-        <Item>row with links</Item>
-        <Item>row with links</Item>
-        <Item>row with links</Item>
-        <Item>row with links</Item>
-        <Item>row with links</Item>
+        <Item><Button href="#text-buttons">Link</Button></Item>
+        <Item><Button href="#text-buttons">Link</Button></Item>
+        <Item><Button href="#text-buttons">Link</Button></Item>
+        <Item><Button href="#text-buttons">Link</Button></Item>
+        <Item><Button href="#text-buttons">Link</Button></Item>
+        <Item><Button href="#text-buttons">Link</Button></Item>
       </Grid>
       <Grid item xs={4}>
-        <Item>row with links</Item>
-        <Item>row with links</Item>
-        <Item>row with links</Item>
-        <Item>row with links</Item>
-        <Item>row with links</Item>
-        <Item>row with links</Item>
+        <Item><Button href="#text-buttons">Link</Button></Item>
+        <Item><Button href="#text-buttons">Link</Button></Item>
+        <Item><Button href="#text-buttons">Link</Button></Item>
+        <Item><Button href="#text-buttons">Link</Button></Item>
+        <Item><Button href="#text-buttons">Link</Button></Item>
+        <Item><Button href="#text-buttons">Link</Button></Item>
       </Grid>
     </Grid>
     </Div>;
