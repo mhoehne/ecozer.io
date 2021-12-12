@@ -5,6 +5,7 @@ import Link from '@mui/material/Link';
 import { styled } from '@mui/material/styles';
 import CardMedia from '@mui/material/CardMedia';
 import LogoFooter from '../images/S20_HTW_Berlin_Logo_neg_WEISS_RGB.png';
+import Typography from '@mui/material/Typography';
 
 
 export default function Footer() {
@@ -27,85 +28,91 @@ export default function Footer() {
           />
           </Grid>
           <Grid item xs={12} sm={3}>
-            <Box>Beliebte Seiten</Box>
             <Box>
-              <Link href="#" underline="none">
+              <Typography variant="h6">Beliebte Seiten</Typography>
+            </Box>
+            <Box>
+              <Link href="#" underline="none" color="inherit">
                 Link here
               </Link>
             </Box>
             <Box>
-              <Link href="#" underline="none">
+              <Link href="#" underline="none" color="inherit">
               Link here
               </Link>
             </Box>
             <Box>
-              <Link href="#" underline="none">
+              <Link href="#" underline="none" color="inherit">
               Link here
               </Link>
             </Box>
             <Box>
-              <Link href="#" underline="none">
+              <Link href="#" underline="none" color="inherit">
               Link here
               </Link>
             </Box>
             <Box>
-              <Link href="#" underline="none">
+              <Link href="#" underline="none" color="inherit">
               Link here
               </Link>
             </Box>
           </Grid>
           <Grid item xs={12} sm={3}>
-            <Box>Portale</Box>
             <Box>
-              <Link href="#" underline="none">
+              <Typography variant="h6">Portale</Typography>
+            </Box>
+            <Box>
+              <Link href="#" underline="none" color="inherit">
                 Link here
               </Link>
             </Box>
             <Box>
-              <Link href="#" underline="none">
+              <Link href="#" underline="none" color="inherit">
               Link here
               </Link>
             </Box>
             <Box>
-              <Link href="#" underline="none">
+              <Link href="#" underline="none" color="inherit">
               Link here
               </Link>
             </Box>
             <Box>
-              <Link href="#" underline="none">
+              <Link href="#" underline="none" color="inherit">
               Link here
               </Link>
             </Box>
             <Box>
-              <Link href="#" underline="none">
+              <Link href="#" underline="none" color="inherit">
               Link here
               </Link>
             </Box>
           </Grid>
           <Grid item xs={12} sm={3}>
-            <Box>Service</Box>
             <Box>
-              <Link href="#" underline="none">
+              <Typography variant="h6">Service</Typography>
+            </Box>
+            <Box>
+              <Link href="#" underline="none" color="inherit">
               Link here
               </Link>
             </Box>
             <Box>
-              <Link href="#" underline="none">
+              <Link href="#" underline="none" color="inherit">
               Link here
               </Link>
             </Box>
             <Box>
-              <Link href="#" underline="none">
+              <Link href="#" underline="none" color="inherit">
               Link here
               </Link>
             </Box>
             <Box>
-              <Link href="#" underline="none">
+              <Link href="#" underline="none" color="inherit">
               Link here
               </Link>
             </Box>
             <Box>
-              <Link href="#" underline="none">
+              <Link href="#" underline="none" color="inherit">
               Link here
               </Link>
             </Box>
@@ -122,18 +129,18 @@ export default function Footer() {
             <Grid item xs={1} sm={1}>
               <Box >HTW Berlin</Box>
             </Grid>
-          <Grid item xs={1} sm={1}>- 
-              <Link href="#" underline="none">
+          <Grid item xs={1} sm={1}>
+              <Link href="#" underline="none" color="inherit">
                 Link here
               </Link>
           </Grid>
-          <Grid item xs={1} sm={1}>- 
-              <Link href="#" underline="none">
+          <Grid item xs={1} sm={1}>
+              <Link href="#" underline="none" color="inherit">
                 Link here
               </Link>
           </Grid>
-          <Grid item xs={1} sm={1}>- 
-              <Link href="#" underline="none">
+          <Grid item xs={1} sm={1}> 
+              <Link href="#" underline="none" color="inherit">
                 Link here
               </Link>
           </Grid>
