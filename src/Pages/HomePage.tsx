@@ -35,37 +35,7 @@ Item.defaultProps = {
     
     
     <Container>
-    <Item>Test</Item>
-      <Grid container spacing={0}>
-        <Grid item xs={7}>
-          <Card sx={{ margin: '1rem', padding: '1rem', height: '30rem',}}>
-      
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Feature
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-        </Typography>
-      </CardContent>
-            <Stack spacing={20} direction="row"  >
-              <EmailTextField/>
-              <Button size="large" variant="contained" color="primary">Sign Up</Button>
-            </Stack>
-            </Card>
-          
-        </Grid>
-        <Grid item xs={5}>
-        <Card sx={{ margin: '1rem', padding: '1rem', height: '30rem',}}>
-      <CardMedia
-        component="img"
-        alt="green iguana"
-        height="370"
-        image={earth_image}
-      />
-      </Card>
-        </Grid>
-      </Grid>
+    
 
       <Grid container spacing={0}>
       <Grid item xs={4}>

@@ -8,11 +8,11 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import MailIcon from '@mui/icons-material/Mail';
 import Badge from '@mui/material/Badge';
 import SearchBar from './SearchBar';
 import AccountMenu from './AccountMenu';
-
+import Logo from '../images/Q04_HTW_Berlin_Logo_quer_pos_FARBIG_RGB.jpg';
+import CardMedia from '@mui/material/CardMedia';
 
 
 const drawerWidth = 240;
@@ -40,10 +40,11 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
+
+
 type AppBarTopProps = {open: boolean, setOpen: Function}
 
 export default function AppBarTop(props: AppBarTopProps) {
-
 
   return (
     <Box sx={{ display: 'flex' }} >
@@ -64,11 +65,16 @@ export default function AppBarTop(props: AppBarTopProps) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            HTWlogo BUIS
+          <CardMedia
+            component="img"
+            sx={{maxHeight: '40px'}}
+            alt="green iguana"
+            image={Logo}
+          />
           </Typography>
-
-          <SearchBar/>
           <Box sx={{ flexGrow: 1 }} />
+          <SearchBar/>
+          
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit"><Badge badgeContent={4} color="error"><NotificationsIcon/></Badge></IconButton>
             <AccountMenu/>
