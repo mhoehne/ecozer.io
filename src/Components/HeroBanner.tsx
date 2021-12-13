@@ -40,7 +40,7 @@ export default function Album() {
               BUIS
             </Typography>
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              Portal für betriebliche Umweltinformationssysteme!
+              Plattform für betriebliche Umweltinformationssysteme!
             </Typography>
             <Stack
               sx={{ pt: 4 }}

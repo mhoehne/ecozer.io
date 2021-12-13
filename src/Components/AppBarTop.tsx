@@ -75,6 +75,19 @@ export default function AppBarTop(props: AppBarTopProps) {
           <Box sx={{ flexGrow: 1 }} />
           <SearchBar/>
           
+          {/* Display when logged out
+          
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <Button variant="contained" size="small">
+          Signup
+          </Button>
+          <Button variant="outlined" size="small">
+          SignIn
+          </Button>
+          </Box>
+          
+          */}
+
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit"><Badge badgeContent={4} color="error"><NotificationsIcon/></Badge></IconButton>
             <AccountMenu/>
