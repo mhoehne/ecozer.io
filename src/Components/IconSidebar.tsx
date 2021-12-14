@@ -146,8 +146,6 @@ export default function MiniDrawer() {
         <List>
         <ListItem component={Link} to="/account"><ListItemIcon><AppsIcon/></ListItemIcon>Account</ListItem>
         <ListItem component={Link} to="/my-products"><ListItemIcon><ArtTrackIcon fontSize="large"/></ListItemIcon>My Products</ListItem>
-        <ListItem component={Link} to="/signup"><ListItemIcon><AppsIcon/></ListItemIcon>SignUp</ListItem>
-        <ListItem component={Link} to="/signin"><ListItemIcon><AppsIcon/></ListItemIcon>SignIn</ListItem>
         </List>
 
         <Divider />
