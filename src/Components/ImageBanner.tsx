@@ -1,6 +1,3 @@
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
@@ -8,19 +5,28 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import SampleImage from '../images/sample-img.png';
 
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#000',
+    },
+    secondary: {
+      main: '#fff',
+    },
+  },
+});
 
-export default function HeroBanner() {
+export default function ImageBanner() {
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline/>
       <main>
         {/* Hero unit */}
         <Box
           sx={{
-            bgcolor: 'background.paper',
-            pt: 20,
-            pb: 20,
+            bgcolor: 'secondary.main',
+            pt: 7,
+            pb: 3,
+            marginTop: 0,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
@@ -35,20 +41,11 @@ export default function HeroBanner() {
               color="text.primary"
               gutterBottom
             >
-              BUIS
+              Prop Text Here!
             </Typography>
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              Plattform für betriebliche Umweltinformationssysteme!
+              h5 text here
             </Typography>
-            <Stack
-              sx={{ pt: 4 }}
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-            >
-              <Button variant="contained" href="/search">Jetzt Produkt finden</Button>
-              <Button variant="outlined" href="/signup">Jetzt registrieren</Button>
-            </Stack>
           </Container>
         </Box>
         <Container sx={{ py: 8 }} maxWidth="md">

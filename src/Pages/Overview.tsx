@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import ImgMediaCard from '../Components/ImgMediaCard';
 import Grid from '@mui/material/Grid';
+import ImageBanner from '../Components/ImageBanner';
 
 
 
@@ -13,6 +14,7 @@ export default function Overview() {
 
       <>
         <Navigation/>
+        <ImageBanner/>
         <Container>
           <Button variant="contained" href="/overview/product-detail">
           Link
