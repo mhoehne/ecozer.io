@@ -19,14 +19,14 @@ export default function ImgMediaCard() {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Feature
+          Produktname
         </Typography>
         <Typography variant="body2" color="text.secondary">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        Produktbeschreibung Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">+ mehr</Button>
+        <Button size="small" href="/overview/product-detail">+ mehr</Button>
       </CardActions>
     </Card>
   );

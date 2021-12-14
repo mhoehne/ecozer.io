@@ -104,7 +104,7 @@ export default function SignUp() {
               <Grid item xs={12}>
                 <FormControlLabel
                   control={<Checkbox value="privacyTerms" color="primary" />}
-                  label="Ich habe die Datenschutzrichtlinien gelesen und bin einverstanden."
+                  label="Ich habe die Datenschutzrichtlinien gelesen und bin damit einverstanden."
                 />
               </Grid>
             </Grid>
@@ -119,7 +119,7 @@ export default function SignUp() {
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/signin" variant="body2">
-                  Hast du bereits einen Account? SignIn
+                  {"Hast du bereits einen Account?"}
                 </Link>
               </Grid>
             </Grid>

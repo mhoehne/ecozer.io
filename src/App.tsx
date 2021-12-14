@@ -23,24 +23,27 @@ export default function App() {
         {/* A <Switch> or <Routes> (in react-router-dom v6) looks through its children <Route>s and
         renders the first one that matches the current URL. */}
         <Routes>
-          <Route path='/' element={<HomePage/>}></Route>
-          <Route path='overview' element={<Overview/>}>
-          </Route>
-          <Route path='overview/product-detail' element={<ProductDetail/>}></Route>
-          <Route path='/search' element={<Search/>}>
-            <Route path='/search/product-detail' element={<ProductDetail/>} />
-          </Route>
+
+          {/* Visitor */}
+          <Route path='/' element={<HomePage/>} />
+          <Route path='overview' element={<Overview/>} />
+          <Route path='overview/product-detail' element={<ProductDetail/>} />
+          <Route path='/search' element={<Search/>} />
+          <Route path='/search/product-detail' element={<ProductDetail/>} />
+
+          {/* Sign In/Up */}
+          <Route path='/signin' element={<SignIn/>} />
+          <Route path='/signup' element={<SignUp/>} />
           
-          <Route path='/account' element={<Account/>}></Route>
-          <Route path='/my-products' element={<MyProducts/>}>
-            <Route path='/my-products/add-product' element={<AddProduct/>} />
-          </Route>
-            
-          <Route path='/signin' element={<SignIn/>}></Route>
-          <Route path='/signup' element={<SignUp/>}></Route>
-          <Route path='/approval' element={<AdminApproval/>}></Route>
-            <Route path='/approval/approval-detail' element={<AdminApprovalDetail/>} />
-          <Route path='/user-list' element={<UserList/>}></Route>
+          {/* User */}
+          <Route path='/account' element={<Account/>} />
+          <Route path='/my-products' element={<MyProducts/>} />
+          <Route path='/my-products/add-product' element={<AddProduct/>} />
+
+          {/* Admin */}
+          <Route path='/approval' element={<AdminApproval/>} />
+          <Route path='/approval/approval-detail' element={<AdminApprovalDetail/>} />
+          <Route path='/user-list' element={<UserList/>} />
         </Routes>
     </Router>
     
