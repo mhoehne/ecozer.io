@@ -1,5 +1,7 @@
+import { Container } from '@mui/material';
 import ImageBanner from '../Components/ImageBanner';
 import Navigation from '../Components/Navigation';
+import SearchBar from '../Components/SearchBar';
 
 
 export default function Search() {
@@ -10,6 +12,9 @@ export default function Search() {
       <>
         <Navigation/>
         <ImageBanner/>
+        <Container>
+        </Container>
+        
       </>
   );
 }
