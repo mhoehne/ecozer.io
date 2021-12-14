@@ -139,7 +139,6 @@ export default function MiniDrawer() {
           <ListItem component={Link} to="/"><ListItemIcon><HomeIcon fontSize="large"/></ListItemIcon>Home</ListItem>
           <ListItem component={Link} to="/overview"><ListItemIcon><GridViewIcon fontSize="large"/></ListItemIcon>Overview</ListItem>
           <ListItem component={Link} to="/search"><ListItemIcon><ManageSearchIcon fontSize="large"/></ListItemIcon>Search</ListItem>
-          <ListItem component={Link} to="/product-detail"><ListItemIcon><AppsIcon/></ListItemIcon>Product Detail</ListItem>
         </List>
 
         <Divider />
@@ -147,7 +146,6 @@ export default function MiniDrawer() {
         <List>
         <ListItem component={Link} to="/account"><ListItemIcon><AppsIcon/></ListItemIcon>Account</ListItem>
         <ListItem component={Link} to="/my-products"><ListItemIcon><ArtTrackIcon fontSize="large"/></ListItemIcon>My Products</ListItem>
-        <ListItem component={Link} to="/add-product"><ListItemIcon><AppsIcon/></ListItemIcon>Add Product</ListItem>
         <ListItem component={Link} to="/signup"><ListItemIcon><AppsIcon/></ListItemIcon>SignUp</ListItem>
         <ListItem component={Link} to="/signin"><ListItemIcon><AppsIcon/></ListItemIcon>SignIn</ListItem>
         </List>
@@ -155,8 +153,7 @@ export default function MiniDrawer() {
         <Divider />
 
         <List>
-        <ListItem component={Link} to="/approval"><ListItemIcon><FactCheckIcon fontSize="large"/></ListItemIcon>Admin Approval</ListItem>  
-        <ListItem component={Link} to="/approval-detail"><ListItemIcon><AppsIcon/></ListItemIcon>Admin Approval Detail</ListItem>
+        <ListItem component={Link} to="/approval"><ListItemIcon><FactCheckIcon fontSize="large"/></ListItemIcon>Admin Approval</ListItem>
         <ListItem component={Link} to="/user-list"><ListItemIcon><BadgeIcon fontSize="large"/></ListItemIcon>User List</ListItem>
         </List>
       </Drawer>

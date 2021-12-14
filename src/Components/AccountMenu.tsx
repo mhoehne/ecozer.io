@@ -10,6 +10,10 @@ import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
+import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
+
+
 
 
 
@@ -70,8 +74,8 @@ export default function AccountMenu() {
         <MenuItem>
           <Avatar /> Profile
         </MenuItem>
-        <MenuItem>
-          <Avatar /> My account
+        <MenuItem href="/account">
+          <Avatar/> My account
         </MenuItem>
         <Divider />
         <MenuItem>
