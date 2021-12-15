@@ -24,7 +24,7 @@ export default function HeroBanner() {
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
-            backgroundImage: {SampleImage},
+            backgroundImage: `url(${SampleImage})`,
           }}
         >
           <Container maxWidth="sm">

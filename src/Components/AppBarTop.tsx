@@ -47,7 +47,7 @@ type AppBarTopProps = {open: boolean, setOpen: Function}
 export default function AppBarTop(props: AppBarTopProps) {
 
   return (
-    <Box sx={{ display: 'flex' }} >
+    <Box sx={{ display: 'flex', padding: 0 }} >
       <CssBaseline />
       <AppBar position="fixed" open={props.open} sx= {{backgroundColor: "#fff"}}>
         <Toolbar>
@@ -89,7 +89,12 @@ export default function AppBarTop(props: AppBarTopProps) {
           */}
 
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit"><Badge badgeContent={4} color="error"><NotificationsIcon/></Badge></IconButton>
+            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+              <Badge badgeContent={4} color="error">
+                <NotificationsIcon/>
+              </Badge>
+            </IconButton>
+
             <AccountMenu/>
           </Box>
         </Toolbar>

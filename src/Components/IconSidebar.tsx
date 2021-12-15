@@ -123,7 +123,7 @@ export default function MiniDrawer() {
 
 
   return (
-    <Box sx={{ display: 'flex' }} >
+    <Box sx={{ display: 'flex'}} >
       <CssBaseline />
       <AppBarTop open={open} setOpen={setOpen}/>
       
@@ -155,7 +155,7 @@ export default function MiniDrawer() {
         <ListItem component={Link} to="/user-list"><ListItemIcon><BadgeIcon fontSize="large"/></ListItemIcon>User List</ListItem>
         </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" sx={{ flexGrow: 1, p: 0 }}>
         <DrawerHeader />
       </Box>
     </Box>
