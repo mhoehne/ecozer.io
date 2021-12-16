@@ -73,7 +73,6 @@ export default function AppBarTop(props: AppBarTopProps) {
           />
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
-          <SearchBar/>
           
           {/* Display when logged out
           
