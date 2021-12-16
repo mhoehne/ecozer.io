@@ -16,10 +16,19 @@ import SignUp from "./Pages/SignUp";
 import AdminApproval from "./Pages/AdminApproval";
 import AdminApprovalDetail from "./Pages/AdminApprovalDetail";
 import UserList from "./Pages/UserList";
+import Navigation from "./Components/Navigation";
+import Container from "@mui/material/Container";
+import Footer from "./Components/Footer";
 
 export default function App() {
   return (
+
+    
+    
     <Router>
+    
+    <Navigation />
+    <Container>
         {/* A <Switch> or <Routes> (in react-router-dom v6) looks through its children <Route>s and
         renders the first one that matches the current URL. */}
         <Routes>
@@ -45,7 +54,13 @@ export default function App() {
           <Route path='/approval/approval-detail' element={<AdminApprovalDetail/>} />
           <Route path='/user-list' element={<UserList/>} />
         </Routes>
+        </Container>
+        <Footer/>
     </Router>
+
+
+
+    
     
   );
 }

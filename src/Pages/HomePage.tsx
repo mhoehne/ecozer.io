@@ -26,7 +26,7 @@ Item.defaultProps = {
 
   return (
     < > {/* fragment */}
-    <Navigation />
+    
     <HeroBanner/>
     <Container>
       <Grid container spacing={0}>
@@ -46,7 +46,7 @@ Item.defaultProps = {
     
     <Container>
     </Container>
-    <Footer/>
+    
   </>
     
   );
