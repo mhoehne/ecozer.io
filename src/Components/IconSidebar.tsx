@@ -11,11 +11,9 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import AppsIcon from '@mui/icons-material/Apps';
 import HomeIcon from '@mui/icons-material/Home';
 import GridViewIcon from '@mui/icons-material/GridView';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
-import ArtTrackIcon from '@mui/icons-material/ArtTrack';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import BadgeIcon from '@mui/icons-material/Badge';
 import AppBarTop from './AppBarTop';
@@ -139,13 +137,6 @@ export default function MiniDrawer() {
           <ListItem component={Link} to="/"><ListItemIcon><HomeIcon fontSize="large"/></ListItemIcon>Home</ListItem>
           <ListItem component={Link} to="/overview"><ListItemIcon><GridViewIcon fontSize="large"/></ListItemIcon>Overview</ListItem>
           <ListItem component={Link} to="/search"><ListItemIcon><ManageSearchIcon fontSize="large"/></ListItemIcon>Search</ListItem>
-        </List>
-
-        <Divider />
-
-        <List>
-        <ListItem component={Link} to="/account"><ListItemIcon><AppsIcon/></ListItemIcon>Account</ListItem>
-        <ListItem component={Link} to="/my-products"><ListItemIcon><ArtTrackIcon fontSize="large"/></ListItemIcon>My Products</ListItem>
         </List>
 
         <Divider />

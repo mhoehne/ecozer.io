@@ -10,6 +10,8 @@ import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
+import FactCheckIcon from '@mui/icons-material/FactCheck';
+import BadgeIcon from '@mui/icons-material/Badge';
 import { Link } from "react-router-dom";
 
 
@@ -69,18 +71,37 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem>
-          <Avatar /> Profile
+        <MenuItem component={Link} to='/my-products'>
+        <ListItemIcon>
+            <PersonAdd fontSize="small" />
+          </ListItemIcon> My Products
         </MenuItem>
         <MenuItem component={Link} to='/account'>
-          <Avatar/> My account
+        <ListItemIcon>
+            <PersonAdd fontSize="small" />
+          </ListItemIcon>
+           My account
         </MenuItem>
         <Divider />
+        <MenuItem component={Link} to='/approval'>
+          <ListItemIcon>
+            <FactCheckIcon fontSize="small" />
+          </ListItemIcon>
+          Approval
+        </MenuItem>
+        <MenuItem component={Link} to='/user-list'>
+          <ListItemIcon>
+            <BadgeIcon fontSize="small" />
+          </ListItemIcon>
+          User List
+        </MenuItem>
+        <Divider />
+
         <MenuItem>
           <ListItemIcon>
             <PersonAdd fontSize="small" />
           </ListItemIcon>
-          Add another account
+          Invite User
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
