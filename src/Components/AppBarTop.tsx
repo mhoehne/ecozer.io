@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
@@ -9,10 +8,12 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Badge from '@mui/material/Badge';
-import SearchBar from './SearchBar';
 import AccountMenu from './AccountMenu';
 import Logo from '../images/Q04_HTW_Berlin_Logo_quer_pos_FARBIG_RGB.jpg';
 import CardMedia from '@mui/material/CardMedia';
+import MenuItem from '@mui/material/MenuItem';
+import { Link } from "react-router-dom";
+
 
 
 const drawerWidth = 240;
@@ -65,12 +66,14 @@ export default function AppBarTop(props: AppBarTopProps) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
+          <MenuItem component={Link} to='/'>
           <CardMedia
             component="img"
             sx={{maxHeight: '40px'}}
             alt="green iguana"
             image={Logo}
           />
+          </MenuItem>
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           
