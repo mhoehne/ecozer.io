@@ -1,26 +1,21 @@
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import SampleImage from '../images/sample-img.png';
 
 
-const theme = createTheme();
 
 export default function HeroBanner() {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline/>
-      <main>
+    <>
         {/* Hero unit */}
         <Box
           sx={{
             bgcolor: 'background.paper',
-            pt: 20,
-            pb: 20,
+            pt: 28,
+            pb: 28,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
@@ -54,8 +49,6 @@ export default function HeroBanner() {
         <Container sx={{ py: 8 }} maxWidth="md">
           {/* End hero unit */}
         </Container>
-      </main>
-      
-    </ThemeProvider>
+        </>
   );
 }

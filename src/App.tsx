@@ -28,7 +28,7 @@ export default function App() {
     <Router>
     
     <Navigation />
-    <Container>
+    <Container maxWidth="lg">
         {/* A <Switch> or <Routes> (in react-router-dom v6) looks through its children <Route>s and
         renders the first one that matches the current URL. */}
         <Routes>
