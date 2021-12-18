@@ -5,7 +5,6 @@ import {
   Link
 } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
-import Overview from "./Pages/Overview";
 import Search from "./Pages/Search";
 import ProductDetail from "./Pages/ProductDetail";
 import Account from "./Pages/Account";
@@ -35,7 +34,6 @@ export default function App() {
 
           {/* Visitor */}
           <Route path='/' element={<HomePage/>} />
-          <Route path='overview' element={<Overview/>} />
           <Route path='overview/product-detail' element={<ProductDetail/>} />
           <Route path='/search' element={<Search/>} />
           <Route path='/search/product-detail' element={<ProductDetail/>} />
