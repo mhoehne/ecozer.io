@@ -4,6 +4,8 @@ import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
@@ -73,12 +75,12 @@ export default function AccountMenu() {
       >
         <MenuItem component={Link} to='/my-products'>
         <ListItemIcon>
-            <PersonAdd fontSize="small" />
+            <DashboardCustomizeIcon fontSize="small" />
           </ListItemIcon> My Products
         </MenuItem>
         <MenuItem component={Link} to='/account'>
         <ListItemIcon>
-            <PersonAdd fontSize="small" />
+            <AccountBoxIcon fontSize="small" />
           </ListItemIcon>
            My account
         </MenuItem>
