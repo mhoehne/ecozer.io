@@ -8,6 +8,7 @@ import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
 import SearchBar from '../Components/SearchBar';
 import SearchBarBoxed from '../Components/SearchBarBoxed';
+import MorphologicalBox from '../Components/MorphologicalBox';
 
 
 export default function Search() {
@@ -20,6 +21,7 @@ export default function Search() {
         <ImageBanner/>
         <Container>
         <SearchBarBoxed/>
+        <MorphologicalBox/>
           
           <Grid container spacing={0}> 
             <Grid item xs={12} sm={4}>

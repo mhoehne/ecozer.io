@@ -18,8 +18,7 @@ const theme = createTheme({
 
 export default function ImageBanner() {
   return (
-    <ThemeProvider theme={theme}>
-      <main>
+      <>
         {/* Hero unit */}
         <Box
           sx={{
@@ -49,8 +48,6 @@ export default function ImageBanner() {
             </Typography>
           </Container>
         </Box>
-      </main>
-      
-    </ThemeProvider>
+      </>
   );
 }

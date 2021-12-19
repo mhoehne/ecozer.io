@@ -5,11 +5,13 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import SampleImg from '../images/sample-img.png';
-
+import MenuItem from '@mui/material/MenuItem';
+import { Link } from "react-router-dom";
 
 
 export default function ImgMediaCard() {
   return (
+    
     <Card sx={{ maxWidth: 345, margin: '2rem', }}>
       <CardMedia
         component="img"
@@ -26,8 +28,10 @@ export default function ImgMediaCard() {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" href="/overview/product-detail">+ mehr</Button>
+        <Button size="small" href="/overview/product-detail">+ details</Button>
+        <Button size="small" href="/overview/product-detail" sx={{}}>+ editieren</Button>
       </CardActions>
     </Card>
+    
   );
 }

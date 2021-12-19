@@ -14,8 +14,8 @@ export default function HeroBanner() {
         <Box
           sx={{
             bgcolor: 'background.paper',
-            pt: 28,
-            pb: 28,
+            pt: 26,
+            pb: 26,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
@@ -32,7 +32,7 @@ export default function HeroBanner() {
             >
               BUIS
             </Typography>
-            <Typography variant="h5" align="center" color="text.secondary" paragraph>
+            <Typography variant="h5" align="center" color="text.primary" paragraph>
               Plattform für betriebliche Umweltinformationssysteme!
             </Typography>
             <Stack
@@ -46,9 +46,6 @@ export default function HeroBanner() {
             </Stack>
           </Container>
         </Box>
-        <Container sx={{ py: 8 }} maxWidth="md">
-          {/* End hero unit */}
-        </Container>
         </>
   );
 }

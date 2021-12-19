@@ -49,7 +49,6 @@ export default function AppBarTop(props: AppBarTopProps) {
 
   return (
     <Box sx={{ display: 'flex', padding: 0 }} >
-      <CssBaseline />
       <AppBar position="fixed" open={props.open} sx= {{backgroundColor: "#fff"}}>
         <Toolbar>
           <IconButton
