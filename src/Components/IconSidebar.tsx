@@ -140,10 +140,6 @@ export default function MiniDrawer() {
 
         <Divider />
 
-        <List>
-        <ListItem component={Link} to="/approval"><ListItemIcon><FactCheckIcon fontSize="large"/></ListItemIcon>Admin Approval</ListItem>
-        <ListItem component={Link} to="/user-list"><ListItemIcon><BadgeIcon fontSize="large"/></ListItemIcon>User List</ListItem>
-        </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 0 }}>
         <DrawerHeader />
