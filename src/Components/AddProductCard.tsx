@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 export default function AddProductCard() {
   return (
     <Card sx={{ maxWidth: 345, height: 360, margin: '2rem', }}>
-      <Box>
+      <Box sx={{ p: 10, pt: 18}} >
       <CardActions>
         <Button size="large" href="/my-products/add-product">+ erstellen</Button>
       </CardActions>
