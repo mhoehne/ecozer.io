@@ -62,7 +62,16 @@ export default function MorphologicalBox() {
           <Typography variant="h5">Ausprägungen</Typography>
         </Grid>
         <Grid item xs={3}>
+        <Paper
+            elevation={0}
+            sx={{
+              
+              border: (theme) => `1px solid ${theme.palette.divider}`,
+              flexWrap: 'wrap',
+            }}
+          >
         <Typography variant="h6">Anwendungsgebiert</Typography>
+        </Paper>
         </Grid>
         <Grid item xs={9}>
         <div>
