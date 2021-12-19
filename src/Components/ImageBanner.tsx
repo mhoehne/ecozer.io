@@ -27,6 +27,7 @@ export default function ImageBanner() {
             pt: 7,
             pb: 3,
             marginTop: 0,
+            marginBottom: 5,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
@@ -48,9 +49,6 @@ export default function ImageBanner() {
             </Typography>
           </Container>
         </Box>
-        <Container sx={{ py: 8 }} maxWidth="md">
-          {/* End hero unit */}
-        </Container>
       </main>
       
     </ThemeProvider>

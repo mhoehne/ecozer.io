@@ -4,6 +4,10 @@ import Button from '@mui/material/Button';
 import ImgMediaCard from '../Components/ImgMediaCard';
 import Grid from '@mui/material/Grid';
 import ImageBanner from '../Components/ImageBanner';
+import Card from '@mui/material/Card';
+import Box from '@mui/material/Box';
+import SearchBar from '../Components/SearchBar';
+import SearchBarBoxed from '../Components/SearchBarBoxed';
 
 
 export default function Search() {
@@ -15,9 +19,8 @@ export default function Search() {
         <Navigation/>
         <ImageBanner/>
         <Container>
-          <Button variant="contained" href="/overview/product-detail">
-          Link
-          </Button>
+        <SearchBarBoxed/>
+          
           <Grid container spacing={0}> 
             <Grid item xs={12} sm={4}>
               <ImgMediaCard/>

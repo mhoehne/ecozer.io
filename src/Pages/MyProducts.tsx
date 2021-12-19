@@ -1,9 +1,10 @@
 import Navigation from '../Components/Navigation';
-import Container from '@mui/material/Container';
 import ImgMediaCard from '../Components/ImgMediaCard';
 import Grid from '@mui/material/Grid';
 import AddProductCard from '../Components/AddProductCard';
-import SearchBar from '../Components/SearchBar';
+import SearchBarBoxed from '../Components/SearchBarBoxed';
+import ImageBanner from '../Components/ImageBanner';
+
 
 export default function MyProducts() {
 
@@ -12,8 +13,8 @@ export default function MyProducts() {
 
       <>
         <Navigation/>
-        <Container>
-          <SearchBar/>
+        <ImageBanner/>
+          <SearchBarBoxed/>
         <Grid container spacing={0}> 
           <Grid item xs={12} sm={4}>
             <AddProductCard/>
@@ -26,7 +27,6 @@ export default function MyProducts() {
           </Grid>
             
         </Grid>
-        </Container>
       </>
   );
 }

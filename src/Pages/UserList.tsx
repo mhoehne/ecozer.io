@@ -3,6 +3,7 @@ import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
 import UserListGrid from '../Components/UserListGrid';
 import SearchBar from '../Components/SearchBar';
+import SearchBarBoxed from '../Components/SearchBarBoxed';
 
 
 export default function UserList() {
@@ -13,7 +14,7 @@ export default function UserList() {
       <>
         <Navigation/>
         <Container>
-          <SearchBar/>
+          <SearchBarBoxed/>
           <Paper>
             <UserListGrid/>
           </Paper>
