@@ -47,33 +47,23 @@ export default function MorphologicalBox() {
 
     <>
     <Box 
-      px={{ xs: 2, sm: 4}}
-      py={{ xs: 2, sm: 4}}
+      px={{ xs: 2, sm: 2}}
+      py={{ xs: 2, sm: 2}}
       bgcolor="background.paper"
       color="text.primary">
-        <Container maxWidth="lg">
 
         <Box sx={{ width: '100%' }}>
-      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
-        <Grid item xs={3}>
-          <Typography variant="h5">Merkmale</Typography>
+      <Grid container alignItems="center" rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
+        <Grid item xs={2}>
+          <Typography variant="h6">Merkmale</Typography>
         </Grid>
-        <Grid item xs={9}>
-          <Typography variant="h5">Ausprägungen</Typography>
+        <Grid item xs={10}>
+          <Typography variant="h6">Ausprägungen</Typography>
         </Grid>
-        <Grid item xs={3}>
-        <Paper
-            elevation={0}
-            sx={{
-              
-              border: (theme) => `1px solid ${theme.palette.divider}`,
-              flexWrap: 'wrap',
-            }}
-          >
-        <Typography variant="h6">Anwendungsgebiert</Typography>
-        </Paper>
+        <Grid item xs={2}>
+        <Typography>Anwendungsgebiet</Typography>
         </Grid>
-        <Grid item xs={9}>
+        <Grid item xs={10}>
         <div>
           <Paper
             elevation={0}
@@ -89,32 +79,35 @@ export default function MorphologicalBox() {
               onChange={handleFormat}
               aria-label="selection"
             >
-              <ToggleButton value="11" aria-label="1">
-                Eins
+              <ToggleButton value="Gesetzeskonformität" aria-label="Gesetzeskonformität">
+                Gesetzeskonformität
               </ToggleButton>
-              <ToggleButton value="12" aria-label="1">
-                Zwei
+              <ToggleButton value="Zertifizierung" aria-label="Zertifizierung">
+                Zertifizierung
               </ToggleButton>
-              <ToggleButton value="13" aria-label="1">
-                Drei
+              <ToggleButton value="Bilanzierung" aria-label="Bilanzierung">
+                Bilanzierung
               </ToggleButton>
-              <ToggleButton value="14" aria-label="1">
-                Vier
+              <ToggleButton value="Lebenszyklus" aria-label="Lebenszyklus">
+                Lebenszyklus
               </ToggleButton>
-              <ToggleButton value="15" aria-label="1">
-                Fünf
+              <ToggleButton value="Berichterstattung" aria-label="Berichterstattung">
+                Berichterstattung
               </ToggleButton>
-              <ToggleButton value="16" aria-label="1">
-                Sechs
+              <ToggleButton value="Entscheidungsunterstützung" aria-label="Entscheidungsunterstützung">
+                Entscheidungsunterstützung
+              </ToggleButton>
+              <ToggleButton value="Unternehmensverbünde" aria-label="Unternehmensverbünde">
+                Unternehmensverbünde
               </ToggleButton>
             </StyledToggleButtonGroup>
           </Paper>
         </div>
         </Grid>
-        <Grid item xs={3}>
-        <Typography variant="h6">Betrachtungsobjekt</Typography>
+        <Grid item xs={2}>
+        <Typography>Betrachtungsobjekt</Typography>
         </Grid>
-        <Grid item xs={9}>
+        <Grid item xs={10}>
         <div>
           <Paper
             elevation={0}
@@ -130,32 +123,32 @@ export default function MorphologicalBox() {
               onChange={handleFormat}
               aria-label="selection"
             >
-              <ToggleButton value="21" aria-label="1">
-                Eins
+              <ToggleButton value="Abfall" aria-label="Abfall">
+                Abfall
               </ToggleButton>
-              <ToggleButton value="22" aria-label="1">
-                Zwei
+              <ToggleButton value="Anlagen" aria-label="Anlagen">
+                Anlagen
               </ToggleButton>
-              <ToggleButton value="23" aria-label="1">
-                Drei
+              <ToggleButton value="Gefahrstoff" aria-label="Gefahrstoff">
+                Gefahrstoff
               </ToggleButton>
-              <ToggleButton value="24" aria-label="1">
-                Vier
+              <ToggleButton value="Emission" aria-label="Emission">
+                Emission
               </ToggleButton>
-              <ToggleButton value="25" aria-label="1">
-                Fünf
+              <ToggleButton value="Energie" aria-label="Energie">
+                Energie
               </ToggleButton>
-              <ToggleButton value="26" aria-label="1">
-                Sechs
+              <ToggleButton value="Stoff/Stoffstrom" aria-label="Stoff/Stoffstrom">
+                Stoff/Stoffstrom
               </ToggleButton>
             </StyledToggleButtonGroup>
           </Paper>
         </div>
         </Grid>
-        <Grid item xs={3}>
-        <Typography variant="h6">Betrachtungskonzept</Typography>
+        <Grid item xs={2}>
+        <Typography>Betrachtungskonzept</Typography>
         </Grid>
-        <Grid item xs={9}>
+        <Grid item xs={10}>
         <div>
           <Paper
             elevation={0}
@@ -171,32 +164,23 @@ export default function MorphologicalBox() {
               onChange={handleFormat}
               aria-label="selection"
             >
-              <ToggleButton value="31" aria-label="1">
-                Eins
+              <ToggleButton value="Verwaltungszentriert" aria-label="Verwaltungszentriert">
+                Verwaltungszentriert
               </ToggleButton>
-              <ToggleButton value="32" aria-label="1">
-                Zwei
+              <ToggleButton value="Bewertungszentriert" aria-label="Bewertungszentriert">
+                Bewertungszentriert
               </ToggleButton>
-              <ToggleButton value="33" aria-label="1">
-                Drei
-              </ToggleButton>
-              <ToggleButton value="34" aria-label="1">
-                Vier
-              </ToggleButton>
-              <ToggleButton value="35" aria-label="1">
-                Fünf
-              </ToggleButton>
-              <ToggleButton value="36" aria-label="1">
-                Sechs
+              <ToggleButton value="Managementzentriert" aria-label="Managementzentriert">
+                Managementzentriert
               </ToggleButton>
             </StyledToggleButtonGroup>
           </Paper>
         </div>
         </Grid>
-        <Grid item xs={3}>
-        <Typography variant="h6">Betrachtungsgrenzen</Typography>
+        <Grid item xs={2}>
+        <Typography>Betrachtungsgrenzen</Typography>
         </Grid>
-        <Grid item xs={9}>
+        <Grid item xs={10}>
         <div>
           <Paper
             elevation={0}
@@ -212,32 +196,26 @@ export default function MorphologicalBox() {
               onChange={handleFormat}
               aria-label="selection"
             >
-              <ToggleButton value="41" aria-label="1">
-                Eins
+              <ToggleButton value="Standort/Betrieb" aria-label="Standort/Betrieb">
+                Standort/Betrieb
               </ToggleButton>
-              <ToggleButton value="42" aria-label="1">
-                Zwei
+              <ToggleButton value="Prozess" aria-label="Prozess">
+                Prozess
               </ToggleButton>
-              <ToggleButton value="43" aria-label="1">
-                Drei
+              <ToggleButton value="Produkt" aria-label="Produkt">
+                Produkt
               </ToggleButton>
-              <ToggleButton value="44" aria-label="1">
-                Vier
-              </ToggleButton>
-              <ToggleButton value="45" aria-label="1">
-                Fünf
-              </ToggleButton>
-              <ToggleButton value="46" aria-label="1">
-                Sechs
+              <ToggleButton value="Zwischenbetrieblich" aria-label="Zwischenbetrieblich">
+                Zwischenbetrieblich
               </ToggleButton>
             </StyledToggleButtonGroup>
           </Paper>
         </div>
         </Grid>
-        <Grid item xs={3}>
-        <Typography variant="h6">Adressat/Anwender</Typography>
+        <Grid item xs={2}>
+        <Typography>Adressat/Anwender</Typography>
         </Grid>
-        <Grid item xs={9}>
+        <Grid item xs={10}>
         <div>
           <Paper
             elevation={0}
@@ -253,32 +231,29 @@ export default function MorphologicalBox() {
               onChange={handleFormat}
               aria-label="selection"
             >
-              <ToggleButton value="51" aria-label="1">
-                Eins
+              <ToggleButton value="Unternehmensführung" aria-label="Unternehmensführung">
+                Unternehmensführung
               </ToggleButton>
-              <ToggleButton value="52" aria-label="1">
-                Zwei
+              <ToggleButton value="Umweltbeauftragter" aria-label="Umweltbeauftragter">
+                Umweltbeauftragter
               </ToggleButton>
-              <ToggleButton value="53" aria-label="1">
-                Drei
+              <ToggleButton value="Fachabteilung" aria-label="Fachabteilung">
+                Fachabteilung
               </ToggleButton>
-              <ToggleButton value="54" aria-label="1">
-                Vier
+              <ToggleButton value="Mitarbeiter" aria-label="Mitarbeiter">
+                Mitarbeiter
               </ToggleButton>
-              <ToggleButton value="55" aria-label="1">
-                Fünf
-              </ToggleButton>
-              <ToggleButton value="56" aria-label="1">
-                Sechs
+              <ToggleButton value="Externe Stakeholder" aria-label="Externe Stakeholder">
+                Externe Stakeholder
               </ToggleButton>
             </StyledToggleButtonGroup>
           </Paper>
         </div>
         </Grid>
-        <Grid item xs={3}>
-        <Typography variant="h6">Integrationsgrad</Typography>
+        <Grid item xs={2}>
+        <Typography>Integrationsgrad</Typography>
         </Grid>
-        <Grid item xs={9}>
+        <Grid item xs={10}>
         <div>
           <Paper
             elevation={0}
@@ -294,23 +269,14 @@ export default function MorphologicalBox() {
               onChange={handleFormat}
               aria-label="selection"
             >
-              <ToggleButton value="61" aria-label="1">
-                Eins
+              <ToggleButton value="Stand-Alone" aria-label="Stand-Alone">
+                Stand-Alone
               </ToggleButton>
-              <ToggleButton value="62" aria-label="1">
-                Zwei
+              <ToggleButton value="Add-On" aria-label="Add-On">
+                Add-On
               </ToggleButton>
-              <ToggleButton value="63" aria-label="1">
-                Drei
-              </ToggleButton>
-              <ToggleButton value="64" aria-label="1">
-                Vier
-              </ToggleButton>
-              <ToggleButton value="65" aria-label="1">
-                Fünf
-              </ToggleButton>
-              <ToggleButton value="66" aria-label="1">
-                Sechs
+              <ToggleButton value="Intergriert" aria-label="Intergriert">
+                Intergriert
               </ToggleButton>
             </StyledToggleButtonGroup>
           </Paper>
@@ -320,7 +286,6 @@ export default function MorphologicalBox() {
       </Grid>
     </Box>
 
-    </Container>
     </Box>
     </>
   );
