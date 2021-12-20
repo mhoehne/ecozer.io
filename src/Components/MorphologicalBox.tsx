@@ -52,8 +52,14 @@ export default function MorphologicalBox() {
       bgcolor="background.paper"
       color="text.primary">
 
-        <Box sx={{ width: '100%' }}>
-      <Grid container alignItems="center" rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
+      <Box sx={{ width: '100%' }}>
+      <Grid 
+        container 
+        alignItems="center" 
+        direction="row"
+        justifyContent="center"
+        rowSpacing={1} 
+        columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
         <Grid item xs={2}>
           <Typography variant="h6">Merkmale</Typography>
         </Grid>
@@ -75,6 +81,7 @@ export default function MorphologicalBox() {
           >
             <StyledToggleButtonGroup
               size="small"
+              color="primary"
               value={formats}
               onChange={handleFormat}
               aria-label="selection"
@@ -119,6 +126,7 @@ export default function MorphologicalBox() {
           >
             <StyledToggleButtonGroup
               size="small"
+              color="primary"
               value={formats}
               onChange={handleFormat}
               aria-label="selection"
@@ -160,6 +168,7 @@ export default function MorphologicalBox() {
           >
             <StyledToggleButtonGroup
               size="small"
+              color="primary"
               value={formats}
               onChange={handleFormat}
               aria-label="selection"
@@ -192,6 +201,7 @@ export default function MorphologicalBox() {
           >
             <StyledToggleButtonGroup
               size="small"
+              color="primary"
               value={formats}
               onChange={handleFormat}
               aria-label="selection"
@@ -227,6 +237,7 @@ export default function MorphologicalBox() {
           >
             <StyledToggleButtonGroup
               size="small"
+              color="primary"
               value={formats}
               onChange={handleFormat}
               aria-label="selection"
@@ -265,6 +276,7 @@ export default function MorphologicalBox() {
           >
             <StyledToggleButtonGroup
               size="small"
+              color="primary"
               value={formats}
               onChange={handleFormat}
               aria-label="selection"
