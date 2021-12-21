@@ -28,8 +28,8 @@ export default function ImgMediaCard() {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" href="/overview/product-detail">+ details</Button>
-        <Button size="small" href="/overview/product-detail" sx={{}}>+ editieren</Button>
+        <Button size="small" href="/search/product-detail">+ details</Button>
+        <Button size="small" href="/search/product-detail" sx={{}}>+ editieren</Button>
       </CardActions>
     </Card>
     
