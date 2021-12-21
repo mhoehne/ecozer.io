@@ -22,7 +22,7 @@ export default function ImageBanner() {
         {/* Hero unit */}
         <Box
           sx={{
-            bgcolor: 'secondary.main',
+            bgcolor: 'background.paper',
             pt: 7,
             pb: 3,
             marginTop: 0,
