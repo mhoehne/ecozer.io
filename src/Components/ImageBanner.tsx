@@ -33,7 +33,7 @@ export default function ImageBanner() {
             backgroundImage: {SampleImage},
           }}
         >
-          <Container maxWidth="sm">
+          <Container maxWidth={false}>
             <Typography
               component="h1"
               variant="h2"

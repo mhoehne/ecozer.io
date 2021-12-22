@@ -17,7 +17,6 @@ export default function Search() {
   return (
 
       <>
-        <Navigation/>
         <ImageBanner/>
         <Container>
         <SearchBarBoxed/>
