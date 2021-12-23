@@ -12,7 +12,6 @@ export default function UserList() {
   return (
 
       <>
-        <Navigation/>
         <Container>
           <SearchBarBoxed/>
           <Paper>

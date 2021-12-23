@@ -18,6 +18,7 @@ import UserList from "./Pages/UserList";
 import Navigation from "./Components/Navigation";
 import Container from "@mui/material/Container";
 import Footer from "./Components/Footer";
+import AppBarTop from "./Components/AppBarTop";
 
 export default function App() {
   return (
@@ -26,7 +27,7 @@ export default function App() {
     
     <Router>
     
-    <Navigation />
+    <AppBarTop/>
     <Container maxWidth={false} disableGutters={true}>
         {/* A <Switch> or <Routes> (in react-router-dom v6) looks through its children <Route>s and
         renders the first one that matches the current URL. */}

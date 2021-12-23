@@ -13,7 +13,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import HomeIcon from '@mui/icons-material/Home';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
-import AppBarTop from './AppBarTop';
+import AppBarTopHamburger from '../Components/AppBarTopHamburger';
 import { Link } from 'react-router-dom';
 
 
@@ -120,7 +120,7 @@ export default function MiniDrawer() {
   return (
     <Box sx={{ display: 'flex'}} >
       <CssBaseline />
-      <AppBarTop open={open} setOpen={setOpen}/>
+      <AppBarTopHamburger open={open} setOpen={setOpen}/>
       
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>

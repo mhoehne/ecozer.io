@@ -12,7 +12,6 @@ export default function MyProducts() {
   return (
 
       <>
-        <Navigation/>
         <ImageBanner/>
           <SearchBarBoxed/>
         <Grid container spacing={0}> 

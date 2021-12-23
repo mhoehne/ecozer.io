@@ -42,13 +42,27 @@ const AppBar = styled(MuiAppBar, {
 
 
 
+type AppBarTopProps = {open: boolean, setOpen: Function}
 
-export default function AppBarTop() {
+export default function AppBarTopHamburger(props: AppBarTopProps) {
 
   return (
     <Box sx={{ display: 'flex', padding: 0 }} >
-      <AppBar position="fixed" sx= {{backgroundColor: "#fff"}}>
+      <AppBar position="fixed" open={props.open} sx= {{backgroundColor: "#fff"}}>
         <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={ () => props.setOpen(true) }
+            edge="start"
+            sx={{
+              fontSize: 'large',
+              marginRight: '36px',
+              ...(props.open && { display: 'none' }),
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
           <Typography variant="h6" noWrap component="div">
           <MenuItem component={Link} to='/'>
           <CardMedia

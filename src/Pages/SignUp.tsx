@@ -32,7 +32,6 @@ export default function SignUp() {
   return (
 
       <>
-        <Navigation/>
         <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />

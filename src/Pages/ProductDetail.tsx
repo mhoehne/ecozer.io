@@ -12,7 +12,6 @@ export default function ProductDetail() {
   return (
 
       <>
-        <Navigation></Navigation>
           <ProductDetailViewCard/>
           <MorphologicalBox/>
           <Paper/>

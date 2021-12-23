@@ -9,7 +9,6 @@ export default function AddProduct() {
   return (
 
       <>
-        <Navigation/>
         <Container>
         <MorphologicalBox/>
         </Container>

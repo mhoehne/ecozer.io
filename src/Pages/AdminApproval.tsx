@@ -12,7 +12,6 @@ export default function Overview() {
   return (
 
       <>
-        <Navigation/>
         <Container>
           <Button variant="contained" href="/approval/approval-detail">
           Link to /approval/approval-detail
