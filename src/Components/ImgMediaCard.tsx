@@ -7,6 +7,10 @@ import Typography from '@mui/material/Typography';
 import SampleImg from '../images/sample-img.png';
 import { CardActionArea } from '@mui/material';
 import Divider from '@mui/material/Divider';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
 export default function ImgMediaCard() {
@@ -34,6 +38,18 @@ export default function ImgMediaCard() {
         <Button size="small" href="/search/product-detail">+ details</Button>
         <Button size="small" href="/search/product-detail" sx={{}}>+ editieren</Button>
       </CardActions>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Merkmale</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+
+        </AccordionDetails>
+      </Accordion>
       
     </Card>
     
