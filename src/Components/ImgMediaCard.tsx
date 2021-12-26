@@ -11,6 +11,9 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Chip from '@mui/material/Chip';
+import DoneIcon from '@mui/icons-material/Done';
+import FaceIcon from '@mui/icons-material/Face';
 
 
 export default function ImgMediaCard() {
@@ -47,7 +50,11 @@ export default function ImgMediaCard() {
           <Typography>Ausprägungen</Typography>
         </AccordionSummary>
         <AccordionDetails>
-
+          <Chip color="primary" icon={<FaceIcon />} label="Stand-Alone" deleteIcon={<DoneIcon />} sx={{mr:1, mb:1}} />
+          <Chip color="primary" icon={<FaceIcon />} label="Emission" deleteIcon={<DoneIcon />} sx={{mr:1, mb:1}} />
+          <Chip color="primary" icon={<FaceIcon />} label="Abfall" deleteIcon={<DoneIcon />} sx={{mr:1, mb:1}} />
+          <Chip color="primary" icon={<FaceIcon />} label="Management" deleteIcon={<DoneIcon />} sx={{mr:1, mb:1}} />
+          <Chip color="primary" icon={<FaceIcon />} label="Zertifizierung" deleteIcon={<DoneIcon />} sx={{mr:1, mb:1}} />
         </AccordionDetails>
       </Accordion>
       
