@@ -5,18 +5,19 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import SampleImg from '../images/sample-img.png';
-import MenuItem from '@mui/material/MenuItem';
-import { Link } from "react-router-dom";
+import { CardActionArea } from '@mui/material';
+import Divider from '@mui/material/Divider';
 
 
 export default function ImgMediaCard() {
   return (
     
-    <Card sx={{ maxWidth: 345, margin: '2rem', }}>
+    <Card sx={{ maxWidth: 500, margin: '2rem', }}>
+      <CardActionArea href="/search/product-detail">
       <CardMedia
         component="img"
-        alt="green iguana"
-        height="140"
+        alt="Produkt"
+        height="250"
         image={SampleImg}
       />
       <CardContent>
@@ -27,10 +28,13 @@ export default function ImgMediaCard() {
         Produktbeschreibung Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
         </Typography>
       </CardContent>
+      </CardActionArea>
+      <Divider/>
       <CardActions>
         <Button size="small" href="/search/product-detail">+ details</Button>
         <Button size="small" href="/search/product-detail" sx={{}}>+ editieren</Button>
       </CardActions>
+      
     </Card>
     
   );
