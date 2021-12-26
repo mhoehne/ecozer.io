@@ -44,7 +44,7 @@ export default function ImgMediaCard() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Merkmale</Typography>
+          <Typography>Ausprägungen</Typography>
         </AccordionSummary>
         <AccordionDetails>
 
