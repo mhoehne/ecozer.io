@@ -70,13 +70,13 @@ export default function AccordionFilter() {
         </AccordionSummary>
         <AccordionDetails>
           <FormGroup>
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Gesetzeskonformität" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Zertifizierung" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Bilanzierung" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Lebenszyklus" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Berichterstattung" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Entscheidungsstützung" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Unternehmensverbünde" />
+            <FormControlLabel control={<Checkbox />} label="Gesetzeskonformität" />
+            <FormControlLabel control={<Checkbox />} label="Zertifizierung" />
+            <FormControlLabel control={<Checkbox />} label="Bilanzierung" />
+            <FormControlLabel control={<Checkbox />} label="Lebenszyklus" />
+            <FormControlLabel control={<Checkbox />} label="Berichterstattung" />
+            <FormControlLabel control={<Checkbox />} label="Entscheidungsstützung" />
+            <FormControlLabel control={<Checkbox />} label="Unternehmensverbünde" />
           </FormGroup>
         </AccordionDetails>
       </Accordion>
@@ -91,12 +91,12 @@ export default function AccordionFilter() {
         </AccordionSummary>
         <AccordionDetails>
         <FormGroup>
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Abfall" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Anlagen" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Gefahrstoff" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Emission" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Energie" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Stoffe/Stoffstrom" />
+            <FormControlLabel control={<Checkbox  />} label="Abfall" />
+            <FormControlLabel control={<Checkbox  />} label="Anlagen" />
+            <FormControlLabel control={<Checkbox  />} label="Gefahrstoff" />
+            <FormControlLabel control={<Checkbox  />} label="Emission" />
+            <FormControlLabel control={<Checkbox  />} label="Energie" />
+            <FormControlLabel control={<Checkbox  />} label="Stoffe/Stoffstrom" />
           </FormGroup>
         </AccordionDetails>
       </Accordion>
@@ -111,9 +111,9 @@ export default function AccordionFilter() {
         </AccordionSummary>
         <AccordionDetails>
         <FormGroup>
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Verwaltungszentriert" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Bewertungszentriert" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Managementzentriert" />
+            <FormControlLabel control={<Checkbox  />} label="Verwaltungszentriert" />
+            <FormControlLabel control={<Checkbox  />} label="Bewertungszentriert" />
+            <FormControlLabel control={<Checkbox  />} label="Managementzentriert" />
           </FormGroup>
         </AccordionDetails>
       </Accordion>
@@ -128,10 +128,10 @@ export default function AccordionFilter() {
         </AccordionSummary>
         <AccordionDetails>
         <FormGroup>
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Standort/Betrieb" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Prozess" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Produkt" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Zwischenbetrieblich" />
+            <FormControlLabel control={<Checkbox  />} label="Standort/Betrieb" />
+            <FormControlLabel control={<Checkbox  />} label="Prozess" />
+            <FormControlLabel control={<Checkbox  />} label="Produkt" />
+            <FormControlLabel control={<Checkbox  />} label="Zwischenbetrieblich" />
           </FormGroup>
         </AccordionDetails>
       </Accordion>
@@ -146,11 +146,11 @@ export default function AccordionFilter() {
         </AccordionSummary>
         <AccordionDetails>
         <FormGroup>
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Unternehmensführung" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Umweltbeauftragter" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Fachabteilung" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Mitarbeiter" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Externe Stakeholder" />
+            <FormControlLabel control={<Checkbox  />} label="Unternehmensführung" />
+            <FormControlLabel control={<Checkbox  />} label="Umweltbeauftragter" />
+            <FormControlLabel control={<Checkbox  />} label="Fachabteilung" />
+            <FormControlLabel control={<Checkbox  />} label="Mitarbeiter" />
+            <FormControlLabel control={<Checkbox  />} label="Externe Stakeholder" />
           </FormGroup>
         </AccordionDetails>
       </Accordion>
@@ -165,9 +165,9 @@ export default function AccordionFilter() {
         </AccordionSummary>
         <AccordionDetails>
         <FormGroup>
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Stand-Alone" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Add-On" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Integriert" />
+            <FormControlLabel control={<Checkbox  />} label="Stand-Alone" />
+            <FormControlLabel control={<Checkbox  />} label="Add-On" />
+            <FormControlLabel control={<Checkbox  />} label="Integriert" />
           </FormGroup>
         </AccordionDetails>
       </Accordion>
