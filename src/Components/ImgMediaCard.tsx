@@ -21,7 +21,7 @@ export default function ImgMediaCard() {
       <CardMedia
         component="img"
         alt="Produkt"
-        height="250"
+        height="200"
         image={SampleImg}
       />
       <CardContent>
