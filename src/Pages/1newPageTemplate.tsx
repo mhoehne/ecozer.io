@@ -21,7 +21,7 @@ export default function Page2() {
 {/* /search/product-detail where should I add margin, appbar component or app.tsx */}
 {/* square? prop on ImgMediaCard and can I change it globally? */}
 {/* index.tsx */}
-{/* */}
+{/* global style overrides? */}
 {/* */}
 {/* */}
 {/* */}
