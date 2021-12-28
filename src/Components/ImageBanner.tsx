@@ -23,7 +23,7 @@ export default function ImageBanner() {
         <Box
           sx={{
             bgcolor: 'background.paper',
-            pt: 7,
+            pt: 15,
             pb: 3,
             marginTop: 0,
             marginBottom: 5,
@@ -41,10 +41,10 @@ export default function ImageBanner() {
               color="text.primary"
               gutterBottom
             >
-              Prop Text Here!
+              Prop Seitenname!
             </Typography>
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              h5 text here
+              h5 Beschreibung, Seitendetails
             </Typography>
           </Container>
         </Box>
