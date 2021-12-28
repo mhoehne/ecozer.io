@@ -50,11 +50,11 @@ export default function ImgMediaCard() {
           <Typography>Ausprägungen</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Chip color="primary" size="small" icon={<FaceIcon />} label="Stand-Alone" deleteIcon={<DoneIcon />} sx={{mr:1, mb:1}} />
-          <Chip color="primary" size="small" icon={<FaceIcon />} label="Emission" deleteIcon={<DoneIcon />} sx={{mr:1, mb:1}} />
-          <Chip color="primary" size="small" icon={<FaceIcon />} label="Abfall" deleteIcon={<DoneIcon />} sx={{mr:1, mb:1}} />
-          <Chip color="primary" size="small" icon={<FaceIcon />} label="Management" deleteIcon={<DoneIcon />} sx={{mr:1, mb:1}} />
-          <Chip color="primary" size="small" icon={<FaceIcon />} label="Zertifizierung" deleteIcon={<DoneIcon />} sx={{mr:1, mb:1}} />
+          <Chip color="primary" size="small" icon={<DoneIcon />} label="Stand-Alone"  sx={{mr:1, mb:1}} />
+          <Chip color="primary" size="small" icon={<DoneIcon />} label="Emission"  sx={{mr:1, mb:1}} />
+          <Chip color="primary" size="small" icon={<DoneIcon />} label="Abfall"  sx={{mr:1, mb:1}} />
+          <Chip color="primary" size="small" icon={<DoneIcon />} label="Management"  sx={{mr:1, mb:1}} />
+          <Chip color="primary" size="small" icon={<DoneIcon />} label="Zertifizierung"  sx={{mr:1, mb:1}} />
         </AccordionDetails>
       </Accordion>
       
