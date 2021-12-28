@@ -25,8 +25,8 @@ export default function Search() {
 
         <Grid
         container
-        rowSpacing={1} 
-        columnSpacing={{ xs: 1, sm: 1, md: 1 }}
+        rowSpacing={0} 
+        columnSpacing={{ xs: 0, sm: 0, md: 0 }}
         >
 
           <Grid
@@ -43,37 +43,35 @@ export default function Search() {
           </Grid>
 
           <Grid 
+            container
             item xs={9} sm={9}
-            direction="row"
-            justifyContent="flex-start"
-            alignItems="flex-start"
             > 
-
-                <Grid item xs={4} sm={4}>
+              
+                <Grid item xs={4} sm={6}>
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item xs={4} sm={4}>
+                <Grid item xs={4} sm={6}>
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item xs={4} sm={4}>
+                <Grid item xs={3} sm={6}>
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item xs={12} sm={4}>
+                <Grid item >
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item xs={12} sm={4}>
+                <Grid item >
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item xs={12} sm={4}>
+                <Grid item >
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item xs={12} sm={4}>
+                <Grid item >
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item xs={12} sm={4}>
+                <Grid item >
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item xs={12} sm={4}>
+                <Grid item >
                   <ImgMediaCard/>
                 </Grid>
               </Grid>

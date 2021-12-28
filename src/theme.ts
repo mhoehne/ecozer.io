@@ -34,6 +34,16 @@ const theme = createTheme({
     }
 
   },
+
+  components: {
+    // Name of the component
+    MuiCard: {
+      defaultProps: {
+        // The props to change the default for.
+        square: true, // No more ripple!
+      },
+    },
+  },
 });
 
 export default theme;

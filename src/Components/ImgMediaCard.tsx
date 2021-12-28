@@ -13,7 +13,6 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Chip from '@mui/material/Chip';
 import DoneIcon from '@mui/icons-material/Done';
-import FaceIcon from '@mui/icons-material/Face';
 
 
 export default function ImgMediaCard() {
