@@ -1,27 +1,43 @@
-import Navigation from '../Components/Navigation';
+import react from 'react';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 
-
-export default function Page2() {
+export default function PageName() {
 
 
   return (
 
       <>
-        <Navigation/>
       </>
   );
 }
 
 {/* */}
-{/* Questions*/}
+{/* Questions */}
 
-{/* /search grid issue */}
-{/* /search/product-detail can I use flex box to strech each button to fill the space? */}
-{/* /my-products ImgMediaCards should have the same size everywhere */}
-{/* /search/product-detail where should I add margin, appbar component or app.tsx */}
-{/* square? prop on ImgMediaCard and can I change it globally? */}
-{/* index.tsx */}
-{/* global style overrides? */}
+{/* /my-products ImgMediaCards should have the same size everywhere => create own grid component with left & main panel */}
+
+{/* */}
+{/* */}
+{/* */}
+{/* */}
+{/* */}
+{/* */}
+{/* */}
+{/* */}
+{/* */}
+{/* */}
+{/* */}
+{/* */}
+{/* */}
+{/* */}
+{/* */}
+{/* */}
+{/* */}
+{/* */}
+{/* */}
+{/* */}
+{/* */}
 {/* */}
 {/* */}
 {/* */}
