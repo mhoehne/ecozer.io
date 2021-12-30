@@ -12,6 +12,7 @@ import Logo from '../images/Q04_HTW_Berlin_Logo_quer_pos_FARBIG_RGB.jpg';
 import CardMedia from '@mui/material/CardMedia';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from "react-router-dom";
+import NotificationMenu from './NotificationMenu';
 
 
 
@@ -80,7 +81,7 @@ export default function AppBarTop() {
                 <NotificationsIcon/>
               </Badge>
             </IconButton>
-
+            <NotificationMenu/>
             <AccountMenu/>
           </Box>
         </Toolbar>

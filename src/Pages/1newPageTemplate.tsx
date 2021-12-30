@@ -17,7 +17,7 @@ export default function PageName() {
 
 {/* /my-products ImgMediaCards should have the same size everywhere => create own grid component with left & main panel */}
 
-{/* */}
+{/* /user-list how do I style the list in zebra style? */}
 {/* */}
 {/* */}
 {/* */}
