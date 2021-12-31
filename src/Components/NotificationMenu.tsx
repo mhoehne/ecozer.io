@@ -4,17 +4,13 @@ import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
-import Settings from '@mui/icons-material/Settings';
-import Logout from '@mui/icons-material/Logout';
-import FactCheckIcon from '@mui/icons-material/FactCheck';
-import BadgeIcon from '@mui/icons-material/Badge';
 import { Link } from "react-router-dom";
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import Badge from '@mui/material/Badge';
+
+
 
 export default function NotificationMenu() {
 
@@ -31,8 +27,10 @@ export default function NotificationMenu() {
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Tooltip title="Account settings">
-          <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
-            <Avatar sx={{ width: 45, height: 45, bgcolor: 'secondary.main' }}>MH</Avatar>
+          <IconButton onClick={handleClick} size="large" aria-label="show 4 new mails" color="inherit">
+            <Badge badgeContent={4} color="error">
+              <NotificationsIcon/>
+            </Badge>
           </IconButton>
         </Tooltip>
       </Box>
@@ -70,50 +68,17 @@ export default function NotificationMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem component={Link} to='/my-products'>
+        <MenuItem component={Link} to=''>
         <ListItemIcon>
-            <DashboardCustomizeIcon fontSize="small" />
-          </ListItemIcon> My Products
+          </ListItemIcon> 
+          .
         </MenuItem>
-        <MenuItem component={Link} to='/account'>
+        <MenuItem component={Link} to=''>
         <ListItemIcon>
-            <AccountBoxIcon fontSize="small" />
           </ListItemIcon>
-           My account
+          .
         </MenuItem>
-        <Divider />
-        <MenuItem component={Link} to='/approval'>
-          <ListItemIcon>
-            <FactCheckIcon fontSize="small" />
-          </ListItemIcon>
-          Approval
-        </MenuItem>
-        <MenuItem component={Link} to='/user-list'>
-          <ListItemIcon>
-            <BadgeIcon fontSize="small" />
-          </ListItemIcon>
-          User List
-        </MenuItem>
-        <Divider />
-
-        <MenuItem>
-          <ListItemIcon>
-            <PersonAdd fontSize="small" />
-          </ListItemIcon>
-          Invite User
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-          Settings
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <Logout fontSize="small" />
-          </ListItemIcon>
-          Logout
-        </MenuItem>
+        
       </Menu>
     </React.Fragment>
   );
