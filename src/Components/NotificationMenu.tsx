@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -26,7 +25,7 @@ export default function NotificationMenu() {
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-        <Tooltip title="Account settings">
+        <Tooltip title="Show notifications">
           <IconButton onClick={handleClick} size="large" aria-label="show 4 new mails" color="inherit">
             <Badge badgeContent={4} color="error">
               <NotificationsIcon/>
