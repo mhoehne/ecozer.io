@@ -43,6 +43,7 @@ const theme = createTheme({
         square: true, // No more ripple!
       },
     },
+    
   },
 });
 

@@ -15,9 +15,7 @@ export default function UserList() {
       <>
         <Container>
           <SearchBarBoxed/>
-          <Box>
-            <UserListGrid/>
-          </Box>
+          <UserListGrid/>
         </Container>
       </>
   );

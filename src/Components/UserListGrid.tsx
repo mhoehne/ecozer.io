@@ -80,17 +80,17 @@ axios.get<AccountResultType>('http://localhost:3000/accounts.json')
           my={{ xs: 2, sm: 2}}
           bgcolor="background.paper"
           color="text.primary">
-    <div style={{ height: '100vh', width: '100%' }}>
+      <div style={{ height: '100vh', width: '100%' }}>
       
-      <DataGrid
-        rows={accounts}
-        columns={columns}
-        pageSize={100}
-        rowsPerPageOptions={[100]}
-        disableSelectionOnClick
-      />
+        <DataGrid
+          rows={accounts}
+          columns={columns}
+          pageSize={20}
+          rowsPerPageOptions={[100]}
+          disableSelectionOnClick
+        />
       
-    </div>
+      </div>
     </Box>
   );
 }

@@ -1,7 +1,7 @@
 {
   "productDetail" : [
     {
-      "id":1,
+      "product_id":1,
       "productName": "Umberto 5",
       "productImage": {},
       "productLink": {},
