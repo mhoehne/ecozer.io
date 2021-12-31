@@ -15,7 +15,12 @@ export default function Footer() {
       py={{ xs: 2, sm: 4}}
       mt={{ xs: 2, sm: 4}}
       bgcolor="text.secondary" 
-      color="background.paper">
+      color="background.paper"
+      /* position="fixed"
+      bottom="0"
+      left="0"
+      width="100%"*/
+      >
       <Container maxWidth="lg">
         <Grid container spacing={4}>
           <Grid item xs={12} sm={3}>
