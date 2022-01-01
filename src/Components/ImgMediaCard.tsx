@@ -34,13 +34,12 @@ export default function ImgMediaCard() {
         Produktbeschreibung Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
         </Typography>
       </CardContent>
-      </CardActionArea>
-      <Divider/>
-      <CardActions>
-        <Button size="small" href="/search/product-detail">+ details</Button>
-        <Button size="small" href="/search/product-detail" sx={{}}>+ editieren</Button>
-      </CardActions>
-      <Accordion>
+      <Accordion 
+        expanded={true}
+        square={true}
+        disableGutters={true}
+        elevation={0}
+        >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
@@ -54,8 +53,20 @@ export default function ImgMediaCard() {
           <Chip color="primary" size="small" icon={<DoneIcon />} label="Abfall"  sx={{mr:1, mb:1}} />
           <Chip color="primary" size="small" icon={<DoneIcon />} label="Management"  sx={{mr:1, mb:1}} />
           <Chip color="primary" size="small" icon={<DoneIcon />} label="Zertifizierung"  sx={{mr:1, mb:1}} />
+          <Chip color="primary" size="small" icon={<DoneIcon />} label="Stand-Alone"  sx={{mr:1, mb:1}} />
+          <Chip color="primary" size="small" icon={<DoneIcon />} label="Emission"  sx={{mr:1, mb:1}} />
+          <Chip color="primary" size="small" icon={<DoneIcon />} label="Abfall"  sx={{mr:1, mb:1}} />
+          <Chip color="primary" size="small" icon={<DoneIcon />} label="Management"  sx={{mr:1, mb:1}} />
+          <Chip color="primary" size="small" icon={<DoneIcon />} label="Zertifizierung"  sx={{mr:1, mb:1}} />
         </AccordionDetails>
       </Accordion>
+      </CardActionArea>
+      <Divider/>
+      <CardActions>
+        <Button size="small" href="/search/product-detail">+ details</Button>
+        <Button size="small" href="/search/product-detail" sx={{}}>+ editieren</Button>
+      </CardActions>
+      
       
     </Card>
     
