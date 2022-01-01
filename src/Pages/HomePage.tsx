@@ -6,6 +6,8 @@ import Grid from '@mui/material/Grid';
 import Navigation from '../Components/Navigation';
 import Footer from '../Components/Footer';
 import HeroBanner from '../Components/HeroBanner';
+import Typography from '@mui/material/Typography';
+
 
 
 
@@ -28,6 +30,17 @@ Item.defaultProps = {
     < > {/* fragment */}
     
     <HeroBanner/>
+      <Container sx={{mt: 5}}>
+        <Typography
+          component="h1"
+          variant="h3"
+          align="center"
+          color="text.primary"
+          gutterBottom
+        >
+          Neuste Produkte
+        </Typography>
+      </Container>
     <Container>
       <Grid container spacing={0}>
       <Grid item xs={4}>
