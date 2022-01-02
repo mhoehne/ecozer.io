@@ -56,20 +56,14 @@ export default function MorphologicalBoxVertical() {
       <Grid 
         container 
         alignItems="center" 
-        direction="row"
+        direction="column"
         justifyContent="center"
         rowSpacing={1} 
         columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
         <Grid item xs={2}>
-          <Typography variant="h6">Merkmale</Typography>
-        </Grid>
-        <Grid item xs={10}>
-          <Typography variant="h6">Ausprägungen</Typography>
-        </Grid>
-        <Grid item xs={2}>
         <Typography>Anwendungsgebiet</Typography>
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={2}>
         <div>
           <Paper
             elevation={0}
@@ -80,6 +74,7 @@ export default function MorphologicalBoxVertical() {
             }}
           >
             <StyledToggleButtonGroup
+              orientation="vertical"
               size="small"
               color="primary"
               value={formats}
@@ -114,7 +109,7 @@ export default function MorphologicalBoxVertical() {
         <Grid item xs={2}>
         <Typography>Betrachtungsobjekt</Typography>
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={2}>
         <div>
           <Paper
             elevation={0}
@@ -125,6 +120,7 @@ export default function MorphologicalBoxVertical() {
             }}
           >
             <StyledToggleButtonGroup
+              orientation="vertical"
               size="small"
               color="primary"
               value={formats}
@@ -156,7 +152,7 @@ export default function MorphologicalBoxVertical() {
         <Grid item xs={2}>
         <Typography>Betrachtungskonzept</Typography>
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={2}>
         <div>
           <Paper
             elevation={0}
@@ -167,6 +163,7 @@ export default function MorphologicalBoxVertical() {
             }}
           >
             <StyledToggleButtonGroup
+              orientation="vertical"
               size="small"
               color="primary"
               value={formats}
@@ -189,7 +186,7 @@ export default function MorphologicalBoxVertical() {
         <Grid item xs={2}>
         <Typography>Betrachtungsgrenzen</Typography>
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={2}>
         <div>
           <Paper
             elevation={0}
@@ -200,6 +197,7 @@ export default function MorphologicalBoxVertical() {
             }}
           >
             <StyledToggleButtonGroup
+              orientation="vertical"
               size="small"
               color="primary"
               value={formats}
@@ -225,7 +223,7 @@ export default function MorphologicalBoxVertical() {
         <Grid item xs={2}>
         <Typography>Adressat/Anwender</Typography>
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={2}>
         <div>
           <Paper
             elevation={0}
@@ -236,6 +234,7 @@ export default function MorphologicalBoxVertical() {
             }}
           >
             <StyledToggleButtonGroup
+              orientation="vertical"
               size="small"
               color="primary"
               value={formats}
@@ -264,7 +263,7 @@ export default function MorphologicalBoxVertical() {
         <Grid item xs={2}>
         <Typography>Integrationsgrad</Typography>
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={2}>
         <div>
           <Paper
             elevation={0}
@@ -275,6 +274,7 @@ export default function MorphologicalBoxVertical() {
             }}
           >
             <StyledToggleButtonGroup
+              orientation="vertical"
               size="small"
               color="primary"
               value={formats}
