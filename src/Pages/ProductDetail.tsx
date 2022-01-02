@@ -4,6 +4,7 @@ import Container from '@mui/material/Container';
 import { Divider, Paper } from '@mui/material';
 import MorphologicalBox from '../Components/MorphologicalBox';
 import ProductDetailViewCard from '../Components/ProductDetailViewCard';
+import MorphologicalBoxVertical from '../Components/MorphologicalBoxVertical';
 
 
 export default function ProductDetail() {
@@ -14,6 +15,7 @@ export default function ProductDetail() {
       <>
           <ProductDetailViewCard/>
           <MorphologicalBox/>
+          <MorphologicalBoxVertical/>
           <Paper/>
       </>
   );

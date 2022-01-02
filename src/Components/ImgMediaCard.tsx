@@ -34,8 +34,10 @@ export default function ImgMediaCard() {
         Produktbeschreibung Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
         </Typography>
       </CardContent>
+      </CardActionArea>
+
       <Accordion 
-        expanded={true}
+        defaultExpanded={true}
         square={true}
         disableGutters={true}
         elevation={0}
@@ -60,7 +62,7 @@ export default function ImgMediaCard() {
           <Chip color="primary" size="small" icon={<DoneIcon />} label="Zertifizierung"  sx={{mr:1, mb:1}} />
         </AccordionDetails>
       </Accordion>
-      </CardActionArea>
+    
       <Divider/>
       <CardActions>
         <Button size="small" href="/search/product-detail">+ details</Button>
