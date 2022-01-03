@@ -47,38 +47,25 @@ export default function MorphologicalBoxVertical() {
 
     <>
     <Box 
-      px={{ xs: 2, sm: 2}}
+      px={{ xs: 6, sm: 6}}
       py={{ xs: 2, sm: 2}}
       sx={{ width: '100%' }}
       bgcolor="background.paper"
       color="text.primary">
 
-
-
-
-
-
-
-
-
-
-
-
-
       <Box sx={{ width: '100%' }}>
       <Grid 
-        container 
-        alignItems="center" 
-        direction="column"
-        justifyContent="center"
+        container
+        direction="row"
+        justifyContent="space-between"
+        alignItems="flex-start"
         rowSpacing={1} 
         columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
 
 
-        <Grid item xs={2}>
-        <Typography>Anwendungsgebiet</Typography>
-        </Grid>
-        <Grid item xs={2}>
+        <Grid item xs="auto">
+        <Typography align="center" variant="h6">Anwendungsgebiet</Typography>
+
         <div>
           <Paper
             elevation={0}
@@ -95,6 +82,7 @@ export default function MorphologicalBoxVertical() {
               value={formats}
               onChange={handleFormat}
               aria-label="selection"
+              fullWidth={true}
             >
               <ToggleButton value="Gesetzeskonformität" aria-label="Gesetzeskonformität">
                 Gesetzeskonformität
@@ -121,10 +109,9 @@ export default function MorphologicalBoxVertical() {
           </Paper>
         </div>
         </Grid>
-        <Grid item xs={2}>
-        <Typography>Betrachtungsobjekt</Typography>
-        </Grid>
-        <Grid item xs={2}>
+        <Grid item xs="auto">
+        <Typography align="center" variant="h6">Betrachtungsobjekt</Typography>
+        
         <div>
           <Paper
             elevation={0}
@@ -141,6 +128,7 @@ export default function MorphologicalBoxVertical() {
               value={formats}
               onChange={handleFormat}
               aria-label="selection"
+              fullWidth={true}
             >
               <ToggleButton value="Abfall" aria-label="Abfall">
                 Abfall
@@ -164,10 +152,9 @@ export default function MorphologicalBoxVertical() {
           </Paper>
         </div>
         </Grid>
-        <Grid item xs={2}>
-        <Typography>Betrachtungskonzept</Typography>
-        </Grid>
-        <Grid item xs={2}>
+        <Grid item xs="auto">
+        <Typography align="center" variant="h6">Betrachtungskonzept</Typography>
+        
         <div>
           <Paper
             elevation={0}
@@ -184,6 +171,7 @@ export default function MorphologicalBoxVertical() {
               value={formats}
               onChange={handleFormat}
               aria-label="selection"
+              fullWidth={true}
             >
               <ToggleButton value="Verwaltungszentriert" aria-label="Verwaltungszentriert">
                 Verwaltungszentriert
@@ -198,10 +186,9 @@ export default function MorphologicalBoxVertical() {
           </Paper>
         </div>
         </Grid>
-        <Grid item xs={2}>
-        <Typography>Betrachtungsgrenzen</Typography>
-        </Grid>
-        <Grid item xs={2}>
+        <Grid item xs="auto">
+        <Typography align="center" variant="h6">Betrachtungsgrenzen</Typography>
+        
         <div>
           <Paper
             elevation={0}
@@ -218,6 +205,7 @@ export default function MorphologicalBoxVertical() {
               value={formats}
               onChange={handleFormat}
               aria-label="selection"
+              fullWidth={true}
             >
               <ToggleButton value="Standort/Betrieb" aria-label="Standort/Betrieb">
                 Standort/Betrieb
@@ -235,10 +223,9 @@ export default function MorphologicalBoxVertical() {
           </Paper>
         </div>
         </Grid>
-        <Grid item xs={2}>
-        <Typography>Adressat/Anwender</Typography>
-        </Grid>
-        <Grid item xs={2}>
+        <Grid item xs="auto">
+        <Typography align="center" variant="h6">Adressat/Anwender</Typography>
+        
         <div>
           <Paper
             elevation={0}
@@ -255,6 +242,7 @@ export default function MorphologicalBoxVertical() {
               value={formats}
               onChange={handleFormat}
               aria-label="selection"
+              fullWidth={true}
             >
               <ToggleButton value="Unternehmensführung" aria-label="Unternehmensführung">
                 Unternehmensführung
@@ -275,10 +263,9 @@ export default function MorphologicalBoxVertical() {
           </Paper>
         </div>
         </Grid>
-        <Grid item xs={2}>
-        <Typography>Integrationsgrad</Typography>
-        </Grid>
-        <Grid item xs={2}>
+        <Grid item xs="auto">
+        <Typography align="center" variant="h6">Integrationsgrad</Typography>
+        
         <div>
           <Paper
             elevation={0}
@@ -295,6 +282,7 @@ export default function MorphologicalBoxVertical() {
               value={formats}
               onChange={handleFormat}
               aria-label="selection"
+              fullWidth={true}
             >
               <ToggleButton value="Stand-Alone" aria-label="Stand-Alone">
                 Stand-Alone

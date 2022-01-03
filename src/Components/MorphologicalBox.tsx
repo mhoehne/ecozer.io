@@ -85,6 +85,7 @@ export default function MorphologicalBox() {
               value={formats}
               onChange={handleFormat}
               aria-label="selection"
+              fullWidth={true}
             >
               <ToggleButton value="Gesetzeskonformität" aria-label="Gesetzeskonformität">
                 Gesetzeskonformität
@@ -130,6 +131,7 @@ export default function MorphologicalBox() {
               value={formats}
               onChange={handleFormat}
               aria-label="selection"
+              fullWidth={true}
             >
               <ToggleButton value="Abfall" aria-label="Abfall">
                 Abfall
@@ -172,6 +174,7 @@ export default function MorphologicalBox() {
               value={formats}
               onChange={handleFormat}
               aria-label="selection"
+              fullWidth={true}
             >
               <ToggleButton value="Verwaltungszentriert" aria-label="Verwaltungszentriert">
                 Verwaltungszentriert
@@ -205,6 +208,7 @@ export default function MorphologicalBox() {
               value={formats}
               onChange={handleFormat}
               aria-label="selection"
+              fullWidth={true}
             >
               <ToggleButton value="Standort/Betrieb" aria-label="Standort/Betrieb">
                 Standort/Betrieb
@@ -241,6 +245,7 @@ export default function MorphologicalBox() {
               value={formats}
               onChange={handleFormat}
               aria-label="selection"
+              fullWidth={true}
             >
               <ToggleButton value="Unternehmensführung" aria-label="Unternehmensführung">
                 Unternehmensführung
@@ -280,6 +285,7 @@ export default function MorphologicalBox() {
               value={formats}
               onChange={handleFormat}
               aria-label="selection"
+              fullWidth={true}
             >
               <ToggleButton value="Stand-Alone" aria-label="Stand-Alone">
                 Stand-Alone
