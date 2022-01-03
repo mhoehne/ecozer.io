@@ -49,8 +49,21 @@ export default function MorphologicalBoxVertical() {
     <Box 
       px={{ xs: 2, sm: 2}}
       py={{ xs: 2, sm: 2}}
+      sx={{ width: '100%' }}
       bgcolor="background.paper"
       color="text.primary">
+
+
+
+
+
+
+
+
+
+
+
+
 
       <Box sx={{ width: '100%' }}>
       <Grid 
@@ -60,6 +73,8 @@ export default function MorphologicalBoxVertical() {
         justifyContent="center"
         rowSpacing={1} 
         columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
+
+
         <Grid item xs={2}>
         <Typography>Anwendungsgebiet</Typography>
         </Grid>
