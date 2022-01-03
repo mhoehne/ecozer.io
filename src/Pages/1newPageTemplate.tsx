@@ -1,6 +1,8 @@
 import react from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+
 
 export default function PageName() {
 
@@ -21,7 +23,7 @@ export default function PageName() {
 {/* /user-list how can I change the background color from just admins? */}
 {/* How can I make pagination work? */}
 {/* How should the reset password admin function should look and work? */}
-{/* */}
+{/* /search/product-detail grid allignment */}
 {/* */}
 {/* */}
 {/* */}
