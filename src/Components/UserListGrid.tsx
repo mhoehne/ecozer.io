@@ -2,6 +2,7 @@ import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import { useEffect, useState } from 'react';
 import axios, { Axios, AxiosResponse } from 'axios';
 import { Box } from '@mui/material';
+import { GetAccounts, AccountsType, AccountResultType } from '../API';
 
 
 const columns: GridColDef[] = [
@@ -43,26 +44,15 @@ const columns: GridColDef[] = [
   },
 ];
 
-type Accounts = {
-  id: number;
-  emailAddress: string;
-  firstName: string;
-  lastName: string;
-  companyName: string;
-  lastLogin: string;
-}
 
-type AccountResultType = {
-  accounts: Accounts[],
-}
 
 
 export default function DataGridDemo() {
 
-const [accounts, setAccounts] = useState<Accounts[]>([])
+const [accounts, setAccounts] = useState<AccountsType[]>([])
 
 useEffect(() => {
-axios.get<AccountResultType>('http://localhost:3000/accounts.json')
+GetAccounts()
 .then((result) => {setAccounts(result.data.accounts)})
 .catch();
 
