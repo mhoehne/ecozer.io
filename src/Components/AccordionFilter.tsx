@@ -60,7 +60,7 @@ export default function AccordionFilter() {
 
 <Typography variant="h6">Suchfilter</Typography>
 
-<Accordion>
+<Accordion defaultExpanded={true}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"

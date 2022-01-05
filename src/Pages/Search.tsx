@@ -30,7 +30,7 @@ export default function Search() {
         >
 
           <Grid
-          item xs={3} sm={3}
+          item xs={4} sm={4}
           height="50rem"
           direction="column"
           justifyContent="flex-start"
@@ -44,7 +44,7 @@ export default function Search() {
 
           <Grid 
             container
-            item xs={9} sm={9}
+            item xs={8} sm={8}
             > 
               
                 <Grid item xs={4} sm={6}>
@@ -56,22 +56,22 @@ export default function Search() {
                 <Grid item xs={3} sm={6}>
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item >
+                <Grid item xs={3} sm={6}>
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item >
+                <Grid item xs={3} sm={6}>
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item >
+                <Grid item xs={3} sm={6}>
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item >
+                <Grid item xs={3} sm={6}>
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item >
+                <Grid item xs={3} sm={6}>
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item >
+                <Grid item xs={3} sm={6}>
                   <ImgMediaCard/>
                 </Grid>
               </Grid>
