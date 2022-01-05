@@ -47,31 +47,31 @@ export default function Search() {
             item xs={8} sm={8}
             > 
               
-                <Grid item xs={4} sm={6}>
+                <Grid item xs={12} sm={6}>
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item xs={4} sm={6}>
+                <Grid item xs={12} sm={6}>
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item xs={3} sm={6}>
+                <Grid item xs={12} sm={6}>
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item xs={3} sm={6}>
+                <Grid item xs={12} sm={6}>
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item xs={3} sm={6}>
+                <Grid item xs={12} sm={6}>
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item xs={3} sm={6}>
+                <Grid item xs={12} sm={6}>
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item xs={3} sm={6}>
+                <Grid item xs={12} sm={6}>
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item xs={3} sm={6}>
+                <Grid item xs={12} sm={6}>
                   <ImgMediaCard/>
                 </Grid>
-                <Grid item xs={3} sm={6}>
+                <Grid item xs={12} sm={6}>
                   <ImgMediaCard/>
                 </Grid>
               </Grid>
