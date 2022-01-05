@@ -1,22 +1,124 @@
-import Navigation from '../Components/Navigation';
-import Button from '@mui/material/Button';
+import * as React from 'react';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import ImgMediaCard from '../Components/ImgMediaCard';
 import Grid from '@mui/material/Grid';
+import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}
 
+function TabPanel(props: TabPanelProps) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+function a11yProps(index: number) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
 
 export default function Overview() {
 
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+  };
 
   return (
 
       <>
         <Container>
-          <Button variant="contained" href="/approval/approval-detail">
-          Link to /approval/approval-detail
-          </Button>
-          <Grid container spacing={0}> 
+        <Box 
+          px={{ xs: 2, sm: 2}}
+          py={{ xs: 2, sm: 2}}
+          mx={{ xs: 0, sm: 0}}
+          my={{ xs: 2, sm: 2}}
+          bgcolor="background.paper"
+          color="text.primary"
+          >
+      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Tabs 
+          value={value} 
+          onChange={handleChange} 
+          aria-label="basic tabs example"
+          >
+          <Tab label="Pending" {...a11yProps(0)} />
+          <Tab label="Rejected" {...a11yProps(1)} />
+          <Tab label="Approved" {...a11yProps(2)} />
+        </Tabs>
+      </Box>
+      </Box>
+      <TabPanel value={value} index={0}>
+      <Grid container spacing={0}> 
+            <Grid item xs={12} sm={4}>
+              <ImgMediaCard/>
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <ImgMediaCard/>
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <ImgMediaCard/>
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <ImgMediaCard/>
+            </Grid>
+            
+          </Grid>
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+      <Grid container spacing={0}> 
+            <Grid item xs={12} sm={4}>
+              <ImgMediaCard/>
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <ImgMediaCard/>
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <ImgMediaCard/>
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <ImgMediaCard/>
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <ImgMediaCard/>
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <ImgMediaCard/>
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <ImgMediaCard/>
+            </Grid>
+          </Grid>
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+      <Grid container spacing={0}> 
             <Grid item xs={12} sm={4}>
               <ImgMediaCard/>
             </Grid>
@@ -45,6 +147,9 @@ export default function Overview() {
               <ImgMediaCard/>
             </Grid>
           </Grid>
+      </TabPanel>
+    
+
         </Container>
         
       </>
