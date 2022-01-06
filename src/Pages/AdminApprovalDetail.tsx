@@ -1,12 +1,14 @@
-import Navigation from '../Components/Navigation';
+import ProductDetailViewCard from '../Components/ProductDetailViewCard';
+import MorphologicalBoxVertical from '../Components/MorphologicalBoxVertical';
 
-
-export default function Page2() {
+export default function AdminApprovalDetail() {
 
 
   return (
 
       <>
+        <ProductDetailViewCard/>
+        <MorphologicalBoxVertical/>
       </>
   );
 }
