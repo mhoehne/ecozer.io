@@ -12,6 +12,8 @@ export default function SearchBarBoxed() {
 
       <>
         <Box 
+          mx={{ xs: 4, sm: 4}}
+          my={{ xs: 2, sm: 2}}
           px={{ xs: 2, sm: 2}}
           py={{ xs: 2, sm: 2}}
           bgcolor="background.paper"

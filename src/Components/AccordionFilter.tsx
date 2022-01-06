@@ -58,7 +58,7 @@ export default function AccordionFilter() {
           bgcolor="background.paper"
           color="text.primary">
 
-<Typography variant="h6">Suchfilter</Typography>
+<Typography variant="h6" sx={{m: 1}}>Suchfilter</Typography>
 
 <Accordion defaultExpanded={true}>
         <AccordionSummary

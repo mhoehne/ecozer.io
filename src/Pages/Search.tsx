@@ -19,9 +19,7 @@ export default function Search() {
 
       <>
         <ImageBanner/>
-        <Container>
         <SearchBarBoxed/>
-        </Container>
 
         <Grid
         container
@@ -35,11 +33,15 @@ export default function Search() {
           direction="column"
           justifyContent="flex-start"
           alignItems="flex-start"
-          
           >
-            <Container>
-            <AccordionFilter/>
-            </Container>
+            <Box  px={{ xs: 2, sm: 2}}
+                  py={{ xs: 0, sm: 0}}
+                  mx={{ xs: 4, sm: 4}}
+                  my={{ xs: 4, sm: 4}}
+                  bgcolor="background.paper"
+                  color="text.primary">
+              <AccordionFilter/>
+            </Box>
           </Grid>
 
           <Grid 
