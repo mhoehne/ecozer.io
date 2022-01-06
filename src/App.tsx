@@ -15,7 +15,6 @@ import SignUp from "./Pages/SignUp";
 import AdminApproval from "./Pages/AdminApproval";
 import AdminApprovalDetail from "./Pages/AdminApprovalDetail";
 import UserList from "./Pages/UserList";
-import Navigation from "./Components/Navigation";
 import Container from "@mui/material/Container";
 import Footer from "./Components/Footer";
 import AppBarTop from "./Components/AppBarTop";
@@ -49,7 +48,7 @@ export default function App() {
 
           {/* Admin */}
           <Route path='/approval' element={<AdminApproval/>} />
-          <Route path='/approval/approval-detail' element={<AdminApprovalDetail/>} />
+          <Route path='/approval/detail' element={<AdminApprovalDetail/>} />
           <Route path='/user-list' element={<UserList/>} />
         </Routes>
         </Container>

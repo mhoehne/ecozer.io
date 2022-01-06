@@ -67,6 +67,7 @@ export default function ImgMediaCard() {
       <CardActions>
         <Button size="small" href="/search/product-detail">+ details</Button>
         <Button size="small" href="/search/product-detail" sx={{}}>+ editieren</Button>
+        <Button size="small" variant="contained" color="secondary" href="/approval/detail" sx={{}}>überprüfen</Button>
       </CardActions>
       
       
