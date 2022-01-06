@@ -37,14 +37,14 @@ export default function SignUp() {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            mt: 15,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
           }}
         >
-          <Typography component="h1" variant="h5">
-            SignUp
+          <Typography component="h1" variant="h4">
+            Account erstellen
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
@@ -118,7 +118,7 @@ export default function SignUp() {
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/signin" variant="body2">
-                  {"Hast du bereits einen Account?"}
+                  {"Du bereits einen Account?"}
                 </Link>
               </Grid>
             </Grid>

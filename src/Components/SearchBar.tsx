@@ -7,7 +7,7 @@ export default function SearchBar() {
   return (
     
       <TextField sx={{ width: 350 }}
-        label="Produkt suchen..."
+        label="Suchen..."
         InputProps={{
           type: 'search',
         }}

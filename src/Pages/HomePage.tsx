@@ -41,7 +41,6 @@ Item.defaultProps = {
           Neuste Produkte
         </Typography>
       </Container>
-    <Container>
       <Grid container spacing={0}>
       <Grid item xs={4}>
         <ImgMediaCard/>
@@ -53,7 +52,6 @@ Item.defaultProps = {
         <ImgMediaCard/>
       </Grid>
     </Grid>
-    </Container>
 
     
     

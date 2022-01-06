@@ -1,8 +1,11 @@
+import * as React from 'react';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import { useEffect, useState } from 'react';
 import axios, { Axios, AxiosResponse } from 'axios';
 import { Box } from '@mui/material';
 import { GetAccounts, AccountsType, AccountResultType } from '../API';
+import { styled } from '@mui/system';
+import TablePaginationUnstyled from '@mui/base/TablePaginationUnstyled';
 
 
 const columns: GridColDef[] = [
@@ -10,6 +13,12 @@ const columns: GridColDef[] = [
     headerName: 'ID', 
     type: 'number',
     width: 60,
+    editable: false,
+  },
+  { field: 'admin', 
+    headerName: 'Admin', 
+    type: '',
+    width: 80,
     editable: false,
   },
   {
@@ -39,7 +48,13 @@ const columns: GridColDef[] = [
   {
     field: 'lastLogin',
     headerName: 'letzter Login',
-    width: 200,
+    width: 120,
+    editable: false,
+  },
+  {
+    field: 'options',
+    headerName: 'Optionen',
+    width: 100,
     editable: false,
   },
 ];
@@ -76,7 +91,7 @@ GetAccounts()
           rows={accounts}
           columns={columns}
           pageSize={20}
-          rowsPerPageOptions={[100]}
+          rowsPerPageOptions={[20]}
           disableSelectionOnClick
         />
       
