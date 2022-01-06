@@ -7,8 +7,8 @@ import Container from '@mui/material/Container';
 import ImgMediaCard from '../Components/ImgMediaCard';
 import Grid from '@mui/material/Grid';
 import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
-import ThumbDownIcon from '@mui/icons-material/ThumbDown';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import DoneIcon from '@mui/icons-material/Done';
+import CloseIcon from '@mui/icons-material/Close';
 
 interface TabPanelProps {
   children?: React.ReactNode;

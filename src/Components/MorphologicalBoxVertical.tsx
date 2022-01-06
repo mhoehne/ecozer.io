@@ -49,11 +49,19 @@ export default function MorphologicalBoxVertical() {
     <Box 
       px={{ xs: 6, sm: 6}}
       py={{ xs: 2, sm: 2}}
+      mx={{xs: 0, sm: 0}}
+      my={{xs: 0, sm: 0}}
       sx={{ width: '100%' }}
       bgcolor="background.paper"
       color="text.primary">
 
-      <Box sx={{ width: '100%' }}>
+      <Box sx={{ width: '100%', my: 3 }}>
+        <Typography 
+          variant="h4"
+          align="center"
+          sx={{m: 5}}
+          >Mermale & Ausprägungen
+        </Typography>
       <Grid 
         container
         direction="row"

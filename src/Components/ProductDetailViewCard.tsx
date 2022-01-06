@@ -20,7 +20,7 @@ export default function ProductDetailViewCard() {
       py={{ xs: 2, sm: 2}}
       bgcolor="background.paper"
       color="text.primary"
-      sx={{ width: '100%' }}>
+      sx={{ width: '100%', mt: 2  }}>
         <Grid
         container 
         alignItems="center" 
@@ -28,17 +28,17 @@ export default function ProductDetailViewCard() {
         justifyContent="center"
         rowSpacing={1} 
         columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
-          <Grid item xs={6}>
+          <Grid item xs={7}>
             <Container>
           <CardMedia
               component="img"
-              alt="green iguana"
-              height="250"
+              alt="product image"
+              height="300"
               image={SampleImg}
               />
               </Container>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={5}>
             <Container>
             <Grid item xs={12}>
             <TextField
@@ -46,7 +46,7 @@ export default function ProductDetailViewCard() {
               fullWidth
               id="outlined-read-only-input"
               label="BUIS Name"
-              defaultValue="Productname"
+              defaultValue="Produktname"
               InputProps={{
                 readOnly: true,
               }}
@@ -58,7 +58,7 @@ export default function ProductDetailViewCard() {
               fullWidth
               id="outlined-read-only-input"
               label="Homepage"
-              defaultValue="www.product-homepage.de"
+              defaultValue="www.produkt-homepage.de"
               InputProps={{
                 readOnly: true,
               }}
@@ -79,24 +79,23 @@ export default function ProductDetailViewCard() {
               </Container>
           </Grid>
           <Grid item xs={12}>
-            <Container>
+            <Box sx={{mx: 3, mt: 3}}>
             <TextField
             margin="normal"
             fullWidth
-          id="outlined-multiline-static"
-          label="Beschreibung"
-          multiline
-          rows={10}
-          defaultValue="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
-          InputProps={{
-            readOnly: true,
-          }}
-        />
-            </Container>
+            id="outlined-multiline-static"
+            label="Beschreibung"
+            multiline
+            rows={10}
+            defaultValue="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+            InputProps={{
+              readOnly: true,
+            }}
+            />
+        </Box>
           </Grid>
         </Grid>
       </Box>
-      <Divider/>
     </>
   );
 }
