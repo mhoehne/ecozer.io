@@ -15,7 +15,7 @@ export default function ProductDetail() {
 
       <>
           <Box sx={{mt: 10}}>
-          <Button variant="text" color="info" startIcon={<ArrowBackIosNewOutlinedIcon/>} href="/approval">
+          <Button variant="text" color="info" startIcon={<ArrowBackIosNewOutlinedIcon/>} href="/search">
             Zurück
           </Button>
         </Box>
