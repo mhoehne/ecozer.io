@@ -42,6 +42,7 @@ export default function App() {
           <Route path='/signup' element={<SignUp/>} />
           
           {/* User */}
+          <Route path='/dashboard' element={<Account/>} />
           <Route path='/account' element={<Account/>} />
           <Route path='/my-products' element={<MyProducts/>} />
           <Route path='/my-products/add-product' element={<AddProduct/>} />

@@ -14,6 +14,7 @@ import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import BadgeIcon from '@mui/icons-material/Badge';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 import { Link } from "react-router-dom";
 
 
@@ -73,16 +74,23 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
+        <MenuItem component={Link} to='/dashboard'>
+        <ListItemIcon>
+            <DashboardIcon fontSize="small" />
+          </ListItemIcon>
+           Dashboard
+        </MenuItem>
         <MenuItem component={Link} to='/my-products'>
         <ListItemIcon>
             <DashboardCustomizeIcon fontSize="small" />
-          </ListItemIcon> My Products
+          </ListItemIcon>
+          Products
         </MenuItem>
         <MenuItem component={Link} to='/account'>
         <ListItemIcon>
             <AccountBoxIcon fontSize="small" />
           </ListItemIcon>
-           My account
+           Account
         </MenuItem>
         <Divider />
         <MenuItem component={Link} to='/approval'>
