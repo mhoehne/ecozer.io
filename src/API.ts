@@ -1,8 +1,8 @@
 import axios, { Axios, AxiosResponse } from 'axios';
 
 export type AccountsType = {
-  id: number;
   emailAddress: string;
+  password: string;
   firstName: string;
   lastName: string;
   companyName: string;
@@ -11,6 +11,13 @@ export type AccountsType = {
 
 export type AccountResultType = {
   accounts: AccountsType[],
+}
+
+export type AccountCreatedResultType = AccountsType | string
+
+export function CreateAccount(accounts: AccountsType): Promise<AxiosResponse<AccountCreatedResultType>> {
+
+  return axios.post<AccountCreatedResultType>('http://localhost:8000/accounts', accounts,);
 }
 
 export function GetAccounts(): Promise<AxiosResponse<AccountResultType>>

@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Navigation from '../Components/Navigation';
+import { CreateAccount } from '../API';
 
 
 const theme = createTheme();
@@ -23,11 +24,35 @@ export default function SignUp() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    const emailAddress = data.get('emailAddress')?.toString()
+    
+    if (emailAddress === undefined) {
+      alert('invalid email address');
+      return;
+    };
+
+    const account = {
+      "emailAddress": emailAddress,
+      "password": "test45678",
+      "title": "null",
+      "firstName": "Martin",
+      "lastName": "Hoehne",
+      "companyName": "Martin GmbH",
+      "lastLogin": "null"
+      };
+    
+      CreateAccount(account)
+      .then((account) => {
+        alert('success')
+        // success
+      })
+      .catch((msg) => {
+        alert('error')
+        // error
+      });
   };
+
+  
 
   return (
 
@@ -83,9 +108,9 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
-                  id="email"
+                  id="emailAddress"
                   label="E-Mail-Adresse"
-                  name="email"
+                  name="emailAddress"
                   autoComplete="email"
                 />
               </Grid>
@@ -93,10 +118,10 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
+                  id="password"
                   name="password"
                   label="Passwort"
                   type="password"
-                  id="password"
                   autoComplete="new-password"
                 />
               </Grid>

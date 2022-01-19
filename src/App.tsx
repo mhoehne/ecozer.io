@@ -18,6 +18,7 @@ import UserList from "./Pages/UserList";
 import Container from "@mui/material/Container";
 import Footer from "./Components/Footer";
 import AppBarTop from "./Components/AppBarTop";
+import Dashboard from "./Pages/Dashboard"
 
 export default function App() {
   return (
@@ -42,7 +43,7 @@ export default function App() {
           <Route path='/signup' element={<SignUp/>} />
           
           {/* User */}
-          <Route path='/dashboard' element={<Account/>} />
+          <Route path='/dashboard' element={<Dashboard/>} />
           <Route path='/account' element={<Account/>} />
           <Route path='/my-products' element={<MyProducts/>} />
           <Route path='/my-products/add-product' element={<AddProduct/>} />
