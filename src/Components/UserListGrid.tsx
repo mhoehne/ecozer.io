@@ -3,13 +3,13 @@ import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import { useEffect, useState } from 'react';
 import axios, { Axios, AxiosResponse } from 'axios';
 import { Box } from '@mui/material';
-import { GetAccounts, AccountsType, AccountResultType } from '../API';
+import { GetAccounts, AccountsType, AccountResultType, PutAccounts } from '../API';
 import { styled } from '@mui/system';
 import TablePaginationUnstyled from '@mui/base/TablePaginationUnstyled';
 
 
 const columns: GridColDef[] = [
-  { field: 'id', 
+  { field: '_id',
     headerName: 'ID', 
     type: 'number',
     width: 60,
@@ -64,7 +64,7 @@ const columns: GridColDef[] = [
 
 export default function DataGridDemo() {
 
-const [accounts, setAccounts] = useState<AccountsType[]>([])
+const [account, setAccounts] = useState<AccountsType[]>([])
 
 useEffect(() => {
 GetAccounts()
@@ -88,12 +88,24 @@ GetAccounts()
       <div style={{ height: '100vh', width: '100%' }}>
       
         <DataGrid
-          rows={accounts}
+          rows={account}
           columns={columns}
+          getRowId={(account) => account.emailAddress}
+        //   onEditRowsModelChange={(state, details) => {
+        //     for(const email in state) {
+        //       const update: AccountsType = { emailAddress: email};
+        //           for (const field in state[email]) {
+        //             update[field] = state[email][field].value;
+        //       }
+        //       const account: AccountsType = update as AccountsType;
+        //       PutAccounts(account);
+        //       }
+        // }}
           pageSize={20}
           rowsPerPageOptions={[20]}
           disableSelectionOnClick
         />
+
       
       </div>
     </Box>

@@ -32,13 +32,14 @@ export default function SignUp() {
     };
 
     const account = {
+      "isAdmin": true,
       "emailAddress": emailAddress,
       "password": "test45678",
       "title": "null",
       "firstName": "Martin",
       "lastName": "Hoehne",
       "companyName": "Martin GmbH",
-      "lastLogin": "null"
+      "lastLogin": "null",
       };
     
       CreateAccount(account)

@@ -1,6 +1,7 @@
 import axios, { Axios, AxiosResponse } from 'axios';
 
 export type AccountsType = {
+  isAdmin: boolean;
   emailAddress: string;
   password: string;
   firstName: string;
@@ -18,9 +19,9 @@ export type AccountCreatedResultType = AccountsType | string
 /*CRUD*SECTION>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 /*CREATE*************************************************************************************************/
 
-export function CreateAccount(accounts: AccountsType): Promise<AxiosResponse<AccountCreatedResultType>> {
+export function CreateAccount(account: AccountsType): Promise<AxiosResponse<AccountCreatedResultType>> {
 
-  return axios.post<AccountCreatedResultType>('http://localhost:8000/accounts', accounts,);
+  return axios.post<AccountCreatedResultType>('http://localhost:8000/accounts', account,);
 }
 
 /*READ***************************************************************************************************/
@@ -33,18 +34,18 @@ export function GetAccounts(): Promise<AxiosResponse<AccountResultType>>
 
 /*UPDATE*************************************************************************************************/
 
-export function PutAccounts(): Promise<AxiosResponse<AccountResultType>>
+export function PutAccounts(account: AccountsType): Promise<AxiosResponse<AccountResultType>>
 {
-  return axios.put<AccountResultType>('http://localhost:8000/accounts');
+  return axios.put<AccountResultType>('http://localhost:8000/accounts', account);
 }
 
 /*DELETE*************************************************************************************************/
-
-export function DeleteAccounts(): Promise<AxiosResponse<AccountResultType>>
+/*
+export function DeleteAccount(account: AccountsType): Promise<AxiosResponse<AccountResultType>>
 {
-  return axios.put<AccountResultType>('http://localhost:8000/accounts');
+  return axios.delete<AccountResultType>('http://localhost:8000/accounts', account);
 }
-
+*/
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<CRUD*SECTION*/
 
 export type ProductType = {
