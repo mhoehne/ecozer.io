@@ -1,4 +1,4 @@
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { DataGrid, GridColDef, GridEditRowsModel } from '@mui/x-data-grid';
 import { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
 import { GetAccounts, AccountsType, PutAccounts } from '../API';
@@ -54,6 +54,37 @@ const columns: GridColDef[] = [
   },
 ];
 
+const onRowEdit = (accounts: AccountsType[], state: GridEditRowsModel) => {
+  for(const email in state) {
+    const accountNewFields: { [key:string]: string } = { emailAddress: email };
+
+    // Get all new values from `state` into `accountNewFields`
+    for (const field in state[email]) {
+      const newValue = state[email][field].value?.toString();
+      if (newValue === undefined) {
+        continue;
+      }
+
+      accountNewFields[field] = newValue;
+    }
+
+    // Find account inside `accounts` state variable
+    let account = accounts.find((acc) => acc.emailAddress === email);
+
+    // Did not find account: should never happen. Send error to console and skip this email to avoid a crash.
+    if (account === undefined) {
+      console.error(`Could not find an account of email "${email}". This is most likely a bug.`);
+      continue;
+    }
+
+    // Paste all fields inside `accountNewFields` into `account`
+    account = Object.assign(account, accountNewFields);
+
+    // Update `account`
+    PutAccounts(account);
+  }
+};
+
 export default function DataGridDemo() {
   const [accounts, setAccounts] = useState<AccountsType[]>([])
 
@@ -77,17 +108,7 @@ export default function DataGridDemo() {
           rows={accounts}
           columns={columns}
           getRowId={(account) => account.emailAddress}
-          onEditRowsModelChange={(state) => {
-            // for(const email in state) {
-            //   const update: { [key:string]: any } = { emailAddress: email };
-            //   for (const field in state[email]) {
-            //     update[field] = state[email][field].value;
-            //   }
-            // 
-            // const account: AccountsType = (AccountsType) update;
-            //   PutAccounts(account);
-            // }
-          }}
+          onEditRowsModelChange={(state) => onRowEdit(accounts, state)}
           pageSize={20}
           rowsPerPageOptions={[20]}
           disableSelectionOnClick
