@@ -1,12 +1,7 @@
-import * as React from 'react';
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { useEffect, useState } from 'react';
-import axios, { Axios, AxiosResponse } from 'axios';
 import { Box } from '@mui/material';
-import { GetAccounts, AccountsType, AccountResultType, PutAccounts } from '../API';
-import { styled } from '@mui/system';
-import TablePaginationUnstyled from '@mui/base/TablePaginationUnstyled';
-
+import { GetAccounts, AccountsType, PutAccounts } from '../API';
 
 const columns: GridColDef[] = [
   { field: '_id',
@@ -59,54 +54,44 @@ const columns: GridColDef[] = [
   },
 ];
 
-
-
-
 export default function DataGridDemo() {
+  const [accounts, setAccounts] = useState<AccountsType[]>([])
 
-const [account, setAccounts] = useState<AccountsType[]>([])
-
-useEffect(() => {
-GetAccounts()
-.then((result) => {setAccounts(result.data.accounts)})
-.catch();
-
-
-},[]);
-
-
-
+  useEffect(() => {
+    GetAccounts()
+    .then((result) => {setAccounts(result.data.accounts)})
+    .catch();
+  },[]);
 
   return (
     <Box
-          px={{ xs: 2, sm: 2}}
-          py={{ xs: 2, sm: 2}}
-          mx={{ xs: 0, sm: 0}}
-          my={{ xs: 2, sm: 2}}
-          bgcolor="background.paper"
-          color="text.primary">
+      px={{ xs: 2, sm: 2}}
+      py={{ xs: 2, sm: 2}}
+      mx={{ xs: 0, sm: 0}}
+      my={{ xs: 2, sm: 2}}
+      bgcolor="background.paper"
+      color="text.primary"
+    >
       <div style={{ height: '100vh', width: '100%' }}>
-      
         <DataGrid
-          rows={account}
+          rows={accounts}
           columns={columns}
           getRowId={(account) => account.emailAddress}
-        //   onEditRowsModelChange={(state, details) => {
-        //     for(const email in state) {
-        //       const update: AccountsType = { emailAddress: email};
-        //           for (const field in state[email]) {
-        //             update[field] = state[email][field].value;
-        //       }
-        //       const account: AccountsType = update as AccountsType;
-        //       PutAccounts(account);
-        //       }
-        // }}
+          onEditRowsModelChange={(state) => {
+            // for(const email in state) {
+            //   const update: { [key:string]: any } = { emailAddress: email };
+            //   for (const field in state[email]) {
+            //     update[field] = state[email][field].value;
+            //   }
+            // 
+            // const account: AccountsType = (AccountsType) update;
+            //   PutAccounts(account);
+            // }
+          }}
           pageSize={20}
           rowsPerPageOptions={[20]}
           disableSelectionOnClick
         />
-
-      
       </div>
     </Box>
   );
