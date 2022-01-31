@@ -81,7 +81,13 @@ const onRowEdit = (accounts: AccountsType[], state: GridEditRowsModel) => {
     account = Object.assign(account, accountNewFields);
 
     // Update `account`
-    PutAccounts(account);
+    PutAccounts(account)
+      .then(() => {
+        // TODO: accounts updated successfuly
+      })
+      .catch(() => {
+        // TODO: could not update accounts
+      });
   }
 };
 
