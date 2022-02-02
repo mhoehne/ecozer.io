@@ -4,22 +4,23 @@ import { Box } from '@mui/material';
 import { GetAccounts, AccountsType, PutAccounts } from '../API';
 
 const columns: GridColDef[] = [
-  { field: '_id',
-    headerName: 'ID', 
-    type: 'number',
-    width: 60,
+  
+  {
+    field: 'options',
+    headerName: 'Optionen',
+    width: 100,
     editable: false,
   },
   { field: 'admin', 
     headerName: 'Admin', 
     type: '',
-    width: 80,
+    width: 70,
     editable: false,
   },
   {
     field: 'emailAddress',
     headerName: 'E-Mail-Adresse',
-    width: 300,
+    width: 250,
     editable: true,
   },
   {
@@ -41,15 +42,15 @@ const columns: GridColDef[] = [
     editable: true,
   },
   {
-    field: 'lastLogin',
-    headerName: 'letzter Login',
-    width: 120,
+    field: 'createdAt',
+    headerName: 'erstellt am',
+    width: 200,
     editable: false,
   },
-  {
-    field: 'options',
-    headerName: 'Optionen',
-    width: 100,
+  { field: '_id',
+    headerName: 'ID', 
+    type: 'number',
+    width: 220,
     editable: false,
   },
 ];
