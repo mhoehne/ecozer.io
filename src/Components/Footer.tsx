@@ -129,25 +129,20 @@ export default function Footer() {
         </Grid>
       </Container>
 
-      <Container>
-        <Grid container spacing={2}>
+      <Container >
+        <Grid container spacing={2} >
           <Grid item xs={12} sm={12} height='2rem' borderBottom='solid 1px'/>
-            <Grid item xs={1} sm={1}>
-              <Box >HTW Berlin</Box>
+            <Grid item xs={2} sm={2}>
+              HTW Berlin
             </Grid>
-          <Grid item xs={1} sm={1}>
-              <Link href="#" underline="none" color="inherit">
-                Link here
-              </Link>
+          <Grid item xs={2} sm={2} sx={{mx:1}}>
+              <Link href="#" underline="none" color="inherit" sx={{px: 4}}>
+                Impressum
+              </Link> -
           </Grid>
-          <Grid item xs={1} sm={1}>
+          <Grid item xs={2} sm={2}>
               <Link href="#" underline="none" color="inherit">
-                Link here
-              </Link>
-          </Grid>
-          <Grid item xs={1} sm={1}> 
-              <Link href="#" underline="none" color="inherit">
-                Link here
+                Datenschutzerklärung
               </Link>
           </Grid>
         </Grid>
