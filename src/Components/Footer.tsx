@@ -35,8 +35,32 @@ export default function Footer() {
           </Grid>
           <Grid item xs={12} sm={3}>
             <Box>
-              <Typography variant="h6">Beliebte Seiten</Typography>
+              <Link href="#" underline="none" color="inherit">
+                Link here
+              </Link>
             </Box>
+            <Box>
+              <Link href="#" underline="none" color="inherit">
+              Link here
+              </Link>
+            </Box>
+            <Box>
+              <Link href="#" underline="none" color="inherit">
+              Link here
+              </Link>
+            </Box>
+            <Box>
+              <Link href="#" underline="none" color="inherit">
+              Link here
+              </Link>
+            </Box>
+            <Box>
+              <Link href="#" underline="none" color="inherit">
+              Link here
+              </Link>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={3}>
             <Box>
               <Link href="#" underline="none" color="inherit">
                 Link here
@@ -65,41 +89,8 @@ export default function Footer() {
           </Grid>
           <Grid item xs={12} sm={3}>
             <Box>
-              <Typography variant="h6">Portale</Typography>
-            </Box>
-            <Box>
               <Link href="#" underline="none" color="inherit">
-                Link here
-              </Link>
-            </Box>
-            <Box>
-              <Link href="#" underline="none" color="inherit">
-              Link here
-              </Link>
-            </Box>
-            <Box>
-              <Link href="#" underline="none" color="inherit">
-              Link here
-              </Link>
-            </Box>
-            <Box>
-              <Link href="#" underline="none" color="inherit">
-              Link here
-              </Link>
-            </Box>
-            <Box>
-              <Link href="#" underline="none" color="inherit">
-              Link here
-              </Link>
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={3}>
-            <Box>
-              <Typography variant="h6">Service</Typography>
-            </Box>
-            <Box>
-              <Link href="#" underline="none" color="inherit">
-              Link here
+              Glossar
               </Link>
             </Box>
             <Box>
