@@ -1,16 +1,44 @@
-import { DataGrid, GridColDef, GridEditRowsModel } from '@mui/x-data-grid';
+import { 
+  DataGrid, 
+  GridColDef, 
+  GridActionsCellItem,
+  GridRowId,
+  GridValueOptionsParams,
+  GridEditRowsModel 
+} from '@mui/x-data-grid';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SecurityIcon from '@mui/icons-material/Security';
+import FileCopyIcon from '@mui/icons-material/FileCopy';
 import { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
 import { GetAccounts, AccountsType, PutAccounts } from '../API';
 
 const columns: GridColDef[] = [
   
-  {
-    field: 'options',
-    headerName: 'Optionen',
-    width: 100,
-    editable: false,
-  },
+  /*{
+    field: 'actions',
+    type: 'actions',
+    width: 80,
+    getActions: (params) => [
+      <GridActionsCellItem
+        icon={<DeleteIcon />}
+        label="Delete"
+        onClick={deleteUser(params.id)}
+      />,
+      <GridActionsCellItem
+        icon={<SecurityIcon />}
+        label="Toggle Admin"
+        onClick={toggleAdmin(params.id)}
+        showInMenu
+      />,
+      <GridActionsCellItem
+        icon={<FileCopyIcon />}
+        label="Duplicate User"
+        onClick={duplicateUser(params.id)}
+        showInMenu
+      />,
+    ],
+  },*/
   { field: 'admin', 
     headerName: 'Admin', 
     type: '',
@@ -44,12 +72,13 @@ const columns: GridColDef[] = [
   {
     field: 'createdAt',
     headerName: 'erstellt am',
+    type: 'dateTime',
     width: 200,
     editable: false,
   },
   { field: '_id',
     headerName: 'ID', 
-    type: 'number',
+    type: 'string',
     width: 220,
     editable: false,
   },
@@ -94,6 +123,27 @@ const onRowEdit = (accounts: AccountsType[], state: GridEditRowsModel) => {
 
 export default function DataGridDemo() {
   const [accounts, setAccounts] = useState<AccountsType[]>([])
+
+  /*const toggleAdmin = React.useCallback(
+    (id: GridRowId) => () => {
+      setRows((prevRows) =>
+        prevRows.map((row) =>
+          row.id === id ? { ...row, isAdmin: !row.isAdmin } : row,
+        ),
+      );
+    },
+    [],
+  );
+
+  const duplicateUser = React.useCallback(
+    (id: GridRowId) => () => {
+      setRows((prevRows) => {
+        const rowToDuplicate = prevRows.find((row) => row.id === id)!;
+        return [...prevRows, { ...rowToDuplicate, id: Date.now() }];
+      });
+    },
+    [],
+  );*/
 
   useEffect(() => {
     GetAccounts()
