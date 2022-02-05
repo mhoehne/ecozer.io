@@ -18,7 +18,8 @@ import UserList from "./Pages/UserList";
 import Container from "@mui/material/Container";
 import Footer from "./Components/Footer";
 import AppBarTop from "./Components/AppBarTop";
-import Dashboard from "./Pages/Dashboard"
+import Dashboard from "./Pages/Dashboard";
+import Glossar from "./Pages/Glossar";
 
 export default function App() {
   return (
@@ -35,6 +36,7 @@ export default function App() {
 
           {/* Visitor */}
           <Route path='/' element={<HomePage/>} />
+          <Route path='/glossar' element={<Glossar/>} />
           <Route path='/search' element={<Search/>} />
           <Route path='/search/product-detail' element={<ProductDetail/>} />
 
