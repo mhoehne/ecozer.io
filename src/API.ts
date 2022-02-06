@@ -40,12 +40,11 @@ export function PutAccounts(account: AccountsType): Promise<AxiosResponse<Accoun
 }
 
 /*DELETE*************************************************************************************************/
-/*
-export function DeleteAccount(account: AccountsType): Promise<AxiosResponse<AccountResultType>>
+
+export function DeleteAccount(account: AccountsType): Promise<AxiosResponse>
 {
-  return axios.delete<AccountResultType>('http://localhost:8000/accounts', account);
+  return axios.delete<AccountsType>('http://localhost:8000/accounts', {data: {emailAddress: account.emailAddress}});
 }
-*/
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<CRUD*SECTION*/
 
 export type ProductType = {

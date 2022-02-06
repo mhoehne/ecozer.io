@@ -9,80 +9,14 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import SecurityIcon from '@mui/icons-material/Security';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
-import { useEffect, useState } from 'react';
+import { 
+  useEffect, 
+  useState, 
+  useCallback 
+} from 'react';
 import { Box } from '@mui/material';
-import { GetAccounts, AccountsType, PutAccounts } from '../API';
+import { GetAccounts, AccountsType, PutAccounts, DeleteAccount } from '../API';
 
-const columns: GridColDef[] = [
-  
-  /*{
-    field: 'actions',
-    type: 'actions',
-    width: 80,
-    getActions: (params) => [
-      <GridActionsCellItem
-        icon={<DeleteIcon />}
-        label="Delete"
-        onClick={deleteUser(params.id)}
-      />,
-      <GridActionsCellItem
-        icon={<SecurityIcon />}
-        label="Toggle Admin"
-        onClick={toggleAdmin(params.id)}
-        showInMenu
-      />,
-      <GridActionsCellItem
-        icon={<FileCopyIcon />}
-        label="Duplicate User"
-        onClick={duplicateUser(params.id)}
-        showInMenu
-      />,
-    ],
-  },*/
-  { field: 'admin', 
-    headerName: 'Admin', 
-    type: '',
-    width: 70,
-    editable: false,
-  },
-  {
-    field: 'emailAddress',
-    headerName: 'E-Mail-Adresse',
-    width: 250,
-    editable: true,
-  },
-  {
-    field: 'firstName',
-    headerName: 'Vorname',
-    width: 150,
-    editable: true,
-  },
-  {
-    field: 'lastName',
-    headerName: 'Nachname',
-    width: 150,
-    editable: true,
-  },
-  {
-    field: 'companyName',
-    headerName: 'Unternehmen',
-    width: 200,
-    editable: true,
-  },
-  {
-    field: 'createdAt',
-    headerName: 'erstellt am',
-    type: 'dateTime',
-    width: 200,
-    editable: false,
-  },
-  { field: '_id',
-    headerName: 'ID', 
-    type: 'string',
-    width: 220,
-    editable: false,
-  },
-];
 
 const onRowEdit = (accounts: AccountsType[], state: GridEditRowsModel) => {
   for(const email in state) {
@@ -124,26 +58,118 @@ const onRowEdit = (accounts: AccountsType[], state: GridEditRowsModel) => {
 export default function DataGridDemo() {
   const [accounts, setAccounts] = useState<AccountsType[]>([])
 
-  /*const toggleAdmin = React.useCallback(
-    (id: GridRowId) => () => {
-      setRows((prevRows) =>
-        prevRows.map((row) =>
-          row.id === id ? { ...row, isAdmin: !row.isAdmin } : row,
-        ),
-      );
+  const deleteUser = useCallback(
+    (id) => () => {
+      let account = accounts.find((acc) => acc.emailAddress === id);
+      if (account === undefined) {
+        console.error(`Could not find an account of email "${id}". This is most likely a bug.`);
+        return
+      }
+      DeleteAccount(account)
+      .then(() => {
+        setTimeout(() => {
+          setAccounts((prevRows) => prevRows.filter((row) => row.emailAddress !== id));
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+      
     },
-    [],
+    [accounts],
   );
 
-  const duplicateUser = React.useCallback(
-    (id: GridRowId) => () => {
-      setRows((prevRows) => {
-        const rowToDuplicate = prevRows.find((row) => row.id === id)!;
-        return [...prevRows, { ...rowToDuplicate, id: Date.now() }];
-      });
+  // const toggleAdmin = React.useCallback(
+  //   (id: GridRowId) => () => {
+  //     setAccounts((prevRows) =>
+  //       prevRows.map((row) =>
+  //         row.emailAddress === id ? { ...row, isAdmin: !row.isAdmin } : row,
+  //       ),
+  //     );
+  //   },
+  //   [],
+  // );
+
+  // const duplicateUser = React.useCallback(
+  //   (id: GridRowId) => () => {
+  //     setAccounts((prevRows) => {
+  //       const rowToDuplicate = prevRows.find((row) => row.emailAddress === id)!;
+  //       return [...prevRows, { ...rowToDuplicate, id: Date.now() }];
+  //     });
+  //   },
+  //   [],
+  // );
+
+  const columns = [
+  
+    {
+      field: 'actions',
+      type: 'actions',
+      getActions: (params:{id: string}) => [
+        <GridActionsCellItem
+          icon={<DeleteIcon />}
+          label="Delete"
+          onClick={deleteUser(params.id)}
+          showInMenu
+        />,
+        // <GridActionsCellItem
+        //   icon={<SecurityIcon />}
+        //   label="Toggle Admin"
+        //   onClick={toggleAdmin(params.id)}
+        //   showInMenu
+        // />,
+        // <GridActionsCellItem
+        //   icon={<FileCopyIcon />}
+        //   label="Duplicate User"
+        //   onClick={duplicateUser(params.id)}
+        //   showInMenu
+        // />,
+      ],
     },
-    [],
-  );*/
+    { field: 'admin', 
+      headerName: 'Admin', 
+      type: '',
+      width: 70,
+      editable: false,
+    },
+    {
+      field: 'emailAddress',
+      headerName: 'E-Mail-Adresse',
+      width: 250,
+      editable: true,
+    },
+    {
+      field: 'firstName',
+      headerName: 'Vorname',
+      width: 150,
+      editable: true,
+    },
+    {
+      field: 'lastName',
+      headerName: 'Nachname',
+      width: 150,
+      editable: true,
+    },
+    {
+      field: 'companyName',
+      headerName: 'Unternehmen',
+      width: 200,
+      editable: true,
+    },
+    {
+      field: 'createdAt',
+      headerName: 'erstellt am',
+      type: 'dateTime',
+      width: 200,
+      editable: false,
+    },
+    { field: '_id',
+      headerName: 'ID', 
+      type: 'string',
+      width: 220,
+      editable: false,
+    },
+  ];
 
   useEffect(() => {
     GetAccounts()

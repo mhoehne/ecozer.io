@@ -31,16 +31,39 @@ export default function SignUp() {
       return;
     };
 
-    const account = {
-      "isAdmin": true,
-      "emailAddress": emailAddress,
-      "password": "test45678",
-      "title": "null",
-      "firstName": "Martin",
-      "lastName": "Hoehne",
-      "companyName": "Martin GmbH",
-      "lastLogin": "null",
-      };
+    const isAdmin = false
+
+    const password = data.get('password')?.toString()
+    
+    if (password === undefined) {
+      alert('invalid password');
+      return;
+    };
+
+    const firstName = data.get('firstName')?.toString()
+    
+    if (firstName === undefined) {
+      alert('invalid First Name');
+      return;
+    };
+
+    const lastName = data.get('lastName')?.toString()
+    
+    if (lastName === undefined) {
+      alert('invalid Last Name');
+      return;
+    };
+
+    const companyName = data.get('companyName')?.toString()
+    
+    if (companyName === undefined) {
+      alert('invalid Company Name');
+      return;
+    };
+
+    const lastLogin = 'null'
+
+    const account = {emailAddress, isAdmin, password, firstName, lastName, companyName, lastLogin}
     
       CreateAccount(account)
       .then((account) => {
