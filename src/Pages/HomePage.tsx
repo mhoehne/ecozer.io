@@ -14,7 +14,6 @@ import Typography from '@mui/material/Typography';
 
 export default function Home() {
 
-/* GRID START*/  
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(0),
@@ -27,7 +26,7 @@ Item.defaultProps = {
 };
 
   return (
-    < > {/* fragment */}
+    <>
     
     <HeroBanner/>
       <Container sx={{mt: 5}}>
