@@ -20,6 +20,7 @@ import Footer from "./Components/Footer";
 import AppBarTop from "./Components/AppBarTop";
 import Dashboard from "./Pages/Dashboard";
 import Glossar from "./Pages/Glossar";
+import TestPage from "./Pages/00testpage";
 
 export default function App() {
   return (
@@ -36,6 +37,7 @@ export default function App() {
 
           {/* Visitor */}
           <Route path='/' element={<HomePage/>} />
+          <Route path='/test' element={<TestPage/>} />
           <Route path='/glossar' element={<Glossar/>} />
           <Route path='/search' element={<Search/>} />
           <Route path='/search/product-detail' element={<ProductDetail/>} />

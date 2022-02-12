@@ -35,8 +35,8 @@ export default function Footer() {
           </Grid>
           <Grid item xs={12} sm={3}>
             <Box>
-              <Link href="#" underline="none" color="inherit">
-                Link here
+              <Link href="/test" underline="none" color="inherit">
+                Testseite
               </Link>
             </Box>
             <Box>
