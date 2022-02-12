@@ -60,6 +60,8 @@ export default function Footer() {
               </Link>
             </Box>
           </Grid>
+
+          
           <Grid item xs={12} sm={3}>
             <Box>
               <Link href="#" underline="none" color="inherit">
@@ -87,6 +89,8 @@ export default function Footer() {
               </Link>
             </Box>
           </Grid>
+
+
           <Grid item xs={12} sm={3}>
             <Box>
               <Link href="/glossar" underline="none" color="inherit">
