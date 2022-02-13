@@ -7,6 +7,17 @@ import ImageBanner from '../Components/ImageBanner';
 
 export default function MyProducts() {
 
+  const Product = [
+    {
+      productName: "Produkt1",
+      productDescription: "Hello World1"
+    },
+    {
+      productName: "Product2",
+      productDescription: "Hello World2"
+    }
+
+    ]
 
   return (
 
@@ -15,15 +26,16 @@ export default function MyProducts() {
           <SearchBarBoxed/>
         <Grid container spacing={0}> 
           <Grid item xs={12} sm={4}>
-            <AddProductCard/>
+            {/* <AddProductCard/> */}
           </Grid>
-          <Grid item xs={12} sm={4}>
-            <ImgMediaCard/>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <ImgMediaCard/>
-          </Grid>
-            
+
+          {
+            Product.map((product) => {
+              return <Grid item key={product.productName} xs={12} sm={4}>
+                <ImgMediaCard Product={product}/> 
+              </Grid>
+            })
+          }
         </Grid>
       </>
   );

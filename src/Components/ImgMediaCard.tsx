@@ -13,9 +13,13 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Chip from '@mui/material/Chip';
 import DoneIcon from '@mui/icons-material/Done';
+import { ProductType } from '../API';
 
+interface ImageMediaCardProps {
+  Product: ProductType;
+}
 
-export default function ImgMediaCard() {
+export default function ImgMediaCard(props: ImageMediaCardProps) {
   return (
     
     <Card sx={{ maxWidth: 500, margin: '2rem', }}>
@@ -28,10 +32,10 @@ export default function ImgMediaCard() {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Produktname
+          {props.Product.productName}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-        Produktbeschreibung Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        {props.Product.productDescription}
         </Typography>
       </CardContent>
       </CardActionArea>

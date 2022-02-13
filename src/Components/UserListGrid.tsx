@@ -90,12 +90,13 @@ export default function DataGridDemo() {
   //   [],
   // );
 
-  // const duplicateUser = React.useCallback(
+  // const resetPassword = React.useCallback(
   //   (id: GridRowId) => () => {
-  //     setAccounts((prevRows) => {
-  //       const rowToDuplicate = prevRows.find((row) => row.emailAddress === id)!;
-  //       return [...prevRows, { ...rowToDuplicate, id: Date.now() }];
-  //     });
+  //     setAccounts((prevRows) =>
+  //       prevRows.map((row) =>
+  //         row.emailAddress === id ? { ...row, isAdmin: !row.isAdmin } : row,
+  //       ),
+  //     );
   //   },
   //   [],
   // );
@@ -103,6 +104,7 @@ export default function DataGridDemo() {
   const columns = [
   
     {
+      
       field: 'actions',
       type: 'actions',
       getActions: (params:{id: string}) => [
@@ -112,18 +114,26 @@ export default function DataGridDemo() {
           onClick={deleteUser(params.id)}
           showInMenu
         />,
-        // <GridActionsCellItem
-        //   icon={<SecurityIcon />}
-        //   label="Toggle Admin"
-        //   onClick={toggleAdmin(params.id)}
-        //   showInMenu
-        // />,
-        // <GridActionsCellItem
-        //   icon={<FileCopyIcon />}
-        //   label="Duplicate User"
-        //   onClick={duplicateUser(params.id)}
-        //   showInMenu
-        // />,
+      
+      
+      // field: 'actions',
+      // type: 'actions',
+      // <GridActionsCellItem
+      //   icon={<SecurityIcon />}
+      //   label="Toggle Admin"
+      //   onClick={toggleAdmin(params.id)}
+      //   showInMenu
+      // />,
+
+      // field: 'actions',
+      // type: 'actions',
+      // <GridActionsCellItem
+      //   icon={<SecurityIcon />}
+      //   label="reset Password"
+      //   onClick={resetPassword(params.id)}
+      //   showInMenu
+      // />,
+
       ],
     },
     { field: 'admin', 

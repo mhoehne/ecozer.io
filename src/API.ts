@@ -16,7 +16,7 @@ export type AccountResultType = {
 
 export type AccountCreatedResultType = AccountsType | string
 
-/*CRUD*SECTION>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+/*CRUD*SECTION*ACCOUNT>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 /*CREATE*************************************************************************************************/
 
 export function CreateAccount(account: AccountsType): Promise<AxiosResponse<AccountCreatedResultType>> {
@@ -45,22 +45,22 @@ export function DeleteAccount(account: AccountsType): Promise<AxiosResponse>
 {
   return axios.delete<AccountsType>('http://localhost:8000/accounts', {data: {emailAddress: account.emailAddress}});
 }
-/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<CRUD*SECTION*/
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ACCOUNT*CRUD*SECTION*/
 
 export type ProductType = {
-  product_id: number;
-  account_id: number;
+  // product_id: number;
+  // account_id: number;
   productName: string;
-  productImage: string;
-  productLink: string;
-  productCompany: string;
+  // productImage: string;
+  // productLink: string;
+  // productCompany: string;
   productDescription: string;
-  zielgruppe: string;
-  anwendungsbereich: string;
-  gradDerIntegrierung: string;
-  objektAspekt: string;
-  systemgrenzen: string;
-  betrachtungskonzept: string;
+  // zielgruppe: string;
+  // anwendungsbereich: string;
+  // gradDerIntegrierung: string;
+  // objektAspekt: string;
+  // systemgrenzen: string;
+  // betrachtungskonzept: string;
 }
 
 export type ProductResultType = {

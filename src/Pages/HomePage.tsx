@@ -42,13 +42,13 @@ Item.defaultProps = {
       </Container>
       <Grid container spacing={0}>
       <Grid item xs={4}>
-        <ImgMediaCard/>
+        {/* <ImgMediaCard/> */}
       </Grid>
       <Grid item xs={4}>
-        <ImgMediaCard/>
+        {/* <ImgMediaCard/> */}
       </Grid>
       <Grid item xs={4}>
-        <ImgMediaCard/>
+        {/* <ImgMediaCard/> */}
       </Grid>
     </Grid>
 
