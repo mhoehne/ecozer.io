@@ -76,76 +76,18 @@ export default function Overview() {
       </Box>
       </Box>
       <TabPanel value={value} index={0}>
-      <Grid container spacing={0}> 
-            <Grid item xs={12} sm={4}>
-              <ImgMediaCard/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <ImgMediaCard/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <ImgMediaCard/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <ImgMediaCard/>
-            </Grid>
+      <Grid container spacing={0}>
             
           </Grid>
       </TabPanel>
       <TabPanel value={value} index={1}>
-      <Grid container spacing={0}> 
-            <Grid item xs={12} sm={4}>
-              <ImgMediaCard/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <ImgMediaCard/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <ImgMediaCard/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <ImgMediaCard/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <ImgMediaCard/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <ImgMediaCard/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <ImgMediaCard/>
-            </Grid>
+      <Grid container spacing={0}>
+
           </Grid>
       </TabPanel>
       <TabPanel value={value} index={2}>
       <Grid container spacing={0}> 
-            <Grid item xs={12} sm={4}>
-              <ImgMediaCard/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <ImgMediaCard/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <ImgMediaCard/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <ImgMediaCard/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <ImgMediaCard/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <ImgMediaCard/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <ImgMediaCard/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <ImgMediaCard/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <ImgMediaCard/>
-            </Grid>
+      
           </Grid>
       </TabPanel>
     
