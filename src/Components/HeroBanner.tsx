@@ -24,17 +24,18 @@ export default function HeroBanner() {
             backgroundImage: `url(${HeroBlobSVG})`,
           }}
         >
-          <Container maxWidth="sm">
+          <Container>
             <Typography
               component="h1"
               variant="h1"
               align="center"
               color="text.primary"
+              font-weight="bold"
               gutterBottom
             >
               BUIS
             </Typography>
-            <Typography variant="h4" align="center" color="text.primary" paragraph>
+            <Typography variant="h3" align="center" width="fit-content" color="text.primary" paragraph>
               Plattform für betriebliche Umweltinformationssysteme!
             </Typography>
             <Stack

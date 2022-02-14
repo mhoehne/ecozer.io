@@ -31,8 +31,8 @@ Item.defaultProps = {
     <HeroBanner/>
       <Container sx={{mt: 5}}>
         <Typography
-          component="h1"
-          variant="h3"
+          component="h4"
+          variant="h4"
           align="center"
           color="text.primary"
           gutterBottom
