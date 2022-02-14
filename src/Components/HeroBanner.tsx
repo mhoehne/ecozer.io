@@ -44,7 +44,7 @@ export default function HeroBanner() {
               spacing={2}
               justifyContent="center"
             >
-              <Button size="large" variant="contained" href="/search">Hier BUI Produkt finden</Button>
+              <Button size="large" variant="contained" href="/search" sx={{color: 'background.paper'}}>Hier BUI Produkt finden</Button>
               <Button size="large" variant="outlined" href="/signup">Jetzt registrieren</Button>
             </Stack>
           </Container>
