@@ -4,7 +4,9 @@ import {
   GridActionsCellItem,
   GridRowId,
   GridValueOptionsParams,
-  GridEditRowsModel 
+  GridEditRowsModel, 
+  GridToolbarContainer,
+  GridToolbarDensitySelector
 } from '@mui/x-data-grid';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SecurityIcon from '@mui/icons-material/Security';
@@ -15,8 +17,20 @@ import {
   useCallback 
 } from 'react';
 import { Box } from '@mui/material';
-import { GetAccounts, AccountsType, PutAccounts, DeleteAccount } from '../API';
+import { 
+  GetAccounts, 
+  AccountsType, 
+  PutAccounts, 
+  DeleteAccount 
+} from '../API';
 
+function CustomToolbar() {
+  return (
+    <GridToolbarContainer>
+      <GridToolbarDensitySelector />
+    </GridToolbarContainer>
+  );
+}
 
 const onRowEdit = (accounts: AccountsType[], state: GridEditRowsModel) => {
   for(const email in state) {
@@ -205,6 +219,9 @@ export default function DataGridDemo() {
           pageSize={20}
           rowsPerPageOptions={[20]}
           disableSelectionOnClick
+          density="standard"
+          components={{
+            Toolbar: CustomToolbar, }}
         />
       </div>
     </Box>

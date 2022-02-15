@@ -6,6 +6,7 @@ import { styled } from '@mui/material/styles';
 import CardMedia from '@mui/material/CardMedia';
 import LogoFooter from '../images/S20_HTW_Berlin_Logo_neg_WEISS_RGB.png';
 import Typography from '@mui/material/Typography';
+import Stack from '@mui/material/Stack';
 
 
 export default function Footer() {
@@ -61,7 +62,7 @@ export default function Footer() {
             </Box>
           </Grid>
 
-          
+
           <Grid item xs={12} sm={3}>
             <Box>
               <Link href="#" underline="none" color="inherit">
