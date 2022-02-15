@@ -6,6 +6,7 @@
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
     "@mui/icons-material": "^5.0.5",
+    "@mui/lab": "^5.0.0-alpha.69",
     "@mui/material": "latest",
     "@mui/styles": "^5.2.3",
     "@mui/x-data-grid": "^5.2.0",

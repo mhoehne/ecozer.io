@@ -7,6 +7,7 @@ import Navigation from '../Components/Navigation';
 import Footer from '../Components/Footer';
 import HeroBanner from '../Components/HeroBanner';
 import Typography from '@mui/material/Typography';
+import HowItWorks from '../Components/HowItWorks';
 
 
 
@@ -55,6 +56,7 @@ Item.defaultProps = {
     
     
     <Container>
+      <HowItWorks/>
     </Container>
     
   </>
