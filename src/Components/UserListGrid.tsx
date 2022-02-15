@@ -152,7 +152,7 @@ export default function DataGridDemo() {
     },
     { field: 'admin', 
       headerName: 'Admin', 
-      type: '',
+      type: 'boolean',
       width: 70,
       editable: false,
     },
