@@ -26,8 +26,21 @@ export default function HowItWorks() {
           mx={{ xs: -3, sm: -3}}
           my={{ xs: 1, sm: 1}}
           bgcolor="background.paper"
-          color="text.primary">
+          color="text.primary"
+          >
+            <Typography
+          component="h4"
+          variant="h4"
+          align="center"
+          color="text.primary"
+          gutterBottom
+        >
+          So funktioniert es
+        </Typography>
         <Timeline position="alternate">
+
+
+      {/* 1nd Item */}
       <TimelineItem>
         <TimelineOppositeContent
           sx={{ m: 'auto 0' }}
@@ -35,29 +48,7 @@ export default function HowItWorks() {
           variant="body2"
           color="text.secondary"
         >
-          9:30 am
-        </TimelineOppositeContent>
-        <TimelineSeparator>
-          <TimelineConnector />
-          <TimelineDot>
-            <FastfoodIcon />
-          </TimelineDot>
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
-          <Typography variant="h6" component="span">
-            Eat
-          </Typography>
-          <Typography>Because you need strength</Typography>
-        </TimelineContent>
-      </TimelineItem>
-      <TimelineItem>
-        <TimelineOppositeContent
-          sx={{ m: 'auto 0' }}
-          variant="body2"
-          color="text.secondary"
-        >
-          10:00 am
+          
         </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineConnector />
@@ -66,44 +57,82 @@ export default function HowItWorks() {
           </TimelineDot>
           <TimelineConnector />
         </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
-          <Typography variant="h6" component="span">
-            Code
-          </Typography>
-          <Typography>Because it&apos;s awesome!</Typography>
+        <TimelineContent sx={{pt: 2.25 }} variant="h6"> In nur wenigen Minuten registrieren
+        <Typography>Text</Typography>
         </TimelineContent>
       </TimelineItem>
+
+
+      {/* 2nd Item */}
       <TimelineItem>
+        <TimelineOppositeContent
+          sx={{ m: 'auto 0' }}
+          align="right"
+          variant="body2"
+          color="text.secondary"
+        >
+          
+        </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineConnector />
-          <TimelineDot color="primary" variant="outlined">
-            <HotelIcon />
-          </TimelineDot>
-          <TimelineConnector sx={{ bgcolor: 'secondary.main' }} />
-        </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
-          <Typography variant="h6" component="span">
-            Sleep
-          </Typography>
-          <Typography>Because you need rest</Typography>
-        </TimelineContent>
-      </TimelineItem>
-      <TimelineItem>
-        <TimelineSeparator>
-          <TimelineConnector sx={{ bgcolor: 'secondary.main' }} />
-          <TimelineDot color="secondary">
-            <RepeatIcon />
+          <TimelineDot color="primary">
+            <LaptopMacIcon />
           </TimelineDot>
           <TimelineConnector />
         </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
-          <Typography variant="h6" component="span">
-            Repeat
-          </Typography>
-          <Typography>Because this is the life you love!</Typography>
+        <TimelineContent sx={{pt: 2.25 }} variant="h6"> Produkt erstellen!
+        <Typography>Text</Typography>
         </TimelineContent>
       </TimelineItem>
+
+
+      <TimelineItem>
+        <TimelineOppositeContent
+          sx={{ m: 'auto 0' }}
+          align="right"
+          variant="body2"
+          color="text.secondary"
+        >
+          
+        </TimelineOppositeContent>
+        <TimelineSeparator>
+          <TimelineConnector />
+          <TimelineDot color="primary">
+            <LaptopMacIcon />
+          </TimelineDot>
+          <TimelineConnector />
+        </TimelineSeparator>
+        <TimelineContent sx={{pt: 2.25 }} variant="h6"> Produktdetails hinzufügen!
+        <Typography>Text</Typography>
+        </TimelineContent>
+      </TimelineItem>
+
+
+      <TimelineItem>
+        <TimelineOppositeContent
+          sx={{ m: 'auto 0' }}
+          align="right"
+          variant="body2"
+          color="text.secondary"
+        >
+          
+        </TimelineOppositeContent>
+        <TimelineSeparator>
+          <TimelineConnector />
+          <TimelineDot color="primary">
+            <LaptopMacIcon />
+          </TimelineDot>
+          <TimelineConnector />
+        </TimelineSeparator>
+        <TimelineContent sx={{pt: 2.25 }} variant="h6"> Veröffentlichen und fertig!
+        <Typography>Text</Typography>
+        </TimelineContent>
+      </TimelineItem>
+
+
     </Timeline>
+
+
       </Box>
 
     </>
