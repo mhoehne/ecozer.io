@@ -20,6 +20,25 @@ interface ImageMediaCardProps {
 }
 
 export default function ImgMediaCard(props: ImageMediaCardProps) {
+
+  const chips = [] 
+
+  for (const key in props.Product.zielgruppe) {
+  
+    switch(key) {
+      case "Geschäftsführung":
+      case "Umweltbeauftragte":
+      case "Fachabteilung":
+      case "Mitarbeiter": 
+      case "externe Stakeholder":
+      case "Behörden":
+        if(props.Product.zielgruppe [key] == true) {
+          chips.push(<Chip color="primary" size="small" icon={<DoneIcon />} label={key} key={key} sx={{mr:1, mb:1}} />)
+        }
+        break;
+    }
+  }
+
   return (
     
     <Card sx={{ maxWidth: 500, margin: '2rem', }}>
@@ -54,7 +73,7 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
           <Typography>Ausprägungen</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Chip color="primary" size="small" icon={<DoneIcon />} label={props.Product.zielgruppe}   sx={{mr:1, mb:1}} />
+          {chips}
         </AccordionDetails>
       </Accordion>
     

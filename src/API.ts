@@ -46,6 +46,7 @@ export function DeleteAccount(account: AccountsType): Promise<AxiosResponse>
   return axios.delete<AccountsType>('http://localhost:8000/accounts', {data: {emailAddress: account.emailAddress}});
 }
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ACCOUNT*CRUD*SECTION*/
+export type zielgruppen = "Geschäftsführung" | "Umweltbeauftragte" | "Fachabteilung" | "Mitarbeiter" | "externe Stakeholder" | "Behörden"
 
 export type ProductType = {
   // product_id: number;
@@ -55,7 +56,14 @@ export type ProductType = {
   // productLink: string;
   // productCompany: string;
   productDescription: string;
-  zielgruppe: string;
+  zielgruppe: {
+    Geschäftsführung: Boolean;
+    Umweltbeauftragte: Boolean;
+    Fachabteilung: Boolean;
+    Mitarbeiter: Boolean;
+    "externe Stakeholder": Boolean;
+    Behörden: Boolean;
+  }
   // anwendungsbereich: string;
   // gradDerIntegrierung: string;
   // objektAspekt: string;

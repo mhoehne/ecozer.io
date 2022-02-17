@@ -11,7 +11,14 @@ export default function MyProducts() {
     {
       productName: "Produkt1",
       productDescription: "Hello World1",
-      zielgruppe: "test"
+      zielgruppe: {
+        "Geschäftsführung": true,
+        "Umweltbeauftragte": true,
+        "Fachabteilung": true,
+        "Mitarbeiter": false,
+        "externe Stakeholder": false,
+        "Behörden": false
+      }
       // anwendungsbereich:  "test2"
       // gradDerIntegrierung: "test3"
       // objektAspekt: "test4"
@@ -21,7 +28,14 @@ export default function MyProducts() {
     {
       productName: "Product2",
       productDescription: "Hello World2",
-      zielgruppe: "test1"
+      zielgruppe: {
+        "Geschäftsführung": false,
+        "Umweltbeauftragte": false,
+        "Fachabteilung": false,
+        "Mitarbeiter": true,
+        "externe Stakeholder": true,
+        "Behörden": true
+      }
     }
 
     ]
