@@ -21,7 +21,7 @@ const theme = createTheme({
       main: '#575757',
     },
     success: {
-      main: '#76B900',
+      main: '#0bdb00',
     },
     text: {
       primary: '#000',

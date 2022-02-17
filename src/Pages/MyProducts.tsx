@@ -10,11 +10,18 @@ export default function MyProducts() {
   const Product = [
     {
       productName: "Produkt1",
-      productDescription: "Hello World1"
+      productDescription: "Hello World1",
+      zielgruppe: "test"
+      // anwendungsbereich:  "test2"
+      // gradDerIntegrierung: "test3"
+      // objektAspekt: "test4"
+      // systemgrenzen: "test5"
+      // betrachtungskonzept: "test6"
     },
     {
       productName: "Product2",
-      productDescription: "Hello World2"
+      productDescription: "Hello World2",
+      zielgruppe: "test1"
     }
 
     ]

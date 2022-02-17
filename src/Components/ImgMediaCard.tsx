@@ -54,16 +54,7 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
           <Typography>Ausprägungen</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Chip color="primary" size="small" icon={<DoneIcon />} label="Stand-Alone"  sx={{mr:1, mb:1}} />
-          <Chip color="primary" size="small" icon={<DoneIcon />} label="Emission"  sx={{mr:1, mb:1}} />
-          <Chip color="primary" size="small" icon={<DoneIcon />} label="Abfall"  sx={{mr:1, mb:1}} />
-          <Chip color="primary" size="small" icon={<DoneIcon />} label="Management"  sx={{mr:1, mb:1}} />
-          <Chip color="primary" size="small" icon={<DoneIcon />} label="Zertifizierung"  sx={{mr:1, mb:1}} />
-          <Chip color="primary" size="small" icon={<DoneIcon />} label="Stand-Alone"  sx={{mr:1, mb:1}} />
-          <Chip color="primary" size="small" icon={<DoneIcon />} label="Emission"  sx={{mr:1, mb:1}} />
-          <Chip color="primary" size="small" icon={<DoneIcon />} label="Abfall"  sx={{mr:1, mb:1}} />
-          <Chip color="primary" size="small" icon={<DoneIcon />} label="Management"  sx={{mr:1, mb:1}} />
-          <Chip color="primary" size="small" icon={<DoneIcon />} label="Zertifizierung"  sx={{mr:1, mb:1}} />
+          <Chip color="primary" size="small" icon={<DoneIcon />} label={props.Product.zielgruppe}   sx={{mr:1, mb:1}} />
         </AccordionDetails>
       </Accordion>
     

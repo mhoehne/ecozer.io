@@ -55,7 +55,7 @@ export type ProductType = {
   // productLink: string;
   // productCompany: string;
   productDescription: string;
-  // zielgruppe: string;
+  zielgruppe: string;
   // anwendungsbereich: string;
   // gradDerIntegrierung: string;
   // objektAspekt: string;
