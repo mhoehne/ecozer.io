@@ -46,7 +46,6 @@ export function DeleteAccount(account: AccountsType): Promise<AxiosResponse>
   return axios.delete<AccountsType>('http://localhost:8000/accounts', {data: {emailAddress: account.emailAddress}});
 }
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ACCOUNT*CRUD*SECTION*/
-export type zielgruppen = "Geschäftsführung" | "Umweltbeauftragte" | "Fachabteilung" | "Mitarbeiter" | "externe Stakeholder" | "Behörden"
 
 export type ProductType = {
   // product_id: number;
@@ -57,18 +56,46 @@ export type ProductType = {
   // productCompany: string;
   productDescription: string;
   zielgruppe: {
-    Geschäftsführung: Boolean;
-    Umweltbeauftragte: Boolean;
-    Fachabteilung: Boolean;
-    Mitarbeiter: Boolean;
+    "Geschäftsführung": Boolean;
+    "Umweltbeauftragte": Boolean;
+    "Fachabteilung": Boolean;
+    "Mitarbeiter": Boolean;
     "externe Stakeholder": Boolean;
-    Behörden: Boolean;
+    "Behörden": Boolean;
+  },
+  anwendungsbereich: {
+    "Gesetzeskonformität": Boolean,
+    "Zertifizierung": Boolean,
+    "Ökobilanzierung": Boolean,
+    "Berichterstattung": Boolean,
+    "Entscheidungsunterstützung": Boolean,
+    "Arbeitsschutz": Boolean
+  },
+  gradDerIntegrierung: {
+    "integriert": Boolean,
+    "AddOn": Boolean,
+    "StandAlone": Boolean,
+    "SaaSLösung": Boolean
+  },
+  objektAspekt: {
+    "Abfall": Boolean,
+    "Anlagen": Boolean,
+    "Gefahrstoffe": Boolean,
+    "Emissionen": Boolean,
+    "Energie": Boolean,
+    "StoffeStoffströme": Boolean,
+    "Kosten": Boolean
+  },
+  systemgrenzen: {
+    "StandortBetrieb": Boolean,
+    "Prozess": Boolean,
+    "Produkt": Boolean
+  },
+  betrachtungskonzept: {
+    "Verwaltungszentriert": Boolean,
+    "Bewertungszentriert": Boolean,
+    "Managementzentriert": Boolean
   }
-  // anwendungsbereich: string;
-  // gradDerIntegrierung: string;
-  // objektAspekt: string;
-  // systemgrenzen: string;
-  // betrachtungskonzept: string;
 }
 
 export type ProductResultType = {

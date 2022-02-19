@@ -39,6 +39,79 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
     }
   }
 
+  for (const key in props.Product.anwendungsbereich) {
+  
+    switch(key) {
+      case "Gesetzeskonformität":
+      case "Zertifizierung":
+      case "Ökobilanzierung":
+      case "Berichterstattung": 
+      case "Entscheidungsunterstützung":
+      case "Arbeitsschutz":
+        if(props.Product.anwendungsbereich [key] == true) {
+          chips.push(<Chip color="primary" size="small" icon={<DoneIcon />} label={key} key={key} sx={{mr:1, mb:1}} />)
+        }
+        break;
+    }
+  }
+
+  for (const key in props.Product.gradDerIntegrierung) {
+  
+    switch(key) {
+      case "integriert":
+      case "AddOn":
+      case "StandAlone":
+      case "SaaSLösung":
+        if(props.Product.gradDerIntegrierung [key] == true) {
+          chips.push(<Chip color="primary" size="small" icon={<DoneIcon />} label={key} key={key} sx={{mr:1, mb:1}} />)
+        }
+        break;
+    }
+  }
+
+  for (const key in props.Product.objektAspekt) {
+  
+    switch(key) {
+      case "Abfall":
+      case "Anlagen":
+      case "Gefahrstoffe":
+      case "Emissionen": 
+      case "Energie":
+      case "StoffeStoffströme":
+      case "Kosten":
+        if(props.Product.objektAspekt [key] == true) {
+          chips.push(<Chip color="primary" size="small" icon={<DoneIcon />} label={key} key={key} sx={{mr:1, mb:1}} />)
+        }
+        break;
+    }
+  }
+
+  for (const key in props.Product.systemgrenzen) {
+  
+    switch(key) {
+      case "StandortBetrieb":
+      case "Prozess":
+      case "Produkt":
+        if(props.Product.systemgrenzen [key] == true) {
+          chips.push(<Chip color="primary" size="small" icon={<DoneIcon />} label={key} key={key} sx={{mr:1, mb:1}} />)
+        }
+        break;
+    }
+  }
+
+  for (const key in props.Product.betrachtungskonzept) {
+  
+    switch(key) {
+      case "Verwaltungszentriert":
+      case "Bewertungszentriert":
+      case "Managementzentriert":
+        if(props.Product.betrachtungskonzept [key] == true) {
+          chips.push(<Chip color="primary" size="small" icon={<DoneIcon />} label={key} key={key} sx={{mr:1, mb:1}} />)
+        }
+        break;
+    }
+  }
+
   return (
     
     <Card sx={{ maxWidth: 500, margin: '2rem', }}>

@@ -9,32 +9,93 @@ export default function MyProducts() {
 
   const Product = [
     {
-      productName: "Produkt1",
-      productDescription: "Hello World1",
+      productName: "Umberto 5",
+      productDescription: "This software makes your live easier! I promise.",
       zielgruppe: {
-        "Geschäftsführung": true,
+        "Geschäftsführung": false,
         "Umweltbeauftragte": true,
         "Fachabteilung": true,
         "Mitarbeiter": false,
         "externe Stakeholder": false,
         "Behörden": false
+      },
+      anwendungsbereich: {
+        "Gesetzeskonformität": false,
+        "Zertifizierung": false,
+        "Ökobilanzierung": true,
+        "Berichterstattung": false,
+        "Entscheidungsunterstützung": true,
+        "Arbeitsschutz": false
+      },
+      gradDerIntegrierung: {
+        "integriert": false,
+        "AddOn": false,
+        "StandAlone": true,
+        "SaaSLösung": false
+      },
+      objektAspekt: {
+        "Abfall": true,
+        "Anlagen": false,
+        "Gefahrstoffe": false,
+        "Emissionen": true,
+        "Energie": true,
+        "StoffeStoffströme": true,
+        "Kosten": true
+      },
+      systemgrenzen: {
+        "StandortBetrieb": true,
+        "Prozess": true,
+        "Produkt": true
+      },
+      betrachtungskonzept: {
+        "Verwaltungszentriert": false,
+        "Bewertungszentriert": true,
+        "Managementzentriert": false
       }
-      // anwendungsbereich:  "test2"
-      // gradDerIntegrierung: "test3"
-      // objektAspekt: "test4"
-      // systemgrenzen: "test5"
-      // betrachtungskonzept: "test6"
     },
     {
       productName: "Product2",
       productDescription: "Hello World2",
       zielgruppe: {
         "Geschäftsführung": false,
-        "Umweltbeauftragte": false,
-        "Fachabteilung": false,
-        "Mitarbeiter": true,
-        "externe Stakeholder": true,
-        "Behörden": true
+        "Umweltbeauftragte": true,
+        "Fachabteilung": true,
+        "Mitarbeiter": false,
+        "externe Stakeholder": false,
+        "Behörden": false
+      },
+      anwendungsbereich: {
+        "Gesetzeskonformität": false,
+        "Zertifizierung": false,
+        "Ökobilanzierung": true,
+        "Berichterstattung": false,
+        "Entscheidungsunterstützung": true,
+        "Arbeitsschutz": false
+      },
+      gradDerIntegrierung: {
+        "integriert": false,
+        "AddOn": false,
+        "StandAlone": true,
+        "SaaSLösung": false
+      },
+      objektAspekt: {
+        "Abfall": true,
+        "Anlagen": false,
+        "Gefahrstoffe": false,
+        "Emissionen": true,
+        "Energie": true,
+        "StoffeStoffströme": true,
+        "Kosten": true
+      },
+      systemgrenzen: {
+        "StandortBetrieb": true,
+        "Prozess": true,
+        "Produkt": true
+      },
+      betrachtungskonzept: {
+        "Verwaltungszentriert": false,
+        "Bewertungszentriert": true,
+        "Managementzentriert": false
       }
     }
 
