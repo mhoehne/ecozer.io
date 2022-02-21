@@ -46,6 +46,7 @@ export function DeleteAccount(account: AccountsType): Promise<AxiosResponse>
   return axios.delete<AccountsType>('http://localhost:8000/accounts', {data: {emailAddress: account.emailAddress}});
 }
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ACCOUNT*CRUD*SECTION*/
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 export type ProductType = {
   // product_id: number;
@@ -102,10 +103,15 @@ export type ProductResultType = {
   products: ProductType[],
 }
 
+export type ProductCreatedResultType = ProductType | string
+
 /*CRUD*SECTION*PRODUCT>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 /*CREATE*************************************************************************************************/
 
+export function CreateProduct(product: ProductType): Promise<AxiosResponse<ProductCreatedResultType>> {
 
+  return axios.post<ProductCreatedResultType>('http://localhost:8000/products', product,);
+}
 
 /*READ***************************************************************************************************/
 export function GetProducts(): Promise<AxiosResponse<ProductResultType>>
@@ -117,10 +123,17 @@ export function GetProducts(): Promise<AxiosResponse<ProductResultType>>
 
 /*UPDATE*************************************************************************************************/
 
-
+export function PutProducts(product: ProductType): Promise<AxiosResponse<ProductResultType>>
+{
+  return axios.put<ProductResultType>('http://localhost:8000/products', product);
+}
 
 /*DELETE*************************************************************************************************/
 
+export function DeleteProduct(product: ProductType): Promise<AxiosResponse>
+{ //change data identificator 
+  return axios.delete<ProductType>('http://localhost:8000/accounts', {data: {emailAddress: product}});
+}
 
-
-/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ACCOUNT*CRUD*SECTION*/
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<PRODUCT*CRUD*SECTION*/
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
