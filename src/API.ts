@@ -132,7 +132,7 @@ export function PutProducts(product: ProductType): Promise<AxiosResponse<Product
 
 export function DeleteProduct(product: ProductType): Promise<AxiosResponse>
 { //change data identificator 
-  return axios.delete<ProductType>('http://localhost:8000/accounts', {data: {emailAddress: product}});
+  return axios.delete<ProductType>('http://localhost:8000/products', {data: {emailAddress: product}});
 }
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<PRODUCT*CRUD*SECTION*/
