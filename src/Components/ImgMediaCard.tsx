@@ -33,7 +33,7 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
       case "externe Stakeholder":
       case "Behörden":
         if(props.Product.zielgruppe [key] == true) {
-          chips.push(<Chip color="primary" size="small" icon={<DoneIcon />} label={key} key={key} sx={{mr:1, mb:1}} />)
+          chips.push(<Chip color="primary" size="small" icon={<DoneIcon />} label={key} key={key} sx={{mr:1, mb:1, color: 'background.paper'}} />)
         }
         break;
     }
@@ -49,7 +49,7 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
       case "Entscheidungsunterstützung":
       case "Arbeitsschutz":
         if(props.Product.anwendungsbereich [key] == true) {
-          chips.push(<Chip color="primary" size="small" icon={<DoneIcon />} label={key} key={key} sx={{mr:1, mb:1}} />)
+          chips.push(<Chip color="primary" size="small" icon={<DoneIcon />} label={key} key={key} sx={{mr:1, mb:1, color: 'background.paper'}} />)
         }
         break;
     }
@@ -63,7 +63,7 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
       case "StandAlone":
       case "SaaSLösung":
         if(props.Product.gradDerIntegrierung [key] == true) {
-          chips.push(<Chip color="primary" size="small" icon={<DoneIcon />} label={key} key={key} sx={{mr:1, mb:1}} />)
+          chips.push(<Chip color="primary" size="small" icon={<DoneIcon />} label={key} key={key} sx={{mr:1, mb:1, color: 'background.paper'}} />)
         }
         break;
     }
@@ -80,7 +80,7 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
       case "StoffeStoffströme":
       case "Kosten":
         if(props.Product.objektAspekt [key] == true) {
-          chips.push(<Chip color="primary" size="small" icon={<DoneIcon />} label={key} key={key} sx={{mr:1, mb:1}} />)
+          chips.push(<Chip color="primary" size="small" icon={<DoneIcon />} label={key} key={key} sx={{mr:1, mb:1, color: 'background.paper'}} />)
         }
         break;
     }
@@ -93,7 +93,7 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
       case "Prozess":
       case "Produkt":
         if(props.Product.systemgrenzen [key] == true) {
-          chips.push(<Chip color="primary" size="small" icon={<DoneIcon />} label={key} key={key} sx={{mr:1, mb:1}} />)
+          chips.push(<Chip color="primary" size="small" icon={<DoneIcon />} label={key} key={key} sx={{mr:1, mb:1, color: 'background.paper'}} />)
         }
         break;
     }
@@ -106,7 +106,7 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
       case "Bewertungszentriert":
       case "Managementzentriert":
         if(props.Product.betrachtungskonzept [key] == true) {
-          chips.push(<Chip color="primary" size="small" icon={<DoneIcon />} label={key} key={key} sx={{mr:1, mb:1}} />)
+          chips.push(<Chip color="primary" size="small" icon={<DoneIcon />} label={key} key={key} sx={{mr:1, mb:1, color: 'background.paper'}} />)
         }
         break;
     }
