@@ -49,7 +49,7 @@ export function DeleteAccount(account: AccountsType): Promise<AxiosResponse>
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 export type ProductType = {
-  // product_id: number;
+  _id: number | undefined;
   // account_id: number;
   productName: string;
   // productImage: string;

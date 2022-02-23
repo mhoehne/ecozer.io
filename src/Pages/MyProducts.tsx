@@ -3,103 +3,25 @@ import Grid from '@mui/material/Grid';
 import AddProductCard from '../Components/AddProductCard';
 import SearchBarBoxed from '../Components/SearchBarBoxed';
 import ImageBanner from '../Components/ImageBanner';
-
+import { 
+  useEffect, 
+  useState, 
+  useCallback 
+} from 'react';
+import { 
+  GetProducts, 
+  ProductType
+} from '../API';
 
 export default function MyProducts() {
 
-  const Product = [
-    {
-      productName: "Umberto 5",
-      productDescription: "This software makes your live easier! I promise.",
-      zielgruppe: {
-        "Geschäftsführung": false,
-        "Umweltbeauftragte": true,
-        "Fachabteilung": true,
-        "Mitarbeiter": false,
-        "externe Stakeholder": false,
-        "Behörden": false
-      },
-      anwendungsbereich: {
-        "Gesetzeskonformität": false,
-        "Zertifizierung": false,
-        "Ökobilanzierung": true,
-        "Berichterstattung": false,
-        "Entscheidungsunterstützung": true,
-        "Arbeitsschutz": false
-      },
-      gradDerIntegrierung: {
-        "integriert": false,
-        "AddOn": false,
-        "StandAlone": true,
-        "SaaSLösung": false
-      },
-      objektAspekt: {
-        "Abfall": true,
-        "Anlagen": false,
-        "Gefahrstoffe": false,
-        "Emissionen": true,
-        "Energie": true,
-        "StoffeStoffströme": true,
-        "Kosten": true
-      },
-      systemgrenzen: {
-        "StandortBetrieb": true,
-        "Prozess": true,
-        "Produkt": true
-      },
-      betrachtungskonzept: {
-        "Verwaltungszentriert": false,
-        "Bewertungszentriert": true,
-        "Managementzentriert": false
-      }
-    },
-    {
-      productName: "Product2",
-      productDescription: "Hello World2",
-      zielgruppe: {
-        "Geschäftsführung": false,
-        "Umweltbeauftragte": true,
-        "Fachabteilung": true,
-        "Mitarbeiter": false,
-        "externe Stakeholder": false,
-        "Behörden": false
-      },
-      anwendungsbereich: {
-        "Gesetzeskonformität": false,
-        "Zertifizierung": false,
-        "Ökobilanzierung": true,
-        "Berichterstattung": false,
-        "Entscheidungsunterstützung": true,
-        "Arbeitsschutz": false
-      },
-      gradDerIntegrierung: {
-        "integriert": false,
-        "AddOn": false,
-        "StandAlone": true,
-        "SaaSLösung": false
-      },
-      objektAspekt: {
-        "Abfall": true,
-        "Anlagen": false,
-        "Gefahrstoffe": false,
-        "Emissionen": true,
-        "Energie": true,
-        "StoffeStoffströme": true,
-        "Kosten": true
-      },
-      systemgrenzen: {
-        "StandortBetrieb": true,
-        "Prozess": true,
-        "Produkt": true
-      },
-      betrachtungskonzept: {
-        "Verwaltungszentriert": false,
-        "Bewertungszentriert": true,
-        "Managementzentriert": false
-      }
-    }
+  const [products, setProducts] = useState<ProductType[]>([])
 
-    ]
+  useEffect(() => {
+    GetProducts()
+    .then((result) => {setProducts(result.data.products)})
+    .catch();
+  },[]);
 
   return (
 
@@ -112,8 +34,8 @@ export default function MyProducts() {
           </Grid>
 
           {
-            Product.map((product) => {
-              return <Grid item key={product.productName} xs={12} sm={4}>
+            products.map((product) => {
+              return <Grid item key={product._id} xs={12} sm={4}>
                 <ImgMediaCard Product={product}/> 
               </Grid>
             })
