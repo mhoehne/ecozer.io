@@ -5,8 +5,7 @@ import SearchBarBoxed from '../Components/SearchBarBoxed';
 import ImageBanner from '../Components/ImageBanner';
 import { 
   useEffect, 
-  useState, 
-  useCallback 
+  useState,
 } from 'react';
 import { 
   GetProducts, 

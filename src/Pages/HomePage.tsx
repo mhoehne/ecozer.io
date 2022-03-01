@@ -1,10 +1,7 @@
 import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
-import { Button, Paper, Stack } from '@mui/material';
-import ImgMediaCard from '../Components/ImgMediaCard';
+import { Paper } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import Navigation from '../Components/Navigation';
-import Footer from '../Components/Footer';
 import HeroBanner from '../Components/HeroBanner';
 import Typography from '@mui/material/Typography';
 import HowItWorks from '../Components/HowItWorks';

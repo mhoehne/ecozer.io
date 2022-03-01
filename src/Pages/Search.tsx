@@ -1,14 +1,7 @@
-import { Container } from '@mui/material';
-import Navigation from '../Components/Navigation';
-import Button from '@mui/material/Button';
-import ImgMediaCard from '../Components/ImgMediaCard';
 import Grid from '@mui/material/Grid';
 import ImageBanner from '../Components/ImageBanner';
-import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
-import SearchBar from '../Components/SearchBar';
 import SearchBarBoxed from '../Components/SearchBarBoxed';
-import MorphologicalBox from '../Components/MorphologicalBox';
 import AccordionFilter from '../Components/AccordionFilter';
 
 

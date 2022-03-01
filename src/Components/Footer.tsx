@@ -2,11 +2,8 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
-import { styled } from '@mui/material/styles';
 import CardMedia from '@mui/material/CardMedia';
 import LogoFooter from '../images/S20_HTW_Berlin_Logo_neg_WEISS_RGB.png';
-import Typography from '@mui/material/Typography';
-import Stack from '@mui/material/Stack';
 
 
 export default function Footer() {
@@ -17,10 +14,6 @@ export default function Footer() {
       mt={{ xs: 2, sm: 4}}
       bgcolor="text.secondary" 
       color="background.paper"
-      /* position="fixed"
-      bottom="0"
-      left="0"
-      width="100%"*/
       >
       <Container maxWidth="lg">
         <Grid container spacing={4}>

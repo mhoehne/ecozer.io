@@ -1,12 +1,10 @@
 import ProductDetailViewCard from '../Components/ProductDetailViewCard';
 import MorphologicalBoxVertical from '../Components/MorphologicalBoxVertical';
 import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 
 export default function AdminApprovalDetail() {

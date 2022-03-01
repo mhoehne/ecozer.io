@@ -3,8 +3,6 @@ import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import SampleImage from '../images/sample-img.png';
-import HeroBlob1 from '../images/blob-scene-haikei_1.png';
 import HeroBlobSVG from '../images/blob-scene-haikei.svg';
 
 

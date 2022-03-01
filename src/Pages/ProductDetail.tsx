@@ -1,7 +1,4 @@
-import Navigation from '../Components/Navigation';
 import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import { Divider, Paper } from '@mui/material';
 import Box from '@mui/material/Box';
 import ProductDetailViewCard from '../Components/ProductDetailViewCard';
 import MorphologicalBoxVertical from '../Components/MorphologicalBoxVertical';

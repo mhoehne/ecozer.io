@@ -1,20 +1,8 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import SampleImage from '../images/sample-img.png';
 
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#000',
-    },
-    secondary: {
-      main: '#fff',
-    },
-  },
-});
 
 export default function ImageBanner() {
   return (

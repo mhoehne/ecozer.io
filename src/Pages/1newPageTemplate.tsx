@@ -18,10 +18,7 @@ export default function PageName() {
 {/* */}
 {/* Questions */}
 
-{/* /my-products ImgMediaCards should have the same size everywhere => create own grid component with left & main panel */}
 
-{/* /approval why I get an error when I add icons to the tabs? */}
-{/* /user-list chip icon integration? */}
 {/* */}
 {/* */}
 {/* */}

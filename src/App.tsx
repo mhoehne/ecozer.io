@@ -2,7 +2,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link
 } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import Search from "./Pages/Search";
@@ -20,7 +19,7 @@ import Footer from "./Components/Footer";
 import AppBarTop from "./Components/AppBarTop";
 import Dashboard from "./Pages/Dashboard";
 import Glossar from "./Pages/Glossar";
-import TestPage from "./Pages/00testpage";
+import TestPage from "./Pages/UserDashboard";
 
 export default function App() {
   return (
