@@ -3,7 +3,8 @@ import {
   GridActionsCellItem,
   GridEditRowsModel, 
   GridToolbarContainer,
-  GridToolbarDensitySelector
+  GridToolbarDensitySelector,
+  GridRowId
 } from '@mui/x-data-grid';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { 
@@ -82,22 +83,40 @@ export default function DataGridDemo() {
       })
       .catch((e) => {
         console.log(e);
-      });
+      }
+      );
       
     },
     [accounts],
   );
 
-  // const toggleAdmin = React.useCallback(
-  //   (id: GridRowId) => () => {
-  //     setAccounts((prevRows) =>
-  //       prevRows.map((row) =>
-  //         row.emailAddress === id ? { ...row, isAdmin: !row.isAdmin } : row,
-  //       ),
-  //     );
-  //   },
-  //   [],
-  // );
+  const toggleAdmin = useCallback(
+    (id: GridRowId) => () => {
+      for(const account of accounts) {
+        if(account.emailAddress == id) {
+          const admin = {
+            ...account,
+            isAdmin: ! account.isAdmin
+          }
+          PutAccounts(admin) 
+          .then(() => {
+            setAccounts(
+              (prevRows) => {
+                return prevRows.map((row) =>
+                  row.emailAddress === id ? { ...row, isAdmin: !row.isAdmin } : row,
+                )
+              }
+            );
+          })
+          .catch((e) => {
+            console.log(e);
+          })
+        }
+      }
+      
+    },
+    [accounts],
+  );
 
   // const resetPassword = React.useCallback(
   //   (id: GridRowId) => () => {
@@ -124,28 +143,25 @@ export default function DataGridDemo() {
           showInMenu
         />,
       
-      
-      // field: 'actions',
-      // type: 'actions',
-      // <GridActionsCellItem
-      //   icon={<SecurityIcon />}
-      //   label="Toggle Admin"
-      //   onClick={toggleAdmin(params.id)}
-      //   showInMenu
-      // />,
+        <GridActionsCellItem
+          icon={<DeleteIcon />}
+          label="Toggle Admin"
+          onClick={toggleAdmin(params.id)}
+          showInMenu
+        />,
 
       // field: 'actions',
       // type: 'actions',
-      // <GridActionsCellItem
-      //   icon={<SecurityIcon />}
-      //   label="reset Password"
-      //   onClick={resetPassword(params.id)}
-      //   showInMenu
-      // />,
+        // <GridActionsCellItem
+        //   icon={<SecurityIcon />}
+        //   label="reset Password"
+        //   onClick={resetPassword(params.id)}
+        //   showInMenu
+        // />,
 
       ],
     },
-    { field: 'admin', 
+    { field: 'isAdmin', 
       headerName: 'Admin', 
       type: 'boolean',
       width: 70,
