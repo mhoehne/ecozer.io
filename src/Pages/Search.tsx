@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import SearchBarBoxed from '../Components/SearchBarBoxed';
 import AccordionFilter from '../Components/AccordionFilter';
 import ImgMediaCard from '../Components/ImgMediaCard';
-import AddProductCard from '../Components/AddProductCard';
 import { 
   useEffect, 
   useState,
