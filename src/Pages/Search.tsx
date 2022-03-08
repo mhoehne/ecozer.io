@@ -28,6 +28,7 @@ export default function Search() {
 
       <>
         <ImageBanner/>
+        
         <SearchBarBoxed/>
 
         <Grid

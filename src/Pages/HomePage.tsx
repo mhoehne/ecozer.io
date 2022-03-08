@@ -1,6 +1,12 @@
-import { styled } from '@mui/material/styles';
+import 
+{ 
+  styled
+} from '@mui/material/styles';
 import Container from '@mui/material/Container';
-import { Paper } from '@mui/material';
+import 
+{ 
+  Paper 
+} from '@mui/material';
 import Grid from '@mui/material/Grid';
 import HeroBanner from '../Components/HeroBanner';
 import Typography from '@mui/material/Typography';

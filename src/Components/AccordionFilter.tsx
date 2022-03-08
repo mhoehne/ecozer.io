@@ -2,10 +2,17 @@ import Box from '@mui/material/Box';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { styled } from '@mui/material/styles';
+import 
+{ 
+  styled 
+} from '@mui/material/styles';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
-import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
-import MuiAccordionSummary, {
+import MuiAccordion, 
+{ 
+  AccordionProps 
+} from '@mui/material/Accordion';
+import MuiAccordionSummary, 
+{
   AccordionSummaryProps,
 } from '@mui/material/AccordionSummary';
 import FormGroup from '@mui/material/FormGroup';
@@ -60,6 +67,8 @@ export default function AccordionFilter() {
 
 <Typography variant="h6" sx={{m: 1}}>Suchfilter</Typography>
 
+
+
 <Accordion defaultExpanded={true}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -81,6 +90,8 @@ export default function AccordionFilter() {
         </AccordionDetails>
       </Accordion>
 
+
+
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -101,6 +112,8 @@ export default function AccordionFilter() {
         </AccordionDetails>
       </Accordion>
 
+
+
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -117,6 +130,8 @@ export default function AccordionFilter() {
           </FormGroup>
         </AccordionDetails>
       </Accordion>
+
+
 
       <Accordion>
         <AccordionSummary
@@ -135,6 +150,8 @@ export default function AccordionFilter() {
           </FormGroup>
         </AccordionDetails>
       </Accordion>
+
+
 
       <Accordion>
         <AccordionSummary
@@ -155,6 +172,8 @@ export default function AccordionFilter() {
         </AccordionDetails>
       </Accordion>
 
+
+
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -171,6 +190,8 @@ export default function AccordionFilter() {
           </FormGroup>
         </AccordionDetails>
       </Accordion>
+
+
 
       </Box>
 

@@ -1,6 +1,9 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import { Grid } from '@mui/material';
+import 
+{ 
+  Grid 
+} from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 import SampleImg from '../images/sample-img.png';
 import TextField from '@mui/material/TextField';

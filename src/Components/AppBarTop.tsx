@@ -1,13 +1,22 @@
-import { styled } from '@mui/material/styles';
+import 
+{ 
+  styled 
+} from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
+import MuiAppBar, 
+{ 
+  AppBarProps as MuiAppBarProps 
+} from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import AccountMenu from './AccountMenu';
 import Logo from '../images/Q04_HTW_Berlin_Logo_quer_pos_FARBIG_RGB.jpg';
 import CardMedia from '@mui/material/CardMedia';
 import MenuItem from '@mui/material/MenuItem';
-import { Link } from "react-router-dom";
+import 
+{ 
+  Link 
+} from "react-router-dom";
 import NotificationMenu from './NotificationMenu';
 
 

@@ -11,12 +11,14 @@ export default function ProductDetail() {
   return (
 
       <>
-          <Box sx={{mt: 10}}>
+        <Box sx={{mt: 10}}>
           <Button variant="text" color="info" startIcon={<ArrowBackIosNewOutlinedIcon/>} href="/search">
             Zurück
           </Button>
         </Box>
+
         <ProductDetailViewCard/>
+        
         <MorphologicalBoxVertical/>
       </>
   );

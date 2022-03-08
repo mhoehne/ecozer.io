@@ -5,7 +5,10 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import SampleImg from '../images/sample-img.png';
-import { CardActionArea } from '@mui/material';
+import 
+{ 
+  CardActionArea 
+} from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -13,7 +16,10 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Chip from '@mui/material/Chip';
 import DoneIcon from '@mui/icons-material/Done';
-import { ProductType } from '../API';
+import 
+{ 
+  ProductType 
+} from '../API';
 
 interface ImageMediaCardProps {
   Product: ProductType;
