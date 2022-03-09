@@ -74,7 +74,7 @@ export default function Dashboard() {
             xl={9}
             xs={12}
           >
-            <LatestVisits/>
+            {/* <LatestVisits/> */}
           </Grid>
           <Grid
             item
@@ -92,7 +92,7 @@ export default function Dashboard() {
             xl={3}
             xs={12}
           >
-            <UserProducts/>
+            {/* <UserProducts/> */}
           </Grid>
           <Grid
             item
