@@ -1,4 +1,12 @@
-import { Avatar, Box, Card, CardContent, Grid, Typography } from '@mui/material';
+import 
+{ 
+  Avatar, 
+  Box, 
+  Card, 
+  CardContent, 
+  Grid, 
+  Typography 
+} from '@mui/material';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import PeopleIcon from '@mui/icons-material/PeopleOutlined';
 
@@ -15,12 +23,7 @@ export default function TotalVisits() {
           my={{ xs: 2, sm: 2}}
           bgcolor="background.paper"
           color="text.primary">
-
-      </Box>
-
-      <Card >
-    <CardContent>
-      <Grid
+            <Grid
         container
         spacing={3}
         sx={{ justifyContent: 'space-between' }}
@@ -31,7 +34,7 @@ export default function TotalVisits() {
             gutterBottom
             variant="overline"
           >
-            TOTAL CUSTOMERS
+            TOTAL VISITS
           </Typography>
           <Typography
             color="textPrimary"
@@ -75,8 +78,8 @@ export default function TotalVisits() {
           Since last month
         </Typography>
       </Box>
-    </CardContent>
-  </Card>
+
+      </Box>
 
     </>
   );
