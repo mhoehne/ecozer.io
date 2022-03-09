@@ -42,10 +42,10 @@ const onRowEdit = (accounts: AccountsType[], state: GridEditRowsModel) => {
       accountNewFields[field] = newValue;
     }
 
-    // Find account inside `accounts` state variable
+    // Find an account inside `accounts` state variable
     let account = accounts.find((acc) => acc.emailAddress === email);
 
-    // Did not find account: should never happen. Send error to console and skip this email to avoid a crash.
+    // Did not find an account: should never happen. Send error to console and skip this email to avoid a crash.
     if (account === undefined) {
       console.error(`Could not find an account of email "${email}". This is most likely a bug.`);
       continue;
