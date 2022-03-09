@@ -1,4 +1,3 @@
-import react from 'react';
 import 
 { 
   Box, 
@@ -6,7 +5,6 @@ import
   Grid 
 } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import LeftMainPanelGrid from '../Components/LeftMainPanelGrid';
 import TotalVisits from '../Components/Dashboard/TotalVisits';
 import LatestVisits from '../Components/Dashboard/LatestVisits';
 import UserProducts from '../Components/Dashboard/UserProducts';
