@@ -62,9 +62,11 @@ const onRowEdit = (accounts: AccountsType[], state: GridEditRowsModel) => {
     PutAccounts(account)
       .then(() => {
         // TODO: accounts updated successfuly
+        // trigger success snackbar alert
       })
       .catch(() => {
         // could not update accounts
+        // trigger error snackbar alert
         console.error(`Could not update the account "${email}"`);
       });
   }
