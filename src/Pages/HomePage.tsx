@@ -44,6 +44,17 @@ Item.defaultProps = {
           Neuste Produkte
         </Typography>
       </Container>
+      <Container sx={{mt: 5}}>
+        <Typography
+          component="h4"
+          variant="h4"
+          align="center"
+          color="text.primary"
+          gutterBottom
+        >
+          Meist angeklickte Produkte
+        </Typography>
+      </Container>
       <Grid container spacing={0}>
       <Grid item xs={4}>
         {/* <ImgMediaCard/> */}
