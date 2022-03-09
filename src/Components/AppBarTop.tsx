@@ -14,6 +14,10 @@ import Logo from '../images/Q04_HTW_Berlin_Logo_quer_pos_FARBIG_RGB.jpg';
 import CardMedia from '@mui/material/CardMedia';
 import MenuItem from '@mui/material/MenuItem';
 import 
+{
+Button
+} from '@mui/material';
+import 
 { 
   Link 
 } from "react-router-dom";
@@ -25,7 +29,7 @@ import
 
 
 interface AppBarTopProps {
-  Account: AccountsType;
+  Account: AccountsType | null;
 }
 
 const drawerWidth = 240;
@@ -54,9 +58,35 @@ const AppBar = styled(MuiAppBar, {
 }));
 
 
+function loggedoutbox() {
+  return (
+    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+      <Button variant="contained" size="small">
+      Signup
+      </Button>
+      <Button variant="outlined" size="small">
+      SignIn
+      </Button>
+    </Box>
+  )
+}
+
+function loggedoinbox() {
+  return (
+    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+      <NotificationMenu/>
+      <AccountMenu/>
+    </Box>
+  )
+}
 
 
-export default function AppBarTop() {
+
+export default function AppBarTop(props: AppBarTopProps) {
+
+// check if cookie received from signin page
+
+const isLoggedOut = props.Account === null;
 
   return (
     <Box sx={{ display: 'flex', padding: 0 }} >
@@ -67,30 +97,17 @@ export default function AppBarTop() {
           <CardMedia
             component="img"
             sx={{maxHeight: '40px'}}
-            alt="green iguana"
+            alt="htw logo"
             image={Logo}
           />
           </MenuItem>
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           
-          {/* Display when logged out
+          {isLoggedOut?loggedoutbox():loggedoinbox()}
           
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-          <Button variant="contained" size="small">
-          Signup
-          </Button>
-          <Button variant="outlined" size="small">
-          SignIn
-          </Button>
-          </Box>
-          
-          */}
 
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <NotificationMenu/>
-            <AccountMenu/>
-          </Box>
+          
         </Toolbar>
       </AppBar>
     </Box>

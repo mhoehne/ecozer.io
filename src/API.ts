@@ -142,10 +142,10 @@ export function DeleteProduct(product: ProductType): Promise<AxiosResponse>
 /*USER AUTHENTICATION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 /*LOGIN *************************************************************************************************/
 
-export function Authentication(): Promise<AxiosResponse<AccountResultType>>
+export function checkAuthentication(emailaddress: string, password: string): Promise<AxiosResponse<string>>
 
 {
-  return axios.get<AccountResultType>('http://localhost:8000/accounts');
+  return axios.post<string>('http://localhost:8000/authentication', { emailaddress, password });
   }
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<PRODUCT*CRUD*SECTION*/

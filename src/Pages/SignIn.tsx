@@ -14,22 +14,51 @@ import
   createTheme, 
   ThemeProvider 
 } from '@mui/material/styles';
+import { 
+  checkAuthentication
+} from '../API';
+import {
+  useNavigate,
+  NavigateFunction
+} from "react-router-dom";
 
 
 const theme = createTheme();
+async function authenticate(emailaddress: string, password: string, navigate: NavigateFunction) {
+  // send formdata to API 
+  
+  try {
+    const response = await checkAuthentication(emailaddress, password)
+  // send false to the AppBarTop IsLoggedOut function
+    if (response.data === "OK") {
 
+      // create coookie
+      return navigate('/dashboard');
+
+    } 
+  } catch(e) {
+      console.log(e);
+  }
+}
 
 export default function SignIn() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const navigate = useNavigate()
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    const emailaddress = data.get('email')
+    const password = data.get('password')
+    if (emailaddress != null && password != null) {
+      await authenticate(emailaddress.toString(), password.toString(), navigate)
+    } else {
+      alert("something went wrong");
+    }
 
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+
+
   };
+
+  
 
   return (
 

@@ -102,10 +102,10 @@ export default function LatestVisits() {
             position: 'relative'
           }}
         >
-          <Bar
+          {/* <Bar
             data={data}
             options={options}
-          />
+          /> */}
         </Box>
       </CardContent>
       <Divider />
