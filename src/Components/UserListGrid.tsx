@@ -19,6 +19,10 @@ import {
   PutAccounts, 
   DeleteAccount 
 } from '../API';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
+
+
 
 function CustomToolbar() {
   return (
@@ -60,7 +64,8 @@ const onRowEdit = (accounts: AccountsType[], state: GridEditRowsModel) => {
         // TODO: accounts updated successfuly
       })
       .catch(() => {
-        // TODO: could not update accounts
+        // could not update accounts
+        console.error(`Could not update the account "${email}"`);
       });
   }
 };
