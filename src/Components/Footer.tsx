@@ -14,10 +14,6 @@ export default function Footer() {
       mt={ "auto" }
       bgcolor="text.secondary" 
       color="background.paper"
-      position="fixed"
-      bottom={0}
-      left={0}
-      width="100%"
       >
       <Container maxWidth="lg">
         <Grid container spacing={4}>
