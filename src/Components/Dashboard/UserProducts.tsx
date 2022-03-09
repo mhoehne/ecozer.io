@@ -43,7 +43,7 @@ export default function UserProducts() {
   return (
 
     <>
-      <Box 
+      {/* <Box 
           px={{ xs: 2, sm: 2}}
           py={{ xs: 2, sm: 2}}
           mx={{ xs: 0, sm: 0}}
@@ -51,7 +51,7 @@ export default function UserProducts() {
           bgcolor="background.paper"
           color="text.primary">
 
-      </Box>
+      </Box> */}
       <Card >
     <CardHeader
       subtitle={`${products.length} in total`}

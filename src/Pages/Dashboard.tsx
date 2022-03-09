@@ -92,7 +92,7 @@ export default function Dashboard() {
             xl={3}
             xs={12}
           >
-            {/* <UserProducts/> */}
+            <UserProducts/>
           </Grid>
           <Grid
             item
