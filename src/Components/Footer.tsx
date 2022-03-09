@@ -11,9 +11,13 @@ export default function Footer() {
     <Box 
       px={{ xs: 2, sm: 4}}
       py={{ xs: 2, sm: 4}}
-      mt={{ xs: 2, sm: 4}}
+      mt={ "auto" }
       bgcolor="text.secondary" 
       color="background.paper"
+      position="fixed"
+      bottom={0}
+      left={0}
+      width="100%"
       >
       <Container maxWidth="lg">
         <Grid container spacing={4}>
