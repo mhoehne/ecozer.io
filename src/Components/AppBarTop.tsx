@@ -18,8 +18,15 @@ import
   Link 
 } from "react-router-dom";
 import NotificationMenu from './NotificationMenu';
+import 
+{ 
+  AccountsType 
+} from '../API';
 
 
+interface AppBarTopProps {
+  Account: AccountsType;
+}
 
 const drawerWidth = 240;
 
