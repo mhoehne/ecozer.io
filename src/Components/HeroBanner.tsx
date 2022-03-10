@@ -34,7 +34,7 @@ export default function HeroBanner() {
               BUIS
             </Typography>
             <Typography variant="h3" align="center" width="fit-content" color="text.primary" paragraph>
-              Plattform für betriebliche Umweltinformationssysteme!
+              Software-Plattform für betriebliche Umweltinformationssysteme!
             </Typography>
             <Stack
               sx={{ pt: 4 }}
@@ -43,7 +43,6 @@ export default function HeroBanner() {
               justifyContent="center"
             >
               <Button size="large" variant="contained" href="/search" sx={{color: 'background.paper'}}>Hier BUI Produkt finden</Button>
-              <Button size="large" variant="outlined" href="/signup">Jetzt registrieren</Button>
             </Stack>
           </Container>
         </Box>
