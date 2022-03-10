@@ -17,9 +17,9 @@ export default function HowItWorks() {
     <>
       <Box 
           px={{ xs: 2, sm: 2}}
-          py={{ xs: 2, sm: 2}}
+          py={{ xs: 4, sm: 4}}
           mx={{ xs: -3, sm: -3}}
-          my={{ xs: 1, sm: 1}}
+          my={{ xs: 4, sm: 4}}
           bgcolor="background.paper"
           color="text.primary"
           >
