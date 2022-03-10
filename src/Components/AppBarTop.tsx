@@ -15,7 +15,8 @@ import CardMedia from '@mui/material/CardMedia';
 import MenuItem from '@mui/material/MenuItem';
 import 
 {
-Button
+Button,
+Stack
 } from '@mui/material';
 import 
 { 
@@ -61,12 +62,14 @@ const AppBar = styled(MuiAppBar, {
 function loggedoutbox() {
   return (
     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-      <Button variant="contained" size="small">
-      Signup
+      <Stack direction="row" spacing={2}>
+      <Button variant="contained" size="small" sx={{color: 'background.paper'}}>
+      Jetzt registrieren
       </Button>
       <Button variant="outlined" size="small">
-      SignIn
+      Einloggen
       </Button>
+      </Stack>
     </Box>
   )
 }
