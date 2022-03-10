@@ -13,6 +13,7 @@ import AccountMenu from './AccountMenu';
 import Logo from '../images/Q04_HTW_Berlin_Logo_quer_pos_FARBIG_RGB.jpg';
 import CardMedia from '@mui/material/CardMedia';
 import MenuItem from '@mui/material/MenuItem';
+import LoginIcon from '@mui/icons-material/Login';
 import 
 {
 Button,
@@ -66,7 +67,7 @@ function loggedoutbox() {
       <Button variant="contained" size="small" sx={{color: 'background.paper'}}>
       Jetzt registrieren
       </Button>
-      <Button variant="outlined" size="small">
+      <Button variant="outlined" size="small" startIcon={<LoginIcon/>}>
       Einloggen
       </Button>
       </Stack>
