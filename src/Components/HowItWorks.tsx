@@ -48,12 +48,12 @@ export default function HowItWorks() {
         <TimelineSeparator>
           <TimelineConnector />
           <TimelineDot color="primary">
-            <LaptopMacIcon />
+            <LaptopMacIcon fontSize="large" sx={{color: 'background.paper'}}/>
           </TimelineDot>
           <TimelineConnector />
         </TimelineSeparator>
-        <TimelineContent sx={{pt: 2.25 }} variant="h6"> In nur wenigen Minuten registrieren
-        <Typography>Text</Typography>
+        <TimelineContent sx={{pt: 2.25 }} variant="h6"> In nur wenigen Schritten registrieren
+        <Typography>Die Registrierung dauert nur wenige Minuten</Typography>
         </TimelineContent>
       </TimelineItem>
 
@@ -71,12 +71,12 @@ export default function HowItWorks() {
         <TimelineSeparator>
           <TimelineConnector />
           <TimelineDot color="primary">
-            <LaptopMacIcon />
+            <LaptopMacIcon fontSize="large" sx={{color: 'background.paper'}}/>
           </TimelineDot>
           <TimelineConnector />
         </TimelineSeparator>
-        <TimelineContent sx={{pt: 2.25 }} variant="h6"> Produkt erstellen!
-        <Typography>Text</Typography>
+        <TimelineContent sx={{pt: 2.25 }} variant="h6"> Produkt erstellen und Details hinzufügen!
+        <Typography>Füge Bilder und Texte hinzu</Typography>
         </TimelineContent>
       </TimelineItem>
 
@@ -93,12 +93,12 @@ export default function HowItWorks() {
         <TimelineSeparator>
           <TimelineConnector />
           <TimelineDot color="primary">
-            <LaptopMacIcon />
+            <LaptopMacIcon fontSize="large" sx={{color: 'background.paper'}}/>
           </TimelineDot>
           <TimelineConnector />
         </TimelineSeparator>
-        <TimelineContent sx={{pt: 2.25 }} variant="h6"> Produktdetails hinzufügen!
-        <Typography>Text</Typography>
+        <TimelineContent sx={{pt: 2.25 }} variant="h6"> Veröffentlichen!
+        <Typography>Unser Team validiert in kürzester Zeit dein Produkt</Typography>
         </TimelineContent>
       </TimelineItem>
 
@@ -115,11 +115,11 @@ export default function HowItWorks() {
         <TimelineSeparator>
           <TimelineConnector />
           <TimelineDot color="primary">
-            <LaptopMacIcon />
+            <LaptopMacIcon fontSize="large" sx={{color: 'background.paper'}}/>
           </TimelineDot>
           <TimelineConnector />
         </TimelineSeparator>
-        <TimelineContent sx={{pt: 2.25 }} variant="h6"> Veröffentlichen und fertig!
+        <TimelineContent sx={{pt: 2.25 }} variant="h6"> Fertig!
         <Typography>Text</Typography>
         </TimelineContent>
       </TimelineItem>
