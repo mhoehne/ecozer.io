@@ -68,7 +68,7 @@ function loggedoutbox() {
       Jetzt registrieren
       </Button>
       <Button variant="outlined" size="small" startIcon={<LoginIcon/>}>
-      Einloggen
+      Login
       </Button>
       </Stack>
     </Box>
