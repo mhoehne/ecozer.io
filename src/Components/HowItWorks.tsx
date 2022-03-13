@@ -9,6 +9,9 @@ import TimelineDot from '@mui/lab/TimelineDot';
 import LaptopMacIcon from '@mui/icons-material/LaptopMac';
 import Typography from '@mui/material/Typography';
 
+// todos:
+// change icons
+
 export default function HowItWorks() {
 
 
