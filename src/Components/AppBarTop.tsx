@@ -64,10 +64,10 @@ function loggedoutbox() {
   return (
     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
       <Stack direction="row" spacing={2}>
-      <Button variant="contained" size="small" sx={{color: 'background.paper'}}>
+      <Button variant="contained" size="small" sx={{color: 'background.paper'}} href="/signup">
       Jetzt registrieren
       </Button>
-      <Button variant="outlined" size="small" startIcon={<LoginIcon/>}>
+      <Button variant="outlined" size="small" startIcon={<LoginIcon/>} href="/signin">
       Login
       </Button>
       </Stack>
