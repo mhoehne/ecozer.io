@@ -86,15 +86,15 @@ export default function SignUp() {
   return (
 
       <>
-        <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
         <Box
           sx={{
-            mt: 15,
+            my: 15,
+            p: 5,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            backgroundColor: 'background.paper'
           }}
         >
           <Typography component="h1" variant="h4">
@@ -165,7 +165,11 @@ export default function SignUp() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ 
+                mt: 3, 
+                mb: 2,
+                color: 'background.paper' 
+              }}
             >
               Account erstellen
             </Button>
@@ -184,7 +188,6 @@ export default function SignUp() {
           </Box>
         </Box>
       </Container>
-    </ThemeProvider>
       </>
   );
 }

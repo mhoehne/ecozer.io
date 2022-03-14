@@ -9,11 +9,6 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import 
-{ 
-  createTheme, 
-  ThemeProvider 
-} from '@mui/material/styles';
 import { 
   checkAuthentication
 } from '../API';
@@ -23,16 +18,14 @@ import {
 } from "react-router-dom";
 
 
-const theme = createTheme();
 async function authenticate(emailaddress: string, password: string, navigate: NavigateFunction) {
   // send formdata to API 
   
   try {
     const response = await checkAuthentication(emailaddress, password)
-  // send false to the AppBarTop IsLoggedOut function
     if (response.data === "OK") {
 
-      // create coookie
+      // create coookie to pass boolean to AppBarTop IsLoggedOut function
       return navigate('/dashboard');
 
     } 
@@ -63,15 +56,18 @@ export default function SignIn() {
   return (
 
       <>
-        <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
+      <Container 
+        component="main" 
+        maxWidth="xs" 
+        >
         <Box
           sx={{
-            mt: 15,
+            my: 15,
+            p: 5,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            backgroundColor: 'background.paper'
           }}
         >
           <Typography component="h1" variant="h4">
@@ -83,30 +79,38 @@ export default function SignIn() {
               required
               fullWidth
               id="email"
-              label="E-Mail-Adresse"
               name="email"
+              label="E-Mail-Adresse"
               autoComplete="email"
               autoFocus
+              variant="outlined"
+              color="primary"
             />
             <TextField
               margin="normal"
               required
               fullWidth
+              id="password"
               name="password"
               label="Passwort"
               type="password"
-              id="password"
               autoComplete="current-password"
+              variant="outlined"
+              color="primary"
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
-              label="Zugang merken"
+              label="Anmeldedaten merken"
             />
             <Button
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ 
+                mt: 3, 
+                mb: 2,
+                color: 'background.paper'
+               }}
             >
               Anmelden
             </Button>
@@ -125,7 +129,6 @@ export default function SignIn() {
           </Box>
         </Box>
       </Container>
-    </ThemeProvider>
       </>
   );
 }
