@@ -8,7 +8,7 @@ import {
   List,
   ListItem,
   ListItemAvatar,
-  ListItemText
+  ListItemText,
 } from '@mui/material';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -33,15 +33,11 @@ const products = [
   {
     name: 'GitHub',
     imageUrl: '/static/images/products/product_5.png',
-  }
+  },
 ];
 
-
 export default function UserProducts() {
-
-
   return (
-
     <>
       {/* <Box 
           px={{ xs: 2, sm: 2}}
@@ -52,58 +48,40 @@ export default function UserProducts() {
           color="text.primary">
 
       </Box> */}
-      <Card >
-    <CardHeader
-      subtitle={`${products.length} in total`}
-      title="Latest Products"
-    />
-    <Divider />
-    <List>
-      {products.map((product, i) => (
-        <ListItem
-          divider={i < products.length - 1}
+      <Card elevation={0}>
+        <CardHeader
+          subtitle={`${products.length} in total`}
+          title="Latest Products"
+        />
+        <Divider />
+        <List>
+          {products.map((product, i) => (
+            <ListItem divider={i < products.length - 1}>
+              <ListItemText primary={product.name} />
+              <IconButton edge="end" size="small">
+                <MoreVertIcon />
+              </IconButton>
+            </ListItem>
+          ))}
+        </List>
+        <Divider />
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'flex-end',
+            p: 2,
+          }}
         >
-          <ListItemAvatar>
-            <img
-              alt={product.name}
-              src={product.imageUrl}
-              style={{
-                height: 48,
-                width: 48
-              }}
-            />
-          </ListItemAvatar>
-          <ListItemText
-            primary={product.name}
-          />
-          <IconButton
-            edge="end"
+          <Button
+            color="primary"
+            endIcon={<ArrowRightIcon />}
             size="small"
+            variant="text"
           >
-            <MoreVertIcon />
-          </IconButton>
-        </ListItem>
-      ))}
-    </List>
-    <Divider />
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'flex-end',
-        p: 2
-      }}
-    >
-      <Button
-        color="primary"
-        endIcon={<ArrowRightIcon />}
-        size="small"
-        variant="text"
-      >
-        View all
-      </Button>
-    </Box>
-  </Card>
-
+            View all
+          </Button>
+        </Box>
+      </Card>
     </>
   );
 }
