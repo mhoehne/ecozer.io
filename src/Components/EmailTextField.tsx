@@ -1,16 +1,12 @@
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-
-
 export default function FormPropsTextFields() {
-
-
   return (
     <Box
       component="form"
       sx={{
-        '& .MuiTextField-root': { m: 2, width: '10rem', margin: '0rem', },
+        '& .MuiTextField-root': { m: 2, width: '10rem', margin: '0rem' },
       }}
       noValidate
       autoComplete="off"

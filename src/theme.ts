@@ -1,7 +1,4 @@
-import 
-{ 
-  createTheme 
-} from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 
 // Custom theme for this app
 const theme = createTheme({
@@ -34,8 +31,7 @@ const theme = createTheme({
     background: {
       paper: '#fff',
       default: '#EBEBEB',
-    }
-
+    },
   },
 
   components: {
@@ -46,7 +42,6 @@ const theme = createTheme({
         square: true, // No more ripple!
       },
     },
-    
   },
 });
 

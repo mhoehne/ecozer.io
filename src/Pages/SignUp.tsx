@@ -9,19 +9,10 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import 
-{ 
-  createTheme, 
-  ThemeProvider 
-} from '@mui/material/styles';
-import 
-{ 
-  CreateAccount 
-} from '../API';
-
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { CreateAccount } from '../API';
 
 const theme = createTheme();
-
 
 export default function SignUp() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -29,63 +20,68 @@ export default function SignUp() {
     const data = new FormData(event.currentTarget);
 
     // eslint-disable-next-line no-console
-    const emailAddress = data.get('emailAddress')?.toString()
-    
+    const emailAddress = data.get('emailAddress')?.toString();
+
     if (emailAddress === undefined) {
       alert('invalid email address');
       return;
-    };
+    }
 
-    const isAdmin = false
+    const isAdmin = false;
 
-    const password = data.get('password')?.toString()
-    
+    const password = data.get('password')?.toString();
+
     if (password === undefined) {
       alert('invalid password');
       return;
-    };
+    }
 
-    const firstName = data.get('firstName')?.toString()
-    
+    const firstName = data.get('firstName')?.toString();
+
     if (firstName === undefined) {
       alert('invalid First Name');
       return;
-    };
+    }
 
-    const lastName = data.get('lastName')?.toString()
-    
+    const lastName = data.get('lastName')?.toString();
+
     if (lastName === undefined) {
       alert('invalid Last Name');
       return;
-    };
+    }
 
-    const companyName = data.get('companyName')?.toString()
-    
+    const companyName = data.get('companyName')?.toString();
+
     if (companyName === undefined) {
       alert('invalid Company Name');
       return;
+    }
+
+    const lastLogin = 'null';
+
+    const account = {
+      emailAddress,
+      isAdmin,
+      password,
+      firstName,
+      lastName,
+      companyName,
+      lastLogin,
     };
 
-    const lastLogin = 'null'
-
-    const account = {emailAddress, isAdmin, password, firstName, lastName, companyName, lastLogin}
-    
-      CreateAccount(account)
+    CreateAccount(account)
       .then((account) => {
-        alert('success')
+        alert('success');
         // success
       })
       .catch((msg) => {
-        alert('error')
+        alert('error');
         // error
       });
   };
 
-  
-
   return (
-
-      <>
+    <>
       <Container component="main" maxWidth="xs">
         <Box
           sx={{
@@ -94,13 +90,18 @@ export default function SignUp() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            backgroundColor: 'background.paper'
+            backgroundColor: 'background.paper',
           }}
         >
           <Typography component="h1" variant="h4">
             Account erstellen
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box
+            component="form"
+            noValidate
+            onSubmit={handleSubmit}
+            sx={{ mt: 3 }}
+          >
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -165,10 +166,10 @@ export default function SignUp() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ 
-                mt: 3, 
+              sx={{
+                mt: 3,
                 mb: 2,
-                color: 'background.paper' 
+                color: 'background.paper',
               }}
             >
               Account erstellen
@@ -176,18 +177,18 @@ export default function SignUp() {
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/signin" variant="body2">
-                  {"Du hast bereits einen Account?"}
+                  {'Du hast bereits einen Account?'}
                 </Link>
               </Grid>
               <Grid item>
                 <Link href="/passwort-vergessen" variant="body2">
-                  {"Du hast dein Passwort vergessen?"}
+                  {'Du hast dein Passwort vergessen?'}
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
       </Container>
-      </>
+    </>
   );
 }

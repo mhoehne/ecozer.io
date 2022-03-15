@@ -40,7 +40,6 @@ function a11yProps(index: number) {
 }
 
 export default function Overview() {
-
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -48,48 +47,38 @@ export default function Overview() {
   };
 
   return (
-
-      <>
-        <Container>
-        <Box 
-          px={{ xs: 2, sm: 2}}
-          py={{ xs: 2, sm: 2}}
-          mx={{ xs: 0, sm: 0}}
-          my={{ xs: 2, sm: 2}}
+    <>
+      <Container>
+        <Box
+          px={{ xs: 2, sm: 2 }}
+          py={{ xs: 2, sm: 2 }}
+          mx={{ xs: 0, sm: 0 }}
+          my={{ xs: 2, sm: 2 }}
           bgcolor="background.paper"
           color="text.primary"
-          >
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs 
-          value={value} 
-          onChange={handleChange} 
-          aria-label="basic tabs example"
-          >
-          <Tab label="Pending" {...a11yProps(0)} />
-          <Tab label="Rejected" {...a11yProps(1)} />
-          <Tab label="Approved" {...a11yProps(2)} />
-        </Tabs>
-      </Box>
-      </Box>
-      <TabPanel value={value} index={0}>
-      <Grid container spacing={0}>
-            
-          </Grid>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-      <Grid container spacing={0}>
-
-          </Grid>
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-      <Grid container spacing={0}> 
-      
-          </Grid>
-      </TabPanel>
-    
-
-        </Container>
-        
-      </>
+        >
+          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              aria-label="basic tabs example"
+            >
+              <Tab label="Pending" {...a11yProps(0)} />
+              <Tab label="Rejected" {...a11yProps(1)} />
+              <Tab label="Approved" {...a11yProps(2)} />
+            </Tabs>
+          </Box>
+        </Box>
+        <TabPanel value={value} index={0}>
+          <Grid container spacing={0}></Grid>
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <Grid container spacing={0}></Grid>
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          <Grid container spacing={0}></Grid>
+        </TabPanel>
+      </Container>
+    </>
   );
 }

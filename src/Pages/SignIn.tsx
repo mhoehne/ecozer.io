@@ -9,57 +9,48 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { 
-  checkAuthentication
-} from '../API';
-import {
-  useNavigate,
-  NavigateFunction
-} from "react-router-dom";
+import { checkAuthentication } from '../API';
+import { useNavigate, NavigateFunction } from 'react-router-dom';
 
+async function authenticate(
+  emailaddress: string,
+  password: string,
+  navigate: NavigateFunction
+) {
+  // send formdata to API
 
-async function authenticate(emailaddress: string, password: string, navigate: NavigateFunction) {
-  // send formdata to API 
-  
   try {
-    const response = await checkAuthentication(emailaddress, password)
-    if (response.data === "OK") {
-
-      // create coookie to pass boolean to AppBarTop IsLoggedOut function
+    const response = await checkAuthentication(emailaddress, password);
+    if (response.data === 'OK') {
+      // create cookie to pass boolean to AppBarTop IsLoggedOut function
       return navigate('/dashboard');
-
-    } 
-  } catch(e) {
-      console.log(e);
+    }
+  } catch (e) {
+    console.log(e);
   }
 }
 
 export default function SignIn() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const emailaddress = data.get('email')
-    const password = data.get('password')
+    const emailaddress = data.get('email');
+    const password = data.get('password');
     if (emailaddress != null && password != null) {
-      await authenticate(emailaddress.toString(), password.toString(), navigate)
+      await authenticate(
+        emailaddress.toString(),
+        password.toString(),
+        navigate
+      );
     } else {
-      alert("something went wrong");
+      alert('something went wrong');
     }
-
-
-
   };
 
-  
-
   return (
-
-      <>
-      <Container 
-        component="main" 
-        maxWidth="xs" 
-        >
+    <>
+      <Container component="main" maxWidth="xs">
         <Box
           sx={{
             my: 15,
@@ -67,13 +58,18 @@ export default function SignIn() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            backgroundColor: 'background.paper'
+            backgroundColor: 'background.paper',
           }}
         >
           <Typography component="h1" variant="h4">
             Login
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box
+            component="form"
+            onSubmit={handleSubmit}
+            noValidate
+            sx={{ mt: 1 }}
+          >
             <TextField
               margin="normal"
               required
@@ -106,11 +102,11 @@ export default function SignIn() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ 
-                mt: 3, 
+              sx={{
+                mt: 3,
                 mb: 2,
-                color: 'background.paper'
-               }}
+                color: 'background.paper',
+              }}
             >
               Anmelden
             </Button>
@@ -122,13 +118,13 @@ export default function SignIn() {
               </Grid>
               <Grid item>
                 <Link href="/Signup" variant="body2">
-                  {"Haben Sie keinen Account?"}
+                  {'Haben Sie keinen Account?'}
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
       </Container>
-      </>
+    </>
   );
 }

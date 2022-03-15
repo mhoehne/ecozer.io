@@ -5,18 +5,11 @@ import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import 
-{ 
-  Link 
-} from "react-router-dom";
+import { Link } from 'react-router-dom';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Badge from '@mui/material/Badge';
 
-
-
 export default function NotificationMenu() {
-
-
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -29,9 +22,14 @@ export default function NotificationMenu() {
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Tooltip title="Show notifications">
-          <IconButton onClick={handleClick} size="large" aria-label="show 4 new mails" color="inherit">
+          <IconButton
+            onClick={handleClick}
+            size="large"
+            aria-label="show 4 new mails"
+            color="inherit"
+          >
             <Badge badgeContent={4} color="error">
-              <NotificationsIcon/>
+              <NotificationsIcon />
             </Badge>
           </IconButton>
         </Tooltip>
@@ -70,17 +68,12 @@ export default function NotificationMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem component={Link} to=''>
-        <ListItemIcon>
-          </ListItemIcon> 
-          .
+        <MenuItem component={Link} to="">
+          <ListItemIcon></ListItemIcon>.
         </MenuItem>
-        <MenuItem component={Link} to=''>
-        <ListItemIcon>
-          </ListItemIcon>
-          .
+        <MenuItem component={Link} to="">
+          <ListItemIcon></ListItemIcon>.
         </MenuItem>
-        
       </Menu>
     </React.Fragment>
   );

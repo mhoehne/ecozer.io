@@ -1,28 +1,17 @@
-import { 
+import {
   DataGrid,
   GridActionsCellItem,
-  GridEditRowsModel, 
+  GridEditRowsModel,
   GridToolbarContainer,
   GridToolbarDensitySelector,
-  GridRowId
+  GridRowId,
 } from '@mui/x-data-grid';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { 
-  useEffect, 
-  useState, 
-  useCallback 
-} from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Box } from '@mui/material';
-import { 
-  GetAccounts, 
-  AccountsType, 
-  PutAccounts, 
-  DeleteAccount 
-} from '../API';
+import { GetAccounts, AccountsType, PutAccounts, DeleteAccount } from '../API';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
-
-
 
 function CustomToolbar() {
   return (
@@ -33,8 +22,8 @@ function CustomToolbar() {
 }
 
 const onRowEdit = (accounts: AccountsType[], state: GridEditRowsModel) => {
-  for(const email in state) {
-    const accountNewFields: { [key:string]: string } = { emailAddress: email };
+  for (const email in state) {
+    const accountNewFields: { [key: string]: string } = { emailAddress: email };
 
     // Get all new values from `state` into `accountNewFields`
     for (const field in state[email]) {
@@ -51,7 +40,9 @@ const onRowEdit = (accounts: AccountsType[], state: GridEditRowsModel) => {
 
     // Did not find an account: should never happen. Send error to console and skip this email to avoid a crash.
     if (account === undefined) {
-      console.error(`Could not find an account of email "${email}". This is most likely a bug.`);
+      console.error(
+        `Could not find an account of email "${email}". This is most likely a bug.`
+      );
       continue;
     }
 
@@ -73,56 +64,57 @@ const onRowEdit = (accounts: AccountsType[], state: GridEditRowsModel) => {
 };
 
 export default function DataGridDemo() {
-  const [accounts, setAccounts] = useState<AccountsType[]>([])
+  const [accounts, setAccounts] = useState<AccountsType[]>([]);
 
   const deleteUser = useCallback(
     (id) => () => {
       let account = accounts.find((acc) => acc.emailAddress === id);
       if (account === undefined) {
-        console.error(`Could not find an account of email "${id}". This is most likely a bug.`);
-        return
+        console.error(
+          `Could not find an account of email "${id}". This is most likely a bug.`
+        );
+        return;
       }
       DeleteAccount(account)
-      .then(() => {
-        setTimeout(() => {
-          setAccounts((prevRows) => prevRows.filter((row) => row.emailAddress !== id));
+        .then(() => {
+          setTimeout(() => {
+            setAccounts((prevRows) =>
+              prevRows.filter((row) => row.emailAddress !== id)
+            );
+          });
+        })
+        .catch((e) => {
+          console.log(e);
         });
-      })
-      .catch((e) => {
-        console.log(e);
-      }
-      );
-      
     },
-    [accounts],
+    [accounts]
   );
 
   const toggleAdmin = useCallback(
     (id: GridRowId) => () => {
-      for(const account of accounts) {
-        if(account.emailAddress == id) {
+      for (const account of accounts) {
+        if (account.emailAddress == id) {
           const admin = {
             ...account,
-            isAdmin: ! account.isAdmin
-          }
-          PutAccounts(admin) 
-          .then(() => {
-            setAccounts(
-              (prevRows) => {
+            isAdmin: !account.isAdmin,
+          };
+          PutAccounts(admin)
+            .then(() => {
+              setAccounts((prevRows) => {
                 return prevRows.map((row) =>
-                  row.emailAddress === id ? { ...row, isAdmin: !row.isAdmin } : row,
-                )
-              }
-            );
-          })
-          .catch((e) => {
-            console.log(e);
-          })
+                  row.emailAddress === id
+                    ? { ...row, isAdmin: !row.isAdmin }
+                    : row
+                );
+              });
+            })
+            .catch((e) => {
+              console.log(e);
+            });
         }
       }
-      
     },
-    [accounts],
+    [accounts]
   );
 
   // const resetPassword = React.useCallback(
@@ -137,19 +129,17 @@ export default function DataGridDemo() {
   // );
 
   const columns = [
-  
     {
-      
       field: 'actions',
       type: 'actions',
-      getActions: (params:{id: string}) => [
+      getActions: (params: { id: string }) => [
         <GridActionsCellItem
           icon={<DeleteIcon />}
           label="Delete"
           onClick={deleteUser(params.id)}
           showInMenu
         />,
-      
+
         <GridActionsCellItem
           icon={<DeleteIcon />}
           label="Toggle Admin"
@@ -157,19 +147,19 @@ export default function DataGridDemo() {
           showInMenu
         />,
 
-      // field: 'actions',
-      // type: 'actions',
+        // field: 'actions',
+        // type: 'actions',
         // <GridActionsCellItem
         //   icon={<SecurityIcon />}
         //   label="reset Password"
         //   onClick={resetPassword(params.id)}
         //   showInMenu
         // />,
-
       ],
     },
-    { field: 'isAdmin', 
-      headerName: 'Admin', 
+    {
+      field: 'isAdmin',
+      headerName: 'Admin',
       type: 'boolean',
       width: 70,
       editable: false,
@@ -205,8 +195,9 @@ export default function DataGridDemo() {
       width: 200,
       editable: false,
     },
-    { field: '_id',
-      headerName: 'ID', 
+    {
+      field: '_id',
+      headerName: 'ID',
       type: 'string',
       width: 220,
       editable: false,
@@ -215,16 +206,18 @@ export default function DataGridDemo() {
 
   useEffect(() => {
     GetAccounts()
-    .then((result) => {setAccounts(result.data.accounts)})
-    .catch();
-  },[]);
+      .then((result) => {
+        setAccounts(result.data.accounts);
+      })
+      .catch();
+  }, []);
 
   return (
     <Box
-      px={{ xs: 2, sm: 2}}
-      py={{ xs: 2, sm: 2}}
-      mx={{ xs: 0, sm: 0}}
-      my={{ xs: 2, sm: 2}}
+      px={{ xs: 2, sm: 2 }}
+      py={{ xs: 2, sm: 2 }}
+      mx={{ xs: 0, sm: 0 }}
+      my={{ xs: 2, sm: 2 }}
       bgcolor="background.paper"
       color="text.primary"
     >
@@ -239,7 +232,8 @@ export default function DataGridDemo() {
           disableSelectionOnClick
           density="standard"
           components={{
-            Toolbar: CustomToolbar, }}
+            Toolbar: CustomToolbar,
+          }}
         />
       </div>
     </Box>

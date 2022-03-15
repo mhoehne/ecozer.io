@@ -1,5 +1,13 @@
 import { Bar } from 'react-chartjs-2';
-import { Box, Button, Card, CardContent, CardHeader, Divider, useTheme } from '@mui/material';
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  Divider,
+  useTheme,
+} from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
@@ -16,7 +24,7 @@ export default function LatestVisits() {
         categoryPercentage: 0.5,
         data: [18, 5, 19, 27, 29, 19, 20],
         label: 'This year',
-        maxBarThickness: 10
+        maxBarThickness: 10,
       },
       {
         backgroundColor: '#EEEEEE',
@@ -26,10 +34,10 @@ export default function LatestVisits() {
         categoryPercentage: 0.5,
         data: [11, 20, 12, 29, 30, 25, 13],
         label: 'Last year',
-        maxBarThickness: 10
-      }
+        maxBarThickness: 10,
+      },
     ],
-    labels: ['1 Aug', '2 Aug', '3 Aug', '4 Aug', '5 Aug', '6 Aug', '7 aug']
+    labels: ['1 Aug', '2 Aug', '3 Aug', '4 Aug', '5 Aug', '6 Aug', '7 aug'],
   };
 
   const options = {
@@ -42,20 +50,20 @@ export default function LatestVisits() {
     xAxes: [
       {
         ticks: {
-          fontColor: theme.palette.text.secondary
+          fontColor: theme.palette.text.secondary,
         },
         gridLines: {
           display: false,
-          drawBorder: false
-        }
-      }
+          drawBorder: false,
+        },
+      },
     ],
     yAxes: [
       {
         ticks: {
           fontColor: theme.palette.text.secondary,
           beginAtZero: true,
-          min: 0
+          min: 0,
         },
         gridLines: {
           borderDash: [2],
@@ -64,9 +72,9 @@ export default function LatestVisits() {
           drawBorder: false,
           zeroLineBorderDash: [2],
           zeroLineBorderDashOffset: [2],
-          zeroLineColor: theme.palette.divider
-        }
-      }
+          zeroLineColor: theme.palette.divider,
+        },
+      },
     ],
     tooltips: {
       backgroundColor: theme.palette.background.paper,
@@ -77,21 +85,18 @@ export default function LatestVisits() {
       footerFontColor: theme.palette.text.secondary,
       intersect: false,
       mode: 'index',
-      titleFontColor: theme.palette.text.primary
-    }
+      titleFontColor: theme.palette.text.primary,
+    },
   };
 
   return (
-    <Card >
+    <Card>
       <CardHeader
-        action={(
-          <Button
-            endIcon={<ArrowDropDownIcon fontSize="small" />}
-            size="small"
-          >
+        action={
+          <Button endIcon={<ArrowDropDownIcon fontSize="small" />} size="small">
             Last 7 days
           </Button>
-        )}
+        }
         title="Latest Sales"
       />
       <Divider />
@@ -99,7 +104,7 @@ export default function LatestVisits() {
         <Box
           sx={{
             height: 400,
-            position: 'relative'
+            position: 'relative',
           }}
         >
           {/* <Bar
@@ -113,7 +118,7 @@ export default function LatestVisits() {
         sx={{
           display: 'flex',
           justifyContent: 'flex-end',
-          p: 2
+          p: 2,
         }}
       >
         <Button
@@ -126,4 +131,4 @@ export default function LatestVisits() {
       </Box>
     </Card>
   );
-};
+}

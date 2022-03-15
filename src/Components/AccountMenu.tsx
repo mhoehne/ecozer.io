@@ -15,17 +15,9 @@ import Logout from '@mui/icons-material/Logout';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import BadgeIcon from '@mui/icons-material/Badge';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import 
-{ 
-  Link 
-} from "react-router-dom";
-
-
-
+import { Link } from 'react-router-dom';
 
 export default function AccountMenu() {
-
-
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -39,7 +31,9 @@ export default function AccountMenu() {
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Tooltip title="Account settings">
           <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
-            <Avatar sx={{ width: 45, height: 45, bgcolor: 'secondary.main' }}>MH</Avatar>
+            <Avatar sx={{ width: 45, height: 45, bgcolor: 'secondary.main' }}>
+              MH
+            </Avatar>
           </IconButton>
         </Tooltip>
       </Box>
@@ -77,32 +71,32 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem component={Link} to='/dashboard'>
-        <ListItemIcon>
+        <MenuItem component={Link} to="/dashboard">
+          <ListItemIcon>
             <DashboardIcon fontSize="small" />
           </ListItemIcon>
-           Dashboard
+          Dashboard
         </MenuItem>
-        <MenuItem component={Link} to='/my-products'>
-        <ListItemIcon>
+        <MenuItem component={Link} to="/my-products">
+          <ListItemIcon>
             <DashboardCustomizeIcon fontSize="small" />
           </ListItemIcon>
           Products
         </MenuItem>
-        <MenuItem component={Link} to='/account'>
-        <ListItemIcon>
+        <MenuItem component={Link} to="/account">
+          <ListItemIcon>
             <AccountBoxIcon fontSize="small" />
           </ListItemIcon>
-           Account
+          Account
         </MenuItem>
         <Divider />
-        <MenuItem component={Link} to='/approval'>
+        <MenuItem component={Link} to="/approval">
           <ListItemIcon>
             <FactCheckIcon fontSize="small" />
           </ListItemIcon>
           Approval
         </MenuItem>
-        <MenuItem component={Link} to='/user-list'>
+        <MenuItem component={Link} to="/user-list">
           <ListItemIcon>
             <BadgeIcon fontSize="small" />
           </ListItemIcon>
