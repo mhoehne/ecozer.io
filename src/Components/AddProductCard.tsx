@@ -9,9 +9,9 @@ export default function AddProductCard() {
   return (
     <Card sx={{ maxWidth: 345, height: 360, margin: '2rem', display: 'flex' }}>
       <Box sx={{ m: 'auto' }}>
-        <MenuItem component={Link} to="/">
+        <MenuItem component={Link} to="/my-products/add-product">
           <CardActions>
-            <Button size="large" href="/my-products/add-product">
+            <Button size="large" href="/add-product">
               + erstellen
             </Button>
           </CardActions>

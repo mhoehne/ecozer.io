@@ -23,7 +23,7 @@ export default function MyProducts() {
       <SearchBarBoxed />
       <Grid container spacing={0}>
         <Grid item xs={12} sm={4}>
-          {/* <AddProductCard/> */}
+          <AddProductCard />
         </Grid>
 
         {products.map((product) => {
