@@ -10,7 +10,7 @@ export default function Footer() {
     <footer>
       <Box
         px={{ xs: 2, sm: 4 }}
-        py={{ xs: 0, sm: 0 }}
+        py={{ xs: 0, sm: 5 }}
         mt={'auto'}
         bgcolor="text.secondary"
         color="background.paper"
