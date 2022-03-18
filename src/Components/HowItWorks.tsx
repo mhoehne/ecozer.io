@@ -6,11 +6,13 @@ import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
 import TimelineDot from '@mui/lab/TimelineDot';
-import LaptopMacIcon from '@mui/icons-material/LaptopMac';
 import Typography from '@mui/material/Typography';
+import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
+import PostAddIcon from '@mui/icons-material/PostAdd';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 // todos:
-// change icons
 
 export default function HowItWorks() {
   return (
@@ -44,7 +46,7 @@ export default function HowItWorks() {
             <TimelineSeparator>
               <TimelineConnector />
               <TimelineDot color="primary">
-                <LaptopMacIcon
+                <DriveFileRenameOutlineIcon
                   fontSize="large"
                   sx={{ color: 'background.paper' }}
                 />
@@ -71,7 +73,7 @@ export default function HowItWorks() {
             <TimelineSeparator>
               <TimelineConnector />
               <TimelineDot color="primary">
-                <LaptopMacIcon
+                <PostAddIcon
                   fontSize="large"
                   sx={{ color: 'background.paper' }}
                 />
@@ -95,7 +97,7 @@ export default function HowItWorks() {
             <TimelineSeparator>
               <TimelineConnector />
               <TimelineDot color="primary">
-                <LaptopMacIcon
+                <RocketLaunchIcon
                   fontSize="large"
                   sx={{ color: 'background.paper' }}
                 />
@@ -121,7 +123,7 @@ export default function HowItWorks() {
             <TimelineSeparator>
               <TimelineConnector />
               <TimelineDot color="primary">
-                <LaptopMacIcon
+                <CheckCircleOutlineIcon
                   fontSize="large"
                   sx={{ color: 'background.paper' }}
                 />
