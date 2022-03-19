@@ -4,7 +4,7 @@ import { Paper } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import HeroBanner from '../Components/HeroBanner';
 import Typography from '@mui/material/Typography';
-import HowItWorks from '../Components/HowItWorks';
+import HowItWorks from '../Components/Homepage/HowItWorks';
 
 export default function Home() {
   const Item = styled(Paper)(({ theme }) => ({
