@@ -6,6 +6,7 @@ import HeroBanner from '../Components/HeroBanner';
 import Typography from '@mui/material/Typography';
 import HowItWorks from '../Components/Homepage/HowItWorks';
 import NewestProducts from '../Components/Homepage/NewestPorducts';
+import MostClickedProducts from '../Components/Homepage/MostClickedProducts';
 
 export default function Home() {
   const Item = styled(Paper)(({ theme }) => ({
@@ -23,35 +24,8 @@ export default function Home() {
     <>
       <HeroBanner />
       <NewestProducts />
-
-      <Container sx={{ mt: 5 }}>
-        <Typography
-          component="h4"
-          variant="h4"
-          align="center"
-          color="text.primary"
-          gutterBottom
-        >
-          Meist angeklickte Produkte
-        </Typography>
-      </Container>
-
-      {/* 3 most clicked products, filtered by click counter */}
-      <Grid container spacing={0}>
-        <Grid item xs={4}>
-          {/* <ImgMediaCard/> */}
-        </Grid>
-        <Grid item xs={4}>
-          {/* <ImgMediaCard/> */}
-        </Grid>
-        <Grid item xs={4}>
-          {/* <ImgMediaCard/> */}
-        </Grid>
-      </Grid>
-
-      <Container>
-        <HowItWorks />
-      </Container>
+      <MostClickedProducts />
+      <HowItWorks />
     </>
   );
 }
