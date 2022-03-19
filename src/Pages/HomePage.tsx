@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid';
 import HeroBanner from '../Components/HeroBanner';
 import Typography from '@mui/material/Typography';
 import HowItWorks from '../Components/Homepage/HowItWorks';
+import NewestProducts from '../Components/Homepage/NewestPorducts';
 
 export default function Home() {
   const Item = styled(Paper)(({ theme }) => ({
@@ -21,30 +22,7 @@ export default function Home() {
   return (
     <>
       <HeroBanner />
-      <Container sx={{ mt: 5 }}>
-        <Typography
-          component="h4"
-          variant="h4"
-          align="center"
-          color="text.primary"
-          gutterBottom
-        >
-          Neuste Produkte
-        </Typography>
-      </Container>
-
-      {/* 3 newest products, filtered by newest creation date */}
-      <Grid container spacing={0}>
-        <Grid item xs={4}>
-          {/* <ImgMediaCard/> */}
-        </Grid>
-        <Grid item xs={4}>
-          {/* <ImgMediaCard/> */}
-        </Grid>
-        <Grid item xs={4}>
-          {/* <ImgMediaCard/> */}
-        </Grid>
-      </Grid>
+      <NewestProducts />
 
       <Container sx={{ mt: 5 }}>
         <Typography
