@@ -1,12 +1,9 @@
 import { styled } from '@mui/material/styles';
-import Container from '@mui/material/Container';
 import { Paper } from '@mui/material';
-import Grid from '@mui/material/Grid';
-import HeroBanner from '../Components/HeroBanner';
-import Typography from '@mui/material/Typography';
 import HowItWorks from '../Components/Homepage/HowItWorks';
-import NewestProducts from '../Components/Homepage/NewestPorducts';
 import MostClickedProducts from '../Components/Homepage/MostClickedProducts';
+import NewestProducts from '../Components/Homepage/NewestPorducts';
+import HeroBanner from '../Components/HeroBanner';
 
 export default function Home() {
   const Item = styled(Paper)(({ theme }) => ({

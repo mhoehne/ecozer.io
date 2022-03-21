@@ -7,7 +7,6 @@ import {
   IconButton,
   List,
   ListItem,
-  ListItemAvatar,
   ListItemText,
 } from '@mui/material';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
