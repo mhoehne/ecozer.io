@@ -4,6 +4,13 @@ import CardMedia from '@mui/material/CardMedia';
 import SampleImg from '../images/sample-img.png';
 import TextField from '@mui/material/TextField';
 
+{
+  /* 
+  TODO: connect with create product API 
+  - add create product button
+*/
+}
+
 export default function ProductDetailViewCard() {
   return (
     <>
