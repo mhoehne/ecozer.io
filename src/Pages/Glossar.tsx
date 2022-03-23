@@ -1,12 +1,45 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import GlossarItem from '../Components/GlossarItem';
+import Container from '@mui/material/Container';
 import ImageBanner from '../Components/ImageBanner';
+import BannerBackgroundImage2 from '../images/layered-waves-haikei_2.svg';
 
 export default function Glossar() {
   return (
     <>
-      <ImageBanner />
+      {/* <ImageBanner /> */}
+      <Box
+        sx={{
+          bgcolor: 'background.paper',
+          pt: 12,
+          pb: 12,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundImage: `url(${BannerBackgroundImage2})`,
+        }}
+      >
+        <Container maxWidth={false}>
+          <Typography
+            component="h1"
+            variant="h2"
+            align="center"
+            color="text.primary"
+            gutterBottom
+          >
+            Glossar
+          </Typography>
+          <Typography
+            variant="h5"
+            align="center"
+            color="text.secondary"
+            paragraph
+          >
+            Hier findest du alle wichtigen Begriffserklärungen
+          </Typography>
+        </Container>
+      </Box>
       <GlossarItem />
 
       <Box

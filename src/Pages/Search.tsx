@@ -4,8 +4,11 @@ import Box from '@mui/material/Box';
 import SearchBarBoxed from '../Components/SearchBarBoxed';
 import AccordionFilter from '../Components/AccordionFilter';
 import ImgMediaCard from '../Components/ImgMediaCard';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 import { useEffect, useState } from 'react';
 import { GetProducts, ProductType } from '../API';
+import BannerBackgroundImage from '../images/layered-waves-haikei_1.svg';
 
 export default function Search() {
   const [products, setProducts] = useState<ProductType[]>([]);
@@ -20,8 +23,39 @@ export default function Search() {
 
   return (
     <>
-      <ImageBanner />
-
+      {/* <ImageBanner /> */}
+      <Box
+        sx={{
+          bgcolor: 'background.paper',
+          pt: 12,
+          pb: 12,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundImage: `url(${BannerBackgroundImage})`,
+        }}
+      >
+        <Container maxWidth={false}>
+          <Typography
+            component="h1"
+            variant="h2"
+            align="center"
+            color="text.primary"
+            gutterBottom
+          >
+            Produktsuche
+          </Typography>
+          <Typography
+            variant="h5"
+            align="center"
+            color="text.secondary"
+            paragraph
+          >
+            Hier kannst du nach Produkten suchen und nach deinen Kriterien
+            filtern, um deine passende Firmensoftware zu finden!
+          </Typography>
+        </Container>
+      </Box>
       <SearchBarBoxed />
 
       <Grid container rowSpacing={0} columnSpacing={{ xs: 0, sm: 0, md: 0 }}>
