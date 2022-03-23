@@ -20,7 +20,9 @@ export default function Home() {
   return (
     <>
       <HeroBanner />
+      {/* display the 3 latest published products */}
       <NewestProducts />
+      {/* display the 3 most viewed products */}
       <MostClickedProducts />
       <HowItWorks />
     </>
