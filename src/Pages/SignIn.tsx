@@ -16,7 +16,8 @@ import { useCookies } from 'react-cookie';
 async function authenticate(
   emailaddress: string,
   password: string,
-  navigate: NavigateFunction
+  navigate: NavigateFunction,
+  setCookie: Function
 ) {
   // send formdata to API
 
@@ -24,14 +25,8 @@ async function authenticate(
     const response = await checkAuthentication(emailaddress, password);
     if (response.data === 'OK') {
       // create cookie to pass boolean to AppBarTop IsLoggedOut function
-      // const [name, setName] = useState('');
-      // const [pwd, setPwd] = useState('');
-      // const [cookies, setCookie] = useCookies(['user']);
 
-      // const handle = () => {
-      //   setCookie('email', name, { path: '/' });
-      //   setCookie('password', pwd, { path: '/' });
-      // };
+      setCookie('email', emailaddress, { path: '/' });
       return navigate('/dashboard');
     }
   } catch (e) {
@@ -40,6 +35,7 @@ async function authenticate(
 }
 
 export default function SignIn() {
+  const [cookies, setCookie] = useCookies(['email']);
   const navigate = useNavigate();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -50,7 +46,8 @@ export default function SignIn() {
       await authenticate(
         emailaddress.toString(),
         password.toString(),
-        navigate
+        navigate,
+        setCookie
       );
     } else {
       alert('something went wrong');

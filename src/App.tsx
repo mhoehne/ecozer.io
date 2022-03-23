@@ -15,11 +15,31 @@ import Footer from './Components/Footer';
 import AppBarTop from './Components/AppBarTop';
 import Dashboard from './Pages/Dashboard';
 import Glossar from './Pages/Glossar';
+import { useCookies } from 'react-cookie';
+import { useState, useEffect } from 'react';
+import { AccountsType, GetAccountByEmail } from './API';
 
 export default function App() {
+  useCookies(['email']);
+  const [accounts, setAccounts] = useState<AccountsType | null>(null);
+  const [cookies, setCookie] = useCookies(['email']);
+  // get email from cookie
+  // get account by email
+  useEffect(() => {
+    if (cookies.email === null || cookies.email === undefined) {
+      return;
+    }
+
+    GetAccountByEmail(cookies.email)
+      .then((result) => {
+        setAccounts(result.data.singleAccount);
+      })
+      .catch();
+  }, [accounts, cookies]);
+
   return (
     <Router>
-      <AppBarTop Account={null} />
+      <AppBarTop Account={accounts} />
       <Container maxWidth={false} disableGutters={true} sx={{ mt: 8 }}>
         {/* A <Switch> or <Routes> (in react-router-dom v6) looks through its children <Route>s and
         renders the first one that matches the current URL. */}

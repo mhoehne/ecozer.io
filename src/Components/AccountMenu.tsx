@@ -116,6 +116,7 @@ export default function AccountMenu() {
           </ListItemIcon>
           Settings
         </MenuItem>
+        {/* call useCookies and remove cookie */}
         <MenuItem>
           <ListItemIcon>
             <Logout fontSize="small" />
