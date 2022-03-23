@@ -135,7 +135,9 @@ export default function HowItWorks() {
               <TimelineContent sx={{ pt: 2.25 }} variant="h6">
                 {' '}
                 Fertig!
-                <Typography>Text</Typography>
+                <Typography>
+                  Dein Produkt ist nun für alle öffentlich sichtbar
+                </Typography>
               </TimelineContent>
             </TimelineItem>
           </Timeline>
