@@ -14,6 +14,10 @@ export type AccountResultType = {
   accounts: AccountsType[];
 };
 
+export type SingleAccountResultType = {
+  singleAccount: AccountsType;
+};
+
 export type AccountCreatedResultType = AccountsType | string;
 
 /*CRUD*SECTION*ACCOUNT>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -32,6 +36,14 @@ export function CreateAccount(
 
 export function GetAccounts(): Promise<AxiosResponse<AccountResultType>> {
   return axios.get<AccountResultType>('http://localhost:8000/accounts');
+}
+
+export function GetAccountByEmail(
+  email: string
+): Promise<AxiosResponse<SingleAccountResultType>> {
+  return axios.get<SingleAccountResultType>(
+    `http://localhost:8000/accounts/${email}`
+  );
 }
 
 /*UPDATE*************************************************************************************************/
