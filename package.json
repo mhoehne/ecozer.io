@@ -17,6 +17,7 @@
     "chart.js": "^3.7.1",
     "react": "latest",
     "react-chartjs-2": "^4.0.1",
+    "react-cookie": "^4.1.1",
     "react-dom": "latest",
     "react-router-dom": "^6.0.2",
     "react-scripts": "latest",

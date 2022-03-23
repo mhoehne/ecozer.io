@@ -10,6 +10,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { checkAuthentication } from '../API';
 import { useNavigate, NavigateFunction } from 'react-router-dom';
+import { useState } from 'react';
+import { useCookies } from 'react-cookie';
 
 async function authenticate(
   emailaddress: string,
@@ -22,6 +24,14 @@ async function authenticate(
     const response = await checkAuthentication(emailaddress, password);
     if (response.data === 'OK') {
       // create cookie to pass boolean to AppBarTop IsLoggedOut function
+      // const [name, setName] = useState('');
+      // const [pwd, setPwd] = useState('');
+      // const [cookies, setCookie] = useCookies(['user']);
+
+      // const handle = () => {
+      //   setCookie('email', name, { path: '/' });
+      //   setCookie('password', pwd, { path: '/' });
+      // };
       return navigate('/dashboard');
     }
   } catch (e) {
