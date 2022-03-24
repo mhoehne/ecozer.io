@@ -15,7 +15,9 @@ import Logout from '@mui/icons-material/Logout';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import BadgeIcon from '@mui/icons-material/Badge';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, NavigateFunction } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
+import { authenticate } from '../Pages/SignIn';
 
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -26,6 +28,26 @@ export default function AccountMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const [cookies, setCookie] = useCookies(['email']);
+  const navigate = useNavigate();
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const emailaddress = data.get('email');
+    const password = data.get('password');
+    if (emailaddress != null && password != null) {
+      await authenticate(
+        emailaddress.toString(),
+        password.toString(),
+        navigate,
+        setCookie
+      );
+    } else {
+      alert('something went wrong');
+    }
+  };
+
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
