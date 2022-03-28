@@ -5,6 +5,8 @@ import SearchBarBoxed from '../Components/SearchBarBoxed';
 import ImageBanner from '../Components/ImageBanner';
 import { useEffect, useState } from 'react';
 import { GetProducts, ProductType } from '../API';
+import { Typography, Container, Box } from '@mui/material';
+import BannerBackground2 from '../images/layered-waves-haikei_2.svg';
 
 export default function MyProducts() {
   const [products, setProducts] = useState<ProductType[]>([]);
@@ -19,7 +21,38 @@ export default function MyProducts() {
 
   return (
     <>
-      <ImageBanner />
+      <Box
+        sx={{
+          bgcolor: 'background.paper',
+          pt: 12,
+          pb: 12,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundImage: `url(${BannerBackground2})`,
+        }}
+      >
+        <Container maxWidth={false}>
+          <Typography
+            component="h1"
+            variant="h2"
+            align="center"
+            color="text.primary"
+            gutterBottom
+          >
+            Deine Produktübersicht
+          </Typography>
+          <Typography
+            variant="h5"
+            align="center"
+            color="text.secondary"
+            paragraph
+          >
+            Hier kannst du all deine Produkte ansehen, neue erstellen und
+            bestehende bearbeiten!
+          </Typography>
+        </Container>
+      </Box>
       <SearchBarBoxed />
       <Grid container spacing={0}>
         <Grid item xs={12} sm={4}>

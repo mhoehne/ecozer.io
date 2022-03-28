@@ -1,22 +1,32 @@
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import MenuItem from '@mui/material/MenuItem';
-import { Link } from 'react-router-dom';
+import { CardActionArea, CardContent, Typography } from '@mui/material';
 
 export default function AddProductCard() {
   return (
-    <Card sx={{ maxWidth: 345, height: 360, margin: '2rem', display: 'flex' }}>
-      <Box sx={{ m: 'auto' }}>
-        <MenuItem component={Link} to="/my-products/add-product">
-          <CardActions>
-            <Button size="large" href="/add-product">
-              + erstellen
-            </Button>
-          </CardActions>
-        </MenuItem>
-      </Box>
+    <Card sx={{ maxWidth: 345, height: 500, margin: '2rem', display: 'flex' }}>
+      <CardActionArea href="/my-products/add-product">
+        <CardContent>
+          <Box
+            sx={{
+              my: 25,
+              bgcolor: 'background.paper',
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center',
+            }}
+          >
+            <Typography
+              align="center"
+              gutterBottom
+              variant="h5"
+              component="div"
+            >
+              Neues Produkt Erstellen
+            </Typography>
+          </Box>
+        </CardContent>
+      </CardActionArea>
     </Card>
   );
 }
