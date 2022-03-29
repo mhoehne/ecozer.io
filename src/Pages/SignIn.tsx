@@ -10,16 +10,15 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { checkAuthentication } from '../API';
 import { useNavigate, NavigateFunction } from 'react-router-dom';
-import { useState } from 'react';
 import { useCookies } from 'react-cookie';
 
-async function authenticate(
+export async function authenticate(
   emailaddress: string,
   password: string,
   navigate: NavigateFunction,
   setCookie: Function
 ) {
-  // send formdata to API
+  // send form data to API
 
   try {
     const response = await checkAuthentication(emailaddress, password);

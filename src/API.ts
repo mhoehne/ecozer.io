@@ -177,5 +177,13 @@ export function checkAuthentication(
   });
 }
 
+export function checkDeAuthentication(
+  emailaddress: string
+): Promise<AxiosResponse<string>> {
+  return axios.post<string>('http://localhost:8000/authentication', {
+    emailaddress,
+  });
+}
+
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<PRODUCT*CRUD*SECTION*/
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/

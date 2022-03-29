@@ -15,7 +15,26 @@ import Logout from '@mui/icons-material/Logout';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import BadgeIcon from '@mui/icons-material/Badge';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, NavigateFunction } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
+import { checkDeAuthentication } from '../API';
+
+// function to remove the cookie
+export async function deauthenticate(
+  emailaddress: string,
+  navigate: NavigateFunction,
+  removeCookie: Function
+) {
+  try {
+    const response = await checkDeAuthentication(emailaddress);
+    if (response.data === 'OK') {
+      removeCookie('email', emailaddress, { path: '/' });
+      return navigate('/');
+    }
+  } catch (e) {
+    console.log(e);
+  }
+}
 
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -26,6 +45,20 @@ export default function AccountMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const [cookies, removeCookie] = useCookies(['email']);
+  const navigate = useNavigate();
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const emailaddress = data.get('email');
+    if (emailaddress != null) {
+      await deauthenticate(emailaddress.toString(), navigate, removeCookie);
+    } else {
+      alert('something went wrong');
+    }
+  };
+
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -116,8 +149,8 @@ export default function AccountMenu() {
           </ListItemIcon>
           Settings
         </MenuItem>
-        {/* call useCookies and remove cookie */}
-        <MenuItem>
+        {/* call handleSubmit to remove cookie and redirect the user to the homepage */}
+        <MenuItem component="form" onSubmit={handleSubmit}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
