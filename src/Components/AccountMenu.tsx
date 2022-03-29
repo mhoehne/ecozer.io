@@ -54,6 +54,7 @@ export default function AccountMenu() {
     const emailaddress = data.get('email');
     if (emailaddress != null) {
       await deauthenticate(emailaddress.toString(), navigate, removeCookie);
+      alert('cookie removed');
     } else {
       alert('something went wrong');
     }
@@ -150,7 +151,7 @@ export default function AccountMenu() {
           Settings
         </MenuItem>
         {/* call handleSubmit to remove cookie and redirect the user to the homepage */}
-        <MenuItem component="form" onSubmit={handleSubmit}>
+        <MenuItem component="form" onClick={handleSubmit}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
