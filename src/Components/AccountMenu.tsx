@@ -21,16 +21,12 @@ import { checkDeAuthentication } from '../API';
 
 // function to remove the cookie
 export async function deauthenticate(
-  emailaddress: string,
   navigate: NavigateFunction,
   removeCookie: Function
 ) {
   try {
-    const response = await checkDeAuthentication(emailaddress);
-    if (response.data === 'OK') {
-      removeCookie('email', emailaddress, { path: '/' });
-      return navigate('/');
-    }
+    removeCookie('email', { path: '/' });
+    return navigate('/');
   } catch (e) {
     console.log(e);
   }
@@ -50,11 +46,12 @@ export default function AccountMenu() {
   const navigate = useNavigate();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const emailaddress = data.get('email');
-    if (emailaddress != null) {
-      await deauthenticate(emailaddress.toString(), navigate, removeCookie);
-    } else {
+    // const data = new FormData(event.currentTarget);
+    // const emailaddress = data.get('email');
+    try {
+      await deauthenticate(navigate, removeCookie);
+      alert('cookie removed');
+    } catch {
       alert('something went wrong');
     }
   };
@@ -150,7 +147,7 @@ export default function AccountMenu() {
           Settings
         </MenuItem>
         {/* call handleSubmit to remove cookie and redirect the user to the homepage */}
-        <MenuItem component="form" onSubmit={handleSubmit}>
+        <MenuItem component="form" onClick={handleSubmit}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
