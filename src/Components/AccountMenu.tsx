@@ -17,7 +17,6 @@ import BadgeIcon from '@mui/icons-material/Badge';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import { Link, useNavigate, NavigateFunction } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
-import { checkDeAuthentication } from '../API';
 
 // function to remove the cookie
 export async function deauthenticate(
