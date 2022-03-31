@@ -55,7 +55,7 @@ export default function ProductDetailViewCard() {
                 margin="normal"
                 fullWidth
                 id="outlined-read-only-input"
-                label="Homepage"
+                label="Website"
                 // defaultValue="www.produkt-homepage.de"
                 // InputProps={{
                 //   readOnly: true,
@@ -81,7 +81,7 @@ export default function ProductDetailViewCard() {
                 margin="normal"
                 fullWidth
                 id="outlined-multiline-static"
-                label="Beschreibung"
+                label="Produktbeschreibung"
                 multiline
                 rows={10}
                 // defaultValue="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
