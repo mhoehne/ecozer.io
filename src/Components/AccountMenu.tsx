@@ -17,7 +17,6 @@ import BadgeIcon from '@mui/icons-material/Badge';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import { Link, useNavigate, NavigateFunction } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
-import { checkDeAuthentication } from '../API';
 
 // function to remove the cookie
 export async function deauthenticate(
@@ -46,14 +45,8 @@ export default function AccountMenu() {
   const navigate = useNavigate();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // const data = new FormData(event.currentTarget);
-    // const emailaddress = data.get('email');
-    try {
-      await deauthenticate(navigate, removeCookie);
-      alert('cookie removed');
-    } catch {
-      alert('something went wrong');
-    }
+    await deauthenticate(navigate, removeCookie);
+    alert('cookie removed');
   };
 
   return (
