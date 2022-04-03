@@ -10,10 +10,14 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CreateAccount } from '../API';
+import { useNavigate, NavigateFunction } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 const theme = createTheme();
 
 export default function SignUp() {
+  const [cookies, setCookie] = useCookies(['email']);
+  const navigate = useNavigate();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -59,6 +63,7 @@ export default function SignUp() {
     const lastLogin = 'null';
 
     const account = {
+      _id: undefined,
       emailAddress,
       isAdmin,
       password,
@@ -70,8 +75,10 @@ export default function SignUp() {
 
     CreateAccount(account)
       .then((account) => {
-        alert('success');
+        // alert('success');
         // success
+        setCookie('email', emailAddress, { path: '/' });
+        return navigate('/dashboard');
       })
       .catch((msg) => {
         alert('error');

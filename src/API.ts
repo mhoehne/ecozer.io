@@ -1,6 +1,7 @@
 import axios, { Axios, AxiosResponse } from 'axios';
 
 export type AccountsType = {
+  _id: string | undefined;
   isAdmin: boolean;
   emailAddress: string;
   password: string;

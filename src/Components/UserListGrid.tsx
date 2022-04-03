@@ -22,12 +22,12 @@ function CustomToolbar() {
 }
 
 const onRowEdit = (accounts: AccountsType[], state: GridEditRowsModel) => {
-  for (const email in state) {
-    const accountNewFields: { [key: string]: string } = { emailAddress: email };
+  for (const _id in state) {
+    const accountNewFields: { [key: string]: string } = { _id: _id };
 
     // Get all new values from `state` into `accountNewFields`
-    for (const field in state[email]) {
-      const newValue = state[email][field].value?.toString();
+    for (const field in state[_id]) {
+      const newValue = state[_id][field].value?.toString();
       if (newValue === undefined) {
         continue;
       }
@@ -36,12 +36,12 @@ const onRowEdit = (accounts: AccountsType[], state: GridEditRowsModel) => {
     }
 
     // Find an account inside `accounts` state variable
-    let account = accounts.find((acc) => acc.emailAddress === email);
+    let account = accounts.find((acc) => acc._id === _id);
 
     // Did not find an account: should never happen. Send error to console and skip this email to avoid a crash.
     if (account === undefined) {
       console.error(
-        `Could not find an account of email "${email}". This is most likely a bug.`
+        `Could not find an account with ID "${_id}". This is most likely a bug.`
       );
       continue;
     }
@@ -58,7 +58,7 @@ const onRowEdit = (accounts: AccountsType[], state: GridEditRowsModel) => {
       .catch(() => {
         // could not update accounts
         // trigger error snackbar alert
-        console.error(`Could not update the account "${email}"`);
+        console.error(`Could not update the account with ID "${_id}"`);
       });
   }
 };
@@ -68,19 +68,17 @@ export default function DataGridDemo() {
 
   const deleteUser = useCallback(
     (id) => () => {
-      let account = accounts.find((acc) => acc.emailAddress === id);
+      let account = accounts.find((acc) => acc._id === id);
       if (account === undefined) {
         console.error(
-          `Could not find an account of email "${id}". This is most likely a bug.`
+          `Could not find an account with ID "${id}". This is most likely a bug.`
         );
         return;
       }
       DeleteAccount(account)
         .then(() => {
           setTimeout(() => {
-            setAccounts((prevRows) =>
-              prevRows.filter((row) => row.emailAddress !== id)
-            );
+            setAccounts((prevRows) => prevRows.filter((row) => row._id !== id));
           });
         })
         .catch((e) => {
@@ -93,7 +91,7 @@ export default function DataGridDemo() {
   const toggleAdmin = useCallback(
     (id: GridRowId) => () => {
       for (const account of accounts) {
-        if (account.emailAddress == id) {
+        if (account._id == id) {
           const admin = {
             ...account,
             isAdmin: !account.isAdmin,
@@ -102,9 +100,7 @@ export default function DataGridDemo() {
             .then(() => {
               setAccounts((prevRows) => {
                 return prevRows.map((row) =>
-                  row.emailAddress === id
-                    ? { ...row, isAdmin: !row.isAdmin }
-                    : row
+                  row._id === id ? { ...row, isAdmin: !row.isAdmin } : row
                 );
               });
             })
@@ -225,7 +221,7 @@ export default function DataGridDemo() {
         <DataGrid
           rows={accounts}
           columns={columns}
-          getRowId={(account) => account.emailAddress}
+          getRowId={(account) => account._id}
           onEditRowsModelChange={(state) => onRowEdit(accounts, state)}
           pageSize={20}
           rowsPerPageOptions={[20]}
