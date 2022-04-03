@@ -25,8 +25,12 @@ export default function App() {
   const [cookies, setCookie] = useCookies(['email']);
   // get email from cookie
   // get account by email
+
   useEffect(() => {
+    console.log(cookies);
     if (cookies.email === null || cookies.email === undefined) {
+      setAccounts(null);
+
       return;
     }
 

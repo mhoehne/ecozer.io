@@ -42,7 +42,7 @@ export default function AccountMenu() {
     setAnchorEl(null);
   };
 
-  const [cookies, removeCookie] = useCookies(['email']);
+  const [cookies, setCookie, removeCookie] = useCookies(['email']);
   const navigate = useNavigate();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -50,7 +50,7 @@ export default function AccountMenu() {
     // const emailaddress = data.get('email');
     try {
       await deauthenticate(navigate, removeCookie);
-      alert('cookie removed');
+      // alert('cookie removed');
     } catch {
       alert('something went wrong');
     }
