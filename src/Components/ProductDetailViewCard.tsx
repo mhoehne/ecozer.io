@@ -4,12 +4,7 @@ import CardMedia from '@mui/material/CardMedia';
 import SampleImg from '../images/sample-img.png';
 import TextField from '@mui/material/TextField';
 
-{
-  /* 
-  TODO: connect with create product API 
-  - add create product button
-*/
-}
+// TODO: add prop to export field IDs
 
 export default function ProductDetailViewCard() {
   return (
@@ -32,6 +27,7 @@ export default function ProductDetailViewCard() {
           <Grid item xs={7}>
             <CardMedia
               component="img"
+              id="productImage"
               alt="product image"
               height="300"
               image={SampleImg}
@@ -42,7 +38,7 @@ export default function ProductDetailViewCard() {
               <TextField
                 margin="normal"
                 fullWidth
-                id="outlined-read-only-input"
+                id="productName"
                 label="Produktname"
                 // defaultValue="Produktname"
                 // InputProps={{
@@ -54,7 +50,7 @@ export default function ProductDetailViewCard() {
               <TextField
                 margin="normal"
                 fullWidth
-                id="outlined-read-only-input"
+                id="productWebsite"
                 label="Website"
                 // defaultValue="www.produkt-homepage.de"
                 // InputProps={{
@@ -66,7 +62,7 @@ export default function ProductDetailViewCard() {
               <TextField
                 margin="normal"
                 fullWidth
-                id="outlined-read-only-input"
+                id="productCompany"
                 label="Unternehmen"
                 // defaultValue="Unternehmen GmbH"
                 // InputProps={{
@@ -80,7 +76,7 @@ export default function ProductDetailViewCard() {
               <TextField
                 margin="normal"
                 fullWidth
-                id="outlined-multiline-static"
+                id="productDescription"
                 label="Produktbeschreibung"
                 multiline
                 rows={10}
