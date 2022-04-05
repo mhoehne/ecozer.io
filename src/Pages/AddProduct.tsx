@@ -46,8 +46,10 @@ export default function AddProduct() {
           my: 15,
         }}
       >
+        {/* needs props to get field values */}
         <ProductDetailViewCard />
 
+        {/* needs props to get boolean values */}
         <MorphologicalBoxVertical />
         <Grid
           container
