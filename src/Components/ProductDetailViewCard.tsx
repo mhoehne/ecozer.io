@@ -3,10 +3,16 @@ import { Grid } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 import SampleImg from '../images/sample-img.png';
 import TextField from '@mui/material/TextField';
+import { ProductType } from '../API';
 
-// TODO: add prop to export field IDs
+interface ProductDetailViewCardProps {
+  product: ProductType;
+  setProduct: Function;
+}
 
-export default function ProductDetailViewCard() {
+export default function ProductDetailViewCard(
+  props: ProductDetailViewCardProps
+) {
   return (
     <>
       <Box
@@ -36,6 +42,13 @@ export default function ProductDetailViewCard() {
           <Grid item xs={5} sx={{ mt: -2 }}>
             <Grid item xs={12}>
               <TextField
+                onChange={function (event) {
+                  const productname = {
+                    ...props.product,
+                    productName: event.currentTarget.value,
+                  };
+                  props.setProduct(productname);
+                }}
                 margin="normal"
                 fullWidth
                 id="productName"

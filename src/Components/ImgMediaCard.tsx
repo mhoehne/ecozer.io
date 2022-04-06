@@ -73,9 +73,9 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
   for (const key in props.Product.gradDerIntegrierung) {
     switch (key) {
       case 'integriert':
-      case 'AddOn':
-      case 'StandAlone':
-      case 'SaaSLösung':
+      case 'Add-On':
+      case 'Stand-Alone':
+      case 'SaaS-Lösung':
         if (props.Product.gradDerIntegrierung[key] == true) {
           chips.push(
             <Chip
@@ -99,7 +99,7 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
       case 'Gefahrstoffe':
       case 'Emissionen':
       case 'Energie':
-      case 'StoffeStoffströme':
+      case 'Stoffe/Stoffströme':
       case 'Kosten':
         if (props.Product.objektAspekt[key] == true) {
           chips.push(
@@ -119,7 +119,7 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
 
   for (const key in props.Product.systemgrenzen) {
     switch (key) {
-      case 'StandortBetrieb':
+      case 'Standort/Betrieb':
       case 'Prozess':
       case 'Produkt':
         if (props.Product.systemgrenzen[key] == true) {

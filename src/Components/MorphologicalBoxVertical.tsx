@@ -6,6 +6,12 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import { ProductType } from '../API';
+
+interface MorphologicalBoxVerticalProps {
+  product: ProductType;
+  setProduct: Function;
+}
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   '& .MuiToggleButtonGroup-grouped': {
@@ -23,7 +29,9 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   },
 }));
 
-export default function MorphologicalBoxVertical() {
+export default function MorphologicalBoxVertical(
+  props: MorphologicalBoxVerticalProps
+) {
   const [alignment, setAlignment] = React.useState('left');
   const [formats, setFormats] = React.useState(() => ['italic']);
 

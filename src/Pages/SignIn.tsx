@@ -12,6 +12,9 @@ import { checkAuthentication } from '../API';
 import { useNavigate, NavigateFunction } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 
+// TODO:
+// - negative response when email or password is wrong, show error message!
+
 export async function authenticate(
   emailaddress: string,
   password: string,
