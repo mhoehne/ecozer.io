@@ -18,9 +18,7 @@ export default function ProductDetail() {
         </Button>
       </Box>
 
-      <ProductDetailViewCard />
-
-      <MorphologicalBoxVertical />
+      {/* placeholder for productdetailviewcard and MBvertical */}
     </>
   );
 }

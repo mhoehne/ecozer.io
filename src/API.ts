@@ -94,9 +94,9 @@ export type ProductType = {
   };
   gradDerIntegrierung: {
     integriert: Boolean;
-    AddOn: Boolean;
-    StandAlone: Boolean;
-    SaaSLösung: Boolean;
+    'Add-On': Boolean;
+    'Stand-Alone': Boolean;
+    'SaaS-Lösung': Boolean;
   };
   objektAspekt: {
     Abfall: Boolean;
@@ -104,11 +104,11 @@ export type ProductType = {
     Gefahrstoffe: Boolean;
     Emissionen: Boolean;
     Energie: Boolean;
-    StoffeStoffströme: Boolean;
+    'Stoffe/Stoffströme': Boolean;
     Kosten: Boolean;
   };
   systemgrenzen: {
-    StandortBetrieb: Boolean;
+    'Standort/Betrieb': Boolean;
     Prozess: Boolean;
     Produkt: Boolean;
   };

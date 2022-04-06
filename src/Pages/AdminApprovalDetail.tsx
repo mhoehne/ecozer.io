@@ -20,8 +20,8 @@ export default function AdminApprovalDetail() {
           Zurück
         </Button>
       </Box>
-      <ProductDetailViewCard />
-      <MorphologicalBoxVertical />
+
+      {/* placeholder for productdetailviewcard and MBvertical */}
 
       <Stack
         direction="row"
