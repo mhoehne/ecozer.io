@@ -68,26 +68,6 @@ export default function AddProduct() {
     console.log(product);
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-
-    // TODO: image import for product image
-    // const productImage = data.get('productImage')?.
-
-    const productName = data.get('productName')?.toString();
-
-    if (productName === undefined) {
-      alert('invalid or missing product name');
-      return;
-    }
-
-    //   CreateProduct(product)
-    //     .then((product) => {
-    //       alert('success');
-    //       // success
-    //     })
-    //     .catch((msg) => {
-    //       alert('error');
-    //       // error
-    //     });
   };
 
   return (

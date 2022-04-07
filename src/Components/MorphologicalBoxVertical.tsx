@@ -220,22 +220,85 @@ export default function MorphologicalBoxVertical(
                     aria-label="selection"
                     fullWidth={true}
                   >
-                    <ToggleButton value="Abfall" aria-label="Abfall">
+                    <ToggleButton
+                      onChange={function (event) {
+                        const waste = {
+                          ...props.product,
+                          Waste: event.currentTarget.value,
+                        };
+                        props.setProduct(waste);
+                      }}
+                      id="Waste"
+                      value="Abfall"
+                      aria-label="Abfall"
+                    >
                       Abfall
                     </ToggleButton>
-                    <ToggleButton value="Anlagen" aria-label="Anlagen">
+                    <ToggleButton
+                      onChange={function (event) {
+                        const facilities = {
+                          ...props.product,
+                          Facilities: event.currentTarget.value,
+                        };
+                        props.setProduct(facilities);
+                      }}
+                      id="Facilities"
+                      value="Anlagen"
+                      aria-label="Anlagen"
+                    >
                       Anlagen
                     </ToggleButton>
-                    <ToggleButton value="Gefahrstoff" aria-label="Gefahrstoff">
+                    <ToggleButton
+                      onChange={function (event) {
+                        const hazardousmaterial = {
+                          ...props.product,
+                          HazardousMaterial: event.currentTarget.value,
+                        };
+                        props.setProduct(hazardousmaterial);
+                      }}
+                      id="HazardousMaterial"
+                      value="Gefahrstoff"
+                      aria-label="Gefahrstoff"
+                    >
                       Gefahrstoff
                     </ToggleButton>
-                    <ToggleButton value="Emission" aria-label="Emission">
+                    <ToggleButton
+                      onChange={function (event) {
+                        const emission = {
+                          ...props.product,
+                          Emission: event.currentTarget.value,
+                        };
+                        props.setProduct(emission);
+                      }}
+                      id="Emission"
+                      value="Emission"
+                      aria-label="Emission"
+                    >
                       Emission
                     </ToggleButton>
-                    <ToggleButton value="Energie" aria-label="Energie">
+                    <ToggleButton
+                      onChange={function (event) {
+                        const energy = {
+                          ...props.product,
+                          Energy: event.currentTarget.value,
+                        };
+                        props.setProduct(energy);
+                      }}
+                      id="Energy"
+                      value="Energie"
+                      aria-label="Energie"
+                    >
                       Energie
                     </ToggleButton>
                     <ToggleButton
+                      onChange={function (event) {
+                        const substanceflow = {
+                          ...props.product,
+                          SubstanceFlow: event.currentTarget.value,
+                        };
+                        props.setProduct(substanceflow);
+                      }}
+                      id="SubstanceFlow"
                       value="Stoff/Stoffstrom"
                       aria-label="Stoff/Stoffstrom"
                     >
