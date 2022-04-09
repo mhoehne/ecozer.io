@@ -1,6 +1,6 @@
 import axios, { Axios, AxiosResponse } from 'axios';
 
-export type AccountsType = {
+export type AccountType = {
   _id: string | undefined;
   isAdmin: boolean;
   emailAddress: string;
@@ -12,20 +12,16 @@ export type AccountsType = {
 };
 
 export type AccountResultType = {
-  accounts: AccountsType[];
+  account: AccountType;
 };
 
-export type SingleAccountResultType = {
-  singleAccount: AccountsType;
-};
-
-export type AccountCreatedResultType = AccountsType | string;
+export type AccountCreatedResultType = AccountType | string;
 
 /*CRUD*SECTION*ACCOUNT>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 /*CREATE*************************************************************************************************/
 
 export function CreateAccount(
-  account: AccountsType
+  account: AccountType
 ): Promise<AxiosResponse<AccountCreatedResultType>> {
   return axios.post<AccountCreatedResultType>(
     'http://localhost:8000/accounts',
@@ -41,8 +37,8 @@ export function GetAccounts(): Promise<AxiosResponse<AccountResultType>> {
 
 export function GetAccountByEmail(
   email: string
-): Promise<AxiosResponse<SingleAccountResultType>> {
-  return axios.get<SingleAccountResultType>(
+): Promise<AxiosResponse<AccountResultType>> {
+  return axios.get<AccountResultType>(
     `http://localhost:8000/accounts/${email}`
   );
 }
@@ -50,7 +46,7 @@ export function GetAccountByEmail(
 /*UPDATE*************************************************************************************************/
 
 export function PutAccounts(
-  account: AccountsType
+  account: AccountType
 ): Promise<AxiosResponse<AccountResultType>> {
   return axios.put<AccountResultType>(
     'http://localhost:8000/accounts',
@@ -60,8 +56,8 @@ export function PutAccounts(
 
 /*DELETE*************************************************************************************************/
 
-export function DeleteAccount(account: AccountsType): Promise<AxiosResponse> {
-  return axios.delete<AccountsType>('http://localhost:8000/accounts', {
+export function DeleteAccount(account: AccountType): Promise<AxiosResponse> {
+  return axios.delete<AccountType>('http://localhost:8000/accounts', {
     data: { emailAddress: account.emailAddress },
   });
 }
