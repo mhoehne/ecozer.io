@@ -17,33 +17,30 @@ import Dashboard from './Pages/Dashboard';
 import Glossar from './Pages/Glossar';
 import { useCookies } from 'react-cookie';
 import { useState, useEffect } from 'react';
-import { AccountsType, GetAccountByEmail } from './API';
+import { AccountType, GetAccountByEmail } from './API';
 
 export default function App() {
-  useCookies(['email']);
-  const [accounts, setAccounts] = useState<AccountsType | null>(null);
-  const [cookies, setCookie] = useCookies(['email']);
-  // get email from cookie
-  // get account by email
+  const [account, setAccount] = useState<AccountType | null>(null);
+  const [cookies, setCookies] = useCookies(['email']);
 
   useEffect(() => {
     console.log(cookies);
     if (cookies.email === null || cookies.email === undefined) {
-      setAccounts(null);
+      setAccount(null);
 
       return;
     }
 
     GetAccountByEmail(cookies.email)
       .then((result) => {
-        setAccounts(result.data.singleAccount);
+        setAccount(result.data.account);
       })
       .catch();
-  }, [accounts, cookies]);
+  }, [account, cookies]);
 
   return (
     <Router>
-      <AppBarTop Account={accounts} />
+      <AppBarTop Account={account} />
       <Container maxWidth={false} disableGutters={true} sx={{ mt: 8 }}>
         {/* A <Switch> or <Routes> (in react-router-dom v6) looks through its children <Route>s and
         renders the first one that matches the current URL. */}
@@ -62,7 +59,10 @@ export default function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/account" element={<Account />} />
           <Route path="/my-products" element={<MyProducts />} />
-          <Route path="/my-products/add-product" element={<AddProduct />} />
+          <Route
+            path="/my-products/add-product"
+            element={<AddProduct account={account} />}
+          />
 
           {/* Admin */}
           <Route path="/approval" element={<AdminApproval />} />

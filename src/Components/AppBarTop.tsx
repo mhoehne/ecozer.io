@@ -11,10 +11,10 @@ import LoginIcon from '@mui/icons-material/Login';
 import { Button, Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
 import NotificationMenu from './NotificationMenu';
-import { AccountsType } from '../API';
+import { AccountType } from '../API';
 
 interface AppBarTopProps {
-  Account: AccountsType | null;
+  Account: AccountType | null;
 }
 
 const drawerWidth = 240;

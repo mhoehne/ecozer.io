@@ -1,6 +1,6 @@
 import axios, { Axios, AxiosResponse } from 'axios';
 
-export type AccountsType = {
+export type AccountType = {
   _id: string | undefined;
   isAdmin: boolean;
   emailAddress: string;
@@ -11,21 +11,21 @@ export type AccountsType = {
   lastLogin: string;
 };
 
+export type AccountsResultType = {
+  accounts: AccountType[];
+};
+
 export type AccountResultType = {
-  accounts: AccountsType[];
+  account: AccountType;
 };
 
-export type SingleAccountResultType = {
-  singleAccount: AccountsType;
-};
-
-export type AccountCreatedResultType = AccountsType | string;
+export type AccountCreatedResultType = AccountType | string;
 
 /*CRUD*SECTION*ACCOUNT>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 /*CREATE*************************************************************************************************/
 
 export function CreateAccount(
-  account: AccountsType
+  account: AccountType
 ): Promise<AxiosResponse<AccountCreatedResultType>> {
   return axios.post<AccountCreatedResultType>(
     'http://localhost:8000/accounts',
@@ -35,22 +35,22 @@ export function CreateAccount(
 
 /*READ***************************************************************************************************/
 
-export function GetAccounts(): Promise<AxiosResponse<AccountResultType>> {
-  return axios.get<AccountResultType>('http://localhost:8000/accounts');
+export function GetAccounts(): Promise<AxiosResponse<AccountsResultType>> {
+  return axios.get<AccountsResultType>('http://localhost:8000/accounts');
 }
 
 export function GetAccountByEmail(
   email: string
-): Promise<AxiosResponse<SingleAccountResultType>> {
-  return axios.get<SingleAccountResultType>(
+): Promise<AxiosResponse<AccountResultType>> {
+  return axios.get<AccountResultType>(
     `http://localhost:8000/accounts/${email}`
   );
 }
 
 /*UPDATE*************************************************************************************************/
 
-export function PutAccounts(
-  account: AccountsType
+export function PutAccount(
+  account: AccountType
 ): Promise<AxiosResponse<AccountResultType>> {
   return axios.put<AccountResultType>(
     'http://localhost:8000/accounts',
@@ -60,8 +60,8 @@ export function PutAccounts(
 
 /*DELETE*************************************************************************************************/
 
-export function DeleteAccount(account: AccountsType): Promise<AxiosResponse> {
-  return axios.delete<AccountsType>('http://localhost:8000/accounts', {
+export function DeleteAccount(account: AccountType): Promise<AxiosResponse> {
+  return axios.delete<AccountType>('http://localhost:8000/accounts', {
     data: { emailAddress: account.emailAddress },
   });
 }
@@ -73,8 +73,8 @@ export type ProductType = {
   // account_id: number;
   productName: string;
   // productImage: string;
-  // productLink: string;
-  // productCompany: string;
+  productLink: string;
+  productCompany: string;
   productDescription: string;
   zielgruppe: {
     Geschäftsführung: Boolean;
@@ -85,7 +85,7 @@ export type ProductType = {
     Behörden: Boolean;
   };
   anwendungsbereich: {
-    Gesetzeskonformität: Boolean;
+    Gesetzeskonformität: boolean;
     Zertifizierung: Boolean;
     Ökobilanzierung: Boolean;
     Berichterstattung: Boolean;
@@ -133,7 +133,8 @@ export function CreateProduct(
 ): Promise<AxiosResponse<ProductCreatedResultType>> {
   return axios.post<ProductCreatedResultType>(
     'http://localhost:8000/products',
-    product
+    // account_id has to be replaced
+    { ...product, account_id: 0 }
   );
 }
 

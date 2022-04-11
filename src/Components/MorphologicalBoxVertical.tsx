@@ -32,23 +32,6 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
 export default function MorphologicalBoxVertical(
   props: MorphologicalBoxVerticalProps
 ) {
-  const [alignment, setAlignment] = React.useState('left');
-  const [formats, setFormats] = React.useState(() => ['italic']);
-
-  const handleFormat = (
-    event: React.MouseEvent<HTMLElement>,
-    newFormats: string[]
-  ) => {
-    setFormats(newFormats);
-  };
-
-  const handleAlignment = (
-    event: React.MouseEvent<HTMLElement>,
-    newAlignment: string
-  ) => {
-    setAlignment(newAlignment);
-  };
-
   return (
     <>
       <Box
@@ -90,48 +73,110 @@ export default function MorphologicalBoxVertical(
                     orientation="vertical"
                     size="small"
                     color="primary"
-                    value={formats}
-                    onChange={handleFormat}
                     aria-label="selection"
                     fullWidth={true}
                   >
                     <ToggleButton
+                      selected={
+                        props.product.anwendungsbereich.Gesetzeskonformität
+                      }
+                      onClick={() => {
+                        const legalCompliance = {
+                          ...props.product,
+                          anwendungsbereich: {
+                            ...props.product.anwendungsbereich,
+                            Gesetzeskonformität:
+                              !props.product.anwendungsbereich
+                                .Gesetzeskonformität,
+                          },
+                        };
+                        props.setProduct(legalCompliance);
+                      }}
+                      id="LegalCompliance"
                       value="Gesetzeskonformität"
                       aria-label="Gesetzeskonformität"
                     >
                       Gesetzeskonformität
                     </ToggleButton>
                     <ToggleButton
+                      onChange={function (event) {
+                        const certification = {
+                          ...props.product,
+                          Certification: event.currentTarget.value,
+                        };
+                        props.setProduct(certification);
+                      }}
+                      id="Certification"
                       value="Zertifizierung"
                       aria-label="Zertifizierung"
                     >
                       Zertifizierung
                     </ToggleButton>
                     <ToggleButton
+                      onChange={function (event) {
+                        const accounting = {
+                          ...props.product,
+                          Accounting: event.currentTarget.value,
+                        };
+                        props.setProduct(accounting);
+                      }}
+                      id="Accounting"
                       value="Bilanzierung"
                       aria-label="Bilanzierung"
                     >
                       Bilanzierung
                     </ToggleButton>
                     <ToggleButton
+                      onChange={function (event) {
+                        const lifecycle = {
+                          ...props.product,
+                          LifeCycle: event.currentTarget.value,
+                        };
+                        props.setProduct(lifecycle);
+                      }}
+                      id="LifeCycle"
                       value="Lebenszyklus"
                       aria-label="Lebenszyklus"
                     >
                       Lebenszyklus
                     </ToggleButton>
                     <ToggleButton
+                      onChange={function (event) {
+                        const reporting = {
+                          ...props.product,
+                          Reporting: event.currentTarget.value,
+                        };
+                        props.setProduct(reporting);
+                      }}
+                      id="Reporting"
                       value="Berichterstattung"
                       aria-label="Berichterstattung"
                     >
                       Berichterstattung
                     </ToggleButton>
                     <ToggleButton
+                      onChange={function (event) {
+                        const reporting = {
+                          ...props.product,
+                          Reporting: event.currentTarget.value,
+                        };
+                        props.setProduct(reporting);
+                      }}
+                      id="Reporting"
                       value="Entscheidungsunterstützung"
                       aria-label="Entscheidungsunterstützung"
                     >
                       Entscheidungsunterstützung
                     </ToggleButton>
                     <ToggleButton
+                      onChange={function (event) {
+                        const businessassociations = {
+                          ...props.product,
+                          BusinessAssociations: event.currentTarget.value,
+                        };
+                        props.setProduct(businessassociations);
+                      }}
+                      id="BusinessAssociations"
                       value="Unternehmensverbünde"
                       aria-label="Unternehmensverbünde"
                     >
@@ -159,27 +204,88 @@ export default function MorphologicalBoxVertical(
                     orientation="vertical"
                     size="small"
                     color="primary"
-                    value={formats}
-                    onChange={handleFormat}
                     aria-label="selection"
                     fullWidth={true}
                   >
-                    <ToggleButton value="Abfall" aria-label="Abfall">
+                    <ToggleButton
+                      onChange={function (event) {
+                        const waste = {
+                          ...props.product,
+                          Waste: event.currentTarget.value,
+                        };
+                        props.setProduct(waste);
+                      }}
+                      id="Waste"
+                      value="Abfall"
+                      aria-label="Abfall"
+                    >
                       Abfall
                     </ToggleButton>
-                    <ToggleButton value="Anlagen" aria-label="Anlagen">
+                    <ToggleButton
+                      onChange={function (event) {
+                        const facilities = {
+                          ...props.product,
+                          Facilities: event.currentTarget.value,
+                        };
+                        props.setProduct(facilities);
+                      }}
+                      id="Facilities"
+                      value="Anlagen"
+                      aria-label="Anlagen"
+                    >
                       Anlagen
                     </ToggleButton>
-                    <ToggleButton value="Gefahrstoff" aria-label="Gefahrstoff">
+                    <ToggleButton
+                      onChange={function (event) {
+                        const hazardousmaterial = {
+                          ...props.product,
+                          HazardousMaterial: event.currentTarget.value,
+                        };
+                        props.setProduct(hazardousmaterial);
+                      }}
+                      id="HazardousMaterial"
+                      value="Gefahrstoff"
+                      aria-label="Gefahrstoff"
+                    >
                       Gefahrstoff
                     </ToggleButton>
-                    <ToggleButton value="Emission" aria-label="Emission">
+                    <ToggleButton
+                      onChange={function (event) {
+                        const emission = {
+                          ...props.product,
+                          Emission: event.currentTarget.value,
+                        };
+                        props.setProduct(emission);
+                      }}
+                      id="Emission"
+                      value="Emission"
+                      aria-label="Emission"
+                    >
                       Emission
                     </ToggleButton>
-                    <ToggleButton value="Energie" aria-label="Energie">
+                    <ToggleButton
+                      onChange={function (event) {
+                        const energy = {
+                          ...props.product,
+                          Energy: event.currentTarget.value,
+                        };
+                        props.setProduct(energy);
+                      }}
+                      id="Energy"
+                      value="Energie"
+                      aria-label="Energie"
+                    >
                       Energie
                     </ToggleButton>
                     <ToggleButton
+                      onChange={function (event) {
+                        const substanceflow = {
+                          ...props.product,
+                          SubstanceFlow: event.currentTarget.value,
+                        };
+                        props.setProduct(substanceflow);
+                      }}
+                      id="SubstanceFlow"
                       value="Stoff/Stoffstrom"
                       aria-label="Stoff/Stoffstrom"
                     >
@@ -207,24 +313,46 @@ export default function MorphologicalBoxVertical(
                     orientation="vertical"
                     size="small"
                     color="primary"
-                    value={formats}
-                    onChange={handleFormat}
                     aria-label="selection"
                     fullWidth={true}
                   >
                     <ToggleButton
+                      onChange={function (event) {
+                        const administrationcentric = {
+                          ...props.product,
+                          AdministrationCentric: event.currentTarget.value,
+                        };
+                        props.setProduct(administrationcentric);
+                      }}
+                      id="AdministrationCentric"
                       value="Verwaltungszentriert"
                       aria-label="Verwaltungszentriert"
                     >
                       Verwaltungszentriert
                     </ToggleButton>
                     <ToggleButton
+                      onChange={function (event) {
+                        const assessmentcentric = {
+                          ...props.product,
+                          AssessmentCentric: event.currentTarget.value,
+                        };
+                        props.setProduct(assessmentcentric);
+                      }}
+                      id="AssessmentCentric"
                       value="Bewertungszentriert"
                       aria-label="Bewertungszentriert"
                     >
                       Bewertungszentriert
                     </ToggleButton>
                     <ToggleButton
+                      onChange={function (event) {
+                        const managementcentric = {
+                          ...props.product,
+                          ManagementCentric: event.currentTarget.value,
+                        };
+                        props.setProduct(managementcentric);
+                      }}
+                      id="ManagementCentric"
                       value="Managementzentriert"
                       aria-label="Managementzentriert"
                     >
@@ -252,24 +380,60 @@ export default function MorphologicalBoxVertical(
                     orientation="vertical"
                     size="small"
                     color="primary"
-                    value={formats}
-                    onChange={handleFormat}
                     aria-label="selection"
                     fullWidth={true}
                   >
                     <ToggleButton
+                      onChange={function (event) {
+                        const locationoperation = {
+                          ...props.product,
+                          LocationOperation: event.currentTarget.value,
+                        };
+                        props.setProduct(locationoperation);
+                      }}
+                      id="LocationOperation"
                       value="Standort/Betrieb"
                       aria-label="Standort/Betrieb"
                     >
                       Standort/Betrieb
                     </ToggleButton>
-                    <ToggleButton value="Prozess" aria-label="Prozess">
+                    <ToggleButton
+                      onChange={function (event) {
+                        const process = {
+                          ...props.product,
+                          Process: event.currentTarget.value,
+                        };
+                        props.setProduct(process);
+                      }}
+                      id="Process"
+                      value="Prozess"
+                      aria-label="Prozess"
+                    >
                       Prozess
                     </ToggleButton>
-                    <ToggleButton value="Produkt" aria-label="Produkt">
+                    <ToggleButton
+                      onChange={function (event) {
+                        const productbased = {
+                          ...props.product,
+                          ProductBased: event.currentTarget.value,
+                        };
+                        props.setProduct(productbased);
+                      }}
+                      id="ProductBased"
+                      value="Produkt"
+                      aria-label="Produkt"
+                    >
                       Produkt
                     </ToggleButton>
                     <ToggleButton
+                      onChange={function (event) {
+                        const intercompany = {
+                          ...props.product,
+                          Intercompany: event.currentTarget.value,
+                        };
+                        props.setProduct(intercompany);
+                      }}
+                      id="Intercompany"
                       value="Zwischenbetrieblich"
                       aria-label="Zwischenbetrieblich"
                     >
@@ -297,33 +461,74 @@ export default function MorphologicalBoxVertical(
                     orientation="vertical"
                     size="small"
                     color="primary"
-                    value={formats}
-                    onChange={handleFormat}
                     aria-label="selection"
                     fullWidth={true}
                   >
                     <ToggleButton
+                      onChange={function (event) {
+                        const businessmanagement = {
+                          ...props.product,
+                          BusinessManagement: event.currentTarget.value,
+                        };
+                        props.setProduct(businessmanagement);
+                      }}
+                      id="BusinessManagement"
                       value="Unternehmensführung"
                       aria-label="Unternehmensführung"
                     >
                       Unternehmensführung
                     </ToggleButton>
                     <ToggleButton
+                      onChange={function (event) {
+                        const environmentalofficer = {
+                          ...props.product,
+                          EnvironmentalOfficer: event.currentTarget.value,
+                        };
+                        props.setProduct(environmentalofficer);
+                      }}
+                      id="EnvironmentalOfficer"
                       value="Umweltbeauftragter"
                       aria-label="Umweltbeauftragter"
                     >
                       Umweltbeauftragter
                     </ToggleButton>
                     <ToggleButton
+                      onChange={function (event) {
+                        const specialtydepartment = {
+                          ...props.product,
+                          SpecialtyDepartment: event.currentTarget.value,
+                        };
+                        props.setProduct(specialtydepartment);
+                      }}
+                      id="SpecialtyDepartment"
                       value="Fachabteilung"
                       aria-label="Fachabteilung"
                     >
                       Fachabteilung
                     </ToggleButton>
-                    <ToggleButton value="Mitarbeiter" aria-label="Mitarbeiter">
+                    <ToggleButton
+                      onChange={function (event) {
+                        const staff = {
+                          ...props.product,
+                          Staff: event.currentTarget.value,
+                        };
+                        props.setProduct(staff);
+                      }}
+                      id="Staff"
+                      value="Mitarbeiter"
+                      aria-label="Mitarbeiter"
+                    >
                       Mitarbeiter
                     </ToggleButton>
                     <ToggleButton
+                      onChange={function (event) {
+                        const externalstakeholders = {
+                          ...props.product,
+                          ExternalStakeholders: event.currentTarget.value,
+                        };
+                        props.setProduct(externalstakeholders);
+                      }}
+                      id="ExternalStakeholders"
                       value="Externe Stakeholder"
                       aria-label="Externe Stakeholder"
                     >
@@ -351,18 +556,49 @@ export default function MorphologicalBoxVertical(
                     orientation="vertical"
                     size="small"
                     color="primary"
-                    value={formats}
-                    onChange={handleFormat}
                     aria-label="selection"
                     fullWidth={true}
                   >
-                    <ToggleButton value="Stand-Alone" aria-label="Stand-Alone">
+                    <ToggleButton
+                      onChange={function (event) {
+                        const standalone = {
+                          ...props.product,
+                          Standalone: event.currentTarget.value,
+                        };
+                        props.setProduct(standalone);
+                      }}
+                      id="Standalone"
+                      value="Stand-Alone"
+                      aria-label="Stand-Alone"
+                    >
                       Stand-Alone
                     </ToggleButton>
-                    <ToggleButton value="Add-On" aria-label="Add-On">
+                    <ToggleButton
+                      onChange={function (event) {
+                        const addon = {
+                          ...props.product,
+                          Addon: event.currentTarget.value,
+                        };
+                        props.setProduct(addon);
+                      }}
+                      id="Addon"
+                      value="Add-On"
+                      aria-label="Add-On"
+                    >
                       Add-On
                     </ToggleButton>
-                    <ToggleButton value="Intergriert" aria-label="Intergriert">
+                    <ToggleButton
+                      onChange={function (event) {
+                        const integration = {
+                          ...props.product,
+                          Integration: event.currentTarget.value,
+                        };
+                        props.setProduct(integration);
+                      }}
+                      id="Integration"
+                      value="Intergriert"
+                      aria-label="Intergriert"
+                    >
                       Intergriert
                     </ToggleButton>
                   </StyledToggleButtonGroup>

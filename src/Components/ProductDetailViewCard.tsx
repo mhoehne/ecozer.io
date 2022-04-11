@@ -61,9 +61,16 @@ export default function ProductDetailViewCard(
             </Grid>
             <Grid item xs={12}>
               <TextField
+                onChange={function (event) {
+                  const productwebsite = {
+                    ...props.product,
+                    productLink: event.currentTarget.value,
+                  };
+                  props.setProduct(productwebsite);
+                }}
                 margin="normal"
                 fullWidth
-                id="productWebsite"
+                id="productLink"
                 label="Website"
                 // defaultValue="www.produkt-homepage.de"
                 // InputProps={{
@@ -73,6 +80,13 @@ export default function ProductDetailViewCard(
             </Grid>
             <Grid item xs={12}>
               <TextField
+                onChange={function (event) {
+                  const productcompany = {
+                    ...props.product,
+                    productCompany: event.currentTarget.value,
+                  };
+                  props.setProduct(productcompany);
+                }}
                 margin="normal"
                 fullWidth
                 id="productCompany"
@@ -87,6 +101,13 @@ export default function ProductDetailViewCard(
           <Grid item xs={12}>
             <Box sx={{ mx: 0, mt: 0 }}>
               <TextField
+                onChange={function (event) {
+                  const productdescription = {
+                    ...props.product,
+                    productDescription: event.currentTarget.value,
+                  };
+                  props.setProduct(productdescription);
+                }}
                 margin="normal"
                 fullWidth
                 id="productDescription"
