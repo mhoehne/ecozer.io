@@ -9,7 +9,7 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useEffect, useState, useCallback } from 'react';
 import { Box } from '@mui/material';
-import { GetAccounts, AccountType, PutAccounts, DeleteAccount } from '../API';
+import { GetAccounts, AccountType, PutAccount, DeleteAccount } from '../API';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 
@@ -50,7 +50,7 @@ const onRowEdit = (accounts: AccountType[], state: GridEditRowsModel) => {
     account = Object.assign(account, accountNewFields);
 
     // Update `account`
-    PutAccounts(account)
+    PutAccount(account)
       .then(() => {
         // TODO: accounts updated successfuly
         // trigger success snackbar alert
@@ -96,7 +96,7 @@ export default function DataGridDemo() {
             ...account,
             isAdmin: !account.isAdmin,
           };
-          PutAccounts(admin)
+          PutAccount(admin)
             .then(() => {
               setAccounts((prevRows) => {
                 return prevRows.map((row) =>
@@ -203,7 +203,7 @@ export default function DataGridDemo() {
   useEffect(() => {
     GetAccounts()
       .then((result) => {
-        setAccounts(result.data.account);
+        setAccounts(result.data.accounts);
       })
       .catch();
   }, []);

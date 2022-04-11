@@ -49,7 +49,7 @@ export function GetAccountByEmail(
 
 /*UPDATE*************************************************************************************************/
 
-export function PutAccounts(
+export function PutAccount(
   account: AccountType
 ): Promise<AxiosResponse<AccountResultType>> {
   return axios.put<AccountResultType>(
