@@ -11,6 +11,10 @@ export type AccountType = {
   lastLogin: string;
 };
 
+export type AccountsResultType = {
+  accounts: AccountType[];
+};
+
 export type AccountResultType = {
   account: AccountType;
 };
@@ -31,8 +35,8 @@ export function CreateAccount(
 
 /*READ***************************************************************************************************/
 
-export function GetAccounts(): Promise<AxiosResponse<AccountResultType>> {
-  return axios.get<AccountResultType>('http://localhost:8000/accounts');
+export function GetAccounts(): Promise<AxiosResponse<AccountsResultType>> {
+  return axios.get<AccountsResultType>('http://localhost:8000/accounts');
 }
 
 export function GetAccountByEmail(

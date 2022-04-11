@@ -9,7 +9,7 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useEffect, useState, useCallback } from 'react';
 import { Box } from '@mui/material';
-import { GetAccounts, AccountsType, PutAccounts, DeleteAccount } from '../API';
+import { GetAccounts, AccountType, PutAccounts, DeleteAccount } from '../API';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 
@@ -21,7 +21,7 @@ function CustomToolbar() {
   );
 }
 
-const onRowEdit = (accounts: AccountsType[], state: GridEditRowsModel) => {
+const onRowEdit = (accounts: AccountType[], state: GridEditRowsModel) => {
   for (const _id in state) {
     const accountNewFields: { [key: string]: string } = { _id: _id };
 
@@ -64,7 +64,7 @@ const onRowEdit = (accounts: AccountsType[], state: GridEditRowsModel) => {
 };
 
 export default function DataGridDemo() {
-  const [accounts, setAccounts] = useState<AccountsType[]>([]);
+  const [accounts, setAccounts] = useState<AccountType[]>([]);
 
   const deleteUser = useCallback(
     (id) => () => {
@@ -203,7 +203,7 @@ export default function DataGridDemo() {
   useEffect(() => {
     GetAccounts()
       .then((result) => {
-        setAccounts(result.data.accounts);
+        setAccounts(result.data.account);
       })
       .catch();
   }, []);
