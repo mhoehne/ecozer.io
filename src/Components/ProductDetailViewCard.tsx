@@ -64,13 +64,13 @@ export default function ProductDetailViewCard(
                 onChange={function (event) {
                   const productwebsite = {
                     ...props.product,
-                    productWebsite: event.currentTarget.value,
+                    productLink: event.currentTarget.value,
                   };
                   props.setProduct(productwebsite);
                 }}
                 margin="normal"
                 fullWidth
-                id="productWebsite"
+                id="productLink"
                 label="Website"
                 // defaultValue="www.produkt-homepage.de"
                 // InputProps={{

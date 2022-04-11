@@ -59,7 +59,10 @@ export default function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/account" element={<Account />} />
           <Route path="/my-products" element={<MyProducts />} />
-          <Route path="/my-products/add-product" element={<AddProduct />} />
+          <Route
+            path="/my-products/add-product"
+            element={<AddProduct account={account} />}
+          />
 
           {/* Admin */}
           <Route path="/approval" element={<AdminApproval />} />

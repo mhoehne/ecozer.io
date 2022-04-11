@@ -32,23 +32,6 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
 export default function MorphologicalBoxVertical(
   props: MorphologicalBoxVerticalProps
 ) {
-  const [alignment, setAlignment] = React.useState('left');
-  const [formats, setFormats] = React.useState(() => ['italic']);
-
-  const handleFormat = (
-    event: React.MouseEvent<HTMLElement>,
-    newFormats: string[]
-  ) => {
-    setFormats(newFormats);
-  };
-
-  const handleAlignment = (
-    event: React.MouseEvent<HTMLElement>,
-    newAlignment: string
-  ) => {
-    setAlignment(newAlignment);
-  };
-
   return (
     <>
       <Box
@@ -90,18 +73,24 @@ export default function MorphologicalBoxVertical(
                     orientation="vertical"
                     size="small"
                     color="primary"
-                    value={formats}
-                    onChange={handleFormat}
                     aria-label="selection"
                     fullWidth={true}
                   >
                     <ToggleButton
-                      onChange={function (event) {
-                        const legalcompliance = {
+                      selected={
+                        props.product.anwendungsbereich.Gesetzeskonformität
+                      }
+                      onClick={() => {
+                        const legalCompliance = {
                           ...props.product,
-                          legalCompliance: event.currentTarget.value,
+                          anwendungsbereich: {
+                            ...props.product.anwendungsbereich,
+                            Gesetzeskonformität:
+                              !props.product.anwendungsbereich
+                                .Gesetzeskonformität,
+                          },
                         };
-                        props.setProduct(legalcompliance);
+                        props.setProduct(legalCompliance);
                       }}
                       id="LegalCompliance"
                       value="Gesetzeskonformität"
@@ -215,8 +204,6 @@ export default function MorphologicalBoxVertical(
                     orientation="vertical"
                     size="small"
                     color="primary"
-                    value={formats}
-                    onChange={handleFormat}
                     aria-label="selection"
                     fullWidth={true}
                   >
@@ -326,8 +313,6 @@ export default function MorphologicalBoxVertical(
                     orientation="vertical"
                     size="small"
                     color="primary"
-                    value={formats}
-                    onChange={handleFormat}
                     aria-label="selection"
                     fullWidth={true}
                   >
@@ -395,8 +380,6 @@ export default function MorphologicalBoxVertical(
                     orientation="vertical"
                     size="small"
                     color="primary"
-                    value={formats}
-                    onChange={handleFormat}
                     aria-label="selection"
                     fullWidth={true}
                   >
@@ -478,8 +461,6 @@ export default function MorphologicalBoxVertical(
                     orientation="vertical"
                     size="small"
                     color="primary"
-                    value={formats}
-                    onChange={handleFormat}
                     aria-label="selection"
                     fullWidth={true}
                   >
@@ -575,8 +556,6 @@ export default function MorphologicalBoxVertical(
                     orientation="vertical"
                     size="small"
                     color="primary"
-                    value={formats}
-                    onChange={handleFormat}
                     aria-label="selection"
                     fullWidth={true}
                   >

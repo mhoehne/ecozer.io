@@ -4,22 +4,25 @@ import MorphologicalBoxVertical from '../Components/MorphologicalBoxVertical';
 import { Box, Button, Grid } from '@mui/material';
 import Item from '@mui/material/Grid';
 import SendIcon from '@mui/icons-material/Send';
-import { CreateProduct, ProductType } from '../API';
+import { CreateProduct, ProductType, AccountType } from '../API';
 import { useEffect, useState, useCallback } from 'react';
+import { useNavigate, NavigateFunction } from 'react-router-dom';
 
 //create new props
 interface AddProductProps {
-  Product: ProductType;
+  account: AccountType | null;
 }
 
-export default function AddProduct() {
+export default function AddProduct(props: AddProductProps) {
+  console.log(props.account);
+  const navigate = useNavigate();
   const [product, setProduct] = useState<ProductType>({
     _id: undefined,
     // account_id: number;
     productName: '',
     // productImage: string;
-    // productLink: string;
-    // productCompany: string;
+    productLink: '',
+    productCompany: '',
     productDescription: '',
     zielgruppe: {
       Geschäftsführung: false,
@@ -65,9 +68,18 @@ export default function AddProduct() {
   });
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    // just for testing, can be removed later
     console.log(product);
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
+
+    // onSubmit call createProduct
+    CreateProduct(product)
+      .then((product) => {
+        return navigate('/my-products');
+      })
+      .catch((msg) => {
+        alert('error');
+      });
   };
 
   return (

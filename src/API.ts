@@ -73,8 +73,8 @@ export type ProductType = {
   // account_id: number;
   productName: string;
   // productImage: string;
-  // productLink: string;
-  // productCompany: string;
+  productLink: string;
+  productCompany: string;
   productDescription: string;
   zielgruppe: {
     Geschäftsführung: Boolean;
@@ -85,7 +85,7 @@ export type ProductType = {
     Behörden: Boolean;
   };
   anwendungsbereich: {
-    Gesetzeskonformität: Boolean;
+    Gesetzeskonformität: boolean;
     Zertifizierung: Boolean;
     Ökobilanzierung: Boolean;
     Berichterstattung: Boolean;
@@ -133,7 +133,8 @@ export function CreateProduct(
 ): Promise<AxiosResponse<ProductCreatedResultType>> {
   return axios.post<ProductCreatedResultType>(
     'http://localhost:8000/products',
-    product
+    // account_id has to be replaced
+    { ...product, account_id: 0 }
   );
 }
 
