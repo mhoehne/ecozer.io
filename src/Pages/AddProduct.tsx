@@ -36,6 +36,7 @@ export default function AddProduct(props: AddProductProps) {
       Gesetzeskonformität: false,
       Zertifizierung: false,
       Ökobilanzierung: false,
+      Lebenszyklus: false,
       Berichterstattung: false,
       Entscheidungsunterstützung: false,
       Arbeitsschutz: false,
@@ -59,6 +60,7 @@ export default function AddProduct(props: AddProductProps) {
       'Standort/Betrieb': false,
       Prozess: false,
       Produkt: false,
+      Zwischenbetrieblich: false,
     },
     betrachtungskonzept: {
       Verwaltungszentriert: false,

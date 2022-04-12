@@ -77,45 +77,47 @@ export type ProductType = {
   productCompany: string;
   productDescription: string;
   zielgruppe: {
-    Geschäftsführung: Boolean;
-    Umweltbeauftragte: Boolean;
-    Fachabteilung: Boolean;
-    Mitarbeiter: Boolean;
-    'externe Stakeholder': Boolean;
-    Behörden: Boolean;
+    Geschäftsführung: boolean;
+    Umweltbeauftragte: boolean;
+    Fachabteilung: boolean;
+    Mitarbeiter: boolean;
+    'externe Stakeholder': boolean;
+    Behörden: boolean;
   };
   anwendungsbereich: {
     Gesetzeskonformität: boolean;
-    Zertifizierung: Boolean;
-    Ökobilanzierung: Boolean;
-    Berichterstattung: Boolean;
-    Entscheidungsunterstützung: Boolean;
-    Arbeitsschutz: Boolean;
+    Zertifizierung: boolean;
+    Ökobilanzierung: boolean;
+    Lebenszyklus: boolean;
+    Berichterstattung: boolean;
+    Entscheidungsunterstützung: boolean;
+    Arbeitsschutz: boolean;
   };
   gradDerIntegrierung: {
-    integriert: Boolean;
-    'Add-On': Boolean;
-    'Stand-Alone': Boolean;
-    'SaaS-Lösung': Boolean;
+    integriert: boolean;
+    'Add-On': boolean;
+    'Stand-Alone': boolean;
+    'SaaS-Lösung': boolean;
   };
   objektAspekt: {
-    Abfall: Boolean;
-    Anlagen: Boolean;
-    Gefahrstoffe: Boolean;
-    Emissionen: Boolean;
-    Energie: Boolean;
-    'Stoffe/Stoffströme': Boolean;
-    Kosten: Boolean;
+    Abfall: boolean;
+    Anlagen: boolean;
+    Gefahrstoffe: boolean;
+    Emissionen: boolean;
+    Energie: boolean;
+    'Stoffe/Stoffströme': boolean;
+    Kosten: boolean;
   };
   systemgrenzen: {
-    'Standort/Betrieb': Boolean;
-    Prozess: Boolean;
-    Produkt: Boolean;
+    'Standort/Betrieb': boolean;
+    Prozess: boolean;
+    Produkt: boolean;
+    Zwischenbetrieblich: boolean;
   };
   betrachtungskonzept: {
-    Verwaltungszentriert: Boolean;
-    Bewertungszentriert: Boolean;
-    Managementzentriert: Boolean;
+    Verwaltungszentriert: boolean;
+    Bewertungszentriert: boolean;
+    Managementzentriert: boolean;
   };
 };
 

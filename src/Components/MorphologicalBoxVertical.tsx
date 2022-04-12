@@ -76,6 +76,8 @@ export default function MorphologicalBoxVertical(
                     aria-label="selection"
                     fullWidth={true}
                   >
+                    {/* ANWENDUNGSBEREICH */}
+
                     <ToggleButton
                       selected={
                         props.product.anwendungsbereich.Gesetzeskonformität
@@ -99,10 +101,15 @@ export default function MorphologicalBoxVertical(
                       Gesetzeskonformität
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
+                      selected={props.product.anwendungsbereich.Zertifizierung}
+                      onClick={() => {
                         const certification = {
                           ...props.product,
-                          Certification: event.currentTarget.value,
+                          anwendungsbereich: {
+                            ...props.product.anwendungsbereich,
+                            Zertifizierung:
+                              !props.product.anwendungsbereich.Zertifizierung,
+                          },
                         };
                         props.setProduct(certification);
                       }}
@@ -113,26 +120,36 @@ export default function MorphologicalBoxVertical(
                       Zertifizierung
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
-                        const accounting = {
+                      selected={props.product.anwendungsbereich.Ökobilanzierung}
+                      onClick={() => {
+                        const ecoAccounting = {
                           ...props.product,
-                          Accounting: event.currentTarget.value,
+                          anwendungsbereich: {
+                            ...props.product.anwendungsbereich,
+                            Ökobilanzierung:
+                              !props.product.anwendungsbereich.Ökobilanzierung,
+                          },
                         };
-                        props.setProduct(accounting);
+                        props.setProduct(ecoAccounting);
                       }}
-                      id="Accounting"
-                      value="Bilanzierung"
-                      aria-label="Bilanzierung"
+                      id="EcoAccounting"
+                      value="Ökobilanzierung"
+                      aria-label="Ökobilanzierung"
                     >
                       Bilanzierung
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
-                        const lifecycle = {
+                      selected={props.product.anwendungsbereich.Lebenszyklus}
+                      onClick={() => {
+                        const lifeCycle = {
                           ...props.product,
-                          LifeCycle: event.currentTarget.value,
+                          anwendungsbereich: {
+                            ...props.product.anwendungsbereich,
+                            Lebenszyklus:
+                              !props.product.anwendungsbereich.Lebenszyklus,
+                          },
                         };
-                        props.setProduct(lifecycle);
+                        props.setProduct(lifeCycle);
                       }}
                       id="LifeCycle"
                       value="Lebenszyklus"
@@ -141,10 +158,18 @@ export default function MorphologicalBoxVertical(
                       Lebenszyklus
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
+                      selected={
+                        props.product.anwendungsbereich.Berichterstattung
+                      }
+                      onClick={() => {
                         const reporting = {
                           ...props.product,
-                          Reporting: event.currentTarget.value,
+                          anwendungsbereich: {
+                            ...props.product.anwendungsbereich,
+                            Berichterstattung:
+                              !props.product.anwendungsbereich
+                                .Berichterstattung,
+                          },
                         };
                         props.setProduct(reporting);
                       }}
@@ -155,32 +180,46 @@ export default function MorphologicalBoxVertical(
                       Berichterstattung
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
-                        const reporting = {
+                      selected={
+                        props.product.anwendungsbereich
+                          .Entscheidungsunterstützung
+                      }
+                      onClick={() => {
+                        const decisionMaking = {
                           ...props.product,
-                          Reporting: event.currentTarget.value,
+                          anwendungsbereich: {
+                            ...props.product.anwendungsbereich,
+                            Entscheidungsunterstützung:
+                              !props.product.anwendungsbereich
+                                .Entscheidungsunterstützung,
+                          },
                         };
-                        props.setProduct(reporting);
+                        props.setProduct(decisionMaking);
                       }}
-                      id="Reporting"
+                      id="DecisionMaking"
                       value="Entscheidungsunterstützung"
                       aria-label="Entscheidungsunterstützung"
                     >
                       Entscheidungsunterstützung
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
-                        const businessassociations = {
+                      selected={props.product.anwendungsbereich.Arbeitsschutz}
+                      onClick={() => {
+                        const occupationalHealthAndSafety = {
                           ...props.product,
-                          BusinessAssociations: event.currentTarget.value,
+                          anwendungsbereich: {
+                            ...props.product.anwendungsbereich,
+                            Arbeitsschutz:
+                              !props.product.anwendungsbereich.Arbeitsschutz,
+                          },
                         };
-                        props.setProduct(businessassociations);
+                        props.setProduct(occupationalHealthAndSafety);
                       }}
-                      id="BusinessAssociations"
-                      value="Unternehmensverbünde"
-                      aria-label="Unternehmensverbünde"
+                      id="OccupationalHealthAndSafety"
+                      value="Arbeitsschutz"
+                      aria-label="Arbeitsschutz"
                     >
-                      Unternehmensverbünde
+                      Arbeitsschutz
                     </ToggleButton>
                   </StyledToggleButtonGroup>
                 </Paper>
@@ -200,6 +239,8 @@ export default function MorphologicalBoxVertical(
                     flexWrap: 'wrap',
                   }}
                 >
+                  {/* BETRACHTUNGSOBJEKT */}
+
                   <StyledToggleButtonGroup
                     orientation="vertical"
                     size="small"
@@ -208,10 +249,14 @@ export default function MorphologicalBoxVertical(
                     fullWidth={true}
                   >
                     <ToggleButton
-                      onChange={function (event) {
+                      selected={props.product.objektAspekt.Abfall}
+                      onClick={() => {
                         const waste = {
                           ...props.product,
-                          Waste: event.currentTarget.value,
+                          objektAspekt: {
+                            ...props.product.objektAspekt,
+                            Abfall: !props.product.objektAspekt.Abfall,
+                          },
                         };
                         props.setProduct(waste);
                       }}
@@ -222,10 +267,14 @@ export default function MorphologicalBoxVertical(
                       Abfall
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
+                      selected={props.product.objektAspekt.Anlagen}
+                      onClick={() => {
                         const facilities = {
                           ...props.product,
-                          Facilities: event.currentTarget.value,
+                          objektAspekt: {
+                            ...props.product.objektAspekt,
+                            Anlagen: !props.product.objektAspekt.Anlagen,
+                          },
                         };
                         props.setProduct(facilities);
                       }}
@@ -236,12 +285,17 @@ export default function MorphologicalBoxVertical(
                       Anlagen
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
-                        const hazardousmaterial = {
+                      selected={props.product.objektAspekt.Gefahrstoffe}
+                      onClick={() => {
+                        const hazardousMaterial = {
                           ...props.product,
-                          HazardousMaterial: event.currentTarget.value,
+                          objektAspekt: {
+                            ...props.product.objektAspekt,
+                            Gefahrstoffe:
+                              !props.product.objektAspekt.Gefahrstoffe,
+                          },
                         };
-                        props.setProduct(hazardousmaterial);
+                        props.setProduct(hazardousMaterial);
                       }}
                       id="HazardousMaterial"
                       value="Gefahrstoff"
@@ -264,10 +318,14 @@ export default function MorphologicalBoxVertical(
                       Emission
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
+                      selected={props.product.objektAspekt.Energie}
+                      onClick={() => {
                         const energy = {
                           ...props.product,
-                          Energy: event.currentTarget.value,
+                          objektAspekt: {
+                            ...props.product.objektAspekt,
+                            Energie: !props.product.objektAspekt.Energie,
+                          },
                         };
                         props.setProduct(energy);
                       }}
@@ -278,12 +336,19 @@ export default function MorphologicalBoxVertical(
                       Energie
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
-                        const substanceflow = {
+                      selected={
+                        props.product.objektAspekt['Stoffe/Stoffströme']
+                      }
+                      onClick={() => {
+                        const substanceFlow = {
                           ...props.product,
-                          SubstanceFlow: event.currentTarget.value,
+                          objektAspekt: {
+                            ...props.product.objektAspekt,
+                            ['Stoffe/Stoffströme']:
+                              !props.product.objektAspekt['Stoffe/Stoffströme'],
+                          },
                         };
-                        props.setProduct(substanceflow);
+                        props.setProduct(substanceFlow);
                       }}
                       id="SubstanceFlow"
                       value="Stoff/Stoffstrom"
@@ -309,6 +374,8 @@ export default function MorphologicalBoxVertical(
                     flexWrap: 'wrap',
                   }}
                 >
+                  {/* BETRACHTUNGSKONZEPT */}
+
                   <StyledToggleButtonGroup
                     orientation="vertical"
                     size="small"
@@ -317,12 +384,20 @@ export default function MorphologicalBoxVertical(
                     fullWidth={true}
                   >
                     <ToggleButton
-                      onChange={function (event) {
-                        const administrationcentric = {
+                      selected={
+                        props.product.betrachtungskonzept.Verwaltungszentriert
+                      }
+                      onClick={() => {
+                        const administrationCentric = {
                           ...props.product,
-                          AdministrationCentric: event.currentTarget.value,
+                          betrachtungskonzept: {
+                            ...props.product.betrachtungskonzept,
+                            Verwaltungszentriert:
+                              !props.product.betrachtungskonzept
+                                .Verwaltungszentriert,
+                          },
                         };
-                        props.setProduct(administrationcentric);
+                        props.setProduct(administrationCentric);
                       }}
                       id="AdministrationCentric"
                       value="Verwaltungszentriert"
@@ -331,12 +406,20 @@ export default function MorphologicalBoxVertical(
                       Verwaltungszentriert
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
-                        const assessmentcentric = {
+                      selected={
+                        props.product.betrachtungskonzept.Bewertungszentriert
+                      }
+                      onClick={() => {
+                        const assessmentCentric = {
                           ...props.product,
-                          AssessmentCentric: event.currentTarget.value,
+                          betrachtungskonzept: {
+                            ...props.product.betrachtungskonzept,
+                            Bewertungszentriert:
+                              !props.product.betrachtungskonzept
+                                .Bewertungszentriert,
+                          },
                         };
-                        props.setProduct(assessmentcentric);
+                        props.setProduct(assessmentCentric);
                       }}
                       id="AssessmentCentric"
                       value="Bewertungszentriert"
@@ -345,12 +428,20 @@ export default function MorphologicalBoxVertical(
                       Bewertungszentriert
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
-                        const managementcentric = {
+                      selected={
+                        props.product.betrachtungskonzept.Managementzentriert
+                      }
+                      onClick={() => {
+                        const managementCentric = {
                           ...props.product,
-                          ManagementCentric: event.currentTarget.value,
+                          betrachtungskonzept: {
+                            ...props.product.betrachtungskonzept,
+                            Managementzentriert:
+                              !props.product.betrachtungskonzept
+                                .Managementzentriert,
+                          },
                         };
-                        props.setProduct(managementcentric);
+                        props.setProduct(managementCentric);
                       }}
                       id="ManagementCentric"
                       value="Managementzentriert"
@@ -376,6 +467,8 @@ export default function MorphologicalBoxVertical(
                     flexWrap: 'wrap',
                   }}
                 >
+                  {/* BETRACHTUNGSGRENZEN */}
+
                   <StyledToggleButtonGroup
                     orientation="vertical"
                     size="small"
@@ -384,12 +477,17 @@ export default function MorphologicalBoxVertical(
                     fullWidth={true}
                   >
                     <ToggleButton
-                      onChange={function (event) {
-                        const locationoperation = {
+                      selected={props.product.systemgrenzen['Standort/Betrieb']}
+                      onClick={() => {
+                        const locationOperation = {
                           ...props.product,
-                          LocationOperation: event.currentTarget.value,
+                          systemgrenzen: {
+                            ...props.product.systemgrenzen,
+                            ['Standort/Betrieb']:
+                              !props.product.systemgrenzen['Standort/Betrieb'],
+                          },
                         };
-                        props.setProduct(locationoperation);
+                        props.setProduct(locationOperation);
                       }}
                       id="LocationOperation"
                       value="Standort/Betrieb"
@@ -398,10 +496,14 @@ export default function MorphologicalBoxVertical(
                       Standort/Betrieb
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
+                      selected={props.product.systemgrenzen.Prozess}
+                      onClick={() => {
                         const process = {
                           ...props.product,
-                          Process: event.currentTarget.value,
+                          systemgrenzen: {
+                            ...props.product.systemgrenzen,
+                            Prozess: !props.product.systemgrenzen.Prozess,
+                          },
                         };
                         props.setProduct(process);
                       }}
@@ -412,12 +514,16 @@ export default function MorphologicalBoxVertical(
                       Prozess
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
-                        const productbased = {
+                      selected={props.product.systemgrenzen.Produkt}
+                      onClick={() => {
+                        const productBased = {
                           ...props.product,
-                          ProductBased: event.currentTarget.value,
+                          systemgrenzen: {
+                            ...props.product.systemgrenzen,
+                            Produkt: !props.product.systemgrenzen.Produkt,
+                          },
                         };
-                        props.setProduct(productbased);
+                        props.setProduct(productBased);
                       }}
                       id="ProductBased"
                       value="Produkt"
@@ -426,10 +532,15 @@ export default function MorphologicalBoxVertical(
                       Produkt
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
+                      selected={props.product.systemgrenzen.Zwischenbetrieblich}
+                      onClick={() => {
                         const intercompany = {
                           ...props.product,
-                          Intercompany: event.currentTarget.value,
+                          systemgrenzen: {
+                            ...props.product.systemgrenzen,
+                            Zwischenbetrieblich:
+                              !props.product.systemgrenzen.Zwischenbetrieblich,
+                          },
                         };
                         props.setProduct(intercompany);
                       }}
@@ -457,6 +568,8 @@ export default function MorphologicalBoxVertical(
                     flexWrap: 'wrap',
                   }}
                 >
+                  {/* ZIELGRUPPE / ANWENDER */}
+
                   <StyledToggleButtonGroup
                     orientation="vertical"
                     size="small"
@@ -465,26 +578,36 @@ export default function MorphologicalBoxVertical(
                     fullWidth={true}
                   >
                     <ToggleButton
-                      onChange={function (event) {
-                        const businessmanagement = {
+                      selected={props.product.zielgruppe.Geschäftsführung}
+                      onClick={() => {
+                        const businessManagement = {
                           ...props.product,
-                          BusinessManagement: event.currentTarget.value,
+                          zielgruppe: {
+                            ...props.product.zielgruppe,
+                            Geschäftsführung:
+                              !props.product.zielgruppe.Geschäftsführung,
+                          },
                         };
-                        props.setProduct(businessmanagement);
+                        props.setProduct(businessManagement);
                       }}
                       id="BusinessManagement"
-                      value="Unternehmensführung"
-                      aria-label="Unternehmensführung"
+                      value="Geschäftsführung"
+                      aria-label="Geschäftsführung"
                     >
-                      Unternehmensführung
+                      Geschäftsführung
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
-                        const environmentalofficer = {
+                      selected={props.product.zielgruppe.Umweltbeauftragte}
+                      onClick={() => {
+                        const environmentalOfficer = {
                           ...props.product,
-                          EnvironmentalOfficer: event.currentTarget.value,
+                          zielgruppe: {
+                            ...props.product.zielgruppe,
+                            Umweltbeauftragte:
+                              !props.product.zielgruppe.Umweltbeauftragte,
+                          },
                         };
-                        props.setProduct(environmentalofficer);
+                        props.setProduct(environmentalOfficer);
                       }}
                       id="EnvironmentalOfficer"
                       value="Umweltbeauftragter"
@@ -493,12 +616,17 @@ export default function MorphologicalBoxVertical(
                       Umweltbeauftragter
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
-                        const specialtydepartment = {
+                      selected={props.product.zielgruppe.Fachabteilung}
+                      onClick={() => {
+                        const specialtyDepartment = {
                           ...props.product,
-                          SpecialtyDepartment: event.currentTarget.value,
+                          zielgruppe: {
+                            ...props.product.zielgruppe,
+                            Fachabteilung:
+                              !props.product.zielgruppe.Fachabteilung,
+                          },
                         };
-                        props.setProduct(specialtydepartment);
+                        props.setProduct(specialtyDepartment);
                       }}
                       id="SpecialtyDepartment"
                       value="Fachabteilung"
@@ -507,10 +635,14 @@ export default function MorphologicalBoxVertical(
                       Fachabteilung
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
+                      selected={props.product.zielgruppe.Mitarbeiter}
+                      onClick={() => {
                         const staff = {
                           ...props.product,
-                          Staff: event.currentTarget.value,
+                          zielgruppe: {
+                            ...props.product.zielgruppe,
+                            Mitarbeiter: !props.product.zielgruppe.Mitarbeiter,
+                          },
                         };
                         props.setProduct(staff);
                       }}
@@ -521,12 +653,17 @@ export default function MorphologicalBoxVertical(
                       Mitarbeiter
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
-                        const externalstakeholders = {
+                      selected={props.product.zielgruppe['externe Stakeholder']}
+                      onClick={() => {
+                        const externalStakeholders = {
                           ...props.product,
-                          ExternalStakeholders: event.currentTarget.value,
+                          zielgruppe: {
+                            ...props.product.zielgruppe,
+                            ['externe Stakeholder']:
+                              !props.product.zielgruppe['externe Stakeholder'],
+                          },
                         };
-                        props.setProduct(externalstakeholders);
+                        props.setProduct(externalStakeholders);
                       }}
                       id="ExternalStakeholders"
                       value="Externe Stakeholder"
@@ -552,6 +689,8 @@ export default function MorphologicalBoxVertical(
                     flexWrap: 'wrap',
                   }}
                 >
+                  {/* ITEGRATIONSGRAD */}
+
                   <StyledToggleButtonGroup
                     orientation="vertical"
                     size="small"
@@ -560,24 +699,36 @@ export default function MorphologicalBoxVertical(
                     fullWidth={true}
                   >
                     <ToggleButton
-                      onChange={function (event) {
-                        const standalone = {
+                      selected={
+                        props.product.gradDerIntegrierung['Stand-Alone']
+                      }
+                      onClick={() => {
+                        const standAlone = {
                           ...props.product,
-                          Standalone: event.currentTarget.value,
+                          gradDerIntegrierung: {
+                            ...props.product.gradDerIntegrierung,
+                            ['Stand-Alone']:
+                              !props.product.gradDerIntegrierung['Stand-Alone'],
+                          },
                         };
-                        props.setProduct(standalone);
+                        props.setProduct(standAlone);
                       }}
-                      id="Standalone"
+                      id="StandAlone"
                       value="Stand-Alone"
                       aria-label="Stand-Alone"
                     >
                       Stand-Alone
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
+                      selected={props.product.gradDerIntegrierung['Add-On']}
+                      onClick={() => {
                         const addon = {
                           ...props.product,
-                          Addon: event.currentTarget.value,
+                          gradDerIntegrierung: {
+                            ...props.product.gradDerIntegrierung,
+                            ['Add-On']:
+                              !props.product.gradDerIntegrierung['Add-On'],
+                          },
                         };
                         props.setProduct(addon);
                       }}
@@ -588,10 +739,15 @@ export default function MorphologicalBoxVertical(
                       Add-On
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
+                      selected={props.product.gradDerIntegrierung.integriert}
+                      onClick={() => {
                         const integration = {
                           ...props.product,
-                          Integration: event.currentTarget.value,
+                          gradDerIntegrierung: {
+                            ...props.product.gradDerIntegrierung,
+                            integriert:
+                              !props.product.gradDerIntegrierung.integriert,
+                          },
                         };
                         props.setProduct(integration);
                       }}
@@ -600,6 +756,27 @@ export default function MorphologicalBoxVertical(
                       aria-label="Intergriert"
                     >
                       Intergriert
+                    </ToggleButton>
+                    <ToggleButton
+                      selected={
+                        props.product.gradDerIntegrierung['SaaS-Lösung']
+                      }
+                      onClick={() => {
+                        const SaaSLösung = {
+                          ...props.product,
+                          gradDerIntegrierung: {
+                            ...props.product.gradDerIntegrierung,
+                            ['SaaS-Lösung']:
+                              !props.product.gradDerIntegrierung['SaaS-Lösung'],
+                          },
+                        };
+                        props.setProduct(SaaSLösung);
+                      }}
+                      id="SaaS-Lösung"
+                      value="SaaS-Lösung"
+                      aria-label="SaaS-Lösung"
+                    >
+                      SaaS-Lösung
                     </ToggleButton>
                   </StyledToggleButtonGroup>
                 </Paper>
