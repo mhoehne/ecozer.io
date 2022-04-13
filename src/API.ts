@@ -127,6 +127,9 @@ export type ProductResultType = {
 
 export type ProductCreatedResultType = ProductType | string;
 
+// add a query to /products API to pass a limit and sort by parameters
+// /products?limit=3&sortBy=createdAt&sortOrder=desc
+
 /*CRUD*SECTION*PRODUCT>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 /*CREATE*************************************************************************************************/
 
