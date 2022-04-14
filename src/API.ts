@@ -127,6 +127,9 @@ export type ProductResultType = {
 
 export type ProductCreatedResultType = ProductType | string;
 
+// add a query to /products API to pass a limit and sort by parameters
+// /products?limit=3&sortBy=createdAt&sortOrder=desc
+
 /*CRUD*SECTION*PRODUCT>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 /*CREATE*************************************************************************************************/
 
@@ -143,6 +146,14 @@ export function CreateProduct(
 /*READ***************************************************************************************************/
 export function GetProducts(): Promise<AxiosResponse<ProductResultType>> {
   return axios.get<ProductResultType>('http://localhost:8000/products');
+}
+
+export function ListNewestProducts(): Promise<
+  AxiosResponse<ProductResultType>
+> {
+  return axios.get<ProductResultType>(
+    'http://localhost:8000/products?limit=3&sortBy=createdAt&sortOrder=desc'
+  );
 }
 
 /*UPDATE*************************************************************************************************/
