@@ -148,6 +148,14 @@ export function GetProducts(): Promise<AxiosResponse<ProductResultType>> {
   return axios.get<ProductResultType>('http://localhost:8000/products');
 }
 
+export function ListNewestProducts(): Promise<
+  AxiosResponse<ProductResultType>
+> {
+  return axios.get<ProductResultType>(
+    'http://localhost:8000/products?limit=3&sortBy=createdAt&sortOrder=desc'
+  );
+}
+
 /*UPDATE*************************************************************************************************/
 
 export function PutProducts(
