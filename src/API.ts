@@ -156,6 +156,14 @@ export function ListNewestProducts(): Promise<
   );
 }
 
+export function ListMostViewedProducts(): Promise<
+  AxiosResponse<ProductResultType>
+> {
+  return axios.get<ProductResultType>(
+    'http://localhost:8000/products?limit=3&sortBy=createdAt&sortOrder=desc'
+  );
+}
+
 /*UPDATE*************************************************************************************************/
 
 export function PutProducts(
