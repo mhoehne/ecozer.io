@@ -57,9 +57,9 @@ export default function HowItWorks() {
               </TimelineSeparator>
               <TimelineContent sx={{ pt: 2.25 }} variant="h6">
                 {' '}
-                In nur wenigen Schritten registrieren
+                Schnelle Registrierung!
                 <Typography>
-                  Die Registrierung dauert nur wenige Minuten
+                  Erstelle in nur wenigen Schritten deinen Account
                 </Typography>
               </TimelineContent>
             </TimelineItem>
@@ -84,8 +84,10 @@ export default function HowItWorks() {
               </TimelineSeparator>
               <TimelineContent sx={{ pt: 2.25 }} variant="h6">
                 {' '}
-                Produkt erstellen und Details hinzufügen!
-                <Typography>Füge Bilder und Texte hinzu</Typography>
+                Produkt erstellen!
+                <Typography>
+                  Füge Bilder und die Produktdetails hinzu
+                </Typography>
               </TimelineContent>
             </TimelineItem>
 
@@ -108,7 +110,7 @@ export default function HowItWorks() {
               </TimelineSeparator>
               <TimelineContent sx={{ pt: 2.25 }} variant="h6">
                 {' '}
-                Veröffentlichen!
+                Produkt veröffentlichen!
                 <Typography>
                   Unser Team validiert in kürzester Zeit dein Produkt
                 </Typography>
