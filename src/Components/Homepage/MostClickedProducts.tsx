@@ -26,7 +26,7 @@ export default function MostClickedProducts() {
           color="text.primary"
           gutterBottom
         >
-          Meist angesehenen Produkte
+          Meist angesehene Produkte
         </Typography>
       </Container>
 
