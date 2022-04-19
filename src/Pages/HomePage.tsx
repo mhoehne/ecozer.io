@@ -3,7 +3,7 @@ import { Paper } from '@mui/material';
 import HowItWorks from '../Components/Homepage/HowItWorks';
 import MostClickedProducts from '../Components/Homepage/MostClickedProducts';
 import NewestProducts from '../Components/Homepage/NewestPorducts';
-import HeroBanner from '../Components/HeroBanner';
+import HeroBanner from '../Components/Homepage/HeroBanner';
 
 export default function Home() {
   const Item = styled(Paper)(({ theme }) => ({

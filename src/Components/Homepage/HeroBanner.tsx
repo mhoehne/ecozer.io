@@ -3,7 +3,7 @@ import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import HeroBlobSVG from '../images/blob-scene-haikei.svg';
+import HeroBlobSVG from '../../images/blob-scene-haikei.svg';
 
 export default function HeroBanner() {
   return (
@@ -52,7 +52,7 @@ export default function HeroBanner() {
               href="/search"
               sx={{ color: 'background.paper' }}
             >
-              Jetzt ihr passendes BUI Produkt finden!
+              Jetzt passendes Produkt finden!
             </Button>
           </Stack>
         </Container>
