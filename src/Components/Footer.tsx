@@ -28,27 +28,7 @@ export default function Footer() {
             <Grid item xs={12} sm={3}>
               <Box>
                 <Link href="/test" underline="none" color="inherit">
-                  Testseite
-                </Link>
-              </Box>
-              <Box>
-                <Link href="#" underline="none" color="inherit">
-                  Link here
-                </Link>
-              </Box>
-              <Box>
-                <Link href="#" underline="none" color="inherit">
-                  Link here
-                </Link>
-              </Box>
-              <Box>
-                <Link href="#" underline="none" color="inherit">
-                  Link here
-                </Link>
-              </Box>
-              <Box>
-                <Link href="#" underline="none" color="inherit">
-                  Link here
+                  Footer Link
                 </Link>
               </Box>
             </Grid>
@@ -56,27 +36,7 @@ export default function Footer() {
             <Grid item xs={12} sm={3}>
               <Box>
                 <Link href="#" underline="none" color="inherit">
-                  Link here
-                </Link>
-              </Box>
-              <Box>
-                <Link href="#" underline="none" color="inherit">
-                  Link here
-                </Link>
-              </Box>
-              <Box>
-                <Link href="#" underline="none" color="inherit">
-                  Link here
-                </Link>
-              </Box>
-              <Box>
-                <Link href="#" underline="none" color="inherit">
-                  Link here
-                </Link>
-              </Box>
-              <Box>
-                <Link href="#" underline="none" color="inherit">
-                  Link here
+                  Footer Link
                 </Link>
               </Box>
             </Grid>
@@ -85,26 +45,6 @@ export default function Footer() {
               <Box>
                 <Link href="/glossar" underline="none" color="inherit">
                   Glossar
-                </Link>
-              </Box>
-              <Box>
-                <Link href="#" underline="none" color="inherit">
-                  Link here
-                </Link>
-              </Box>
-              <Box>
-                <Link href="#" underline="none" color="inherit">
-                  Link here
-                </Link>
-              </Box>
-              <Box>
-                <Link href="#" underline="none" color="inherit">
-                  Link here
-                </Link>
-              </Box>
-              <Box>
-                <Link href="#" underline="none" color="inherit">
-                  Link here
                 </Link>
               </Box>
             </Grid>
