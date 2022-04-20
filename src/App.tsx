@@ -17,7 +17,7 @@ import Dashboard from './Pages/Dashboard';
 import Glossar from './Pages/Glossar';
 import { useCookies } from 'react-cookie';
 import { useState, useEffect } from 'react';
-import { AccountType, ProductType, GetAccountByEmail } from './API';
+import { AccountType, ProductType, GetAccountByEmail, getProduct } from './API';
 
 export default function App() {
   const [account, setAccount] = useState<AccountType | null>(null);
