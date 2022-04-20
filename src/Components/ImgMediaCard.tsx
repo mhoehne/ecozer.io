@@ -199,7 +199,7 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
         <Button size="small" href="/search/product-detail">
           + details
         </Button>
-        <Button size="small" href="/search/product-detail" sx={{}}>
+        {/* <Button size="small" href="/search/product-detail" sx={{}}>
           + editieren
         </Button>
         <Button
@@ -210,7 +210,7 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
           sx={{}}
         >
           überprüfen
-        </Button>
+        </Button> */}
       </CardActions>
     </Card>
   );
