@@ -160,7 +160,7 @@ export function ListMostViewedProducts(): Promise<
   AxiosResponse<ProductResultType>
 > {
   return axios.get<ProductResultType>(
-    'http://localhost:8000/products?limit=3&sortBy=createdAt&sortOrder=desc'
+    'http://localhost:8000/products?limit=3&sortBy=viewCounter&sortOrder=asc'
   );
 }
 
