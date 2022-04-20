@@ -1,22 +1,18 @@
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import ProductDetailViewCard from '../Components/ProductDetailViewCard';
-import MorphologicalBoxVertical from '../Components/MorphologicalBoxVertical';
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 import { Grid } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 import SampleImg from '../images/sample-img.png';
 import TextField from '@mui/material/TextField';
-import { ProductType } from '../API';
+import { getProduct, ProductType } from '../API';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-
-interface ProductDetailProps {
-  product: ProductType | null;
-}
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   '& .MuiToggleButtonGroup-grouped': {
@@ -35,6 +31,15 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
 }));
 
 export default function ProductDetail() {
+  const params = useParams();
+
+  const [product, setProduct] = useState<ProductType>();
+  useEffect(() => {
+    getProduct(params.id ?? '-1').then((result) => {
+      setProduct(result.data);
+    });
+  }, []);
+
   return (
     <>
       <Box sx={{ my: 10 }}>
@@ -78,7 +83,7 @@ export default function ProductDetail() {
                   fullWidth
                   id="productName"
                   label="Produktname"
-                  defaultValue="Produktname"
+                  defaultValue={product?.productName}
                   InputProps={{
                     readOnly: true,
                   }}
@@ -90,7 +95,7 @@ export default function ProductDetail() {
                   fullWidth
                   id="productLink"
                   label="Website"
-                  defaultValue="www.produkt-homepage.de"
+                  defaultValue={product?.productLink}
                   InputProps={{
                     readOnly: true,
                   }}
@@ -102,7 +107,7 @@ export default function ProductDetail() {
                   fullWidth
                   id="productCompany"
                   label="Unternehmen"
-                  defaultValue="Unternehmen GmbH"
+                  defaultValue={product?.productCompany}
                   InputProps={{
                     readOnly: true,
                   }}
@@ -118,7 +123,7 @@ export default function ProductDetail() {
                   label="Produktbeschreibung"
                   multiline
                   rows={10}
-                  defaultValue="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+                  defaultValue={product?.productDescription}
                   InputProps={{
                     readOnly: true,
                   }}

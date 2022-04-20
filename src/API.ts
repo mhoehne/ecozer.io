@@ -121,8 +121,12 @@ export type ProductType = {
   };
 };
 
-export type ProductResultType = {
+export type ProductsResultType = {
   products: ProductType[];
+};
+
+export type ProductResultType = {
+  product: ProductType;
 };
 
 export type ProductCreatedResultType = ProductType | string;
@@ -144,32 +148,38 @@ export function CreateProduct(
 }
 
 /*READ***************************************************************************************************/
-export function GetProducts(): Promise<AxiosResponse<ProductResultType>> {
-  return axios.get<ProductResultType>('http://localhost:8000/products');
+export function GetProducts(): Promise<AxiosResponse<ProductsResultType>> {
+  return axios.get<ProductsResultType>('http://localhost:8000/products');
 }
 
 export function ListNewestProducts(): Promise<
-  AxiosResponse<ProductResultType>
+  AxiosResponse<ProductsResultType>
 > {
-  return axios.get<ProductResultType>(
+  return axios.get<ProductsResultType>(
     'http://localhost:8000/products?limit=3&sortBy=createdAt&sortOrder=desc'
   );
 }
 
 export function ListMostViewedProducts(): Promise<
-  AxiosResponse<ProductResultType>
+  AxiosResponse<ProductsResultType>
 > {
-  return axios.get<ProductResultType>(
-    'http://localhost:8000/products?limit=3&sortBy=viewCounter&sortOrder=asc'
+  return axios.get<ProductsResultType>(
+    'http://localhost:8000/products?limit=3&sortBy=viewCounter&sortOrder=desc'
   );
+}
+
+export function getProduct(
+  productID: string
+): Promise<AxiosResponse<ProductType>> {
+  return axios.get<ProductType>(`http://localhost:8000/products/${productID}`);
 }
 
 /*UPDATE*************************************************************************************************/
 
 export function PutProducts(
   product: ProductType
-): Promise<AxiosResponse<ProductResultType>> {
-  return axios.put<ProductResultType>(
+): Promise<AxiosResponse<ProductsResultType>> {
+  return axios.put<ProductsResultType>(
     'http://localhost:8000/products',
     product
   );

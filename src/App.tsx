@@ -17,7 +17,7 @@ import Dashboard from './Pages/Dashboard';
 import Glossar from './Pages/Glossar';
 import { useCookies } from 'react-cookie';
 import { useState, useEffect } from 'react';
-import { AccountType, GetAccountByEmail } from './API';
+import { AccountType, ProductType, GetAccountByEmail } from './API';
 
 export default function App() {
   const [account, setAccount] = useState<AccountType | null>(null);
@@ -49,7 +49,10 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/glossar" element={<Glossar />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/search/product-detail" element={<ProductDetail />} />
+          <Route
+            path="/search/product-detail/:id"
+            element={<ProductDetail />}
+          />
 
           {/* Sign In/Up */}
           <Route path="/signin" element={<SignIn />} />
