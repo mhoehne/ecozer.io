@@ -13,7 +13,9 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Chip from '@mui/material/Chip';
 import DoneIcon from '@mui/icons-material/Done';
-import { ProductType } from '../API';
+import { ProductType, getProduct } from '../API';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 interface ImageMediaCardProps {
   Product: ProductType;
@@ -159,9 +161,20 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
     }
   }
 
+  // const params = useParams();
+
+  // const [product, setProduct] = useState<ProductType>();
+  // useEffect(() => {
+  //   getProduct(params.id ?? '-1').then((result) => {
+  //     setProduct(result.data);
+  //   });
+  // }, []);
+
   return (
     <Card sx={{ maxWidth: 500, margin: '2rem' }}>
-      <CardActionArea href="/search/product-detail">
+      <CardActionArea
+      // href={`/search/product-detail/${productID}`}
+      >
         <CardMedia
           component="img"
           alt="Produkt"

@@ -14,7 +14,6 @@ interface AddProductProps {
 }
 
 export default function AddProduct(props: AddProductProps) {
-  console.log(props.account);
   const navigate = useNavigate();
   const [product, setProduct] = useState<ProductType>({
     _id: undefined,
