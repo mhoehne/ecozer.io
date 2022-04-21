@@ -172,9 +172,7 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
 
   return (
     <Card sx={{ maxWidth: 500, margin: '2rem' }}>
-      <CardActionArea
-      // href={`/search/product-detail/${productID}`}
-      >
+      <CardActionArea href={`/search/product-detail/${props.Product._id}`}>
         <CardMedia
           component="img"
           alt="Produkt"
@@ -209,7 +207,10 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
 
       <Divider />
       <CardActions>
-        <Button size="small" href="/search/product-detail">
+        <Button
+          size="small"
+          href={`/search/product-detail/${props.Product._id}`}
+        >
           + details
         </Button>
         {/* <Button size="small" href="/search/product-detail" sx={{}}>
