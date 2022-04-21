@@ -107,7 +107,7 @@ export default function AccountMenu() {
           <ListItemIcon>
             <DashboardCustomizeIcon fontSize="small" />
           </ListItemIcon>
-          Products
+          Meine Produkte
         </MenuItem>
         <MenuItem component={Link} to="/account">
           <ListItemIcon>
@@ -120,13 +120,13 @@ export default function AccountMenu() {
           <ListItemIcon>
             <FactCheckIcon fontSize="small" />
           </ListItemIcon>
-          Approval
+          Zulassung
         </MenuItem>
         <MenuItem component={Link} to="/user-list">
           <ListItemIcon>
             <BadgeIcon fontSize="small" />
           </ListItemIcon>
-          User List
+          Benutzerliste
         </MenuItem>
         <Divider />
 
@@ -134,13 +134,13 @@ export default function AccountMenu() {
           <ListItemIcon>
             <PersonAdd fontSize="small" />
           </ListItemIcon>
-          Invite User
+          Benutzer einladen
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
-          Settings
+          Einstellungen
         </MenuItem>
         {/* call handleSubmit to remove cookie and redirect the user to the homepage */}
         <MenuItem component="form" onClick={handleSubmit}>
