@@ -7,6 +7,7 @@ import {
   GridRowId,
 } from '@mui/x-data-grid';
 import DeleteIcon from '@mui/icons-material/Delete';
+import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
 import { useEffect, useState, useCallback } from 'react';
 import { Box } from '@mui/material';
 import { GetAccounts, AccountType, PutAccount, DeleteAccount } from '../API';
@@ -131,14 +132,14 @@ export default function DataGridDemo() {
       getActions: (params: { id: string }) => [
         <GridActionsCellItem
           icon={<DeleteIcon />}
-          label="Delete"
+          label="Löschen"
           onClick={deleteUser(params.id)}
           showInMenu
         />,
 
         <GridActionsCellItem
-          icon={<DeleteIcon />}
-          label="Toggle Admin"
+          icon={<ChangeCircleIcon />}
+          label="Admin/Benutzer"
           onClick={toggleAdmin(params.id)}
           showInMenu
         />,
