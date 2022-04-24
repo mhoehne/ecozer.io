@@ -83,7 +83,8 @@ export default function ProductDetail() {
                   fullWidth
                   id="productName"
                   label="Produktname"
-                  defaultValue={product?.productName}
+                  value={product?.productName}
+                  focused
                   InputProps={{
                     readOnly: true,
                   }}
@@ -95,7 +96,8 @@ export default function ProductDetail() {
                   fullWidth
                   id="productLink"
                   label="Website"
-                  defaultValue={product?.productLink}
+                  value={product?.productLink}
+                  focused
                   InputProps={{
                     readOnly: true,
                   }}
@@ -107,7 +109,8 @@ export default function ProductDetail() {
                   fullWidth
                   id="productCompany"
                   label="Unternehmen"
-                  defaultValue={product?.productCompany}
+                  value={product?.productCompany}
+                  focused
                   InputProps={{
                     readOnly: true,
                   }}
@@ -123,7 +126,8 @@ export default function ProductDetail() {
                   label="Produktbeschreibung"
                   multiline
                   rows={10}
-                  defaultValue={product?.productDescription}
+                  value={product?.productDescription}
+                  focused
                   InputProps={{
                     readOnly: true,
                   }}
