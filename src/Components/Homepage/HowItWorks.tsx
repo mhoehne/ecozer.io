@@ -18,133 +18,129 @@ import { Container } from '@mui/material';
 export default function HowItWorks() {
   return (
     <>
-      <Container>
-        <Box
-          px={{ xs: 2, sm: 2 }}
-          py={{ xs: 4, sm: 4 }}
-          mx={{ xs: -5, sm: -5 }}
-          my={{ xs: 0, sm: 0 }}
-          bgcolor="background.paper"
+      <Box
+        px={{ xs: 2, sm: 2 }}
+        py={{ xs: 4, sm: 4 }}
+        mx={{ xs: -5, sm: -5 }}
+        my={{ xs: 0, sm: 0 }}
+        bgcolor="background.paper"
+        color="text.primary"
+      >
+        <Typography
+          component="h4"
+          variant="h4"
+          align="center"
           color="text.primary"
+          gutterBottom
         >
-          <Typography
-            component="h4"
-            variant="h4"
-            align="center"
-            color="text.primary"
-            gutterBottom
-          >
-            So funktioniert es
-          </Typography>
-          <Timeline position="alternate">
-            {/* 1nd Item */}
-            <TimelineItem>
-              <TimelineOppositeContent
-                sx={{ m: 'auto 0' }}
-                align="right"
-                variant="body2"
-                color="text.secondary"
-              ></TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineConnector />
-                <TimelineDot color="primary">
-                  <DriveFileRenameOutlineIcon
-                    fontSize="large"
-                    sx={{ color: 'background.paper' }}
-                  />
-                </TimelineDot>
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent sx={{ pt: 2.25 }} variant="h6">
-                {' '}
-                Schnelle Registrierung!
-                <Typography>
-                  Erstelle in nur wenigen Schritten deinen Account
-                </Typography>
-              </TimelineContent>
-            </TimelineItem>
+          So funktioniert es
+        </Typography>
+        <Timeline position="alternate">
+          {/* 1nd Item */}
+          <TimelineItem>
+            <TimelineOppositeContent
+              sx={{ m: 'auto 0' }}
+              align="right"
+              variant="body2"
+              color="text.secondary"
+            ></TimelineOppositeContent>
+            <TimelineSeparator>
+              <TimelineConnector />
+              <TimelineDot color="primary">
+                <DriveFileRenameOutlineIcon
+                  fontSize="large"
+                  sx={{ color: 'background.paper' }}
+                />
+              </TimelineDot>
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent sx={{ pt: 2.25 }} variant="h6">
+              {' '}
+              Schnelle Registrierung!
+              <Typography>
+                Erstelle in nur wenigen Schritten deinen Account
+              </Typography>
+            </TimelineContent>
+          </TimelineItem>
 
-            {/* 2nd Item */}
-            <TimelineItem>
-              <TimelineOppositeContent
-                sx={{ m: 'auto 0' }}
-                align="right"
-                variant="body2"
-                color="text.secondary"
-              ></TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineConnector />
-                <TimelineDot color="primary">
-                  <PostAddIcon
-                    fontSize="large"
-                    sx={{ color: 'background.paper' }}
-                  />
-                </TimelineDot>
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent sx={{ pt: 2.25 }} variant="h6">
-                {' '}
-                Produkt erstellen!
-                <Typography>
-                  Füge Bilder und die Produktdetails hinzu
-                </Typography>
-              </TimelineContent>
-            </TimelineItem>
+          {/* 2nd Item */}
+          <TimelineItem>
+            <TimelineOppositeContent
+              sx={{ m: 'auto 0' }}
+              align="right"
+              variant="body2"
+              color="text.secondary"
+            ></TimelineOppositeContent>
+            <TimelineSeparator>
+              <TimelineConnector />
+              <TimelineDot color="primary">
+                <PostAddIcon
+                  fontSize="large"
+                  sx={{ color: 'background.paper' }}
+                />
+              </TimelineDot>
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent sx={{ pt: 2.25 }} variant="h6">
+              {' '}
+              Produkt erstellen!
+              <Typography>Füge Bilder und die Produktdetails hinzu</Typography>
+            </TimelineContent>
+          </TimelineItem>
 
-            <TimelineItem>
-              <TimelineOppositeContent
-                sx={{ m: 'auto 0' }}
-                align="right"
-                variant="body2"
-                color="text.secondary"
-              ></TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineConnector />
-                <TimelineDot color="primary">
-                  <RocketLaunchIcon
-                    fontSize="large"
-                    sx={{ color: 'background.paper' }}
-                  />
-                </TimelineDot>
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent sx={{ pt: 2.25 }} variant="h6">
-                {' '}
-                Produkt veröffentlichen!
-                <Typography>
-                  Unser Team validiert in kürzester Zeit dein Produkt
-                </Typography>
-              </TimelineContent>
-            </TimelineItem>
+          <TimelineItem>
+            <TimelineOppositeContent
+              sx={{ m: 'auto 0' }}
+              align="right"
+              variant="body2"
+              color="text.secondary"
+            ></TimelineOppositeContent>
+            <TimelineSeparator>
+              <TimelineConnector />
+              <TimelineDot color="primary">
+                <RocketLaunchIcon
+                  fontSize="large"
+                  sx={{ color: 'background.paper' }}
+                />
+              </TimelineDot>
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent sx={{ pt: 2.25 }} variant="h6">
+              {' '}
+              Produkt veröffentlichen!
+              <Typography>
+                Unser Team validiert in kürzester Zeit dein Produkt
+              </Typography>
+            </TimelineContent>
+          </TimelineItem>
 
-            <TimelineItem>
-              <TimelineOppositeContent
-                sx={{ m: 'auto 0' }}
-                align="right"
-                variant="body2"
-                color="text.secondary"
-              ></TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineConnector />
-                <TimelineDot color="primary">
-                  <CheckCircleOutlineIcon
-                    fontSize="large"
-                    sx={{ color: 'background.paper' }}
-                  />
-                </TimelineDot>
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent sx={{ pt: 2.25 }} variant="h6">
-                {' '}
-                Fertig!
-                <Typography>
-                  Dein Produkt ist nun für alle öffentlich sichtbar
-                </Typography>
-              </TimelineContent>
-            </TimelineItem>
-          </Timeline>
-        </Box>
-      </Container>
+          <TimelineItem>
+            <TimelineOppositeContent
+              sx={{ m: 'auto 0' }}
+              align="right"
+              variant="body2"
+              color="text.secondary"
+            ></TimelineOppositeContent>
+            <TimelineSeparator>
+              <TimelineConnector />
+              <TimelineDot color="primary">
+                <CheckCircleOutlineIcon
+                  fontSize="large"
+                  sx={{ color: 'background.paper' }}
+                />
+              </TimelineDot>
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent sx={{ pt: 2.25 }} variant="h6">
+              {' '}
+              Fertig!
+              <Typography>
+                Dein Produkt ist nun für alle öffentlich sichtbar
+              </Typography>
+            </TimelineContent>
+          </TimelineItem>
+        </Timeline>
+      </Box>
     </>
   );
 }
