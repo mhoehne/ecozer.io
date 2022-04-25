@@ -36,12 +36,6 @@ export default function Account() {
             backgroundColor: 'background.paper',
           }}
         >
-          <Avatar
-            sx={{ m: 1, width: 45, height: 45, bgcolor: 'secondary.main' }}
-          >
-            MH
-          </Avatar>
-
           <Typography component="h1" variant="h5">
             Account
           </Typography>
