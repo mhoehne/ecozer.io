@@ -17,6 +17,7 @@ import BadgeIcon from '@mui/icons-material/Badge';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import { Link, useNavigate, NavigateFunction } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 // function to remove the cookie
 export async function deauthenticate(
@@ -57,9 +58,7 @@ export default function AccountMenu() {
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Tooltip title="Account settings">
           <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
-            <Avatar sx={{ width: 45, height: 45, bgcolor: 'secondary.main' }}>
-              MH
-            </Avatar>
+            <AccountCircleIcon />
           </IconButton>
         </Tooltip>
       </Box>
