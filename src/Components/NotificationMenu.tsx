@@ -24,12 +24,12 @@ export default function NotificationMenu() {
         <Tooltip title="Show notifications">
           <IconButton
             onClick={handleClick}
-            size="large"
+            size="medium"
             aria-label="show 4 new mails"
             color="inherit"
           >
             <Badge badgeContent={4} color="error">
-              <NotificationsIcon />
+              <NotificationsIcon color="info" />
             </Badge>
           </IconButton>
         </Tooltip>
