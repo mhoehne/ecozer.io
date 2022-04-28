@@ -55,6 +55,8 @@ export default function MorphologicalBoxVertical(
             rowSpacing={1}
             columnSpacing={{ xs: 1, sm: 1, md: 1 }}
           >
+            {/* ANWENDUNGSBEREICH */}
+
             <Grid item xs="auto">
               <Typography align="center" variant="h6">
                 Anwendungsgebiet
@@ -76,8 +78,6 @@ export default function MorphologicalBoxVertical(
                     aria-label="selection"
                     fullWidth={true}
                   >
-                    {/* ANWENDUNGSBEREICH */}
-
                     <ToggleButton
                       selected={
                         props.product.anwendungsbereich.Gesetzeskonformität
@@ -225,6 +225,9 @@ export default function MorphologicalBoxVertical(
                 </Paper>
               </div>
             </Grid>
+
+            {/* BETRACHTUNGSOBJEKT */}
+
             <Grid item xs="auto">
               <Typography align="center" variant="h6">
                 Betrachtungsobjekt
@@ -239,8 +242,6 @@ export default function MorphologicalBoxVertical(
                     flexWrap: 'wrap',
                   }}
                 >
-                  {/* BETRACHTUNGSOBJEKT */}
-
                   <StyledToggleButtonGroup
                     orientation="vertical"
                     size="small"
@@ -360,6 +361,9 @@ export default function MorphologicalBoxVertical(
                 </Paper>
               </div>
             </Grid>
+
+            {/* BETRACHTUNGSKONZEPT */}
+
             <Grid item xs="auto">
               <Typography align="center" variant="h6">
                 Betrachtungskonzept
@@ -374,8 +378,6 @@ export default function MorphologicalBoxVertical(
                     flexWrap: 'wrap',
                   }}
                 >
-                  {/* BETRACHTUNGSKONZEPT */}
-
                   <StyledToggleButtonGroup
                     orientation="vertical"
                     size="small"
@@ -453,6 +455,9 @@ export default function MorphologicalBoxVertical(
                 </Paper>
               </div>
             </Grid>
+
+            {/* BETRACHTUNGSGRENZEN */}
+
             <Grid item xs="auto">
               <Typography align="center" variant="h6">
                 Betrachtungsgrenzen
@@ -467,8 +472,6 @@ export default function MorphologicalBoxVertical(
                     flexWrap: 'wrap',
                   }}
                 >
-                  {/* BETRACHTUNGSGRENZEN */}
-
                   <StyledToggleButtonGroup
                     orientation="vertical"
                     size="small"
@@ -554,9 +557,12 @@ export default function MorphologicalBoxVertical(
                 </Paper>
               </div>
             </Grid>
+
+            {/* ZIELGRUPPE / ANWENDER */}
+
             <Grid item xs="auto">
               <Typography align="center" variant="h6">
-                Adressat/Anwender
+                Anwender
               </Typography>
 
               <div>
@@ -568,8 +574,6 @@ export default function MorphologicalBoxVertical(
                     flexWrap: 'wrap',
                   }}
                 >
-                  {/* ZIELGRUPPE / ANWENDER */}
-
                   <StyledToggleButtonGroup
                     orientation="vertical"
                     size="small"
@@ -675,6 +679,9 @@ export default function MorphologicalBoxVertical(
                 </Paper>
               </div>
             </Grid>
+
+            {/* ITEGRATIONSGRAD */}
+
             <Grid item xs="auto">
               <Typography align="center" variant="h6">
                 Integrationsgrad
@@ -689,8 +696,6 @@ export default function MorphologicalBoxVertical(
                     flexWrap: 'wrap',
                   }}
                 >
-                  {/* ITEGRATIONSGRAD */}
-
                   <StyledToggleButtonGroup
                     orientation="vertical"
                     size="small"
