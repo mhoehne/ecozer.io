@@ -69,8 +69,6 @@ export default function AddProduct(props: AddProductProps) {
   });
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    // just for testing, can be removed later
-    console.log(product);
     event.preventDefault();
 
     // onSubmit call createProduct
@@ -93,7 +91,6 @@ export default function AddProduct(props: AddProductProps) {
           my: 15,
         }}
       >
-        {/* needs props to get field values */}
         <ProductDetailViewCard product={product} setProduct={setProduct} />
 
         <MorphologicalBoxVertical product={product} setProduct={setProduct} />
