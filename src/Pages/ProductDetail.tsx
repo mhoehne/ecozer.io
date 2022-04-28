@@ -188,7 +188,9 @@ export default function ProductDetail() {
                         id="LegalCompliance"
                         value="Gesetzeskonformität"
                         aria-label="Gesetzeskonformität"
-                        selected={true}
+                        selected={
+                          product?.anwendungsbereich.Gesetzeskonformität
+                        }
                       >
                         Gesetzeskonformität
                       </ToggleButton>
@@ -196,7 +198,7 @@ export default function ProductDetail() {
                         id="Certification"
                         value="Zertifizierung"
                         aria-label="Zertifizierung"
-                        selected={true}
+                        selected={product?.anwendungsbereich.Zertifizierung}
                       >
                         Zertifizierung
                       </ToggleButton>
@@ -204,7 +206,7 @@ export default function ProductDetail() {
                         id="EcoAccounting"
                         value="Ökobilanzierung"
                         aria-label="Ökobilanzierung"
-                        selected={true}
+                        selected={product?.anwendungsbereich.Ökobilanzierung}
                       >
                         Bilanzierung
                       </ToggleButton>
@@ -212,7 +214,7 @@ export default function ProductDetail() {
                         id="LifeCycle"
                         value="Lebenszyklus"
                         aria-label="Lebenszyklus"
-                        selected={true}
+                        selected={product?.anwendungsbereich.Lebenszyklus}
                       >
                         Lebenszyklus
                       </ToggleButton>
@@ -220,7 +222,7 @@ export default function ProductDetail() {
                         id="Reporting"
                         value="Berichterstattung"
                         aria-label="Berichterstattung"
-                        selected={true}
+                        selected={product?.anwendungsbereich.Berichterstattung}
                       >
                         Berichterstattung
                       </ToggleButton>
@@ -228,7 +230,9 @@ export default function ProductDetail() {
                         id="DecisionMaking"
                         value="Entscheidungsunterstützung"
                         aria-label="Entscheidungsunterstützung"
-                        selected={true}
+                        selected={
+                          product?.anwendungsbereich.Entscheidungsunterstützung
+                        }
                       >
                         Entscheidungsunterstützung
                       </ToggleButton>
@@ -236,7 +240,7 @@ export default function ProductDetail() {
                         id="OccupationalHealthAndSafety"
                         value="Arbeitsschutz"
                         aria-label="Arbeitsschutz"
-                        selected={true}
+                        selected={product?.anwendungsbereich.Arbeitsschutz}
                       >
                         Arbeitsschutz
                       </ToggleButton>
@@ -272,7 +276,7 @@ export default function ProductDetail() {
                         id="Waste"
                         value="Abfall"
                         aria-label="Abfall"
-                        selected={true}
+                        selected={product?.objektAspekt.Abfall}
                       >
                         Abfall
                       </ToggleButton>
@@ -280,7 +284,7 @@ export default function ProductDetail() {
                         id="Facilities"
                         value="Anlagen"
                         aria-label="Anlagen"
-                        selected={true}
+                        selected={product?.objektAspekt.Anlagen}
                       >
                         Anlagen
                       </ToggleButton>
@@ -288,7 +292,7 @@ export default function ProductDetail() {
                         id="HazardousMaterial"
                         value="Gefahrstoff"
                         aria-label="Gefahrstoff"
-                        selected={true}
+                        selected={product?.objektAspekt.Gefahrstoffe}
                       >
                         Gefahrstoff
                       </ToggleButton>
@@ -296,7 +300,7 @@ export default function ProductDetail() {
                         id="Emission"
                         value="Emission"
                         aria-label="Emission"
-                        selected={true}
+                        selected={product?.objektAspekt.Emissionen}
                       >
                         Emission
                       </ToggleButton>
@@ -304,7 +308,7 @@ export default function ProductDetail() {
                         id="Energy"
                         value="Energie"
                         aria-label="Energie"
-                        selected={true}
+                        selected={product?.objektAspekt.Energie}
                       >
                         Energie
                       </ToggleButton>
@@ -312,7 +316,7 @@ export default function ProductDetail() {
                         id="SubstanceFlow"
                         value="Stoff/Stoffstrom"
                         aria-label="Stoff/Stoffstrom"
-                        selected={true}
+                        selected={product?.objektAspekt['Stoffe/Stoffströme']}
                       >
                         Stoff/Stoffstrom
                       </ToggleButton>
@@ -348,7 +352,9 @@ export default function ProductDetail() {
                         id="AdministrationCentric"
                         value="Verwaltungszentriert"
                         aria-label="Verwaltungszentriert"
-                        selected={true}
+                        selected={
+                          product?.betrachtungskonzept.Verwaltungszentriert
+                        }
                       >
                         Verwaltungszentriert
                       </ToggleButton>
@@ -356,7 +362,9 @@ export default function ProductDetail() {
                         id="AssessmentCentric"
                         value="Bewertungszentriert"
                         aria-label="Bewertungszentriert"
-                        selected={true}
+                        selected={
+                          product?.betrachtungskonzept.Bewertungszentriert
+                        }
                       >
                         Bewertungszentriert
                       </ToggleButton>
@@ -364,7 +372,9 @@ export default function ProductDetail() {
                         id="ManagementCentric"
                         value="Managementzentriert"
                         aria-label="Managementzentriert"
-                        selected={true}
+                        selected={
+                          product?.betrachtungskonzept.Managementzentriert
+                        }
                       >
                         Managementzentriert
                       </ToggleButton>
@@ -400,7 +410,7 @@ export default function ProductDetail() {
                         id="LocationOperation"
                         value="Standort/Betrieb"
                         aria-label="Standort/Betrieb"
-                        selected={true}
+                        selected={product?.systemgrenzen['Standort/Betrieb']}
                       >
                         Standort/Betrieb
                       </ToggleButton>
@@ -408,7 +418,7 @@ export default function ProductDetail() {
                         id="Process"
                         value="Prozess"
                         aria-label="Prozess"
-                        selected={true}
+                        selected={product?.systemgrenzen.Prozess}
                       >
                         Prozess
                       </ToggleButton>
@@ -416,7 +426,7 @@ export default function ProductDetail() {
                         id="ProductBased"
                         value="Produkt"
                         aria-label="Produkt"
-                        selected={true}
+                        selected={product?.systemgrenzen.Produkt}
                       >
                         Produkt
                       </ToggleButton>
@@ -424,7 +434,7 @@ export default function ProductDetail() {
                         id="Intercompany"
                         value="Zwischenbetrieblich"
                         aria-label="Zwischenbetrieblich"
-                        selected={true}
+                        selected={product?.systemgrenzen.Zwischenbetrieblich}
                       >
                         Zwischenbetrieblich
                       </ToggleButton>
@@ -460,7 +470,7 @@ export default function ProductDetail() {
                         id="BusinessManagement"
                         value="Geschäftsführung"
                         aria-label="Geschäftsführung"
-                        selected={true}
+                        selected={product?.zielgruppe.Geschäftsführung}
                       >
                         Geschäftsführung
                       </ToggleButton>
@@ -468,7 +478,7 @@ export default function ProductDetail() {
                         id="EnvironmentalOfficer"
                         value="Umweltbeauftragter"
                         aria-label="Umweltbeauftragter"
-                        selected={true}
+                        selected={product?.zielgruppe.Umweltbeauftragte}
                       >
                         Umweltbeauftragter
                       </ToggleButton>
@@ -476,7 +486,7 @@ export default function ProductDetail() {
                         id="SpecialtyDepartment"
                         value="Fachabteilung"
                         aria-label="Fachabteilung"
-                        selected={true}
+                        selected={product?.zielgruppe.Fachabteilung}
                       >
                         Fachabteilung
                       </ToggleButton>
@@ -484,7 +494,7 @@ export default function ProductDetail() {
                         id="Staff"
                         value="Mitarbeiter"
                         aria-label="Mitarbeiter"
-                        selected={true}
+                        selected={product?.zielgruppe.Mitarbeiter}
                       >
                         Mitarbeiter
                       </ToggleButton>
@@ -492,7 +502,7 @@ export default function ProductDetail() {
                         id="ExternalStakeholders"
                         value="Externe Stakeholder"
                         aria-label="Externe Stakeholder"
-                        selected={true}
+                        selected={product?.zielgruppe['externe Stakeholder']}
                       >
                         Externe Stakeholder
                       </ToggleButton>
@@ -528,7 +538,7 @@ export default function ProductDetail() {
                         id="StandAlone"
                         value="Stand-Alone"
                         aria-label="Stand-Alone"
-                        selected={true}
+                        selected={product?.gradDerIntegrierung['Stand-Alone']}
                       >
                         Stand-Alone
                       </ToggleButton>
@@ -536,7 +546,7 @@ export default function ProductDetail() {
                         id="Addon"
                         value="Add-On"
                         aria-label="Add-On"
-                        selected={true}
+                        selected={product?.gradDerIntegrierung['Add-On']}
                       >
                         Add-On
                       </ToggleButton>
@@ -544,7 +554,7 @@ export default function ProductDetail() {
                         id="Integration"
                         value="Intergriert"
                         aria-label="Intergriert"
-                        selected={true}
+                        selected={product?.gradDerIntegrierung.integriert}
                       >
                         Intergriert
                       </ToggleButton>
@@ -552,7 +562,7 @@ export default function ProductDetail() {
                         id="SaaS-Lösung"
                         value="SaaS-Lösung"
                         aria-label="SaaS-Lösung"
-                        selected={true}
+                        selected={product?.gradDerIntegrierung['SaaS-Lösung']}
                       >
                         SaaS-Lösung
                       </ToggleButton>
