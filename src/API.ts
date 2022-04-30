@@ -148,8 +148,39 @@ export function CreateProduct(
 }
 
 /*READ***************************************************************************************************/
-export function GetProducts(): Promise<AxiosResponse<ProductsResultType>> {
-  return axios.get<ProductsResultType>('http://localhost:8000/products');
+
+export function GetProducts(
+  zielgruppe: string[],
+  anwendungsbereich: string[],
+  gradDerIntegrierung: string[],
+  objektAspekt: string[],
+  systemgrenzen: string[],
+  betrachtungskonzept: string[]
+): Promise<AxiosResponse<ProductsResultType>> {
+  const url = new URL('http://localhost:8000/products');
+  for (const filter of zielgruppe) {
+    url.searchParams.append('zielgruppe[]', filter);
+  }
+
+  for (const filter of anwendungsbereich) {
+    url.searchParams.append('anwendungsbereich[]', filter);
+  }
+
+  for (const filter of gradDerIntegrierung) {
+    url.searchParams.append('gradDerIntegrierung[]', filter);
+  }
+
+  for (const filter of objektAspekt) {
+    url.searchParams.append('objektAspekt[]', filter);
+  }
+  for (const filter of systemgrenzen) {
+    url.searchParams.append('systemgrenzen[]', filter);
+  }
+  for (const filter of betrachtungskonzept) {
+    url.searchParams.append('betrachtungskonzept[]', filter);
+  }
+
+  return axios.get<ProductsResultType>(url.toString());
 }
 
 export function ListNewestProducts(): Promise<
