@@ -10,9 +10,11 @@ import BannerBackground2 from '../images/layered-waves-haikei_2.svg';
 
 export default function MyProducts() {
   const [products, setProducts] = useState<ProductType[]>([]);
+  const zielgruppe: string[] = [];
+  const gradDerIntegrierung: string[] = [];
 
   useEffect(() => {
-    GetProducts()
+    GetProducts(zielgruppe, gradDerIntegrierung)
       .then((result) => {
         setProducts(result.data.products);
       })

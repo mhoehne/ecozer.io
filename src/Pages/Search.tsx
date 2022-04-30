@@ -12,14 +12,34 @@ import BannerBackgroundImage from '../images/layered-waves-haikei_1.svg';
 
 export default function Search() {
   const [products, setProducts] = useState<ProductType[]>([]);
+  const [zielgruppe, setZielgruppe] = useState<string[]>([]);
+  const [anwendungsbereich, setAnwendungsbereich] = useState<string[]>([]);
+  const [gradDerIntegrierung, setGradDerIntegrierung] = useState<string[]>([]);
+  const [objektAspekt, setObjektAspekt] = useState<string[]>([]);
+  const [systemgrenzen, setSystemgrenzen] = useState<string[]>([]);
+  const [betrachtungskonzept, setBetrachtungskonzept] = useState<string[]>([]);
 
   useEffect(() => {
-    GetProducts()
+    GetProducts(
+      zielgruppe,
+      anwendungsbereich,
+      gradDerIntegrierung,
+      objektAspekt,
+      systemgrenzen,
+      betrachtungskonzept
+    )
       .then((result) => {
         setProducts(result.data.products);
       })
       .catch();
-  }, []);
+  }, [
+    zielgruppe,
+    anwendungsbereich,
+    gradDerIntegrierung,
+    objektAspekt,
+    systemgrenzen,
+    betrachtungskonzept,
+  ]);
 
   return (
     <>
@@ -76,7 +96,20 @@ export default function Search() {
             bgcolor="background.paper"
             color="text.primary"
           >
-            <AccordionFilter />
+            <AccordionFilter
+              setZielgruppe={setZielgruppe}
+              Zielgruppe={zielgruppe}
+              setAnwendungsbereich={setAnwendungsbereich}
+              Anwendungsbereich={anwendungsbereich}
+              setGradDerIntegrierung={setGradDerIntegrierung}
+              GradDerIntegrierung={gradDerIntegrierung}
+              setObjektAspekt={setObjektAspekt}
+              ObjektAspekt={objektAspekt}
+              setSystemgrenzen={setSystemgrenzen}
+              Systemgrenzen={systemgrenzen}
+              setBetrachtungskonzept={setBetrachtungskonzept}
+              Betrachtungskonzept={betrachtungskonzept}
+            />
           </Box>
         </Grid>
 
