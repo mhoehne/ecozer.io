@@ -206,7 +206,7 @@ export default function AccordionFilter(props: AccordionFilterProps) {
           </AccordionDetails>
         </Accordion>
 
-        <Accordion>
+        <Accordion defaultExpanded={true}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"
@@ -312,7 +312,7 @@ export default function AccordionFilter(props: AccordionFilterProps) {
           </AccordionDetails>
         </Accordion>
 
-        <Accordion>
+        <Accordion defaultExpanded={true}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel3a-content"
@@ -377,7 +377,7 @@ export default function AccordionFilter(props: AccordionFilterProps) {
           </AccordionDetails>
         </Accordion>
 
-        <Accordion>
+        <Accordion defaultExpanded={true}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel4a-content"
@@ -455,7 +455,7 @@ export default function AccordionFilter(props: AccordionFilterProps) {
           </AccordionDetails>
         </Accordion>
 
-        <Accordion>
+        <Accordion defaultExpanded={true}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel5a-content"
@@ -550,7 +550,7 @@ export default function AccordionFilter(props: AccordionFilterProps) {
           </AccordionDetails>
         </Accordion>
 
-        <Accordion>
+        <Accordion defaultExpanded={true}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel6a-content"
