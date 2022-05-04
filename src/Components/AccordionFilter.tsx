@@ -566,7 +566,7 @@ export default function AccordionFilter(props: AccordionFilterProps) {
                 onChange={function (event, checked) {
                   if (checked === true) {
                     props.GradDerIntegrierung.push('Stand-Alone');
-                    props.setGradDerIntegrierung(props.Zielgruppe);
+                    props.setGradDerIntegrierung(props.GradDerIntegrierung);
                   } else {
                     props.setGradDerIntegrierung(
                       props.GradDerIntegrierung.filter(
@@ -583,7 +583,7 @@ export default function AccordionFilter(props: AccordionFilterProps) {
                 onChange={function (event, checked) {
                   if (checked === true) {
                     props.GradDerIntegrierung.push('Add-On');
-                    props.setGradDerIntegrierung(props.Zielgruppe);
+                    props.setGradDerIntegrierung(props.GradDerIntegrierung);
                   } else {
                     props.setGradDerIntegrierung(
                       props.GradDerIntegrierung.filter(
@@ -600,11 +600,28 @@ export default function AccordionFilter(props: AccordionFilterProps) {
                 onChange={function (event, checked) {
                   if (checked === true) {
                     props.GradDerIntegrierung.push('integriert');
-                    props.setGradDerIntegrierung(props.Zielgruppe);
+                    props.setGradDerIntegrierung(props.GradDerIntegrierung);
                   } else {
                     props.setGradDerIntegrierung(
                       props.GradDerIntegrierung.filter(
                         (name) => 'integriert' != name
+                      )
+                    );
+                  }
+                  console.log(checked);
+                }}
+              />
+              <FormControlLabel
+                control={<Checkbox />}
+                label="SaaS-Lösung"
+                onChange={function (event, checked) {
+                  if (checked === true) {
+                    props.GradDerIntegrierung.push('SaaS-Lösung');
+                    props.setGradDerIntegrierung(props.GradDerIntegrierung);
+                  } else {
+                    props.setGradDerIntegrierung(
+                      props.GradDerIntegrierung.filter(
+                        (name) => 'SaaS-Lösung' != name
                       )
                     );
                   }
