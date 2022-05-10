@@ -92,7 +92,8 @@ export default function Search() {
             px={{ xs: 2, sm: 2 }}
             py={{ xs: 0, sm: 0 }}
             mx={{ xs: 4, sm: 4 }}
-            my={{ xs: 4, sm: 4 }}
+            mt={{ xs: 4, sm: 4 }}
+            mb={{ xs: 50, sm: 50 }}
             bgcolor="background.paper"
             color="text.primary"
           >

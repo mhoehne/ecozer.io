@@ -244,13 +244,11 @@ export default function DataGridDemo() {
   return (
     <Box
       px={{ xs: 2, sm: 2 }}
-      py={{ xs: 2, sm: 2 }}
       mx={{ xs: 0, sm: 0 }}
-      my={{ xs: 2, sm: 2 }}
       bgcolor="background.paper"
       color="text.primary"
     >
-      <div style={{ height: '100vh', width: '100%' }}>
+      <div style={{ height: '80vh', width: '100%' }}>
         <DataGrid
           rows={accounts}
           columns={columns}
