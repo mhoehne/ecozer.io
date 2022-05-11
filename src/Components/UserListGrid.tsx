@@ -37,7 +37,7 @@ function TablePaginationDemo() {
   return (
     <TablePagination
       component="div"
-      count={100}
+      count={20}
       page={page}
       onPageChange={handleChangePage}
       rowsPerPage={rowsPerPage}
@@ -255,7 +255,7 @@ export default function DataGridDemo() {
           getRowId={(account) => account._id}
           onEditRowsModelChange={(state) => onRowEdit(accounts, state)}
           pageSize={20}
-          rowsPerPageOptions={[20]}
+          rowsPerPageOptions={[20, 40, 60]}
           disableSelectionOnClick
           density="standard"
           components={{
