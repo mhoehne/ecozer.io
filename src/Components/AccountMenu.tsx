@@ -114,6 +114,8 @@ export default function AccountMenu() {
           </ListItemIcon>
           Account
         </MenuItem>
+        {/* check // isAdmin ? (component in case is admin) : (component in case
+        is not admin)*/}
         <Divider />
         <MenuItem component={Link} to="/approval">
           <ListItemIcon>
@@ -128,7 +130,6 @@ export default function AccountMenu() {
           Benutzerliste
         </MenuItem>
         <Divider />
-
         <MenuItem>
           <ListItemIcon>
             <PersonAdd fontSize="small" />
