@@ -16,36 +16,6 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import TablePagination from '@mui/material/TablePagination';
 
-function TablePaginationDemo() {
-  const [page, setPage] = React.useState(2);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
-  const handleChangePage = (
-    event: React.MouseEvent<HTMLButtonElement> | null,
-    newPage: number
-  ) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
-  };
-
-  return (
-    <TablePagination
-      component="div"
-      count={20}
-      page={page}
-      onPageChange={handleChangePage}
-      rowsPerPage={rowsPerPage}
-      onRowsPerPageChange={handleChangeRowsPerPage}
-    />
-  );
-}
-
 function CustomToolbar() {
   return (
     <GridToolbarContainer>
@@ -97,6 +67,9 @@ const onRowEdit = (accounts: AccountType[], state: GridEditRowsModel) => {
 };
 
 export default function DataGridDemo() {
+  // pagination
+  const [pageSize, setPageSize] = React.useState<number>(20);
+
   const [accounts, setAccounts] = useState<AccountType[]>([]);
 
   const deleteUser = useCallback(
@@ -254,13 +227,14 @@ export default function DataGridDemo() {
           columns={columns}
           getRowId={(account) => account._id}
           onEditRowsModelChange={(state) => onRowEdit(accounts, state)}
-          pageSize={20}
-          rowsPerPageOptions={[20, 40, 60]}
           disableSelectionOnClick
           density="standard"
           components={{
             Toolbar: CustomToolbar,
           }}
+          pageSize={pageSize}
+          onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+          rowsPerPageOptions={[20, 40, 60]}
         />
       </div>
     </Box>
