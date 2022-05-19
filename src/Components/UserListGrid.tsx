@@ -134,6 +134,7 @@ export default function DataGridDemo() {
     {
       field: 'actions',
       type: 'actions',
+      width: 40,
       getActions: (params: { id: string }) => [
         <GridActionsCellItem
           icon={<DeleteIcon />}
@@ -163,7 +164,7 @@ export default function DataGridDemo() {
       field: 'isAdmin',
       headerName: 'Admin',
       type: 'boolean',
-      width: 70,
+      width: 68,
       editable: false,
     },
     {
