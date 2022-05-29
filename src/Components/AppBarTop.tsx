@@ -66,11 +66,11 @@ function loggedoutbox() {
   );
 }
 
-function loggedoinbox() {
+function loggedoinbox(account: AccountType | null) {
   return (
     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
       <NotificationMenu />
-      <AccountMenu />
+      <AccountMenu Account={account} />
     </Box>
   );
 }
@@ -96,7 +96,7 @@ export default function AppBarTop(props: AppBarTopProps) {
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
 
-          {isLoggedOut ? loggedoutbox() : loggedoinbox()}
+          {isLoggedOut ? loggedoutbox() : loggedoinbox(props.Account)}
         </Toolbar>
       </AppBar>
     </Box>

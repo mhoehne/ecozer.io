@@ -33,19 +33,12 @@ export default function HowItWorks() {
           color="text.primary"
           gutterBottom
         >
-          So funktioniert es
+          So einfach funktioniert es!
         </Typography>
         <Timeline position="alternate">
           {/* 1nd Item */}
           <TimelineItem>
-            <TimelineOppositeContent
-              sx={{ m: 'auto 0' }}
-              align="right"
-              variant="body2"
-              color="text.secondary"
-            ></TimelineOppositeContent>
             <TimelineSeparator>
-              <TimelineConnector />
               <TimelineDot color="primary">
                 <DriveFileRenameOutlineIcon
                   fontSize="large"
@@ -54,9 +47,10 @@ export default function HowItWorks() {
               </TimelineDot>
               <TimelineConnector />
             </TimelineSeparator>
-            <TimelineContent sx={{ pt: 2.25 }} variant="h6">
-              {' '}
-              Schnelle Registrierung!
+            <TimelineContent sx={{ pt: 1, pb: 4, px: 2 }}>
+              <Typography variant="h6" component="span">
+                Schnelle Registrierung
+              </Typography>
               <Typography>
                 Erstelle in nur wenigen Schritten deinen Account
               </Typography>
@@ -65,14 +59,7 @@ export default function HowItWorks() {
 
           {/* 2nd Item */}
           <TimelineItem>
-            <TimelineOppositeContent
-              sx={{ m: 'auto 0' }}
-              align="right"
-              variant="body2"
-              color="text.secondary"
-            ></TimelineOppositeContent>
             <TimelineSeparator>
-              <TimelineConnector />
               <TimelineDot color="primary">
                 <PostAddIcon
                   fontSize="large"
@@ -81,22 +68,17 @@ export default function HowItWorks() {
               </TimelineDot>
               <TimelineConnector />
             </TimelineSeparator>
-            <TimelineContent sx={{ pt: 2.25 }} variant="h6">
-              {' '}
-              Produkt erstellen!
+            <TimelineContent sx={{ pt: -1, pb: 4, px: 2 }}>
+              <Typography variant="h6" component="span">
+                Produkt erstellen
+              </Typography>
               <Typography>Füge Bilder und die Produktdetails hinzu</Typography>
             </TimelineContent>
           </TimelineItem>
 
+          {/* 3rd Item */}
           <TimelineItem>
-            <TimelineOppositeContent
-              sx={{ m: 'auto 0' }}
-              align="right"
-              variant="body2"
-              color="text.secondary"
-            ></TimelineOppositeContent>
             <TimelineSeparator>
-              <TimelineConnector />
               <TimelineDot color="primary">
                 <RocketLaunchIcon
                   fontSize="large"
@@ -105,35 +87,30 @@ export default function HowItWorks() {
               </TimelineDot>
               <TimelineConnector />
             </TimelineSeparator>
-            <TimelineContent sx={{ pt: 2.25 }} variant="h6">
-              {' '}
-              Produkt veröffentlichen!
+            <TimelineContent sx={{ pt: -1, pb: 4, px: 2 }}>
+              <Typography variant="h6" component="span">
+                Produkt veröffentlichen
+              </Typography>
               <Typography>
                 Unser Team validiert in kürzester Zeit dein Produkt
               </Typography>
             </TimelineContent>
           </TimelineItem>
 
+          {/* 4th Item */}
           <TimelineItem>
-            <TimelineOppositeContent
-              sx={{ m: 'auto 0' }}
-              align="right"
-              variant="body2"
-              color="text.secondary"
-            ></TimelineOppositeContent>
             <TimelineSeparator>
-              <TimelineConnector />
               <TimelineDot color="primary">
                 <CheckCircleOutlineIcon
                   fontSize="large"
                   sx={{ color: 'background.paper' }}
                 />
               </TimelineDot>
-              <TimelineConnector />
             </TimelineSeparator>
-            <TimelineContent sx={{ pt: 2.25 }} variant="h6">
-              {' '}
-              Fertig!
+            <TimelineContent sx={{ pt: -1, pb: 0, px: 2 }}>
+              <Typography variant="h6" component="span">
+                Fertig
+              </Typography>
               <Typography>
                 Dein Produkt ist nun für alle öffentlich sichtbar
               </Typography>
