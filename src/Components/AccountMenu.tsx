@@ -36,12 +36,11 @@ export async function deauthenticate(
   }
 }
 
-function getAdminMenu() {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
+function getAdminMenu(
+  open: boolean,
+  anchorEl: null | HTMLElement,
+  setAnchorEl: Function
+) {
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -108,12 +107,6 @@ function getAdminMenu() {
         </ListItemIcon>
         Account
       </MenuItem>
-      {/* useState hook? 
-        check isAdmin = true
-        then display the elements
-        if isAdmin = false, then hide them
-         ? (component in case is admin) : (component in case
-        is not admin)*/}
       <Divider />
       <MenuItem component={Link} to="/approval">
         <ListItemIcon>
@@ -128,7 +121,6 @@ function getAdminMenu() {
         Benutzerliste
       </MenuItem>
       <Divider />
-      {/* hide until here if user isAdmin = false */}
       <MenuItem>
         <ListItemIcon>
           <PersonAdd fontSize="small" />
@@ -152,12 +144,11 @@ function getAdminMenu() {
   );
 }
 
-function getUserMenu() {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
+function getUserMenu(
+  open: boolean,
+  anchorEl: null | HTMLElement,
+  setAnchorEl: Function
+) {
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -257,7 +248,7 @@ export default function AccountMenu(props: AccountMenuProps) {
     setAnchorEl(null);
   };
 
-  const isUserMenu = props.Account?.isAdmin === null;
+  const isAdminMenu = props.Account?.isAdmin === true;
 
   const [cookies, setCookie, removeCookie] = useCookies(['email']);
   const navigate = useNavigate();
@@ -279,7 +270,9 @@ export default function AccountMenu(props: AccountMenuProps) {
           </IconButton>
         </Tooltip>
       </Box>
-      {isUserMenu ? getUserMenu() : getAdminMenu()}
+      {isAdminMenu
+        ? getAdminMenu(open, anchorEl, setAnchorEl)
+        : getUserMenu(open, anchorEl, setAnchorEl)}
     </React.Fragment>
   );
 }

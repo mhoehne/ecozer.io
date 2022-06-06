@@ -28,7 +28,7 @@ export function CreateAccount(
   account: AccountType
 ): Promise<AxiosResponse<AccountCreatedResultType>> {
   return axios.post<AccountCreatedResultType>(
-    `http://${process.env.REACT_APP_REACT_APP_API_HOSTNAME}:8000/accounts`,
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/accounts`,
     account
   );
 }

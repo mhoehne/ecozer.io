@@ -31,11 +31,14 @@ export default function App() {
       return;
     }
 
-    GetAccountByEmail(cookies.email)
-      .then((result) => {
-        setAccount(result.data.account);
-      })
-      .catch();
+    if (account === null) {
+      GetAccountByEmail(cookies.email)
+        .then((result) => {
+          setAccount(result.data.account);
+          console.log(result);
+        })
+        .catch();
+    }
   }, [account, cookies]);
 
   return (

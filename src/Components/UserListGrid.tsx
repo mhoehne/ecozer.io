@@ -168,6 +168,13 @@ export default function DataGridDemo() {
       editable: false,
     },
     {
+      field: '_id',
+      headerName: 'ID',
+      type: 'string',
+      width: 50,
+      editable: false,
+    },
+    {
       field: 'emailAddress',
       headerName: 'E-Mail-Adresse',
       width: 250,
@@ -196,13 +203,6 @@ export default function DataGridDemo() {
       headerName: 'erstellt am',
       type: 'dateTime',
       width: 200,
-      editable: false,
-    },
-    {
-      field: '_id',
-      headerName: 'ID',
-      type: 'string',
-      width: 220,
       editable: false,
     },
   ];
