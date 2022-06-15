@@ -51,7 +51,7 @@ export default function App() {
           {/* Visitor */}
           <Route path="/" element={<HomePage />} />
           <Route path="/glossar" element={<Glossar />} />
-          <Route path="/search" element={<Search />} />
+          <Route path="/search" element={<Search account={account} />} />
           <Route
             path="/search/product-detail/:id"
             element={<ProductDetail />}
@@ -64,11 +64,18 @@ export default function App() {
           {/* User */}
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/account" element={<Account />} />
-          <Route path="/my-products" element={<MyProducts />} />
-          <Route
-            path="/my-products/add-product"
-            element={<AddProduct account={account} />}
-          />
+          {account ? (
+            <Route
+              path="/my-products"
+              element={<MyProducts account={account} />}
+            />
+          ) : null}
+          {account ? (
+            <Route
+              path="/my-products/add-product"
+              element={<AddProduct account={account} />}
+            />
+          ) : null}
 
           {/* Admin */}
           <Route path="/approval" element={<AdminApproval />} />

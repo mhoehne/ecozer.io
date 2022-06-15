@@ -7,11 +7,16 @@ import ImgMediaCard from '../Components/ImgMediaCard';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useEffect, useState } from 'react';
-import { GetProducts, ProductType } from '../API';
+import { GetProducts, ProductType, AccountType } from '../API';
 import BannerBackgroundImage from '../images/layered-waves-haikei_1.svg';
 
-export default function Search() {
+interface SearchProps {
+  account: AccountType | null;
+}
+
+export default function Search(props: SearchProps) {
   const [products, setProducts] = useState<ProductType[]>([]);
+  const account_id = props.account?._id;
   const [zielgruppe, setZielgruppe] = useState<string[]>([]);
   const [anwendungsbereich, setAnwendungsbereich] = useState<string[]>([]);
   const [gradDerIntegrierung, setGradDerIntegrierung] = useState<string[]>([]);
@@ -21,6 +26,7 @@ export default function Search() {
 
   useEffect(() => {
     GetProducts(
+      account_id ?? null,
       zielgruppe,
       anwendungsbereich,
       gradDerIntegrierung,

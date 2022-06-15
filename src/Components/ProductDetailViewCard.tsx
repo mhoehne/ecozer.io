@@ -13,6 +13,8 @@ interface ProductDetailViewCardProps {
 export default function ProductDetailViewCard(
   props: ProductDetailViewCardProps
 ) {
+  console.log(props.product.account_id);
+
   return (
     <>
       <Box

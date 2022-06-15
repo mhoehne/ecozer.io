@@ -4,12 +4,17 @@ import AddProductCard from '../Components/AddProductCard';
 import SearchBarBoxed from '../Components/SearchBarBoxed';
 import ImageBanner from '../Components/ImageBanner';
 import { useEffect, useState } from 'react';
-import { GetProducts, ProductType } from '../API';
+import { GetProducts, ProductType, AccountType } from '../API';
 import { Typography, Container, Box } from '@mui/material';
 import BannerBackground2 from '../images/layered-waves-haikei_2.svg';
 
-export default function MyProducts() {
+interface MyProductProps {
+  account: AccountType;
+}
+
+export default function MyProducts(props: MyProductProps) {
   const [products, setProducts] = useState<ProductType[]>([]);
+  const account_id = props.account._id;
   const zielgruppe: string[] = [];
   const anwendungsbereich: string[] = [];
   const gradDerIntegrierung: string[] = [];
@@ -17,8 +22,11 @@ export default function MyProducts() {
   const systemgrenzen: string[] = [];
   const betrachtungskonzept: string[] = [];
 
+  console.log(account_id, 'martin');
+
   useEffect(() => {
     GetProducts(
+      account_id ?? null,
       zielgruppe,
       anwendungsbereich,
       gradDerIntegrierung,

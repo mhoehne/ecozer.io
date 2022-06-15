@@ -1,7 +1,7 @@
 import axios, { Axios, AxiosResponse } from 'axios';
 
 export type AccountType = {
-  _id: string | undefined;
+  _id: number | undefined;
   isAdmin: boolean;
   emailAddress: string;
   password: string;
@@ -75,7 +75,7 @@ export function DeleteAccount(account: AccountType): Promise<AxiosResponse> {
 
 export type ProductType = {
   _id: number | undefined;
-  // account_id: number;
+  account_id: number;
   productName: string;
   // productImage: string;
   productLink: string;
@@ -147,14 +147,14 @@ export function CreateProduct(
 ): Promise<AxiosResponse<ProductCreatedResultType>> {
   return axios.post<ProductCreatedResultType>(
     `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products`,
-    // account_id has to be replaced
-    { ...product, account_id: 0 }
+    product
   );
 }
 
 /*READ***************************************************************************************************/
 
 export function GetProducts(
+  account_id: number | null,
   zielgruppe: string[],
   anwendungsbereich: string[],
   gradDerIntegrierung: string[],
@@ -165,6 +165,10 @@ export function GetProducts(
   const url = new URL(
     `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products`
   );
+  if (account_id !== null) {
+    url.searchParams.append('account_id', String(account_id));
+  }
+
   for (const filter of zielgruppe) {
     url.searchParams.append('zielgruppe[]', filter);
   }

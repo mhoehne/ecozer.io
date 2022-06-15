@@ -15,9 +15,13 @@ interface AddProductProps {
 
 export default function AddProduct(props: AddProductProps) {
   const navigate = useNavigate();
+  if (props.account?._id === undefined) {
+    alert('Error: Account ID is not expected to be undefined');
+    return null;
+  }
   const [product, setProduct] = useState<ProductType>({
     _id: undefined,
-    // account_id: number;
+    account_id: props.account._id,
     productName: '',
     // productImage: string;
     productLink: '',

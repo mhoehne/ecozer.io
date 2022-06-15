@@ -39,7 +39,7 @@ const onRowEdit = (accounts: AccountType[], state: GridEditRowsModel) => {
     }
 
     // Find an account inside `accounts` state variable
-    let account = accounts.find((acc) => acc._id === _id);
+    let account = accounts.find((acc) => acc._id === parseInt(_id));
 
     // Did not find an account: should never happen. Send error to console and skip this email to avoid a crash.
     if (account === undefined) {
