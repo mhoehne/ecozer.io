@@ -3,6 +3,7 @@ import { Grid } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 import SampleImg from '../images/sample-img.png';
 import TextField from '@mui/material/TextField';
+import FileDrop from '../Components/FileDrop';
 import { ProductType } from '../API';
 
 interface ProductDetailViewCardProps {
@@ -40,6 +41,10 @@ export default function ProductDetailViewCard(
               height="300"
               image={SampleImg}
             />
+            // file drop should set the image for the product and just available
+            in /add-product or when editing a product, then the image gets
+            replaced by the new uploaded image
+            <FileDrop />
           </Grid>
           <Grid item xs={5} sx={{ mt: -2 }}>
             <Grid item xs={12}>
