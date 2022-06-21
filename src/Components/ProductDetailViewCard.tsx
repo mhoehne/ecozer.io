@@ -3,7 +3,7 @@ import { Grid } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 import SampleImg from '../images/sample-img.png';
 import TextField from '@mui/material/TextField';
-import FileDrop from '../Components/FileDrop';
+import FileDrop from './ImageFileDrop/FileDrop';
 import { ProductType } from '../API';
 
 interface ProductDetailViewCardProps {
