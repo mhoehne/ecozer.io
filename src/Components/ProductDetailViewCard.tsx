@@ -5,6 +5,7 @@ import SampleImg from '../images/sample-img.png';
 import TextField from '@mui/material/TextField';
 import FileDrop from '../Components/ImageFileDrop/FileDrop';
 import FileUploadBox from '../Components/ImageFileDrop/FileUploadBox';
+import ImageFileUpload from './ImageFileDrop/ImageFileUpload';
 import { ProductType } from '../API';
 import ImageFileUploadIndex from './ImageFileUpload/ImageFileUploadIndex';
 
