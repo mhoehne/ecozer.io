@@ -34,16 +34,16 @@ export default function ProductDetailViewCard(
           sx={{ p: 2 }}
         >
           <Grid item xs={7}>
-            <CardMedia
+            {/* <CardMedia
               component="img"
               id="productImage"
               alt="product image"
               height="300"
               image={SampleImg}
-            />
-            // file drop should set the image for the product and just available
+            /> */}
+            {/* file drop should set the image for the product and just available
             in /add-product or when editing a product, then the image gets
-            replaced by the new uploaded image
+            replaced by the new uploaded image */}
             <FileDrop />
           </Grid>
           <Grid item xs={5} sx={{ mt: -2 }}>
