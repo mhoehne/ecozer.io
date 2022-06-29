@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 
@@ -18,14 +18,17 @@ export default function FileDrop() {
   return (
     <>
       <Box border="dashed" height="220px">
-        <div {...getRootProps({ className: 'dropzone' })}>
+        <Box {...getRootProps({ className: 'dropzone' })}>
           <input {...getInputProps()} />
           {isDragActive ? (
-            <p>Drop the files here ...</p>
+            <Typography>Drop the files here ...</Typography>
           ) : (
-            <p>Drag 'n' drop some files here, or click to select files</p>
+            <Typography>
+              Hier kannst du per Drag'n'Drop oder per klick dein Coverbild
+              hochladen
+            </Typography>
           )}
-        </div>
+        </Box>
       </Box>
     </>
   );
