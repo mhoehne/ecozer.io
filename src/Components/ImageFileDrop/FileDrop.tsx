@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Button } from '@mui/material';
 import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 
@@ -29,6 +29,22 @@ export default function FileDrop() {
             </Typography>
           )}
         </Box>
+        <input
+          accept="image/*"
+          style={{ display: 'none' }}
+          id="raised-button-file"
+          multiple
+          type="file"
+        />
+        <label htmlFor="raised-button-file">
+          <Button
+            variant="contained"
+            component="span"
+            sx={{ color: 'background.paper' }}
+          >
+            Bild hochladen
+          </Button>
+        </label>
       </Box>
     </>
   );

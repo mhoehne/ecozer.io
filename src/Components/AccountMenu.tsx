@@ -120,6 +120,12 @@ function getAdminMenu(
         </ListItemIcon>
         Benutzerliste
       </MenuItem>
+      <MenuItem component={Link} to="/product-list">
+        <ListItemIcon>
+          <BadgeIcon fontSize="small" />
+        </ListItemIcon>
+        Produktliste
+      </MenuItem>
       <Divider />
       <MenuItem>
         <ListItemIcon>
