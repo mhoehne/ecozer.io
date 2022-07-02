@@ -14,6 +14,7 @@ import Logout from '@mui/icons-material/Logout';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import BadgeIcon from '@mui/icons-material/Badge';
 import DashboardIcon from '@mui/icons-material/Dashboard';
+import ViewListIcon from '@mui/icons-material/ViewList';
 import { Link, useNavigate, NavigateFunction } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -122,7 +123,7 @@ function getAdminMenu(
       </MenuItem>
       <MenuItem component={Link} to="/product-list">
         <ListItemIcon>
-          <BadgeIcon fontSize="small" />
+          <ViewListIcon fontSize="small" />
         </ListItemIcon>
         Produktliste
       </MenuItem>

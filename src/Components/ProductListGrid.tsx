@@ -94,42 +94,6 @@ export default function ProductListGrid() {
     [accounts]
   );
 
-  const toggleAdmin = useCallback(
-    (id: GridRowId) => () => {
-      for (const account of accounts) {
-        if (account._id == id) {
-          const admin = {
-            ...account,
-            isAdmin: !account.isAdmin,
-          };
-          PutAccount(admin)
-            .then(() => {
-              setAccounts((prevRows) => {
-                return prevRows.map((row) =>
-                  row._id === id ? { ...row, isAdmin: !row.isAdmin } : row
-                );
-              });
-            })
-            .catch((e) => {
-              console.log(e);
-            });
-        }
-      }
-    },
-    [accounts]
-  );
-
-  // const resetPassword = React.useCallback(
-  //   (id: GridRowId) => () => {
-  //     setAccounts((prevRows) =>
-  //       prevRows.map((row) =>
-  //         row.emailAddress === id ? { ...row, isAdmin: !row.isAdmin } : row,
-  //       ),
-  //     );
-  //   },
-  //   [],
-  // );
-
   const columns = [
     {
       field: 'actions',
@@ -142,36 +106,20 @@ export default function ProductListGrid() {
           onClick={deleteUser(params.id)}
           showInMenu
         />,
-
-        <GridActionsCellItem
-          icon={<ChangeCircleIcon />}
-          label="Admin/Benutzer"
-          onClick={toggleAdmin(params.id)}
-          showInMenu
-        />,
-
-        // field: 'actions',
-        // type: 'actions',
-        // <GridActionsCellItem
-        //   icon={<SecurityIcon />}
-        //   label="reset Password"
-        //   onClick={resetPassword(params.id)}
-        //   showInMenu
-        // />,
       ],
     },
     {
-      field: 'isAdmin',
-      headerName: 'Admin',
-      type: 'boolean',
-      width: 68,
+      field: '_id',
+      headerName: 'AccountID',
+      type: 'string',
+      width: 100,
       editable: false,
     },
     {
-      field: '_id',
-      headerName: 'ID',
+      field: 'product_id',
+      headerName: 'ProduktID',
       type: 'string',
-      width: 50,
+      width: 100,
       editable: false,
     },
     {
