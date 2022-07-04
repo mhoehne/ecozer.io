@@ -15,6 +15,7 @@ import FactCheckIcon from '@mui/icons-material/FactCheck';
 import BadgeIcon from '@mui/icons-material/Badge';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import ViewListIcon from '@mui/icons-material/ViewList';
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import { Link, useNavigate, NavigateFunction } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -273,7 +274,7 @@ export default function AccountMenu(props: AccountMenuProps) {
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Tooltip title="Account settings">
           <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
-            <AccountCircleIcon fontSize="large" color="info" />
+            <MenuRoundedIcon fontSize="large" color="info" />
           </IconButton>
         </Tooltip>
       </Box>

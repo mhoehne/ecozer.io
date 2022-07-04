@@ -21,14 +21,9 @@ export default function NotificationMenu() {
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-        <Tooltip title="Show notifications">
-          <IconButton
-            onClick={handleClick}
-            size="medium"
-            aria-label="show 4 new mails"
-            color="inherit"
-          >
-            <Badge badgeContent={4} color="error">
+        <Tooltip title="Benachrichtigungen">
+          <IconButton onClick={handleClick} size="medium" color="inherit">
+            <Badge badgeContent={1} color="error">
               <NotificationsIcon color="info" />
             </Badge>
           </IconButton>
@@ -69,10 +64,7 @@ export default function NotificationMenu() {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem component={Link} to="">
-          <ListItemIcon></ListItemIcon>.
-        </MenuItem>
-        <MenuItem component={Link} to="">
-          <ListItemIcon></ListItemIcon>.
+          <ListItemIcon></ListItemIcon>this feature is coming soon
         </MenuItem>
       </Menu>
     </React.Fragment>
