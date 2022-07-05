@@ -223,18 +223,20 @@ function getUserMenu(
         </ListItemIcon>
         Account
       </MenuItem>
-      <MenuItem>
+      {/* maybe for later usage */}
+      {/* <MenuItem>
         <ListItemIcon>
           <PersonAdd fontSize="small" />
         </ListItemIcon>
         Benutzer einladen
-      </MenuItem>
-      <MenuItem>
+      </MenuItem> */}
+      {/* maybe for later usage */}
+      {/* <MenuItem>
         <ListItemIcon>
           <Settings fontSize="small" />
         </ListItemIcon>
         Einstellungen
-      </MenuItem>
+      </MenuItem> */}
       {/* call handleSubmit to remove cookie and redirect the user to the homepage */}
       <MenuItem component="form" onClick={handleSubmit}>
         <ListItemIcon>
