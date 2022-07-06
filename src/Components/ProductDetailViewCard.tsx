@@ -4,7 +4,9 @@ import CardMedia from '@mui/material/CardMedia';
 import SampleImg from '../images/sample-img.png';
 import TextField from '@mui/material/TextField';
 import FileDrop from '../Components/ImageFileDrop/FileDrop';
+import FileUploadBox from '../Components/ImageFileDrop/FileUploadBox';
 import { ProductType } from '../API';
+import ImageFileUploadIndex from './ImageFileUpload/ImageFileUploadIndex';
 
 interface ProductDetailViewCardProps {
   product: ProductType;
@@ -44,7 +46,8 @@ export default function ProductDetailViewCard(
             {/* file drop should set the image for the product and just available
             in /add-product or when editing a product, then the image gets
             replaced by the new uploaded image */}
-            <FileDrop />
+            {/* <FileDrop /> */}
+            <ImageFileUploadIndex />
           </Grid>
           <Grid item xs={5} sx={{ mt: -2 }}>
             <Grid item xs={12}>

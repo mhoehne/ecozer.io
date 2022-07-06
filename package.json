@@ -16,6 +16,7 @@
     "axios": "^0.24.0",
     "chart.js": "^3.7.1",
     "cross-env": "^7.0.3",
+    "formik": "^2.2.9",
     "material-ui-dropzone": "^3.5.0",
     "react": "latest",
     "react-chartjs-2": "^4.0.1",
@@ -27,7 +28,8 @@
     "react-scripts": "latest",
     "typescript": "latest",
     "universal-cookie": "^4.0.4",
-    "yarn": "^1.22.17"
+    "yarn": "^1.22.17",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "export REACT_APP_API_HOSTNAME=141.45.92.203 && react-scripts start",
