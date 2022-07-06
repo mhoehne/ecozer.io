@@ -33,7 +33,7 @@ export function SingleFileUploadWithProgress({
 }
 
 function uploadFile(file: File, onProgress: (percentage: number) => void) {
-  const url = 'https://api.cloudinary.com/v1_1/demo/image/upload';
+  const url = `http://${process.env.REACT_APP_API_HOSTNAME}:8000/files`;
   const key = 'docs_upload_example_us_preset';
 
   return new Promise<string>((res, rej) => {
