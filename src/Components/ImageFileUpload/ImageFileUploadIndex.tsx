@@ -22,6 +22,10 @@ export default function ImageFileUploadIndex() {
           }}
         >
           {({ values, errors, isValid, isSubmitting }) => (
+            // TODO:
+            // remove the form & submit button,
+            // store image URL in a useState,
+            // so it can be use when submitting the entire form
             <Form>
               <Grid container spacing={2} direction="column">
                 <MultipleFileUploadField name="files" />
