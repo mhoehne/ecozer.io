@@ -102,6 +102,9 @@ export default function SignUp() {
           <Typography component="h1" variant="h4">
             Account erstellen
           </Typography>
+          <Typography variant="caption" display="block" gutterBottom>
+            Erforderliche Felder sind mit * gekennzeichnet
+          </Typography>
           <Box
             component="form"
             noValidate
@@ -161,12 +164,12 @@ export default function SignUp() {
                   autoComplete="new-password"
                 />
               </Grid>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <FormControlLabel
                   control={<Checkbox value="privacyTerms" color="primary" />}
                   label="Ich habe die Datenschutzrichtlinien gelesen und bin damit einverstanden."
                 />
-              </Grid>
+              </Grid> */}
             </Grid>
             <Button
               type="submit"
@@ -183,7 +186,7 @@ export default function SignUp() {
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/signin" variant="body2">
-                  {'Du hast bereits einen Account?'}
+                  {'Du besitzt bereits einen Account?'}
                 </Link>
               </Grid>
               <Grid item>
