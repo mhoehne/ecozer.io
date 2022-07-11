@@ -191,7 +191,7 @@ export default function SignUp() {
               </Grid>
               <Grid item>
                 <Link href="/passwort-vergessen" variant="body2">
-                  {'Du hast dein Passwort vergessen?'}
+                  {'Hast du dein Passwort vergessen?'}
                 </Link>
               </Grid>
             </Grid>

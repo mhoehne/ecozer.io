@@ -72,6 +72,9 @@ export default function SignIn() {
           <Typography component="h1" variant="h4">
             Login
           </Typography>
+          <Typography variant="caption" display="block" gutterBottom>
+            Erforderliche Felder sind mit * gekennzeichnet
+          </Typography>
           <Box
             component="form"
             onSubmit={handleSubmit}
@@ -102,10 +105,10 @@ export default function SignIn() {
               variant="outlined"
               color="primary"
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Anmeldedaten merken"
-            />
+            /> */}
             <Button
               type="submit"
               fullWidth
@@ -118,15 +121,15 @@ export default function SignIn() {
             >
               Anmelden
             </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Passwort vergessen?
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+                <Link href="/Signup" variant="body2">
+                  {'Hast du noch keinen Account?'}
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/Signup" variant="body2">
-                  {'Haben Sie keinen Account?'}
+                <Link href="#" variant="body2">
+                  {'Hast du dein Passwort vergessen?'}
                 </Link>
               </Grid>
             </Grid>
