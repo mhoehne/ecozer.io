@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Grid } from '@mui/material';
+import { Grid, makeStyles } from '@mui/material';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
@@ -15,7 +15,8 @@ interface MorphologicalBoxVerticalProps {
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   '& .MuiToggleButtonGroup-grouped': {
-    margin: theme.spacing(0.5),
+    marginTop: theme.spacing(0.4),
+    marginBottom: theme.spacing(0.4),
     border: 0,
     '&.Mui-disabled': {
       border: 0,
@@ -25,6 +26,10 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
     },
     '&:first-of-type': {
       borderRadius: theme.shape.borderRadius,
+    },
+    '&.Mui-selected': {
+      color: theme.palette.text.secondary,
+      backgroundColor: theme.palette.primary.light,
     },
   },
 }));
@@ -67,8 +72,9 @@ export default function MorphologicalBoxVertical(
                   elevation={0}
                   sx={{
                     display: 'flex',
-                    border: (theme) => `1px solid ${theme.palette.divider}`,
+                    border: (theme) => `2px solid ${theme.palette.divider}`,
                     flexWrap: 'wrap',
+                    px: 0.4,
                   }}
                 >
                   <StyledToggleButtonGroup
@@ -238,8 +244,9 @@ export default function MorphologicalBoxVertical(
                   elevation={0}
                   sx={{
                     display: 'flex',
-                    border: (theme) => `1px solid ${theme.palette.divider}`,
+                    border: (theme) => `2px solid ${theme.palette.divider}`,
                     flexWrap: 'wrap',
+                    px: 0.5,
                   }}
                 >
                   <StyledToggleButtonGroup
@@ -305,18 +312,22 @@ export default function MorphologicalBoxVertical(
                       Gefahrstoff
                     </ToggleButton>
                     <ToggleButton
-                      onChange={function (event) {
-                        const emission = {
+                      selected={props.product.objektAspekt.Emissionen}
+                      onClick={() => {
+                        const emissionen = {
                           ...props.product,
-                          Emission: event.currentTarget.value,
+                          objektAspekt: {
+                            ...props.product.objektAspekt,
+                            Emission: !props.product.objektAspekt.Emissionen,
+                          },
                         };
-                        props.setProduct(emission);
+                        props.setProduct(emissionen);
                       }}
                       id="Emission"
-                      value="Emission"
-                      aria-label="Emission"
+                      value="Emissionen"
+                      aria-label="Emissionen"
                     >
-                      Emission
+                      Emissionen
                     </ToggleButton>
                     <ToggleButton
                       selected={props.product.objektAspekt.Energie}
@@ -374,8 +385,9 @@ export default function MorphologicalBoxVertical(
                   elevation={0}
                   sx={{
                     display: 'flex',
-                    border: (theme) => `1px solid ${theme.palette.divider}`,
+                    border: (theme) => `2px solid ${theme.palette.divider}`,
                     flexWrap: 'wrap',
+                    px: 0.5,
                   }}
                 >
                   <StyledToggleButtonGroup
@@ -468,8 +480,9 @@ export default function MorphologicalBoxVertical(
                   elevation={0}
                   sx={{
                     display: 'flex',
-                    border: (theme) => `1px solid ${theme.palette.divider}`,
+                    border: (theme) => `2px solid ${theme.palette.divider}`,
                     flexWrap: 'wrap',
+                    px: 0.5,
                   }}
                 >
                   <StyledToggleButtonGroup
@@ -570,8 +583,9 @@ export default function MorphologicalBoxVertical(
                   elevation={0}
                   sx={{
                     display: 'flex',
-                    border: (theme) => `1px solid ${theme.palette.divider}`,
+                    border: (theme) => `2px solid ${theme.palette.divider}`,
                     flexWrap: 'wrap',
+                    px: 0.5,
                   }}
                 >
                   <StyledToggleButtonGroup
@@ -692,8 +706,9 @@ export default function MorphologicalBoxVertical(
                   elevation={0}
                   sx={{
                     display: 'flex',
-                    border: (theme) => `1px solid ${theme.palette.divider}`,
+                    border: (theme) => `2px solid ${theme.palette.divider}`,
                     flexWrap: 'wrap',
+                    px: 0.5,
                   }}
                 >
                   <StyledToggleButtonGroup
