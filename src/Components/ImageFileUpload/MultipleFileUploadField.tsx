@@ -78,15 +78,18 @@ export default function MultipleFileUploadField({ name }: { name: string }) {
   return (
     <React.Fragment>
       <Grid item sx={{ backgroundColor: '#fff' }}>
-        <input {...getInputProps()} />
         <Box
           bgcolor="background.paper"
           color="text.primary"
-          sx={{ height: '10rem' }}
-          {...getRootProps()}
+          sx={{ height: '5rem', border: 'solid' }}
         >
-          Klicke hier im ein Bild hochzuladen oder füge es per Drag 'n' drop
-          hinzu
+          <div {...getRootProps({ className: 'dropzone' })}>
+            <input {...getInputProps()} />
+            <p>
+              Klicke hier im ein Bild hochzuladen oder füge es per Drag 'n' drop
+              hinzu
+            </p>
+          </div>
         </Box>
       </Grid>
 
