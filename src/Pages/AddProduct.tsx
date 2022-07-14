@@ -90,6 +90,8 @@ export default function AddProduct(props: AddProductProps) {
       <Box
         component="form"
         noValidate
+        justifyContent="center"
+        alignItems="center"
         onSubmit={handleSubmit}
         sx={{
           my: 15,

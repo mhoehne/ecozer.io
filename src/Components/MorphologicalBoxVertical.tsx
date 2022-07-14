@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { Grid, makeStyles } from '@mui/material';
+import { Grid } from '@mui/material';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
@@ -44,192 +43,190 @@ export default function MorphologicalBoxVertical(
         py={{ xs: 2, sm: 2 }}
         mx={{ xs: 0, sm: 0 }}
         my={{ xs: 0, sm: 0 }}
-        sx={{ width: '100%' }}
+        sx={{
+          alignItems: 'center',
+          flexDirection: 'column',
+        }}
         bgcolor="background.paper"
         color="text.primary"
       >
-        <Box sx={{ width: '100%', my: 3 }}>
-          <Typography variant="h4" align="center" sx={{ m: 5 }}>
+        <Box my={{ xs: 2, sm: 2 }}>
+          <Typography variant="h4" align="center" sx={{ mb: 5 }}>
             Mermale & Ausprägungen
           </Typography>
           <Grid
             container
+            columns={{ xs: 4, sm: 6, md: 12 }}
             direction="row"
-            justifyContent="space-between"
+            justifyContent="center"
             alignItems="flex-start"
-            rowSpacing={1}
-            columnSpacing={{ xs: 1, sm: 1, md: 1 }}
+            rowSpacing={3}
+            columnSpacing={{ xs: 1, sm: 2, md: 2 }}
+            xs={12}
           >
             {/* ANWENDUNGSBEREICH */}
-
-            <Grid item xs="auto">
+            <Grid item xs="auto" sm="auto" md="auto">
               <Typography align="center" variant="h6">
                 Anwendungsgebiet
               </Typography>
 
-              <div>
-                <Paper
-                  elevation={0}
-                  sx={{
-                    display: 'flex',
-                    border: (theme) => `2px solid ${theme.palette.divider}`,
-                    flexWrap: 'wrap',
-                    px: 0.4,
-                  }}
+              <Paper
+                elevation={0}
+                sx={{
+                  display: 'flex',
+                  border: (theme) => `2px solid ${theme.palette.divider}`,
+                  flexWrap: 'wrap',
+                  px: 0.4,
+                }}
+              >
+                <StyledToggleButtonGroup
+                  orientation="vertical"
+                  size="small"
+                  color="primary"
+                  aria-label="selection"
+                  fullWidth={true}
                 >
-                  <StyledToggleButtonGroup
-                    orientation="vertical"
-                    size="small"
-                    color="primary"
-                    aria-label="selection"
-                    fullWidth={true}
+                  <ToggleButton
+                    selected={
+                      props.product.anwendungsbereich.Gesetzeskonformität
+                    }
+                    onClick={() => {
+                      const legalCompliance = {
+                        ...props.product,
+                        anwendungsbereich: {
+                          ...props.product.anwendungsbereich,
+                          Gesetzeskonformität:
+                            !props.product.anwendungsbereich
+                              .Gesetzeskonformität,
+                        },
+                      };
+                      props.setProduct(legalCompliance);
+                    }}
+                    id="LegalCompliance"
+                    value="Gesetzeskonformität"
+                    aria-label="Gesetzeskonformität"
                   >
-                    <ToggleButton
-                      selected={
-                        props.product.anwendungsbereich.Gesetzeskonformität
-                      }
-                      onClick={() => {
-                        const legalCompliance = {
-                          ...props.product,
-                          anwendungsbereich: {
-                            ...props.product.anwendungsbereich,
-                            Gesetzeskonformität:
-                              !props.product.anwendungsbereich
-                                .Gesetzeskonformität,
-                          },
-                        };
-                        props.setProduct(legalCompliance);
-                      }}
-                      id="LegalCompliance"
-                      value="Gesetzeskonformität"
-                      aria-label="Gesetzeskonformität"
-                    >
-                      Gesetzeskonformität
-                    </ToggleButton>
-                    <ToggleButton
-                      selected={props.product.anwendungsbereich.Zertifizierung}
-                      onClick={() => {
-                        const certification = {
-                          ...props.product,
-                          anwendungsbereich: {
-                            ...props.product.anwendungsbereich,
-                            Zertifizierung:
-                              !props.product.anwendungsbereich.Zertifizierung,
-                          },
-                        };
-                        props.setProduct(certification);
-                      }}
-                      id="Certification"
-                      value="Zertifizierung"
-                      aria-label="Zertifizierung"
-                    >
-                      Zertifizierung
-                    </ToggleButton>
-                    <ToggleButton
-                      selected={props.product.anwendungsbereich.Ökobilanzierung}
-                      onClick={() => {
-                        const ecoAccounting = {
-                          ...props.product,
-                          anwendungsbereich: {
-                            ...props.product.anwendungsbereich,
-                            Ökobilanzierung:
-                              !props.product.anwendungsbereich.Ökobilanzierung,
-                          },
-                        };
-                        props.setProduct(ecoAccounting);
-                      }}
-                      id="EcoAccounting"
-                      value="Ökobilanzierung"
-                      aria-label="Ökobilanzierung"
-                    >
-                      Bilanzierung
-                    </ToggleButton>
-                    <ToggleButton
-                      selected={props.product.anwendungsbereich.Lebenszyklus}
-                      onClick={() => {
-                        const lifeCycle = {
-                          ...props.product,
-                          anwendungsbereich: {
-                            ...props.product.anwendungsbereich,
-                            Lebenszyklus:
-                              !props.product.anwendungsbereich.Lebenszyklus,
-                          },
-                        };
-                        props.setProduct(lifeCycle);
-                      }}
-                      id="LifeCycle"
-                      value="Lebenszyklus"
-                      aria-label="Lebenszyklus"
-                    >
-                      Lebenszyklus
-                    </ToggleButton>
-                    <ToggleButton
-                      selected={
-                        props.product.anwendungsbereich.Berichterstattung
-                      }
-                      onClick={() => {
-                        const reporting = {
-                          ...props.product,
-                          anwendungsbereich: {
-                            ...props.product.anwendungsbereich,
-                            Berichterstattung:
-                              !props.product.anwendungsbereich
-                                .Berichterstattung,
-                          },
-                        };
-                        props.setProduct(reporting);
-                      }}
-                      id="Reporting"
-                      value="Berichterstattung"
-                      aria-label="Berichterstattung"
-                    >
-                      Berichterstattung
-                    </ToggleButton>
-                    <ToggleButton
-                      selected={
-                        props.product.anwendungsbereich
-                          .Entscheidungsunterstützung
-                      }
-                      onClick={() => {
-                        const decisionMaking = {
-                          ...props.product,
-                          anwendungsbereich: {
-                            ...props.product.anwendungsbereich,
-                            Entscheidungsunterstützung:
-                              !props.product.anwendungsbereich
-                                .Entscheidungsunterstützung,
-                          },
-                        };
-                        props.setProduct(decisionMaking);
-                      }}
-                      id="DecisionMaking"
-                      value="Entscheidungsunterstützung"
-                      aria-label="Entscheidungsunterstützung"
-                    >
-                      Entscheidungsunterstützung
-                    </ToggleButton>
-                    <ToggleButton
-                      selected={props.product.anwendungsbereich.Arbeitsschutz}
-                      onClick={() => {
-                        const occupationalHealthAndSafety = {
-                          ...props.product,
-                          anwendungsbereich: {
-                            ...props.product.anwendungsbereich,
-                            Arbeitsschutz:
-                              !props.product.anwendungsbereich.Arbeitsschutz,
-                          },
-                        };
-                        props.setProduct(occupationalHealthAndSafety);
-                      }}
-                      id="OccupationalHealthAndSafety"
-                      value="Arbeitsschutz"
-                      aria-label="Arbeitsschutz"
-                    >
-                      Arbeitsschutz
-                    </ToggleButton>
-                  </StyledToggleButtonGroup>
-                </Paper>
-              </div>
+                    Gesetzeskonformität
+                  </ToggleButton>
+                  <ToggleButton
+                    selected={props.product.anwendungsbereich.Zertifizierung}
+                    onClick={() => {
+                      const certification = {
+                        ...props.product,
+                        anwendungsbereich: {
+                          ...props.product.anwendungsbereich,
+                          Zertifizierung:
+                            !props.product.anwendungsbereich.Zertifizierung,
+                        },
+                      };
+                      props.setProduct(certification);
+                    }}
+                    id="Certification"
+                    value="Zertifizierung"
+                    aria-label="Zertifizierung"
+                  >
+                    Zertifizierung
+                  </ToggleButton>
+                  <ToggleButton
+                    selected={props.product.anwendungsbereich.Ökobilanzierung}
+                    onClick={() => {
+                      const ecoAccounting = {
+                        ...props.product,
+                        anwendungsbereich: {
+                          ...props.product.anwendungsbereich,
+                          Ökobilanzierung:
+                            !props.product.anwendungsbereich.Ökobilanzierung,
+                        },
+                      };
+                      props.setProduct(ecoAccounting);
+                    }}
+                    id="EcoAccounting"
+                    value="Ökobilanzierung"
+                    aria-label="Ökobilanzierung"
+                  >
+                    Bilanzierung
+                  </ToggleButton>
+                  <ToggleButton
+                    selected={props.product.anwendungsbereich.Lebenszyklus}
+                    onClick={() => {
+                      const lifeCycle = {
+                        ...props.product,
+                        anwendungsbereich: {
+                          ...props.product.anwendungsbereich,
+                          Lebenszyklus:
+                            !props.product.anwendungsbereich.Lebenszyklus,
+                        },
+                      };
+                      props.setProduct(lifeCycle);
+                    }}
+                    id="LifeCycle"
+                    value="Lebenszyklus"
+                    aria-label="Lebenszyklus"
+                  >
+                    Lebenszyklus
+                  </ToggleButton>
+                  <ToggleButton
+                    selected={props.product.anwendungsbereich.Berichterstattung}
+                    onClick={() => {
+                      const reporting = {
+                        ...props.product,
+                        anwendungsbereich: {
+                          ...props.product.anwendungsbereich,
+                          Berichterstattung:
+                            !props.product.anwendungsbereich.Berichterstattung,
+                        },
+                      };
+                      props.setProduct(reporting);
+                    }}
+                    id="Reporting"
+                    value="Berichterstattung"
+                    aria-label="Berichterstattung"
+                  >
+                    Berichterstattung
+                  </ToggleButton>
+                  <ToggleButton
+                    selected={
+                      props.product.anwendungsbereich.Entscheidungsunterstützung
+                    }
+                    onClick={() => {
+                      const decisionMaking = {
+                        ...props.product,
+                        anwendungsbereich: {
+                          ...props.product.anwendungsbereich,
+                          Entscheidungsunterstützung:
+                            !props.product.anwendungsbereich
+                              .Entscheidungsunterstützung,
+                        },
+                      };
+                      props.setProduct(decisionMaking);
+                    }}
+                    id="DecisionMaking"
+                    value="Entscheidungsunterstützung"
+                    aria-label="Entscheidungsunterstützung"
+                  >
+                    Entscheidungsunterstützung
+                  </ToggleButton>
+                  <ToggleButton
+                    selected={props.product.anwendungsbereich.Arbeitsschutz}
+                    onClick={() => {
+                      const occupationalHealthAndSafety = {
+                        ...props.product,
+                        anwendungsbereich: {
+                          ...props.product.anwendungsbereich,
+                          Arbeitsschutz:
+                            !props.product.anwendungsbereich.Arbeitsschutz,
+                        },
+                      };
+                      props.setProduct(occupationalHealthAndSafety);
+                    }}
+                    id="OccupationalHealthAndSafety"
+                    value="Arbeitsschutz"
+                    aria-label="Arbeitsschutz"
+                  >
+                    Arbeitsschutz
+                  </ToggleButton>
+                </StyledToggleButtonGroup>
+              </Paper>
             </Grid>
 
             {/* BETRACHTUNGSOBJEKT */}
@@ -239,138 +236,134 @@ export default function MorphologicalBoxVertical(
                 Betrachtungsobjekt
               </Typography>
 
-              <div>
-                <Paper
-                  elevation={0}
-                  sx={{
-                    display: 'flex',
-                    border: (theme) => `2px solid ${theme.palette.divider}`,
-                    flexWrap: 'wrap',
-                    px: 0.5,
-                  }}
+              <Paper
+                elevation={0}
+                sx={{
+                  display: 'flex',
+                  border: (theme) => `2px solid ${theme.palette.divider}`,
+                  flexWrap: 'wrap',
+                  px: 0.5,
+                }}
+              >
+                <StyledToggleButtonGroup
+                  orientation="vertical"
+                  size="small"
+                  color="primary"
+                  aria-label="selection"
+                  fullWidth={true}
                 >
-                  <StyledToggleButtonGroup
-                    orientation="vertical"
-                    size="small"
-                    color="primary"
-                    aria-label="selection"
-                    fullWidth={true}
+                  <ToggleButton
+                    selected={props.product.objektAspekt.Abfall}
+                    onClick={() => {
+                      const waste = {
+                        ...props.product,
+                        objektAspekt: {
+                          ...props.product.objektAspekt,
+                          Abfall: !props.product.objektAspekt.Abfall,
+                        },
+                      };
+                      props.setProduct(waste);
+                    }}
+                    id="Waste"
+                    value="Abfall"
+                    aria-label="Abfall"
                   >
-                    <ToggleButton
-                      selected={props.product.objektAspekt.Abfall}
-                      onClick={() => {
-                        const waste = {
-                          ...props.product,
-                          objektAspekt: {
-                            ...props.product.objektAspekt,
-                            Abfall: !props.product.objektAspekt.Abfall,
-                          },
-                        };
-                        props.setProduct(waste);
-                      }}
-                      id="Waste"
-                      value="Abfall"
-                      aria-label="Abfall"
-                    >
-                      Abfall
-                    </ToggleButton>
-                    <ToggleButton
-                      selected={props.product.objektAspekt.Anlagen}
-                      onClick={() => {
-                        const facilities = {
-                          ...props.product,
-                          objektAspekt: {
-                            ...props.product.objektAspekt,
-                            Anlagen: !props.product.objektAspekt.Anlagen,
-                          },
-                        };
-                        props.setProduct(facilities);
-                      }}
-                      id="Facilities"
-                      value="Anlagen"
-                      aria-label="Anlagen"
-                    >
-                      Anlagen
-                    </ToggleButton>
-                    <ToggleButton
-                      selected={props.product.objektAspekt.Gefahrstoffe}
-                      onClick={() => {
-                        const hazardousMaterial = {
-                          ...props.product,
-                          objektAspekt: {
-                            ...props.product.objektAspekt,
-                            Gefahrstoffe:
-                              !props.product.objektAspekt.Gefahrstoffe,
-                          },
-                        };
-                        props.setProduct(hazardousMaterial);
-                      }}
-                      id="HazardousMaterial"
-                      value="Gefahrstoff"
-                      aria-label="Gefahrstoff"
-                    >
-                      Gefahrstoff
-                    </ToggleButton>
-                    <ToggleButton
-                      selected={props.product.objektAspekt.Emissionen}
-                      onClick={() => {
-                        const emissionen = {
-                          ...props.product,
-                          objektAspekt: {
-                            ...props.product.objektAspekt,
-                            Emission: !props.product.objektAspekt.Emissionen,
-                          },
-                        };
-                        props.setProduct(emissionen);
-                      }}
-                      id="Emission"
-                      value="Emissionen"
-                      aria-label="Emissionen"
-                    >
-                      Emissionen
-                    </ToggleButton>
-                    <ToggleButton
-                      selected={props.product.objektAspekt.Energie}
-                      onClick={() => {
-                        const energy = {
-                          ...props.product,
-                          objektAspekt: {
-                            ...props.product.objektAspekt,
-                            Energie: !props.product.objektAspekt.Energie,
-                          },
-                        };
-                        props.setProduct(energy);
-                      }}
-                      id="Energy"
-                      value="Energie"
-                      aria-label="Energie"
-                    >
-                      Energie
-                    </ToggleButton>
-                    <ToggleButton
-                      selected={
-                        props.product.objektAspekt['Stoffe/Stoffströme']
-                      }
-                      onClick={() => {
-                        const substanceFlow = {
-                          ...props.product,
-                          objektAspekt: {
-                            ...props.product.objektAspekt,
-                            ['Stoffe/Stoffströme']:
-                              !props.product.objektAspekt['Stoffe/Stoffströme'],
-                          },
-                        };
-                        props.setProduct(substanceFlow);
-                      }}
-                      id="SubstanceFlow"
-                      value="Stoff/Stoffstrom"
-                      aria-label="Stoff/Stoffstrom"
-                    >
-                      Stoff/Stoffstrom
-                    </ToggleButton>
-                  </StyledToggleButtonGroup>
-                </Paper>
-              </div>
+                    Abfall
+                  </ToggleButton>
+                  <ToggleButton
+                    selected={props.product.objektAspekt.Anlagen}
+                    onClick={() => {
+                      const facilities = {
+                        ...props.product,
+                        objektAspekt: {
+                          ...props.product.objektAspekt,
+                          Anlagen: !props.product.objektAspekt.Anlagen,
+                        },
+                      };
+                      props.setProduct(facilities);
+                    }}
+                    id="Facilities"
+                    value="Anlagen"
+                    aria-label="Anlagen"
+                  >
+                    Anlagen
+                  </ToggleButton>
+                  <ToggleButton
+                    selected={props.product.objektAspekt.Gefahrstoffe}
+                    onClick={() => {
+                      const hazardousMaterial = {
+                        ...props.product,
+                        objektAspekt: {
+                          ...props.product.objektAspekt,
+                          Gefahrstoffe:
+                            !props.product.objektAspekt.Gefahrstoffe,
+                        },
+                      };
+                      props.setProduct(hazardousMaterial);
+                    }}
+                    id="HazardousMaterial"
+                    value="Gefahrstoff"
+                    aria-label="Gefahrstoff"
+                  >
+                    Gefahrstoff
+                  </ToggleButton>
+                  <ToggleButton
+                    selected={props.product.objektAspekt.Emissionen}
+                    onClick={() => {
+                      const emissionen = {
+                        ...props.product,
+                        objektAspekt: {
+                          ...props.product.objektAspekt,
+                          Emission: !props.product.objektAspekt.Emissionen,
+                        },
+                      };
+                      props.setProduct(emissionen);
+                    }}
+                    id="Emission"
+                    value="Emissionen"
+                    aria-label="Emissionen"
+                  >
+                    Emissionen
+                  </ToggleButton>
+                  <ToggleButton
+                    selected={props.product.objektAspekt.Energie}
+                    onClick={() => {
+                      const energy = {
+                        ...props.product,
+                        objektAspekt: {
+                          ...props.product.objektAspekt,
+                          Energie: !props.product.objektAspekt.Energie,
+                        },
+                      };
+                      props.setProduct(energy);
+                    }}
+                    id="Energy"
+                    value="Energie"
+                    aria-label="Energie"
+                  >
+                    Energie
+                  </ToggleButton>
+                  <ToggleButton
+                    selected={props.product.objektAspekt['Stoffe/Stoffströme']}
+                    onClick={() => {
+                      const substanceFlow = {
+                        ...props.product,
+                        objektAspekt: {
+                          ...props.product.objektAspekt,
+                          ['Stoffe/Stoffströme']:
+                            !props.product.objektAspekt['Stoffe/Stoffströme'],
+                        },
+                      };
+                      props.setProduct(substanceFlow);
+                    }}
+                    id="SubstanceFlow"
+                    value="Stoffe/Stoffströme"
+                    aria-label="Stoffe/Stoffströme"
+                  >
+                    Stoffe/Stoffströme
+                  </ToggleButton>
+                </StyledToggleButtonGroup>
+              </Paper>
             </Grid>
 
             {/* BETRACHTUNGSKONZEPT */}
@@ -380,94 +373,91 @@ export default function MorphologicalBoxVertical(
                 Betrachtungskonzept
               </Typography>
 
-              <div>
-                <Paper
-                  elevation={0}
-                  sx={{
-                    display: 'flex',
-                    border: (theme) => `2px solid ${theme.palette.divider}`,
-                    flexWrap: 'wrap',
-                    px: 0.5,
-                  }}
+              <Paper
+                elevation={0}
+                sx={{
+                  display: 'flex',
+                  border: (theme) => `2px solid ${theme.palette.divider}`,
+                  flexWrap: 'wrap',
+                  px: 0.5,
+                }}
+              >
+                <StyledToggleButtonGroup
+                  orientation="vertical"
+                  size="small"
+                  color="primary"
+                  aria-label="selection"
+                  fullWidth={true}
                 >
-                  <StyledToggleButtonGroup
-                    orientation="vertical"
-                    size="small"
-                    color="primary"
-                    aria-label="selection"
-                    fullWidth={true}
+                  <ToggleButton
+                    selected={
+                      props.product.betrachtungskonzept.Verwaltungszentriert
+                    }
+                    onClick={() => {
+                      const administrationCentric = {
+                        ...props.product,
+                        betrachtungskonzept: {
+                          ...props.product.betrachtungskonzept,
+                          Verwaltungszentriert:
+                            !props.product.betrachtungskonzept
+                              .Verwaltungszentriert,
+                        },
+                      };
+                      props.setProduct(administrationCentric);
+                    }}
+                    id="AdministrationCentric"
+                    value="Verwaltungszentriert"
+                    aria-label="Verwaltungszentriert"
                   >
-                    <ToggleButton
-                      selected={
-                        props.product.betrachtungskonzept.Verwaltungszentriert
-                      }
-                      onClick={() => {
-                        const administrationCentric = {
-                          ...props.product,
-                          betrachtungskonzept: {
-                            ...props.product.betrachtungskonzept,
-                            Verwaltungszentriert:
-                              !props.product.betrachtungskonzept
-                                .Verwaltungszentriert,
-                          },
-                        };
-                        props.setProduct(administrationCentric);
-                      }}
-                      id="AdministrationCentric"
-                      value="Verwaltungszentriert"
-                      aria-label="Verwaltungszentriert"
-                    >
-                      Verwaltungszentriert
-                    </ToggleButton>
-                    <ToggleButton
-                      selected={
-                        props.product.betrachtungskonzept.Bewertungszentriert
-                      }
-                      onClick={() => {
-                        const assessmentCentric = {
-                          ...props.product,
-                          betrachtungskonzept: {
-                            ...props.product.betrachtungskonzept,
-                            Bewertungszentriert:
-                              !props.product.betrachtungskonzept
-                                .Bewertungszentriert,
-                          },
-                        };
-                        props.setProduct(assessmentCentric);
-                      }}
-                      id="AssessmentCentric"
-                      value="Bewertungszentriert"
-                      aria-label="Bewertungszentriert"
-                    >
-                      Bewertungszentriert
-                    </ToggleButton>
-                    <ToggleButton
-                      selected={
-                        props.product.betrachtungskonzept.Managementzentriert
-                      }
-                      onClick={() => {
-                        const managementCentric = {
-                          ...props.product,
-                          betrachtungskonzept: {
-                            ...props.product.betrachtungskonzept,
-                            Managementzentriert:
-                              !props.product.betrachtungskonzept
-                                .Managementzentriert,
-                          },
-                        };
-                        props.setProduct(managementCentric);
-                      }}
-                      id="ManagementCentric"
-                      value="Managementzentriert"
-                      aria-label="Managementzentriert"
-                    >
-                      Managementzentriert
-                    </ToggleButton>
-                  </StyledToggleButtonGroup>
-                </Paper>
-              </div>
+                    Verwaltungszentriert
+                  </ToggleButton>
+                  <ToggleButton
+                    selected={
+                      props.product.betrachtungskonzept.Bewertungszentriert
+                    }
+                    onClick={() => {
+                      const assessmentCentric = {
+                        ...props.product,
+                        betrachtungskonzept: {
+                          ...props.product.betrachtungskonzept,
+                          Bewertungszentriert:
+                            !props.product.betrachtungskonzept
+                              .Bewertungszentriert,
+                        },
+                      };
+                      props.setProduct(assessmentCentric);
+                    }}
+                    id="AssessmentCentric"
+                    value="Bewertungszentriert"
+                    aria-label="Bewertungszentriert"
+                  >
+                    Bewertungszentriert
+                  </ToggleButton>
+                  <ToggleButton
+                    selected={
+                      props.product.betrachtungskonzept.Managementzentriert
+                    }
+                    onClick={() => {
+                      const managementCentric = {
+                        ...props.product,
+                        betrachtungskonzept: {
+                          ...props.product.betrachtungskonzept,
+                          Managementzentriert:
+                            !props.product.betrachtungskonzept
+                              .Managementzentriert,
+                        },
+                      };
+                      props.setProduct(managementCentric);
+                    }}
+                    id="ManagementCentric"
+                    value="Managementzentriert"
+                    aria-label="Managementzentriert"
+                  >
+                    Managementzentriert
+                  </ToggleButton>
+                </StyledToggleButtonGroup>
+              </Paper>
             </Grid>
-
             {/* BETRACHTUNGSGRENZEN */}
 
             <Grid item xs="auto">

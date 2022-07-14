@@ -1,4 +1,4 @@
-import { Grid, makeStyles } from '@mui/material';
+import { Grid, makeStyles, Box } from '@mui/material';
 import { useField } from 'formik';
 import React, { useCallback, useEffect, useState } from 'react';
 import { FileError, FileRejection, useDropzone } from 'react-dropzone';
@@ -77,13 +77,17 @@ export default function MultipleFileUploadField({ name }: { name: string }) {
 
   return (
     <React.Fragment>
-      <Grid item>
-        {/* <div {...getRootProps({ className: classes })}> */}
-        <div {...getRootProps()}>
-          <input {...getInputProps()} />
-
-          <p>Drag 'n' drop some files here, or click to select files</p>
-        </div>
+      <Grid item sx={{ backgroundColor: '#fff' }}>
+        <input {...getInputProps()} />
+        <Box
+          bgcolor="background.paper"
+          color="text.primary"
+          sx={{ height: '10rem' }}
+          {...getRootProps()}
+        >
+          Klicke hier im ein Bild hochzuladen oder füge es per Drag 'n' drop
+          hinzu
+        </Box>
       </Grid>
 
       {files.map((fileWrapper) => (

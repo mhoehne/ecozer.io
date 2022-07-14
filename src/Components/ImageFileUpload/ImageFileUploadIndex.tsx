@@ -31,18 +31,18 @@ export default function ImageFileUploadIndex() {
                 <MultipleFileUploadField name="files" />
 
                 <Grid item>
-                  <Button
+                  {/* <Button
                     variant="contained"
                     color="primary"
                     disabled={!isValid || isSubmitting}
                     type="submit"
                   >
                     Submit
-                  </Button>
+                  </Button> */}
                 </Grid>
               </Grid>
 
-              <pre>{JSON.stringify({ values, errors }, null, 4)}</pre>
+              {/* <pre>{JSON.stringify({ values, errors }, null, 4)}</pre> */}
             </Form>
           )}
         </Formik>
