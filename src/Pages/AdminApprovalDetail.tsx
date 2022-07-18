@@ -39,8 +39,9 @@ export default function AdminApprovalDetail() {
         >
           Ablehnen
         </Button>
-        {/* "Ablehnen" button triggers a dialog, where the admin can put a short description why he rejected the product */}
+        {/* "Ablehnen"/reject button triggers a dialog, where the admin can put a short description why he rejected the product */}
         {/* User gets a notification about the rejection and the description of the admin dialog */}
+        {/* after rejecting the product, set state to "rejected" */}
         <Button
           size="medium"
           variant="contained"
@@ -51,7 +52,7 @@ export default function AdminApprovalDetail() {
           Veröffentlichen
         </Button>
         {/* user gets a notification about the approval of his product */}
-        {/* after approving the product, set state to published. (product should appear in the search) */}
+        {/* after approving the product, set state to "published". (product should appear in the search) */}
       </Stack>
     </>
   );
