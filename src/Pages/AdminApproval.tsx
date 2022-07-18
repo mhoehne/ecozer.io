@@ -6,6 +6,10 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
+{
+  /* catch each product with their state and display them in the correct tab "pending"/"rejected"/"published"(approved) */
+}
+
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;

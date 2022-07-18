@@ -110,6 +110,9 @@ export default function AddProduct(props: AddProductProps) {
           alignItems="flex-start"
         >
           <Grid item xs={2}>
+            {/* catch the url from the file upload an pass it when the button is clicked */}
+            {/* otherwise the button is disabled */}
+
             <Button
               type="submit"
               variant="contained"
@@ -118,6 +121,7 @@ export default function AddProduct(props: AddProductProps) {
             >
               Erstellen
             </Button>
+            {/* after creating a product, set state to pending */}
           </Grid>
         </Grid>
       </Box>

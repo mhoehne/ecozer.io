@@ -86,7 +86,7 @@ export default function MultipleFileUploadField({ name }: { name: string }) {
           <div {...getRootProps({ className: 'dropzone' })}>
             <input {...getInputProps()} />
             <p>
-              Klicke hier im ein Bild hochzuladen oder füge es per Drag 'n' drop
+              Klicke hier um ein Bild hochzuladen oder füge es per Drag 'n' drop
               hinzu
             </p>
           </div>

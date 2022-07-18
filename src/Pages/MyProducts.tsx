@@ -22,8 +22,6 @@ export default function MyProducts(props: MyProductProps) {
   const systemgrenzen: string[] = [];
   const betrachtungskonzept: string[] = [];
 
-  console.log(account_id, 'martin');
-
   useEffect(() => {
     GetProducts(
       account_id ?? null,
