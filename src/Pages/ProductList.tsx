@@ -1,4 +1,4 @@
-import ProductListGrid from '../Components/ProductListGrid';
+import ProductListGrid from '../Components/Grids/ProductListGrid';
 import SearchBarBoxed from '../Components/SearchBarBoxed';
 import { Box } from '@mui/material';
 
