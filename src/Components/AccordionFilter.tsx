@@ -73,7 +73,7 @@ export default function AccordionFilter(props: AccordionFilterProps) {
           Suchfilter
         </Typography>
 
-        <Accordion defaultExpanded={true}>
+        <Accordion defaultExpanded={false}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
@@ -119,15 +119,15 @@ export default function AccordionFilter(props: AccordionFilterProps) {
               />
               <FormControlLabel
                 control={<Checkbox />}
-                label="Bilanzierung"
+                label="Ökobilanzierung"
                 onChange={function (event, checked) {
                   if (checked === true) {
-                    props.Anwendungsbereich.push('Bilanzierung');
+                    props.Anwendungsbereich.push('Ökobilanzierung');
                     props.setAnwendungsbereich(props.Anwendungsbereich);
                   } else {
                     props.setAnwendungsbereich(
                       props.Anwendungsbereich.filter(
-                        (name) => 'Bilanzierung' != name
+                        (name) => 'Ökobilanzierung' != name
                       )
                     );
                   }
@@ -206,7 +206,7 @@ export default function AccordionFilter(props: AccordionFilterProps) {
           </AccordionDetails>
         </Accordion>
 
-        <Accordion defaultExpanded={true}>
+        <Accordion defaultExpanded={false}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"
@@ -312,7 +312,7 @@ export default function AccordionFilter(props: AccordionFilterProps) {
           </AccordionDetails>
         </Accordion>
 
-        <Accordion defaultExpanded={true}>
+        <Accordion defaultExpanded={false}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel3a-content"
@@ -377,7 +377,7 @@ export default function AccordionFilter(props: AccordionFilterProps) {
           </AccordionDetails>
         </Accordion>
 
-        <Accordion defaultExpanded={true}>
+        <Accordion defaultExpanded={false}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel4a-content"
@@ -455,7 +455,7 @@ export default function AccordionFilter(props: AccordionFilterProps) {
           </AccordionDetails>
         </Accordion>
 
-        <Accordion defaultExpanded={true}>
+        <Accordion defaultExpanded={false}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel5a-content"
@@ -550,7 +550,7 @@ export default function AccordionFilter(props: AccordionFilterProps) {
           </AccordionDetails>
         </Accordion>
 
-        <Accordion defaultExpanded={true}>
+        <Accordion defaultExpanded={false}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel6a-content"
