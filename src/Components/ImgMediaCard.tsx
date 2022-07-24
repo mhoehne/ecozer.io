@@ -19,17 +19,14 @@ import { ProductType } from '../API';
   /* TODO */
 }
 {
-  /*  */
+  /* 
+  display a label with the current product state "pending"/"published"(approved)/"rejected"/"unpublished"
+  add 3x buttons to edit, delete and unpublish the product
+   */
 }
 
 {
   /* Note: */
-}
-{
-  /* display a label with the current product state "pending"/"published"(approved)/"rejected"/"unpublished" */
-}
-{
-  /* add 3x buttons to edit, delete and unpublish the product */
 }
 
 interface ImageMediaCardProps {
