@@ -16,6 +16,16 @@ import DoneIcon from '@mui/icons-material/Done';
 import { ProductType } from '../API';
 
 {
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+{
   /* display a label with the current product state "pending"/"published"(approved)/"rejected"/"unpublished" */
 }
 {
