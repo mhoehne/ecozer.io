@@ -7,6 +7,17 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { ProductType } from '../API';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 interface MorphologicalBoxVerticalProps {
   product: ProductType;
   setProduct: Function;

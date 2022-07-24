@@ -20,6 +20,17 @@ import { useCookies } from 'react-cookie';
 import { useState, useEffect } from 'react';
 import { AccountType, ProductType, GetAccountByEmail, getProduct } from './API';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 export default function App() {
   const [account, setAccount] = useState<AccountType | null>(null);
   const [cookies, setCookies] = useCookies(['email']);

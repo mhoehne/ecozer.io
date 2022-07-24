@@ -8,6 +8,17 @@ import { CreateProduct, ProductType, AccountType } from '../API';
 import { useEffect, useState, useCallback } from 'react';
 import { useNavigate, NavigateFunction } from 'react-router-dom';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 //create new props
 interface AddProductProps {
   account: AccountType | null;

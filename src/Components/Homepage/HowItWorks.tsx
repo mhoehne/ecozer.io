@@ -13,7 +13,16 @@ import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import { Container } from '@mui/material';
 
-// todos:
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
 
 export default function HowItWorks() {
   return (

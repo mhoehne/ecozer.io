@@ -5,6 +5,17 @@ import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 import { ListNewestProducts, ProductType } from '../../API';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 export default function NewestProducts() {
   const [products, setProducts] = useState<ProductType[]>([]);
 

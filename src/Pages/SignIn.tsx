@@ -12,6 +12,17 @@ import { checkAuthentication } from '../API';
 import { useNavigate, NavigateFunction } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 // TODO:
 // - negative response when email or password is wrong, show error message!
 

@@ -10,6 +10,17 @@ import { useEffect, useState } from 'react';
 import { GetProducts, ProductType, AccountType } from '../API';
 import BannerBackgroundImage from '../images/layered-waves-haikei_1.svg';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 interface SearchProps {
   account: AccountType | null;
 }

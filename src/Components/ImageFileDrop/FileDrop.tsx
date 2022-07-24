@@ -2,6 +2,17 @@ import { Box, Typography, Button } from '@mui/material';
 import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 export default function FileDrop() {
   const onDrop = useCallback((acceptedFiles) => {
     console.log(acceptedFiles);

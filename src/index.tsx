@@ -5,6 +5,17 @@ import App from './App';
 import theme from './theme';
 import { CookiesProvider } from 'react-cookie';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}

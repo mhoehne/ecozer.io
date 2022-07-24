@@ -9,6 +9,17 @@ import ImageFileUpload from './ImageFileDrop/ImageFileUpload';
 import { ProductType } from '../API';
 import ImageFileUploadIndex from './ImageFileUpload/ImageFileUploadIndex';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 interface ProductDetailViewCardProps {
   product: ProductType;
   setProduct: Function;

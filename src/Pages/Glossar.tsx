@@ -5,6 +5,17 @@ import Container from '@mui/material/Container';
 import ImageBanner from '../Components/ImageBanner';
 import BannerBackgroundImage2 from '../images/layered-waves-haikei_2.svg';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 export default function Glossar() {
   return (
     <>

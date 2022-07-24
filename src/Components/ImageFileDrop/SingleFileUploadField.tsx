@@ -1,6 +1,17 @@
 import React, { useCallback, useState } from 'react';
 import { useDropzone, FileRejection, FileError } from 'react-dropzone';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 export interface UploadableFile {
   file: File;
   errors: FileError[];

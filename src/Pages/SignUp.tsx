@@ -13,6 +13,17 @@ import { CreateAccount } from '../API';
 import { useNavigate, NavigateFunction } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 const theme = createTheme();
 
 export default function SignUp() {

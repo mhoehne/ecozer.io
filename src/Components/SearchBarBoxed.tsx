@@ -2,6 +2,17 @@ import SearchBar from '../Components/SearchBar';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 export default function SearchBarBoxed() {
   return (
     <>

@@ -10,6 +10,17 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { GetAccountByEmail, AccountType } from '../API';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 const theme = createTheme();
 
 export default function Account() {

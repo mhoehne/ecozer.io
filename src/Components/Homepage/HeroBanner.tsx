@@ -5,6 +5,17 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import HeroBlobSVG from '../../images/blob-scene-haikei.svg';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 export default function HeroBanner() {
   return (
     <>

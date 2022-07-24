@@ -4,6 +4,17 @@ import TotalVisits from '../Components/Dashboard/TotalVisits';
 import LatestVisits from '../Components/Dashboard/LatestVisits';
 import UserProducts from '../Components/Dashboard/UserProducts';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 export default function Dashboard() {
   return (
     <>

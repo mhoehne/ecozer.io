@@ -8,6 +8,17 @@ import { GetProducts, ProductType, AccountType } from '../API';
 import { Typography, Container, Box } from '@mui/material';
 import BannerBackground2 from '../images/layered-waves-haikei_2.svg';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 interface MyProductProps {
   account: AccountType;
 }

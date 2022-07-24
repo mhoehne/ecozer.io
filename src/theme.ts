@@ -1,5 +1,16 @@
 import { createTheme } from '@mui/material/styles';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 // Custom theme for this app
 const theme = createTheme({
   palette: {

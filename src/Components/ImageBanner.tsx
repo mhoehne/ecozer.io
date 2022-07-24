@@ -3,6 +3,17 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import SampleImage from '../images/sample-img.png';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 export default function ImageBanner() {
   return (
     <>

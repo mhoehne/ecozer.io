@@ -1,6 +1,17 @@
 import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 export default function ImageFileUpload() {
   const onDrop = useCallback((acceptedFiles) => {
     console.log(acceptedFiles);

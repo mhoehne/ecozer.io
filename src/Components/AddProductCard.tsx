@@ -2,6 +2,17 @@ import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
 import { CardActionArea, CardContent, Typography } from '@mui/material';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 export default function AddProductCard() {
   return (
     <Card sx={{ maxWidth: 345, height: 500, margin: '2rem', display: 'flex' }}>

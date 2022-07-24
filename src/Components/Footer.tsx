@@ -5,6 +5,17 @@ import Link from '@mui/material/Link';
 import CardMedia from '@mui/material/CardMedia';
 import LogoFooter from '../images/S20_HTW_Berlin_Logo_neg_WEISS_RGB.png';
 
+{
+  /* TODO */
+}
+{
+  /*  */
+}
+
+{
+  /* Note: */
+}
+
 export default function Footer() {
   return (
     <footer>
