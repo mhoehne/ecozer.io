@@ -75,6 +75,7 @@ export default function ProductDetailViewCard(
                 fullWidth
                 id="productName"
                 label="Produktname"
+                required={true}
               />
             </Grid>
             <Grid item xs={12}>
@@ -90,6 +91,7 @@ export default function ProductDetailViewCard(
                 fullWidth
                 id="productLink"
                 label="Website"
+                required={true}
               />
             </Grid>
             <Grid item xs={12}>
@@ -104,7 +106,8 @@ export default function ProductDetailViewCard(
                 margin="normal"
                 fullWidth
                 id="productCompany"
-                label="Unternehmen"
+                label="Firmenname"
+                required={true}
               />
             </Grid>
           </Grid>
@@ -122,6 +125,7 @@ export default function ProductDetailViewCard(
                 fullWidth
                 id="productDescription"
                 label="Produktbeschreibung"
+                required={true}
                 multiline
                 rows={10}
               />

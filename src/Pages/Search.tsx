@@ -14,7 +14,9 @@ import BannerBackgroundImage from '../images/layered-waves-haikei_1.svg';
   /* TODO */
 }
 {
-  /*  */
+  /* 
+  fix filtering, seems like the filters have an issue with umlaute
+  */
 }
 
 {
