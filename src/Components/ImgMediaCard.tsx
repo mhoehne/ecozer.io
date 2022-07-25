@@ -20,8 +20,8 @@ import { ProductType } from '../API';
 }
 {
   /* 
-  display a label with the current product state "pending"/"published"(approved)/"rejected"/"unpublished"
-  add 3x buttons to edit, delete and unpublish the product
+  display a label (just visible for admins & the owner) with the current product state "pending"/"published"(approved)/"rejected"/"unpublished"
+  add 3x buttons to edit, delete and unpublish the product (just visible for admins & the owner)
    */
 }
 
@@ -174,12 +174,12 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
   }
 
   return (
-    <Card sx={{ maxWidth: 500, margin: '2rem' }}>
+    <Card sx={{ margin: '2rem' }}>
       <CardActionArea href={`/search/product-detail/${props.Product._id}`}>
         <CardMedia
           component="img"
           alt="Produkt"
-          height="200"
+          height="250"
           image={SampleImg}
         />
         <CardContent>

@@ -60,7 +60,6 @@ export default function Search(props: SearchProps) {
 
   return (
     <>
-      {/* <ImageBanner /> */}
       <Box
         sx={{
           bgcolor: 'background.paper',
@@ -131,10 +130,10 @@ export default function Search(props: SearchProps) {
           </Box>
         </Grid>
 
-        <Grid container item xs={8} sm={8} spacing={0}>
+        <Grid container item xs={12} sm={8} spacing={0}>
           {products.map((product) => {
             return (
-              <Grid item key={product._id} xs={12} sm={6}>
+              <Grid item key={product._id} xs={12} sm={12}>
                 <ImgMediaCard Product={product} />
               </Grid>
             );
