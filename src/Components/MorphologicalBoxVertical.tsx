@@ -11,7 +11,9 @@ import { ProductType } from '../API';
   /* TODO */
 }
 {
-  /*  */
+  /* 
+  fix EMISSIONEN Button: can't be selected for some reason
+  */
 }
 
 {
@@ -325,12 +327,12 @@ export default function MorphologicalBoxVertical(
                         ...props.product,
                         objektAspekt: {
                           ...props.product.objektAspekt,
-                          Emission: !props.product.objektAspekt.Emissionen,
+                          Emissionen: !props.product.objektAspekt.Emissionen,
                         },
                       };
                       props.setProduct(emissionen);
                     }}
-                    id="Emission"
+                    id="Emissionen"
                     value="Emissionen"
                     aria-label="Emissionen"
                   >
