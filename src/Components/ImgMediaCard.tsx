@@ -20,7 +20,7 @@ import { ProductType } from '../API';
 }
 {
   /* 
-  display a label (just visible for admins & the owner) with the current product state "pending"/"published"(approved)/"rejected"/"unpublished"
+  add a label (just visible for admins & the owner) with the current product state "pending"/"published"(approved)/"rejected"/"unpublished" is displayed
   add 3x buttons to edit, delete and unpublish the product (just visible for admins & the owner)
    */
 }
