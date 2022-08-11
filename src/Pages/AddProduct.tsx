@@ -33,6 +33,7 @@ export default function AddProduct(props: AddProductProps) {
   const [product, setProduct] = useState<ProductType>({
     _id: undefined,
     account_id: props.account._id,
+    state: '',
     productImage: '',
     productName: '',
     productLink: '',

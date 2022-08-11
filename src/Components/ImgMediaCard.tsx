@@ -183,6 +183,9 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
           image={SampleImg}
         />
         <CardContent>
+          <Typography variant="body2" color="text.secondary">
+            Status: {props.Product.state}
+          </Typography>
           <Typography gutterBottom variant="h5" component="div">
             {props.Product.productName}
           </Typography>
