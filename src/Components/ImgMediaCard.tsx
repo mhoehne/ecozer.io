@@ -13,6 +13,9 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Chip from '@mui/material/Chip';
 import DoneIcon from '@mui/icons-material/Done';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import EditIcon from '@mui/icons-material/Edit';
+import ImageSearchIcon from '@mui/icons-material/ImageSearch';
 import { ProductType } from '../API';
 
 {
@@ -219,18 +222,33 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
         >
           + details
         </Button>
-        {/* <Button size="small" href="/search/product-detail" sx={{}}>
-          + editieren
-        </Button>
         <Button
           size="small"
           variant="contained"
           color="secondary"
+          href="/search/product-detail"
+          sx={{}}
+        >
+          <EditIcon />
+        </Button>
+        <Button
+          size="small"
+          variant="contained"
+          color="warning"
           href="/approval/detail"
           sx={{}}
         >
-          überprüfen
-        </Button> */}
+          <ImageSearchIcon />
+        </Button>
+        <Button
+          size="small"
+          variant="contained"
+          color="error"
+          href="/approval/detail"
+          sx={{}}
+        >
+          <DeleteOutlineIcon />
+        </Button>
       </CardActions>
     </Card>
   );
