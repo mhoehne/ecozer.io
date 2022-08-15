@@ -137,7 +137,11 @@ export default function Search(props: SearchProps) {
           {products.map((product) => {
             return (
               <Grid item key={product._id} xs={12} sm={12}>
-                <ImgMediaCard Product={product} />
+                <ImgMediaCard
+                  Product={product}
+                  enableActionButtons={false}
+                  Account={null}
+                />
               </Grid>
             );
           })}

@@ -24,7 +24,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import ImageSearchIcon from '@mui/icons-material/ImageSearch';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import Tooltip from '@mui/material/Tooltip';
-import { ProductType } from '../API';
+import { AccountType, ProductType } from '../API';
 
 {
   /* TODO */
@@ -42,6 +42,8 @@ import { ProductType } from '../API';
 
 interface ImageMediaCardProps {
   Product: ProductType;
+  enableActionButtons: boolean;
+  Account: AccountType | null;
 }
 
 export default function ImgMediaCard(props: ImageMediaCardProps) {
@@ -241,41 +243,49 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
               alignItems="center"
               spacing={2}
             >
-              <Tooltip title="überprüfen" enterDelay={500} leaveDelay={200}>
-                <Button
-                  size="small"
-                  variant="contained"
-                  color="warning"
-                  href="/approval/detail"
-                  sx={{}}
-                >
-                  <ImageSearchIcon />
-                </Button>
-              </Tooltip>
+              {props.enableActionButtons &&
+              props.Account?.isAdmin === true &&
+              props.Product.state === 'pending' ? (
+                <Tooltip title="überprüfen" enterDelay={500} leaveDelay={200}>
+                  <Button
+                    size="small"
+                    variant="contained"
+                    color="warning"
+                    href="/approval/detail"
+                    sx={{}}
+                  >
+                    <ImageSearchIcon />
+                  </Button>
+                </Tooltip>
+              ) : null}
 
-              <Tooltip title="editieren" enterDelay={500} leaveDelay={200}>
-                <Button
-                  size="small"
-                  variant="contained"
-                  color="secondary"
-                  href="/search/product-detail"
-                  sx={{}}
-                >
-                  <EditIcon />
-                </Button>
-              </Tooltip>
+              {props.enableActionButtons ? (
+                <>
+                  <Tooltip title="editieren" enterDelay={500} leaveDelay={200}>
+                    <Button
+                      size="small"
+                      variant="contained"
+                      color="secondary"
+                      href="/search/product-detail"
+                      sx={{}}
+                    >
+                      <EditIcon />
+                    </Button>
+                  </Tooltip>
 
-              <Tooltip title="löschen" enterDelay={500} leaveDelay={200}>
-                <Button
-                  size="small"
-                  variant="contained"
-                  color="error"
-                  href="/approval/detail"
-                  sx={{}}
-                >
-                  <DeleteOutlineIcon />
-                </Button>
-              </Tooltip>
+                  <Tooltip title="löschen" enterDelay={500} leaveDelay={200}>
+                    <Button
+                      size="small"
+                      variant="contained"
+                      color="error"
+                      href="/approval/detail"
+                      sx={{}}
+                    >
+                      <DeleteOutlineIcon />
+                    </Button>
+                  </Tooltip>
+                </>
+              ) : null}
             </Stack>
           </Grid>
         </Grid>

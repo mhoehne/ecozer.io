@@ -46,7 +46,11 @@ export default function NewestProducts() {
         {products.map((product) => {
           return (
             <Grid item key={product._id} xs={12} sm={4}>
-              <ImgMediaCard Product={product} />
+              <ImgMediaCard
+                Product={product}
+                enableActionButtons={false}
+                Account={null}
+              />
             </Grid>
           );
         })}

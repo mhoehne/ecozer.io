@@ -22,6 +22,9 @@ import React from 'react';
 {
   /* 
   # change the filter accordingly to the first three filters
+  # add the additional checked conditional to the checkbox component: checked={props.Anwendungsbereich.includes(
+                      'Gesetzeskonformität'
+                    )
   */
 }
 
@@ -94,6 +97,14 @@ export default function AccordionFilter(props: AccordionFilterProps) {
             size="small"
             startIcon={<DisabledByDefaultOutlinedIcon />}
             sx={{ mb: 1 }}
+            onClick={function () {
+              props.setAnwendungsbereich([]);
+              props.setBetrachtungskonzept([]);
+              props.setGradDerIntegrierung([]);
+              props.setObjektAspekt([]);
+              props.setSystemgrenzen([]);
+              props.setZielgruppe([]);
+            }}
           >
             zurücksetzen
           </Button>
@@ -109,7 +120,13 @@ export default function AccordionFilter(props: AccordionFilterProps) {
           <AccordionDetails>
             <FormGroup>
               <FormControlLabel
-                control={<Checkbox />}
+                control={
+                  <Checkbox
+                    checked={props.Anwendungsbereich.includes(
+                      'Gesetzeskonformität'
+                    )}
+                  />
+                }
                 label="Gesetzeskonformität"
                 onChange={useCallback(
                   function (event, checked) {
@@ -132,7 +149,11 @@ export default function AccordionFilter(props: AccordionFilterProps) {
                 )}
               />
               <FormControlLabel
-                control={<Checkbox />}
+                control={
+                  <Checkbox
+                    checked={props.Anwendungsbereich.includes('Zertifizierung')}
+                  />
+                }
                 label="Zertifizierung"
                 onChange={useCallback(
                   function (event, checked) {
