@@ -1,7 +1,9 @@
+import { Button, Tooltip } from '@mui/material';
 import Box from '@mui/material/Box';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import DisabledByDefaultOutlinedIcon from '@mui/icons-material/DisabledByDefaultOutlined';
 import { styled } from '@mui/material/styles';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
@@ -83,7 +85,15 @@ export default function AccordionFilter(props: AccordionFilterProps) {
         <Typography variant="h6" sx={{ m: 1 }}>
           Suchfilter
         </Typography>
-
+        <Tooltip title="Alle ausgewählten Filter zurücksetzen">
+          <Button
+            size="small"
+            startIcon={<DisabledByDefaultOutlinedIcon />}
+            sx={{ mb: 1 }}
+          >
+            zurücksetzen
+          </Button>
+        </Tooltip>
         <Accordion defaultExpanded={false}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}

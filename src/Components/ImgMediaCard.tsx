@@ -1,11 +1,17 @@
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import SampleImg from '../images/sample-img.png';
-import { CardActionArea } from '@mui/material';
+import {
+  Box,
+  Card,
+  CardActionArea,
+  Button,
+  CardMedia,
+  CardContent,
+  CardActions,
+  Typography,
+  Container,
+  Grid,
+  Stack,
+} from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -16,6 +22,8 @@ import DoneIcon from '@mui/icons-material/Done';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import EditIcon from '@mui/icons-material/Edit';
 import ImageSearchIcon from '@mui/icons-material/ImageSearch';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import Tooltip from '@mui/material/Tooltip';
 import { ProductType } from '../API';
 
 {
@@ -216,39 +224,61 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
 
       <Divider />
       <CardActions>
-        <Button
-          size="small"
-          href={`/search/product-detail/${props.Product._id}`}
-        >
-          + details
-        </Button>
-        <Button
-          size="small"
-          variant="contained"
-          color="secondary"
-          href="/search/product-detail"
-          sx={{}}
-        >
-          <EditIcon />
-        </Button>
-        <Button
-          size="small"
-          variant="contained"
-          color="warning"
-          href="/approval/detail"
-          sx={{}}
-        >
-          <ImageSearchIcon />
-        </Button>
-        <Button
-          size="small"
-          variant="contained"
-          color="error"
-          href="/approval/detail"
-          sx={{}}
-        >
-          <DeleteOutlineIcon />
-        </Button>
+        <Grid container spacing={2}>
+          <Grid item xs={8}>
+            <Button
+              size="small"
+              href={`/search/product-detail/${props.Product._id}`}
+              startIcon={<AddOutlinedIcon />}
+            >
+              Details
+            </Button>
+          </Grid>
+          <Grid item xs={4}>
+            <Stack
+              direction="row"
+              justifyContent="flex-end"
+              alignItems="center"
+              spacing={2}
+            >
+              <Tooltip title="überprüfen" enterDelay={500} leaveDelay={200}>
+                <Button
+                  size="small"
+                  variant="contained"
+                  color="warning"
+                  href="/approval/detail"
+                  sx={{}}
+                >
+                  <ImageSearchIcon />
+                </Button>
+              </Tooltip>
+
+              <Tooltip title="editieren" enterDelay={500} leaveDelay={200}>
+                <Button
+                  size="small"
+                  variant="contained"
+                  color="secondary"
+                  href="/search/product-detail"
+                  sx={{}}
+                >
+                  <EditIcon />
+                </Button>
+              </Tooltip>
+
+              <Tooltip title="löschen" enterDelay={500} leaveDelay={200}>
+                <Button
+                  size="small"
+                  variant="contained"
+                  color="error"
+                  href="/approval/detail"
+                  sx={{}}
+                >
+                  <DeleteOutlineIcon />
+                </Button>
+              </Tooltip>
+            </Stack>
+          </Grid>
+        </Grid>
       </CardActions>
     </Card>
   );

@@ -15,7 +15,8 @@ import BannerBackgroundImage from '../images/layered-waves-haikei_1.svg';
 }
 {
   /* 
-  fix filtering, seems like the filters have an issue with umlaute
+  # fix filtering, seems like the filters have an issue with umlaute
+  # add reset filter button
   */
 }
 
