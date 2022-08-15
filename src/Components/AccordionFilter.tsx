@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { Button, Tooltip } from '@mui/material';
 import Box from '@mui/material/Box';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -13,12 +14,15 @@ import MuiAccordionSummary, {
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import React from 'react';
 
 {
   /* TODO */
 }
 {
-  /*  */
+  /* 
+  # change the filter accordingly to the first three filters
+  */
 }
 
 {
@@ -107,53 +111,71 @@ export default function AccordionFilter(props: AccordionFilterProps) {
               <FormControlLabel
                 control={<Checkbox />}
                 label="Gesetzeskonformität"
-                onChange={function (event, checked) {
-                  if (checked === true) {
-                    props.Anwendungsbereich.push('Gesetzeskonformität');
-                    props.setAnwendungsbereich(props.Anwendungsbereich);
-                  } else {
-                    props.setAnwendungsbereich(
-                      props.Anwendungsbereich.filter(
-                        (name) => 'Gesetzeskonformität' != name
-                      )
-                    );
-                  }
-                  console.log(checked);
-                }}
+                onChange={useCallback(
+                  function (event, checked) {
+                    if (checked === true) {
+                      const newAnwendungsbereich = [
+                        ...props.Anwendungsbereich,
+                        'Gesetzeskonformität',
+                      ];
+                      props.setAnwendungsbereich(newAnwendungsbereich);
+                    } else {
+                      props.setAnwendungsbereich(
+                        props.Anwendungsbereich.filter(
+                          (name) => 'Gesetzeskonformität' != name
+                        )
+                      );
+                    }
+                    console.log(checked, props.Anwendungsbereich);
+                  },
+                  [props.Anwendungsbereich]
+                )}
               />
               <FormControlLabel
                 control={<Checkbox />}
                 label="Zertifizierung"
-                onChange={function (event, checked) {
-                  if (checked === true) {
-                    props.Anwendungsbereich.push('Zertifizierung');
-                    props.setAnwendungsbereich(props.Anwendungsbereich);
-                  } else {
-                    props.setAnwendungsbereich(
-                      props.Anwendungsbereich.filter(
-                        (name) => 'Zertifizierung' != name
-                      )
-                    );
-                  }
-                  console.log(checked);
-                }}
+                onChange={useCallback(
+                  function (event, checked) {
+                    if (checked === true) {
+                      const newAnwendungsbereich = [
+                        ...props.Anwendungsbereich,
+                        'Zertifizierung',
+                      ];
+                      props.setAnwendungsbereich(newAnwendungsbereich);
+                    } else {
+                      props.setAnwendungsbereich(
+                        props.Anwendungsbereich.filter(
+                          (name) => 'Zertifizierung' != name
+                        )
+                      );
+                    }
+                    console.log(checked, props.Anwendungsbereich);
+                  },
+                  [props.Anwendungsbereich]
+                )}
               />
               <FormControlLabel
                 control={<Checkbox />}
                 label="Ökobilanzierung"
-                onChange={function (event, checked) {
-                  if (checked === true) {
-                    props.Anwendungsbereich.push('Ökobilanzierung');
-                    props.setAnwendungsbereich(props.Anwendungsbereich);
-                  } else {
-                    props.setAnwendungsbereich(
-                      props.Anwendungsbereich.filter(
-                        (name) => 'Ökobilanzierung' != name
-                      )
-                    );
-                  }
-                  console.log(checked);
-                }}
+                onChange={useCallback(
+                  function (event, checked) {
+                    if (checked === true) {
+                      const newAnwendungsbereich = [
+                        ...props.Anwendungsbereich,
+                        'Ökobilanzierung',
+                      ];
+                      props.setAnwendungsbereich(newAnwendungsbereich);
+                    } else {
+                      props.setAnwendungsbereich(
+                        props.Anwendungsbereich.filter(
+                          (name) => 'Ökobilanzierung' != name
+                        )
+                      );
+                    }
+                    console.log(checked, props.Anwendungsbereich);
+                  },
+                  [props.Anwendungsbereich]
+                )}
               />
               <FormControlLabel
                 control={<Checkbox />}
