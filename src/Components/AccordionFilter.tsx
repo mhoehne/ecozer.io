@@ -21,7 +21,7 @@ import React from 'react';
 }
 {
   /* 
-  # change the filter accordingly to the first three filters
+  # 
   
   */
 }
