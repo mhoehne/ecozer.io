@@ -144,13 +144,19 @@ export default function MyProducts(props: MyProductProps) {
         </Box>
       </Box>
       <TabPanel value={value} index={0}>
-        <Grid container spacing={0}></Grid>
+        <Grid container spacing={0}>
+          test
+        </Grid>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Grid container spacing={0}></Grid>
+        <Grid container spacing={0}>
+          1
+        </Grid>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <Grid container spacing={0}></Grid>
+        <Grid container spacing={0}>
+          2
+        </Grid>
       </TabPanel>
       <Grid container spacing={0} justifyContent="center">
         {products.map((product) => {
