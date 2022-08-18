@@ -27,25 +27,14 @@ export default function TotalVisits() {
         <Grid container spacing={3} sx={{ justifyContent: 'space-between' }}>
           <Grid item>
             <Typography color="textSecondary" gutterBottom variant="overline">
-              TOTAL VISITS
+              Aufgerufen insgesamt:
             </Typography>
             <Typography color="textPrimary" variant="h4">
-              1,6k
+              1973
             </Typography>
           </Grid>
-          <Grid item>
-            <Avatar
-              sx={{
-                backgroundColor: 'success.main',
-                height: 56,
-                width: 56,
-              }}
-            >
-              <PeopleIcon />
-            </Avatar>
-          </Grid>
         </Grid>
-        <Box
+        {/* <Box
           sx={{
             alignItems: 'center',
             display: 'flex',
@@ -64,7 +53,7 @@ export default function TotalVisits() {
           <Typography color="textSecondary" variant="caption">
             Since last month
           </Typography>
-        </Box>
+        </Box> */}
       </Box>
     </>
   );

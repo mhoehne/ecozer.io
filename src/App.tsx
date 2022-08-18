@@ -74,7 +74,7 @@ export default function App() {
           <Route path="/signup" element={<SignUp />} />
 
           {/* User */}
-          <Route path="/dashboard" element={<Dashboard />} />
+          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
           <Route path="/account" element={<Account />} />
           {account ? (
             <Route

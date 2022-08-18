@@ -78,9 +78,9 @@ export default function Overview() {
               onChange={handleChange}
               aria-label="basic tabs example"
             >
-              <Tab label="Pending" {...a11yProps(0)} />
-              <Tab label="Rejected" {...a11yProps(1)} />
-              <Tab label="Approved" {...a11yProps(2)} />
+              <Tab label="Prüfung ausstehend" {...a11yProps(0)} />
+              <Tab label="Ablehnt" {...a11yProps(1)} />
+              <Tab label="Veröffentlicht" {...a11yProps(2)} />
             </Tabs>
           </Box>
         </Box>

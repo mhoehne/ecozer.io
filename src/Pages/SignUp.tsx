@@ -89,7 +89,7 @@ export default function SignUp() {
         // alert('success');
         // success
         setCookie('email', emailAddress, { path: '/' });
-        return navigate('/dashboard');
+        return navigate('/my-products');
       })
       .catch((msg) => {
         alert('error');

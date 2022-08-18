@@ -40,7 +40,7 @@ export async function authenticate(
       // create cookie to pass boolean to AppBarTop IsLoggedOut function
 
       setCookie('email', emailaddress, { path: '/' });
-      return navigate('/dashboard');
+      return navigate('/my-products');
     }
   } catch (e) {
     console.log(e);
