@@ -19,7 +19,6 @@ import { useNavigate, NavigateFunction } from 'react-router-dom';
   /* Note: */
 }
 
-//create new props
 interface AddProductProps {
   account: AccountType | null;
 }
