@@ -1,4 +1,6 @@
 import SearchBar from '../Components/SearchBar';
+import { Stack, Button, Tooltip } from '@mui/material';
+import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
@@ -13,7 +15,11 @@ import Grid from '@mui/material/Grid';
   /* Note: */
 }
 
-export default function SearchBarBoxed() {
+interface SearchBarBoxedProps {
+  enableAddProductButton: boolean;
+}
+
+export default function SearchBarBoxed(props: SearchBarBoxedProps) {
   return (
     <>
       <Box
@@ -23,12 +29,35 @@ export default function SearchBarBoxed() {
         bgcolor="background.paper"
         color="text.primary"
       >
-        <Grid container spacing={0}>
-          <Grid item xs={12} sm={4}>
+        <Grid container spacing={2}>
+          <Grid item xs={8}>
             <SearchBar />
           </Grid>
-          <Grid item xs={12} sm={4}></Grid>
-          <Grid item xs={12} sm={4}></Grid>
+          <Grid item xs={4}>
+            <Stack
+              direction="row"
+              justifyContent="flex-end"
+              alignItems="center"
+              spacing={2}
+            >
+              {props.enableAddProductButton ? (
+                <>
+                  <Tooltip title="" enterDelay={500} leaveDelay={200}>
+                    <Button
+                      size="large"
+                      variant="contained"
+                      color="secondary"
+                      href="/my-products/add-product"
+                      sx={{}}
+                      startIcon={<AddCircleOutlineOutlinedIcon />}
+                    >
+                      Produkt erstellen
+                    </Button>
+                  </Tooltip>
+                </>
+              ) : null}
+            </Stack>
+          </Grid>
         </Grid>
       </Box>
     </>

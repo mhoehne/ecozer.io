@@ -83,15 +83,11 @@ export default function MyProducts(props: MyProductProps) {
           </Typography>
         </Container>
       </Box>
-      <SearchBarBoxed />
-      <Grid container spacing={0}>
-        <Grid item xs={12} sm={4}>
-          <AddProductCard />
-        </Grid>
-
+      <SearchBarBoxed enableAddProductButton={true} />
+      <Grid container spacing={0} justifyContent="center">
         {products.map((product) => {
           return (
-            <Grid item key={product._id} xs={12} sm={4}>
+            <Grid item key={product._id} xs={12} sm={10}>
               <ImgMediaCard
                 Product={product}
                 enableActionButtons={true}
