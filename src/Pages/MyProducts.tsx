@@ -1,11 +1,10 @@
+import React from 'react';
 import ImgMediaCard from '../Components/ImgMediaCard';
 import Grid from '@mui/material/Grid';
-import AddProductCard from '../Components/AddProductCard';
 import SearchBarBoxed from '../Components/SearchBarBoxed';
-import ImageBanner from '../Components/ImageBanner';
 import { useEffect, useState } from 'react';
 import { GetProducts, ProductType, AccountType } from '../API';
-import { Typography, Container, Box } from '@mui/material';
+import { Typography, Container, Box, Tab, Tabs } from '@mui/material';
 import BannerBackground2 from '../images/layered-waves-haikei_2.svg';
 
 {
@@ -17,6 +16,39 @@ import BannerBackground2 from '../images/layered-waves-haikei_2.svg';
 
 {
   /* Note: */
+}
+
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}
+
+function TabPanel(props: TabPanelProps) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+function a11yProps(index: number) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
 }
 
 interface MyProductProps {
@@ -48,6 +80,12 @@ export default function MyProducts(props: MyProductProps) {
       })
       .catch();
   }, []);
+
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+  };
 
   return (
     <>
@@ -84,6 +122,36 @@ export default function MyProducts(props: MyProductProps) {
         </Container>
       </Box>
       <SearchBarBoxed enableAddProductButton={true} />
+
+      <Box
+        px={{ xs: 2, sm: 2 }}
+        py={{ xs: 2, sm: 2 }}
+        mx={{ xs: 0, sm: 0 }}
+        my={{ xs: 0, sm: 0 }}
+        bgcolor="background.paper"
+        color="text.primary"
+      >
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            aria-label="basic tabs example"
+          >
+            <Tab label="Pending" {...a11yProps(0)} />
+            <Tab label="Rejected" {...a11yProps(1)} />
+            <Tab label="Approved" {...a11yProps(2)} />
+          </Tabs>
+        </Box>
+      </Box>
+      <TabPanel value={value} index={0}>
+        <Grid container spacing={0}></Grid>
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <Grid container spacing={0}></Grid>
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        <Grid container spacing={0}></Grid>
+      </TabPanel>
       <Grid container spacing={0} justifyContent="center">
         {products.map((product) => {
           return (
