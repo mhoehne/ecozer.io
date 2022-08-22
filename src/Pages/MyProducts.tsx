@@ -57,6 +57,10 @@ interface MyProductProps {
 }
 
 export default function MyProducts(props: MyProductProps) {
+  const [value, setValue] = React.useState(0);
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+  };
   const [products, setProducts] = useState<ProductType[]>([]);
   const account_id = props.account._id;
   const zielgruppe: string[] = [];
@@ -67,6 +71,16 @@ export default function MyProducts(props: MyProductProps) {
   const betrachtungskonzept: string[] = [];
 
   useEffect(() => {
+    let state = 'pending';
+    if (value == 0) {
+      state = 'published';
+    }
+    if (value == 1) {
+      state = 'pending';
+    }
+    if (value == 2) {
+      state = 'rejected';
+    }
     GetProducts(
       account_id ?? null,
       zielgruppe,
@@ -74,19 +88,14 @@ export default function MyProducts(props: MyProductProps) {
       gradDerIntegrierung,
       objektAspekt,
       systemgrenzen,
-      betrachtungskonzept
+      betrachtungskonzept,
+      state
     )
       .then((result) => {
         setProducts(result.data.products);
       })
       .catch();
-  }, []);
-
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
+  }, [value]);
 
   return (
     <>
@@ -164,32 +173,55 @@ export default function MyProducts(props: MyProductProps) {
       </Box>
       <TabPanel value={value} index={0}>
         <Grid container spacing={0}>
-          test
+          <Grid container spacing={0} justifyContent="center">
+            {products.map((product) => {
+              return (
+                <Grid item key={product._id} xs={12} sm={10}>
+                  <ImgMediaCard
+                    Product={product}
+                    enableActionButtons={true}
+                    Account={props.account}
+                  />
+                </Grid>
+              );
+            })}
+          </Grid>
         </Grid>
       </TabPanel>
       <TabPanel value={value} index={1}>
         <Grid container spacing={0}>
-          1
+          <Grid container spacing={0} justifyContent="center">
+            {products.map((product) => {
+              return (
+                <Grid item key={product._id} xs={12} sm={10}>
+                  <ImgMediaCard
+                    Product={product}
+                    enableActionButtons={true}
+                    Account={props.account}
+                  />
+                </Grid>
+              );
+            })}
+          </Grid>
         </Grid>
       </TabPanel>
       <TabPanel value={value} index={2}>
         <Grid container spacing={0}>
-          2
+          <Grid container spacing={0} justifyContent="center">
+            {products.map((product) => {
+              return (
+                <Grid item key={product._id} xs={12} sm={10}>
+                  <ImgMediaCard
+                    Product={product}
+                    enableActionButtons={true}
+                    Account={props.account}
+                  />
+                </Grid>
+              );
+            })}
+          </Grid>
         </Grid>
       </TabPanel>
-      <Grid container spacing={0} justifyContent="center">
-        {products.map((product) => {
-          return (
-            <Grid item key={product._id} xs={12} sm={10}>
-              <ImgMediaCard
-                Product={product}
-                enableActionButtons={true}
-                Account={props.account}
-              />
-            </Grid>
-          );
-        })}
-      </Grid>
     </>
   );
 }

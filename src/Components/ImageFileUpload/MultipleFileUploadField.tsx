@@ -77,21 +77,29 @@ export default function MultipleFileUploadField({ name }: { name: string }) {
 
   return (
     <>
-      <Grid item>
-        <Box
-          bgcolor="background.paper"
-          color="text.primary"
-          justify-content="center"
-          sx={{ height: '5rem', border: 'dashed', borderRadius: '5px' }}
-        >
-          <div {...getRootProps({ className: 'dropzone' })}>
-            <input {...getInputProps()} />
-            <p justify-content="center">
+      <Grid container>
+        <input {...getInputProps()} id="uploadField" />
+        <label htmlFor="uploadField">
+          <Box
+            bgcolor="background.paper"
+            color="text.primary"
+            justify-content="center"
+            sx={{
+              height: '5rem',
+              border: 'dashed',
+              borderRadius: '5px',
+              boxShadow: 0,
+            }}
+          >
+            <div
+              {...getRootProps({ className: 'dropzone' })}
+              style={{ height: '100%' }}
+            >
               Klicke hier um ein Bild hochzuladen oder füge es per Drag 'n' drop
               hinzu
-            </p>
-          </div>
-        </Box>
+            </div>
+          </Box>
+        </label>
       </Grid>
 
       {files.map((fileWrapper) => (

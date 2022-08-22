@@ -5,7 +5,7 @@ import MultipleFileUploadField from './MultipleFileUploadField';
 
 export default function ImageFileUploadIndex() {
   return (
-    <Card>
+    <Card elevation={0}>
       <CardContent>
         <Formik
           initialValues={{ files: [] }}

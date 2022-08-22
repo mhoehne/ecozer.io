@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -11,6 +11,9 @@ import Container from '@mui/material/Container';
 import { checkAuthentication } from '../API';
 import { useNavigate, NavigateFunction } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
+import Stack from '@mui/material/Stack';
+import Snackbar from '@mui/material/Snackbar';
+import Alert, { AlertProps } from '@mui/material/Alert';
 
 {
   /* TODO */
@@ -30,7 +33,8 @@ export async function authenticate(
   emailaddress: string,
   password: string,
   navigate: NavigateFunction,
-  setCookie: Function
+  setCookie: Function,
+  setAlert: Function
 ) {
   // send form data to API
 
@@ -43,11 +47,14 @@ export async function authenticate(
       return navigate('/my-products');
     }
   } catch (e) {
+    // alert(e);
+    setAlert(true);
     console.log(e);
   }
 }
 
 export default function SignIn() {
+  const [showAlert, setAlert] = useState(false);
   const [cookies, setCookie] = useCookies(['email']);
   const navigate = useNavigate();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -60,15 +67,22 @@ export default function SignIn() {
         emailaddress.toString(),
         password.toString(),
         navigate,
-        setCookie
+        setCookie,
+        setAlert
       );
     } else {
-      alert('something went wrong');
+      // alert('something went wrong');
+      setAlert(true);
     }
   };
 
   return (
     <>
+      <Snackbar open={showAlert} autoHideDuration={6000}>
+        <Alert severity="error" sx={{ width: '100%' }}>
+          E-Mail-Adresse oder Passwort falsch!
+        </Alert>
+      </Snackbar>
       <Container component="main" maxWidth="xs">
         <Box
           sx={{

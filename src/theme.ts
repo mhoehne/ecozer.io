@@ -23,8 +23,6 @@ const theme = createTheme({
     },
     error: {
       main: '#FF5F00',
-      light: '',
-      dark: '',
     },
     warning: {
       main: '#FFA726',

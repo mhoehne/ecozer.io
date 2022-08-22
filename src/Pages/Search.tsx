@@ -46,7 +46,8 @@ export default function Search(props: SearchProps) {
       gradDerIntegrierung,
       objektAspekt,
       systemgrenzen,
-      betrachtungskonzept
+      betrachtungskonzept,
+      'published'
     )
       .then((result) => {
         setProducts(result.data.products);

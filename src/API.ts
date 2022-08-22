@@ -172,7 +172,8 @@ export function GetProducts(
   gradDerIntegrierung: string[],
   objektAspekt: string[],
   systemgrenzen: string[],
-  betrachtungskonzept: string[]
+  betrachtungskonzept: string[],
+  state: string | null
 ): Promise<AxiosResponse<ProductsResultType>> {
   const url = new URL(
     `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products`
@@ -202,6 +203,9 @@ export function GetProducts(
   for (const filter of betrachtungskonzept) {
     url.searchParams.append('betrachtungskonzept[]', filter);
   }
+  if (state !== null) {
+    url.searchParams.append('state', String(state));
+  }
 
   return axios.get<ProductsResultType>(url.toString());
 }
@@ -210,7 +214,7 @@ export function ListNewestProducts(): Promise<
   AxiosResponse<ProductsResultType>
 > {
   return axios.get<ProductsResultType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products?limit=3&sortBy=createdAt&sortOrder=desc`
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products?limit=3&sortBy=createdAt&sortOrder=desc&state=published`
   );
 }
 
@@ -218,7 +222,7 @@ export function ListMostViewedProducts(): Promise<
   AxiosResponse<ProductsResultType>
 > {
   return axios.get<ProductsResultType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products?limit=3&sortBy=viewCounter&sortOrder=desc`
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products?limit=3&sortBy=viewCounter&sortOrder=desc&state=published`
   );
 }
 
