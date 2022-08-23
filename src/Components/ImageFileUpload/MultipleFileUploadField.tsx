@@ -18,6 +18,11 @@ export interface UploadableFile {
   url?: string;
 }
 
+interface MultipleFileUploadFieldProps {
+  onUpload: Function;
+  name: string;
+}
+
 // const useStyles = makeStyles((theme) => ({
 //   dropzone: {
 //     border: `2px dashed ${theme.palette.primary.main}`,
@@ -31,8 +36,10 @@ export interface UploadableFile {
 //   },
 // }));
 
-export default function MultipleFileUploadField({ name }: { name: string }) {
-  const [_, __, helpers] = useField(name);
+export default function MultipleFileUploadField(
+  props: MultipleFileUploadFieldProps
+) {
+  const [_, __, helpers] = useField(props.name);
   // const classes = useStyles;
 
   const [files, setFiles] = useState<UploadableFile[]>([]);
@@ -52,6 +59,7 @@ export default function MultipleFileUploadField({ name }: { name: string }) {
   }, [files]);
 
   function onUpload(file: File, url: string) {
+    props.onUpload(url);
     setFiles((curr) =>
       curr.map((fw) => {
         if (fw.file === file) {

@@ -192,7 +192,7 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
           component="img"
           alt="Produkt"
           height="250"
-          image={SampleImg}
+          image={props.Product.productImage}
         />
         <CardContent>
           <Typography variant="body2" color="text.secondary">

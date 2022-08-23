@@ -3,7 +3,11 @@ import { Form, Formik } from 'formik';
 import { array, object, string } from 'yup';
 import MultipleFileUploadField from './MultipleFileUploadField';
 
-export default function ImageFileUploadIndex() {
+interface ImageFileUploadIndexProps {
+  onUpload: Function;
+}
+
+export default function ImageFileUploadIndex(props: ImageFileUploadIndexProps) {
   return (
     <Card elevation={0}>
       <CardContent>
@@ -28,7 +32,10 @@ export default function ImageFileUploadIndex() {
             // so it can be use when submitting the entire form
             <Form>
               <Grid container spacing={2} direction="column">
-                <MultipleFileUploadField name="files" />
+                <MultipleFileUploadField
+                  name="files"
+                  onUpload={props.onUpload}
+                />
 
                 <Grid item>
                   {/* <Button
@@ -42,7 +49,7 @@ export default function ImageFileUploadIndex() {
                 </Grid>
               </Grid>
 
-              {/* <pre>{JSON.stringify({ values, errors }, null, 4)}</pre> */}
+              <pre>{JSON.stringify({ values, errors }, null, 4)}</pre>
             </Form>
           )}
         </Formik>
