@@ -59,9 +59,9 @@ export default function SearchBarBoxed(props: SearchBarBoxedProps) {
                   )}
                   groupBy={(option) => option.firstLetter}
                   getOptionLabel={(option) => option.text}
-                  sx={{ width: 300 }}
+                  sx={{ width: '28.5vw' }}
                   renderInput={(params) => (
-                    <TextField {...params} label="With categories" />
+                    <TextField {...params} label="Produktsuche" />
                   )}
                 />
               </>
