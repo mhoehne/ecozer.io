@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 import { GetProducts, ProductType, AccountType } from '../API';
 import { Typography, Container, Box, Tab, Tabs } from '@mui/material';
 import BannerBackground2 from '../images/layered-waves-haikei_2.svg';
-import TotalVisits from '../Components/Dashboard/TotalVisits';
 
 {
   /* TODO */
@@ -131,24 +130,6 @@ export default function MyProducts(props: MyProductProps) {
           </Typography>
         </Container>
       </Box>
-
-      {/* uncomment to display product statistics */}
-      {/* <Container maxWidth={false}>
-        <Grid container spacing={3}>
-          <Grid item lg={3} sm={6} xl={3} xs={12}>
-            <TotalVisits />
-          </Grid>
-          <Grid item xl={3} lg={3} sm={6} xs={12}>
-            <TotalVisits />
-          </Grid>
-          <Grid item xl={3} lg={3} sm={6} xs={12}>
-            <TotalVisits />
-          </Grid>
-          <Grid item xl={3} lg={3} sm={6} xs={12}>
-            <TotalVisits />
-          </Grid>
-        </Grid>
-      </Container> */}
       <SearchBarBoxed
         enableAddProductButton={true}
         enableAutocompleteSearch={false}
