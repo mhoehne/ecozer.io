@@ -149,7 +149,10 @@ export default function MyProducts(props: MyProductProps) {
           </Grid>
         </Grid>
       </Container> */}
-      <SearchBarBoxed enableAddProductButton={true} />
+      <SearchBarBoxed
+        enableAddProductButton={true}
+        enableAutocompleteSearch={false}
+      />
 
       <Box
         px={{ xs: 2, sm: 2 }}

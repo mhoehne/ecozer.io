@@ -96,7 +96,10 @@ export default function Search(props: SearchProps) {
           </Typography>
         </Container>
       </Box>
-      <SearchBarBoxed enableAddProductButton={false} />
+      <SearchBarBoxed
+        enableAddProductButton={false}
+        enableAutocompleteSearch={true}
+      />
 
       <Grid container rowSpacing={0} columnSpacing={{ xs: 0, sm: 0, md: 0 }}>
         <Grid

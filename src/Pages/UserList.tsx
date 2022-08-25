@@ -25,7 +25,10 @@ export default function UserList() {
         bgcolor="background.paper"
         color="text.primary"
       >
-        <SearchBarBoxed enableAddProductButton={false} />
+        <SearchBarBoxed
+          enableAddProductButton={false}
+          enableAutocompleteSearch={false}
+        />
         <UserListGrid />
       </Box>
     </>
