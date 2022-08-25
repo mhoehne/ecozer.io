@@ -15,8 +15,7 @@ import BannerBackgroundImage from '../images/layered-waves-haikei_1.svg';
 }
 {
   /* 
-  # fix filtering, seems like the filters have an issue with umlaute
-  # add reset filter button
+  
   */
 }
 
@@ -29,6 +28,7 @@ interface SearchProps {
 }
 
 export default function Search(props: SearchProps) {
+  // searchterm state
   const [products, setProducts] = useState<ProductType[]>([]);
   const account_id = props.account?._id;
   const [zielgruppe, setZielgruppe] = useState<string[]>([]);
@@ -40,6 +40,7 @@ export default function Search(props: SearchProps) {
 
   useEffect(() => {
     GetProducts(
+      // pass searchterm param
       account_id ?? null,
       zielgruppe,
       anwendungsbereich,
@@ -54,6 +55,7 @@ export default function Search(props: SearchProps) {
       })
       .catch();
   }, [
+    // pass searchterm param
     zielgruppe,
     anwendungsbereich,
     gradDerIntegrierung,
@@ -99,6 +101,7 @@ export default function Search(props: SearchProps) {
       <SearchBarBoxed
         enableAddProductButton={false}
         enableAutocompleteSearch={true}
+        // pass setSearchterm
       />
 
       <Grid container rowSpacing={0} columnSpacing={{ xs: 0, sm: 0, md: 0 }}>
