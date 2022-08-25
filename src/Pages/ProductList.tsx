@@ -1,6 +1,6 @@
 import ProductListGrid from '../Components/Grids/ProductListGrid';
 import SearchBarBoxed from '../Components/SearchBarBoxed';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 {
   /* TODO */
@@ -25,6 +25,9 @@ export default function UserList() {
         bgcolor="background.paper"
         color="text.primary"
       >
+        <Typography variant="h4" sx={{ mx: 2 }}>
+          Produktliste
+        </Typography>
         <SearchBarBoxed
           enableAddProductButton={false}
           enableAutocompleteSearch={false}

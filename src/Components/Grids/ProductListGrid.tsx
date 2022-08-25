@@ -11,7 +11,12 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
 import { useEffect, useState, useCallback } from 'react';
 import { Box } from '@mui/material';
-import { GetAccounts, AccountType, PutAccount, DeleteAccount } from '../../API';
+import {
+  GetProducts,
+  ProductType,
+  PutProducts,
+  DeleteProduct,
+} from '../../API';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import TablePagination from '@mui/material/TablePagination';
@@ -35,44 +40,44 @@ function CustomToolbar() {
   );
 }
 
-const onRowEdit = (accounts: AccountType[], state: GridEditRowsModel) => {
+const onRowEdit = (products: ProductType[], state: GridEditRowsModel) => {
   for (const _id in state) {
-    const accountNewFields: { [key: string]: string } = { _id: _id };
+    const productNewFields: { [key: string]: string } = { _id: _id };
 
-    // Get all new values from `state` into `accountNewFields`
+    // Get all new values from `state` into `productNewFields`
     for (const field in state[_id]) {
       const newValue = state[_id][field].value?.toString();
       if (newValue === undefined) {
         continue;
       }
 
-      accountNewFields[field] = newValue;
+      productNewFields[field] = newValue;
     }
 
-    // Find an account inside `accounts` state variable
-    let account = accounts.find((acc) => acc._id === parseInt(_id));
+    // Find an product inside `products` state variable
+    let product = products.find((acc) => acc._id === parseInt(_id));
 
-    // Did not find an account: should never happen. Send error to console and skip this email to avoid a crash.
-    if (account === undefined) {
+    // Did not find an product: should never happen. Send error to console and skip this email to avoid a crash.
+    if (product === undefined) {
       console.error(
-        `Could not find an account with ID "${_id}". This is most likely a bug.`
+        `Could not find an product with ID "${_id}". This is most likely a bug.`
       );
       continue;
     }
 
-    // Paste all fields inside `accountNewFields` into `account`
-    account = Object.assign(account, accountNewFields);
+    // Paste all fields inside `productNewFields` into `product`
+    product = Object.assign(product, productNewFields);
 
-    // Update `account`
-    PutAccount(account)
+    // Update `product`
+    PutProducts(product)
       .then(() => {
-        // TODO: accounts updated successfuly
+        // TODO: products updated successfuly
         // trigger success snackbar alert
       })
       .catch(() => {
-        // could not update accounts
+        // could not update products
         // trigger error snackbar alert
-        console.error(`Could not update the account with ID "${_id}"`);
+        console.error(`Could not update the product with ID "${_id}"`);
       });
   }
 };
@@ -81,28 +86,29 @@ export default function ProductListGrid() {
   // pagination
   const [pageSize, setPageSize] = React.useState<number>(20);
 
-  const [accounts, setAccounts] = useState<AccountType[]>([]);
+  const [products, setProducts] = useState<ProductType[]>([]);
 
-  const deleteUser = useCallback(
+  const deleteProduct = useCallback(
     (id) => () => {
-      let account = accounts.find((acc) => acc._id === id);
-      if (account === undefined) {
+      let product = products.find((p) => p._id === id);
+      console.log(id, product);
+      if (product === undefined) {
         console.error(
-          `Could not find an account with ID "${id}". This is most likely a bug.`
+          `Could not find a product with ID "${id}". This is most likely a bug.`
         );
         return;
       }
-      DeleteAccount(account)
+      DeleteProduct(product)
         .then(() => {
           setTimeout(() => {
-            setAccounts((prevRows) => prevRows.filter((row) => row._id !== id));
+            setProducts((prevRows) => prevRows.filter((row) => row._id !== id));
           });
         })
         .catch((e) => {
           console.log(e);
         });
     },
-    [accounts]
+    [products]
   );
 
   const columns = [
@@ -114,62 +120,62 @@ export default function ProductListGrid() {
         <GridActionsCellItem
           icon={<DeleteIcon />}
           label="Löschen"
-          onClick={deleteUser(params.id)}
+          onClick={deleteProduct(params.id)}
           showInMenu
         />,
       ],
     },
     {
+      field: 'account_id',
+      headerName: 'AID',
+      type: 'string',
+      width: 50,
+      editable: true,
+    },
+    {
       field: '_id',
-      headerName: 'AccountID',
+      headerName: 'PID',
       type: 'string',
-      width: 100,
+      width: 50,
       editable: false,
     },
     {
-      field: 'product_id',
-      headerName: 'ProduktID',
-      type: 'string',
+      field: 'state',
+      headerName: 'Status',
       width: 100,
       editable: false,
     },
+
     {
-      field: 'emailAddress',
-      headerName: 'E-Mail-Adresse',
+      field: 'productName',
+      headerName: 'Produktname',
       width: 250,
       editable: true,
     },
     {
-      field: 'firstName',
-      headerName: 'Vorname',
-      width: 150,
-      editable: true,
-    },
-    {
-      field: 'lastName',
-      headerName: 'Nachname',
-      width: 150,
-      editable: true,
-    },
-    {
-      field: 'companyName',
-      headerName: 'Unternehmen',
+      field: 'productLink',
+      headerName: 'Website-Link',
       width: 200,
       editable: true,
     },
     {
-      field: 'createdAt',
-      headerName: 'erstellt am',
-      type: 'dateTime',
+      field: 'productCompany',
+      headerName: 'Firmenname',
       width: 200,
-      editable: false,
+      editable: true,
+    },
+    {
+      field: 'productDescription',
+      headerName: 'Beschreibung',
+      width: 500,
+      editable: true,
     },
   ];
 
   useEffect(() => {
-    GetAccounts()
+    GetProducts(null, [], [], [], [], [], [], null)
       .then((result) => {
-        setAccounts(result.data.accounts);
+        setProducts(result.data.products);
       })
       .catch();
   }, []);
@@ -183,10 +189,10 @@ export default function ProductListGrid() {
     >
       <div style={{ height: '80vh', width: '100%' }}>
         <DataGrid
-          rows={accounts}
+          rows={products}
           columns={columns}
-          getRowId={(account) => account._id}
-          onEditRowsModelChange={(state) => onRowEdit(accounts, state)}
+          getRowId={(product) => product._id}
+          onEditRowsModelChange={(state) => onRowEdit(products, state)}
           disableSelectionOnClick
           density="standard"
           components={{
