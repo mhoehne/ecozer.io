@@ -188,12 +188,12 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
   return (
     <Card sx={{ margin: '2rem' }}>
       <CardActionArea href={`/search/product-detail/${props.Product._id}`}>
-        <CardMedia
+        {/* <CardMedia
           component="img"
           alt="Produkt"
           height="250"
           image={props.Product.productImage}
-        />
+        /> */}
         <CardContent>
           <Typography variant="body2" color="text.secondary">
             Status: {props.Product.state}

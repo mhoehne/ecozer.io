@@ -59,7 +59,7 @@ export default function ProductDetailViewCard(
             in /add-product or when editing a product, then the image gets
             replaced by the new uploaded image */}
             {/* <FileDrop /> */}
-            <ImageFileUploadIndex
+            {/* <ImageFileUploadIndex
               onUpload={function (url: string) {
                 const productimageupload = {
                   ...props.product,
@@ -67,7 +67,7 @@ export default function ProductDetailViewCard(
                 };
                 props.setProduct(productimageupload);
               }}
-            />
+            />*/}
           </Grid>
           <Grid item xs={5} sx={{ mt: -2 }}>
             <Grid item xs={12}>
