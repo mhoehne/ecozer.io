@@ -173,7 +173,7 @@ export default function ProductListGrid() {
   ];
 
   useEffect(() => {
-    GetProducts(null, [], [], [], [], [], [], null)
+    GetProducts(null, null, [], [], [], [], [], [], null)
       .then((result) => {
         setProducts(result.data.products);
       })

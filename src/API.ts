@@ -166,6 +166,7 @@ export function CreateProduct(
 /*READ***************************************************************************************************/
 
 export function GetProducts(
+  searchterm: string | null,
   account_id: number | null,
   zielgruppe: string[],
   anwendungsbereich: string[],

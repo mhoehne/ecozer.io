@@ -81,6 +81,7 @@ export default function MyProducts(props: MyProductProps) {
       state = 'rejected';
     }
     GetProducts(
+      null,
       account_id ?? null,
       zielgruppe,
       anwendungsbereich,
@@ -130,10 +131,10 @@ export default function MyProducts(props: MyProductProps) {
           </Typography>
         </Container>
       </Box>
-      <SearchBarBoxed
+      {/* <SearchBarBoxed
         enableAddProductButton={true}
         enableAutocompleteSearch={false}
-      />
+      /> */}
 
       <Box
         px={{ xs: 2, sm: 2 }}

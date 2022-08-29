@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { GetProducts, ProductType } from '../API';
 import { useState, useEffect } from 'react';
+import { useNavigate, NavigateFunction } from 'react-router-dom';
 
 {
   /* TODO */
@@ -20,21 +21,26 @@ import { useState, useEffect } from 'react';
 interface SearchBarBoxedProps {
   enableAddProductButton: boolean;
   enableAutocompleteSearch: boolean;
+  setSearchterm: Function;
 }
 
 export default function SearchBarBoxed(props: SearchBarBoxedProps) {
+  const navigate = useNavigate();
   const [products, setProducts] = useState<ProductType[]>([]);
   useEffect(() => {
-    GetProducts(null, [], [], [], [], [], [], 'published').then((result) => {
-      setProducts(result.data.products);
-    });
+    GetProducts(null, null, [], [], [], [], [], [], 'published').then(
+      (result) => {
+        setProducts(result.data.products);
+      }
+    );
   }, []);
 
-  const options = products.map(({ productName }) => {
+  const options = products.map(({ productName, _id }) => {
     const firstLetter = productName[0].toUpperCase();
     return {
       firstLetter: /[0-9]/.test(firstLetter) ? '0-9' : firstLetter,
       text: productName,
+      _id,
     };
   });
 
@@ -53,12 +59,20 @@ export default function SearchBarBoxed(props: SearchBarBoxedProps) {
               <>
                 <Autocomplete
                   id="grouped-demo"
-                  // onSelect={(newmethod) => {setSearchterm}}
+                  onChange={(event, obj) => {
+                    console.log(event, obj);
+                    if (obj != null) {
+                      window.open(
+                        `/search/product-detail/${obj._id}`,
+                        '_blank'
+                      );
+                    }
+                  }}
                   options={options.sort(
                     (a, b) => -b.firstLetter.localeCompare(a.firstLetter)
                   )}
                   groupBy={(option) => option.firstLetter}
-                  getOptionLabel={(option) => option.text}
+                  getOptionLabel={(option) => option?.text ?? option}
                   sx={{ width: '28.5vw' }}
                   renderInput={(params) => (
                     <TextField {...params} label="Produktsuche" />

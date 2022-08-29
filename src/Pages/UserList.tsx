@@ -28,10 +28,10 @@ export default function UserList() {
         <Typography variant="h4" sx={{ mx: 2 }}>
           Benutzerliste
         </Typography>
-        <SearchBarBoxed
+        {/* <SearchBarBoxed
           enableAddProductButton={false}
           enableAutocompleteSearch={false}
-        />
+        /> */}
         <UserListGrid />
       </Box>
     </>

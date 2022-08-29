@@ -28,7 +28,7 @@ interface SearchProps {
 }
 
 export default function Search(props: SearchProps) {
-  // searchterm state
+  const [searchterm, setSearchterm] = useState<string | null>(null);
   const [products, setProducts] = useState<ProductType[]>([]);
   const account_id = props.account?._id;
   const [zielgruppe, setZielgruppe] = useState<string[]>([]);
@@ -40,7 +40,7 @@ export default function Search(props: SearchProps) {
 
   useEffect(() => {
     GetProducts(
-      // pass searchterm param
+      searchterm,
       account_id ?? null,
       zielgruppe,
       anwendungsbereich,
@@ -55,7 +55,7 @@ export default function Search(props: SearchProps) {
       })
       .catch();
   }, [
-    // pass searchterm param
+    searchterm,
     zielgruppe,
     anwendungsbereich,
     gradDerIntegrierung,
@@ -101,7 +101,7 @@ export default function Search(props: SearchProps) {
       <SearchBarBoxed
         enableAddProductButton={false}
         enableAutocompleteSearch={true}
-        // pass setSearchterm
+        setSearchterm={setSearchterm}
       />
 
       <Grid container rowSpacing={0} columnSpacing={{ xs: 0, sm: 0, md: 0 }}>
