@@ -23,6 +23,8 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import EditIcon from '@mui/icons-material/Edit';
 import ImageSearchIcon from '@mui/icons-material/ImageSearch';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import FingerprintOutlinedIcon from '@mui/icons-material/FingerprintOutlined';
 import Tooltip from '@mui/material/Tooltip';
 import { AccountType, ProductType } from '../API';
 
@@ -195,15 +197,48 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
           image={props.Product.productImage}
         /> */}
         <CardContent>
-          <Typography variant="body2" color="text.secondary">
+          <Grid container>
+            {/* <Typography variant="body2" color="text.secondary">
             Status: {props.Product.state}
-          </Typography>
-          <Typography gutterBottom variant="h5" component="div">
-            {props.Product.productName}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {props.Product.productDescription}
-          </Typography>
+          </Typography> */}
+            <Grid item xs={10}>
+              <Typography gutterBottom variant="h5" component="div">
+                {props.Product.productName}
+              </Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <Stack
+                direction="row"
+                justifyContent="flex-end"
+                alignItems="center"
+                spacing={2}
+              >
+                {props.enableActionButtons ||
+                props.Account?.isAdmin === true ? (
+                  <>
+                    <Chip
+                      icon={<VisibilityOutlinedIcon />}
+                      label={props.Product.viewCounter}
+                    />
+                    <Chip
+                      icon={<FingerprintOutlinedIcon />}
+                      label={props.Product._id}
+                    />
+                  </>
+                ) : null}
+              </Stack>
+            </Grid>
+            <Grid item xs={8}>
+              <Typography gutterBottom variant="subtitle1" component="div">
+                {props.Product.productCompany}
+              </Typography>
+            </Grid>
+            <Grid item xs={8}>
+              <Typography variant="body2" color="text.secondary">
+                {props.Product.productDescription}
+              </Typography>
+            </Grid>
+          </Grid>
         </CardContent>
       </CardActionArea>
 

@@ -88,6 +88,7 @@ export type ProductType = {
   _id: number | undefined;
   account_id: number;
   state: string;
+  viewCounter: number | undefined;
   productImage: string;
   productName: string;
   productLink: string;

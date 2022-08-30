@@ -33,6 +33,7 @@ export default function AddProduct(props: AddProductProps) {
     _id: undefined,
     account_id: props.account._id,
     state: '',
+    viewCounter: undefined,
     productImage: '',
     productName: '',
     productLink: '',
