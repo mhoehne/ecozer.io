@@ -54,14 +54,14 @@ export default function ProductDetail() {
   return (
     <>
       <Box sx={{ my: 10 }}>
-        <Button
+        {/* <Button
           variant="text"
           color="info"
           startIcon={<ArrowBackIosNewOutlinedIcon />}
           href="/search"
         >
           Zurück
-        </Button>
+        </Button> */}
 
         <Box
           px={{ xs: 2, sm: 2 }}
@@ -78,15 +78,15 @@ export default function ProductDetail() {
             columnSpacing={{ xs: 1, sm: 1, md: 2 }}
             sx={{ p: 2 }}
           >
-            <Grid item xs={7}>
-              {/* <CardMedia
+            {/* <Grid item xs={7}>
+              <CardMedia
                 component="img"
                 id="productImage"
                 alt="product image"
                 height="300"
                 image={SampleImg}
-              /> */}
-            </Grid>
+              />
+            </Grid> */}
             <Grid item xs={5} sx={{ mt: -2 }}>
               <Grid item xs={12}>
                 <TextField

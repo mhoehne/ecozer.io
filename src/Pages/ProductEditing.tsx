@@ -54,14 +54,14 @@ export default function ProductDetail() {
   return (
     <>
       <Box sx={{ my: 10 }}>
-        <Button
+        {/* <Button
           variant="text"
           color="info"
           startIcon={<ArrowBackIosNewOutlinedIcon />}
           href="/search"
         >
           Zurück
-        </Button>
+        </Button> */}
 
         <Box
           px={{ xs: 2, sm: 2 }}
