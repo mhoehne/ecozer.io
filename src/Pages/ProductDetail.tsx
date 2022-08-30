@@ -79,13 +79,13 @@ export default function ProductDetail() {
             sx={{ p: 2 }}
           >
             <Grid item xs={7}>
-              <CardMedia
+              {/* <CardMedia
                 component="img"
                 id="productImage"
                 alt="product image"
                 height="300"
                 image={SampleImg}
-              />
+              /> */}
             </Grid>
             <Grid item xs={5} sx={{ mt: -2 }}>
               <Grid item xs={12}>
