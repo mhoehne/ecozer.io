@@ -54,22 +54,7 @@ export default function ProductDetail() {
   return (
     <>
       <Box sx={{ my: 10 }}>
-        {/* <Button
-          variant="text"
-          color="info"
-          startIcon={<ArrowBackIosNewOutlinedIcon />}
-          href="/search"
-        >
-          Zurück
-        </Button> */}
-
-        <Box
-          px={{ xs: 2, sm: 2 }}
-          py={{ xs: 2, sm: 2 }}
-          bgcolor="background.paper"
-          color="text.primary"
-          sx={{ width: '100%', mt: 2 }}
-        >
+        <Box px={{ xs: 2, sm: 2 }} py={{ xs: 2, sm: 2 }}>
           <Grid
             container
             direction="row"
@@ -77,6 +62,8 @@ export default function ProductDetail() {
             rowSpacing={1}
             columnSpacing={{ xs: 1, sm: 1, md: 2 }}
             sx={{ p: 2 }}
+            bgcolor="background.paper"
+            color="text.primary"
           >
             {/* <Grid item xs={7}>
               <CardMedia
@@ -127,23 +114,23 @@ export default function ProductDetail() {
                   }}
                 />
               </Grid>
-            </Grid>
-            <Grid item xs={12}>
-              <Box sx={{ mx: 0, mt: 0 }}>
-                <TextField
-                  margin="normal"
-                  fullWidth
-                  id="productDescription"
-                  label="Produktbeschreibung"
-                  multiline
-                  rows={10}
-                  value={product?.productDescription}
-                  focused
-                  InputProps={{
-                    readOnly: true,
-                  }}
-                />
-              </Box>
+              <Grid item xs={12}>
+                <Box sx={{ mx: 0, mt: 0 }}>
+                  <TextField
+                    margin="normal"
+                    fullWidth
+                    id="productDescription"
+                    label="Produktbeschreibung"
+                    multiline
+                    rows={10}
+                    value={product?.productDescription}
+                    focused
+                    InputProps={{
+                      readOnly: true,
+                    }}
+                  />
+                </Box>
+              </Grid>
             </Grid>
           </Grid>
         </Box>
