@@ -88,6 +88,12 @@ export default function App() {
               element={<AddProduct account={account} />}
             />
           ) : null}
+          {account ? (
+            <Route
+              path="/my-products/edit"
+              element={<AddProduct account={account} />}
+            />
+          ) : null}
 
           {/* Admin */}
           <Route path="/approval" element={<AdminApproval />} />

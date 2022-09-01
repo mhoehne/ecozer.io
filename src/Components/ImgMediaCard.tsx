@@ -1,4 +1,5 @@
 import SampleImg from '../images/sample-img.png';
+import { useCallback, useState } from 'react';
 import {
   Box,
   Card,
@@ -26,7 +27,7 @@ import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import FingerprintOutlinedIcon from '@mui/icons-material/FingerprintOutlined';
 import Tooltip from '@mui/material/Tooltip';
-import { AccountType, ProductType } from '../API';
+import { AccountType, ProductType, DeleteProduct, PutProducts } from '../API';
 
 {
   /* TODO */
@@ -48,6 +49,21 @@ interface ImageMediaCardProps {
 }
 
 export default function ImgMediaCard(props: ImageMediaCardProps) {
+  const [products, setProducts] = useState<ProductType[]>([]);
+  const deleteProduct = useCallback(
+    (id) => () => {
+      let product = products.find((p) => p._id === id);
+      console.log(id, product);
+      if (product === undefined) {
+        console.error(
+          `Could not find a product with ID "${id}". This is most likely a bug.`
+        );
+        return;
+      }
+    },
+    [products]
+  );
+
   const chips = [];
 
   for (const key in props.Product.zielgruppe) {
@@ -312,7 +328,7 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
                       size="small"
                       variant="contained"
                       color="error"
-                      href="/approval/detail"
+                      onClick={deleteProduct(props.Product._id)}
                       sx={{}}
                     >
                       <DeleteOutlineIcon />
