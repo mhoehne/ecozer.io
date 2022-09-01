@@ -2,7 +2,7 @@ import React from 'react';
 import ImgMediaCard from '../Components/ImgMediaCard';
 import Grid from '@mui/material/Grid';
 import SearchBarBoxed from '../Components/SearchBarBoxed';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { GetProducts, ProductType, AccountType } from '../API';
 import { Typography, Container, Box, Tab, Tabs } from '@mui/material';
 import BannerBackground2 from '../images/layered-waves-haikei_2.svg';
@@ -134,6 +134,7 @@ export default function MyProducts(props: MyProductProps) {
       {/* <SearchBarBoxed
         enableAddProductButton={true}
         enableAutocompleteSearch={false}
+        setSearchterm={}
       /> */}
 
       <Box
