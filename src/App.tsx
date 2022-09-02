@@ -19,6 +19,7 @@ import ProductList from './Pages/ProductList';
 import { useCookies } from 'react-cookie';
 import { useState, useEffect } from 'react';
 import { AccountType, ProductType, GetAccountByEmail, getProduct } from './API';
+import { mixed } from 'yup/lib/locale';
 
 {
   /* TODO */
@@ -74,7 +75,6 @@ export default function App() {
           <Route path="/signup" element={<SignUp />} />
 
           {/* User */}
-          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
           <Route path="/account" element={<Account />} />
           {account ? (
             <Route
@@ -96,7 +96,13 @@ export default function App() {
           ) : null}
 
           {/* Admin */}
-          <Route path="/approval" element={<AdminApproval />} />
+          {account ? (
+            <Route
+              path="/approval"
+              element={<AdminApproval account={account} />}
+            />
+          ) : null}
+
           <Route path="/approval/detail" element={<AdminApprovalDetail />} />
           <Route path="/user-list" element={<UserList />} />
           <Route path="/product-list" element={<ProductList />} />
