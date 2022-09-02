@@ -1,10 +1,8 @@
 import * as React from 'react';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
+import { Tabs, Tab, Typography, Box, Container, Grid } from '@mui/material';
+import ImgMediaCard from '../Components/ImgMediaCard';
+import { useEffect, useState, useCallback } from 'react';
+import { GetProducts, ProductType, AccountType } from '../API';
 
 {
   /* TODO */
@@ -54,12 +52,51 @@ function a11yProps(index: number) {
   };
 }
 
-export default function Overview() {
-  const [value, setValue] = React.useState(0);
+interface AdminApprovalProps {
+  account: AccountType;
+}
 
+export default function AdminApproval(props: AdminApprovalProps) {
+  const [value, setValue] = React.useState(0);
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
+  const [products, setProducts] = useState<ProductType[]>([]);
+  const account_id = props.account._id;
+  const zielgruppe: string[] = [];
+  const anwendungsbereich: string[] = [];
+  const gradDerIntegrierung: string[] = [];
+  const objektAspekt: string[] = [];
+  const systemgrenzen: string[] = [];
+  const betrachtungskonzept: string[] = [];
+
+  useEffect(() => {
+    let state = 'pending';
+    if (value == 2) {
+      state = 'published';
+    }
+    if (value == 0) {
+      state = 'pending';
+    }
+    if (value == 1) {
+      state = 'rejected';
+    }
+    GetProducts(
+      null,
+      account_id ?? null,
+      zielgruppe,
+      anwendungsbereich,
+      gradDerIntegrierung,
+      objektAspekt,
+      systemgrenzen,
+      betrachtungskonzept,
+      state
+    )
+      .then((result) => {
+        setProducts(result.data.products);
+      })
+      .catch();
+  }, [value]);
 
   return (
     <>
@@ -79,19 +116,61 @@ export default function Overview() {
               aria-label="basic tabs example"
             >
               <Tab label="Prüfung ausstehend" {...a11yProps(0)} />
-              <Tab label="Ablehnt" {...a11yProps(1)} />
+              <Tab label="Abgelehnt" {...a11yProps(1)} />
               <Tab label="Veröffentlicht" {...a11yProps(2)} />
             </Tabs>
           </Box>
         </Box>
         <TabPanel value={value} index={0}>
-          <Grid container spacing={0}></Grid>
+          <Grid container spacing={0}>
+            <Grid container spacing={0} justifyContent="center">
+              {products.map((product) => {
+                return (
+                  <Grid item key={product._id} xs={10} sm={8}>
+                    <ImgMediaCard
+                      Product={product}
+                      enableActionButtons={true}
+                      Account={props.account}
+                    />
+                  </Grid>
+                );
+              })}
+            </Grid>
+          </Grid>
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <Grid container spacing={0}></Grid>
+          <Grid container spacing={0}>
+            <Grid container spacing={0} justifyContent="center">
+              {products.map((product) => {
+                return (
+                  <Grid item key={product._id} xs={10} sm={8}>
+                    <ImgMediaCard
+                      Product={product}
+                      enableActionButtons={true}
+                      Account={props.account}
+                    />
+                  </Grid>
+                );
+              })}
+            </Grid>
+          </Grid>
         </TabPanel>
         <TabPanel value={value} index={2}>
-          <Grid container spacing={0}></Grid>
+          <Grid container spacing={0}>
+            <Grid container spacing={0} justifyContent="center">
+              {products.map((product) => {
+                return (
+                  <Grid item key={product._id} xs={10} sm={8}>
+                    <ImgMediaCard
+                      Product={product}
+                      enableActionButtons={true}
+                      Account={props.account}
+                    />
+                  </Grid>
+                );
+              })}
+            </Grid>
+          </Grid>
         </TabPanel>
       </Container>
     </>
