@@ -126,7 +126,7 @@ export default function AdminApproval(props: AdminApprovalProps) {
             <Grid container spacing={0} justifyContent="center">
               {products.map((product) => {
                 return (
-                  <Grid item key={product._id} xs={10} sm={8}>
+                  <Grid item key={product._id} xs={10} sm={10}>
                     <ImgMediaCard
                       Product={product}
                       enableActionButtons={true}
@@ -143,7 +143,7 @@ export default function AdminApproval(props: AdminApprovalProps) {
             <Grid container spacing={0} justifyContent="center">
               {products.map((product) => {
                 return (
-                  <Grid item key={product._id} xs={10} sm={8}>
+                  <Grid item key={product._id} xs={10} sm={10}>
                     <ImgMediaCard
                       Product={product}
                       enableActionButtons={true}
@@ -160,7 +160,7 @@ export default function AdminApproval(props: AdminApprovalProps) {
             <Grid container spacing={0} justifyContent="center">
               {products.map((product) => {
                 return (
-                  <Grid item key={product._id} xs={10} sm={8}>
+                  <Grid item key={product._id} xs={10} sm={10}>
                     <ImgMediaCard
                       Product={product}
                       enableActionButtons={true}
