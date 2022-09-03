@@ -102,12 +102,12 @@ function getAdminMenu(
       transformOrigin={{ horizontal: 'right', vertical: 'top' }}
       anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
     >
-      <MenuItem component={Link} to="/dashboard">
+      {/* <MenuItem component={Link} to="/dashboard">
         <ListItemIcon>
           <DashboardIcon fontSize="small" />
         </ListItemIcon>
         Dashboard
-      </MenuItem>
+      </MenuItem> */}
       <MenuItem component={Link} to="/my-products">
         <ListItemIcon>
           <DashboardCustomizeIcon fontSize="small" />
@@ -216,12 +216,12 @@ function getUserMenu(
       transformOrigin={{ horizontal: 'right', vertical: 'top' }}
       anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
     >
-      <MenuItem component={Link} to="/dashboard">
+      {/* <MenuItem component={Link} to="/dashboard">
         <ListItemIcon>
           <DashboardIcon fontSize="small" />
         </ListItemIcon>
         Dashboard
-      </MenuItem>
+      </MenuItem> */}
       <MenuItem component={Link} to="/my-products">
         <ListItemIcon>
           <DashboardCustomizeIcon fontSize="small" />
