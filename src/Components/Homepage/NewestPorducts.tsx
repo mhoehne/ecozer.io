@@ -42,18 +42,20 @@ export default function NewestProducts() {
       </Container>
 
       {/* 3 newest products, filtered by newest creation date */}
-      <Grid container item xs={12} sm={12} spacing={0}>
-        {products.map((product) => {
-          return (
-            <Grid item key={product._id} xs={12} sm={4}>
-              <ImgMediaCard
-                Product={product}
-                enableActionButtons={false}
-                Account={null}
-              />
-            </Grid>
-          );
-        })}
+      <Grid container spacing={0}>
+        <Grid container spacing={0} justifyContent="center">
+          {products.map((product) => {
+            return (
+              <Grid item key={product._id} xs={10} sm={8}>
+                <ImgMediaCard
+                  Product={product}
+                  enableActionButtons={false}
+                  Account={null}
+                />
+              </Grid>
+            );
+          })}
+        </Grid>
       </Grid>
     </>
   );
