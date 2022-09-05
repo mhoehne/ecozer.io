@@ -5,7 +5,7 @@ import { Grid, Container } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 import SampleImg from '../images/sample-img.png';
 import TextField from '@mui/material/TextField';
-import { getProduct, ProductType } from '../API';
+import { getProduct, ProductType, AccountType } from '../API';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
@@ -41,7 +41,11 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   },
 }));
 
-export default function ProductDetail() {
+interface MyProductEditProps {
+  account: AccountType;
+}
+
+export default function MyProductsEdit(props: MyProductEditProps) {
   const params = useParams();
 
   const [product, setProduct] = useState<ProductType>();

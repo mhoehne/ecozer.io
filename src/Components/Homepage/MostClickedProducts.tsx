@@ -51,6 +51,7 @@ export default function MostClickedProducts() {
                   Product={product}
                   enableActionButtons={false}
                   Account={null}
+                  onProductDeleted={() => {}}
                 />
               </Grid>
             );

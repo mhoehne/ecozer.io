@@ -148,6 +148,7 @@ export default function Search(props: SearchProps) {
                   Product={product}
                   enableActionButtons={false}
                   Account={null}
+                  onProductDeleted={() => {}}
                 />
               </Grid>
             );

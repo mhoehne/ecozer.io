@@ -131,6 +131,7 @@ export default function AdminApproval(props: AdminApprovalProps) {
                       Product={product}
                       enableActionButtons={true}
                       Account={props.account}
+                      onProductDeleted={() => {}}
                     />
                   </Grid>
                 );
@@ -148,6 +149,7 @@ export default function AdminApproval(props: AdminApprovalProps) {
                       Product={product}
                       enableActionButtons={true}
                       Account={props.account}
+                      onProductDeleted={() => {}}
                     />
                   </Grid>
                 );
@@ -165,6 +167,7 @@ export default function AdminApproval(props: AdminApprovalProps) {
                       Product={product}
                       enableActionButtons={true}
                       Account={props.account}
+                      onProductDeleted={() => {}}
                     />
                   </Grid>
                 );

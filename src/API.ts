@@ -228,6 +228,14 @@ export function ListMostViewedProducts(): Promise<
   );
 }
 
+export function IncrementProductViewCount(
+  productID: string
+): Promise<AxiosResponse<ProductType>> {
+  return axios.post<ProductType>(
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/${productID}/view`
+  );
+}
+
 export function getProduct(
   productID: string
 ): Promise<AxiosResponse<ProductType>> {

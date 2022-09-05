@@ -56,6 +56,7 @@ interface MyProductProps {
 }
 
 export default function MyProducts(props: MyProductProps) {
+  const [searchterm, setSearchterm] = useState<string | null>(null);
   const [value, setValue] = React.useState(0);
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -68,6 +69,15 @@ export default function MyProducts(props: MyProductProps) {
   const objektAspekt: string[] = [];
   const systemgrenzen: string[] = [];
   const betrachtungskonzept: string[] = [];
+
+  let onProductDeleted = useCallback(
+    (deletedProduct: ProductType) => {
+      setProducts((prevRows) =>
+        prevRows.filter((row) => row._id !== deletedProduct._id)
+      );
+    },
+    [products]
+  );
 
   useEffect(() => {
     let state = 'pending';
@@ -131,11 +141,11 @@ export default function MyProducts(props: MyProductProps) {
           </Typography>
         </Container>
       </Box>
-      {/* <SearchBarBoxed
+      <SearchBarBoxed
         enableAddProductButton={true}
         enableAutocompleteSearch={false}
-        setSearchterm={}
-      /> */}
+        setSearchterm={setSearchterm}
+      />
 
       <Box
         px={{ xs: 2, sm: 2 }}
@@ -167,6 +177,7 @@ export default function MyProducts(props: MyProductProps) {
                     Product={product}
                     enableActionButtons={true}
                     Account={props.account}
+                    onProductDeleted={onProductDeleted}
                   />
                 </Grid>
               );
@@ -184,6 +195,7 @@ export default function MyProducts(props: MyProductProps) {
                     Product={product}
                     enableActionButtons={true}
                     Account={props.account}
+                    onProductDeleted={onProductDeleted}
                   />
                 </Grid>
               );
@@ -201,6 +213,7 @@ export default function MyProducts(props: MyProductProps) {
                     Product={product}
                     enableActionButtons={true}
                     Account={props.account}
+                    onProductDeleted={onProductDeleted}
                   />
                 </Grid>
               );

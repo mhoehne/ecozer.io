@@ -5,7 +5,7 @@ import { Grid, Container } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 import SampleImg from '../images/sample-img.png';
 import TextField from '@mui/material/TextField';
-import { getProduct, ProductType } from '../API';
+import { getProduct, IncrementProductViewCount, ProductType } from '../API';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
@@ -47,7 +47,9 @@ export default function ProductDetail() {
   const [product, setProduct] = useState<ProductType>();
   useEffect(() => {
     getProduct(params.id ?? '-1').then((result) => {
-      setProduct(result.data);
+      IncrementProductViewCount(params.id ?? '-1').then(() => {
+        setProduct(result.data);
+      });
     });
   }, []);
 

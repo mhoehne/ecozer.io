@@ -51,6 +51,7 @@ export default function NewestProducts() {
                   Product={product}
                   enableActionButtons={false}
                   Account={null}
+                  onProductDeleted={() => {}}
                 />
               </Grid>
             );

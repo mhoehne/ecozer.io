@@ -46,22 +46,20 @@ interface ImageMediaCardProps {
   Product: ProductType;
   enableActionButtons: boolean;
   Account: AccountType | null;
+  onProductDeleted: Function;
 }
 
 export default function ImgMediaCard(props: ImageMediaCardProps) {
   const [products, setProducts] = useState<ProductType[]>([]);
   const deleteProduct = useCallback(
     (id) => () => {
-      let product = products.find((p) => p._id === id);
-      console.log(id, product);
-      if (product === undefined) {
-        console.error(
-          `Could not find a product with ID "${id}". This is most likely a bug.`
-        );
-        return;
-      }
+      let product = props.Product;
+
+      DeleteProduct(props.Product).then(() => {
+        props.onProductDeleted(props.Product);
+      });
     },
-    [products]
+    [props.Product]
   );
 
   const chips = [];
@@ -316,7 +314,7 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
                       size="small"
                       variant="contained"
                       color="secondary"
-                      href="/search/product-detail"
+                      href={`/my-product/${props.Product._id}/edit`}
                       sx={{}}
                     >
                       <EditIcon />

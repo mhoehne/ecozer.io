@@ -20,6 +20,7 @@ import { useCookies } from 'react-cookie';
 import { useState, useEffect } from 'react';
 import { AccountType, ProductType, GetAccountByEmail, getProduct } from './API';
 import { mixed } from 'yup/lib/locale';
+import MyProductsEdit from './Pages/MyProductsEdit';
 
 {
   /* TODO */
@@ -90,8 +91,8 @@ export default function App() {
           ) : null}
           {account ? (
             <Route
-              path="/my-products/edit"
-              element={<AddProduct account={account} />}
+              path={`/my-products/:id/edit"`}
+              element={<MyProductsEdit account={account} />}
             />
           ) : null}
 
