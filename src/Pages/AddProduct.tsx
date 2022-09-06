@@ -99,44 +99,46 @@ export default function AddProduct(props: AddProductProps) {
 
   return (
     <>
-      <Box
-        component="form"
-        noValidate
-        justifyContent="center"
-        alignItems="center"
-        onSubmit={handleSubmit}
-        sx={{
-          my: 15,
-        }}
-      >
-        <ProductDetailViewCard product={product} setProduct={setProduct} />
-
-        <MorphologicalBoxVertical product={product} setProduct={setProduct} />
-        <Grid
-          container
-          mt={3}
-          md={12}
-          spacing={1}
-          alignContent="right"
-          justifyContent="flex-end"
-          alignItems="flex-start"
+      <Container component="main" maxWidth="md">
+        <Box
+          component="form"
+          noValidate
+          justifyContent="center"
+          alignItems="center"
+          onSubmit={handleSubmit}
+          sx={{
+            my: 15,
+          }}
         >
-          <Grid item xs={2}>
-            {/* catch the url from the file upload an pass it when the button is clicked */}
-            {/* otherwise the button is disabled */}
+          <ProductDetailViewCard product={product} setProduct={setProduct} />
 
-            <Button
-              type="submit"
-              variant="contained"
-              startIcon={<SendIcon />}
-              sx={{ color: 'background.paper' }}
-            >
-              Erstellen
-            </Button>
-            {/* after creating a product, set state to pending */}
+          <MorphologicalBoxVertical product={product} setProduct={setProduct} />
+          <Grid
+            container
+            mt={3}
+            md={12}
+            spacing={1}
+            alignContent="right"
+            justifyContent="flex-end"
+            alignItems="flex-start"
+          >
+            <Grid item xs={2}>
+              {/* catch the url from the file upload an pass it when the button is clicked */}
+              {/* otherwise the button is disabled */}
+
+              <Button
+                type="submit"
+                variant="contained"
+                startIcon={<SendIcon />}
+                sx={{ color: 'background.paper' }}
+              >
+                Erstellen
+              </Button>
+              {/* after creating a product, set state to pending */}
+            </Grid>
           </Grid>
-        </Grid>
-      </Box>
+        </Box>
+      </Container>
     </>
   );
 }

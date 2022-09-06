@@ -43,23 +43,23 @@ export default function ProductDetailViewCard(
           container
           direction="row"
           justifyContent="center"
-          rowSpacing={1}
+          rowSpacing={0}
           columnSpacing={{ xs: 1, sm: 1, md: 2 }}
           sx={{ p: 2 }}
         >
-          <Grid item xs={7}>
-            {/* <CardMedia
+          {/* <Grid item xs={7}> */}
+          {/* <CardMedia
               component="img"
               id="productImage"
               alt="product image"
               height="300"
               image={SampleImg}
             /> */}
-            {/* file drop should set the image for the product and just available
+          {/* file drop should set the image for the product and just available
             in /add-product or when editing a product, then the image gets
             replaced by the new uploaded image */}
-            {/* <FileDrop /> */}
-            {/* <ImageFileUploadIndex
+          {/* <FileDrop /> */}
+          {/* <ImageFileUploadIndex
               onUpload={function (url: string) {
                 const productimageupload = {
                   ...props.product,
@@ -68,9 +68,9 @@ export default function ProductDetailViewCard(
                 props.setProduct(productimageupload);
               }}
             />*/}
-          </Grid>
-          <Grid item xs={5} sx={{ mt: -2 }}>
-            <Grid item xs={12}>
+          {/* </Grid> */}
+          <Grid item xs={12} sx={{ mt: -2 }}>
+            <Grid item xs={4}>
               <TextField
                 onChange={function (event) {
                   const productname = {
@@ -85,8 +85,7 @@ export default function ProductDetailViewCard(
                 label="Produktname"
                 required={true}
               />
-            </Grid>
-            <Grid item xs={12}>
+
               <TextField
                 onChange={function (event) {
                   const productwebsite = {
@@ -101,8 +100,6 @@ export default function ProductDetailViewCard(
                 label="Website"
                 required={true}
               />
-            </Grid>
-            <Grid item xs={12}>
               <TextField
                 onChange={function (event) {
                   const productcompany = {
