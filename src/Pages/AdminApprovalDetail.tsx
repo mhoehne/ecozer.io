@@ -1,3 +1,4 @@
+import * as React from 'react';
 import ProductDetailViewCard from '../Components/ProductDetailViewCard';
 import MorphologicalBoxVertical from '../Components/MorphologicalBoxVertical';
 import {
@@ -11,6 +12,11 @@ import {
   ToggleButton,
   ToggleButtonGroup,
   Paper,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
 } from '@mui/material';
 import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
@@ -37,7 +43,7 @@ import { styled } from '@mui/material/styles';
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   '& .MuiToggleButtonGroup-grouped': {
-    margin: theme.spacing(0.5),
+    margin: theme.spacing(0),
     border: 0,
     '&.Mui-disabled': {
       border: 0,
@@ -52,6 +58,13 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
 }));
 
 export default function AdminApprovalDetail() {
+  {
+    /* when rejected button is clicked => show popup and enter a reason for the rejection => then click again on send button and call rejectProduct */
+  }
+  {
+    /* call publishProduct and set product state to published */
+  }
+
   const params = useParams();
 
   const [product, setProduct] = useState<ProductType>();
@@ -63,17 +76,26 @@ export default function AdminApprovalDetail() {
     });
   }, []);
 
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <>
       <Box sx={{ my: 10 }}>
         <Container component="main" maxWidth="md">
-          <Box px={{ xs: 2, sm: 2 }} py={{ xs: 2, sm: 2 }}>
+          <Box px={{ xs: 0, sm: 0 }} py={{ xs: 2, sm: 2 }}>
             <Grid
               container
               direction="row"
               justifyContent="center"
               rowSpacing={1}
-              columnSpacing={{ xs: 1, sm: 1, md: 2 }}
+              columnSpacing={{ xs: 0, sm: 0, md: 0 }}
               sx={{ p: 2 }}
               bgcolor="background.paper"
               color="text.primary"
@@ -87,7 +109,7 @@ export default function AdminApprovalDetail() {
                 image={SampleImg}
               />
             </Grid> */}
-              <Grid item xs={10} sx={{ mt: -2 }}>
+              <Grid item xs={10} sx={{ mt: 0 }}>
                 <Grid item xs={12}>
                   <TextField
                     margin="normal"
@@ -602,7 +624,7 @@ export default function AdminApprovalDetail() {
           variant="contained"
           color="error"
           startIcon={<CloseIcon />}
-          href=""
+          onClick={handleClickOpen}
         >
           Ablehnen
         </Button>
@@ -614,6 +636,7 @@ export default function AdminApprovalDetail() {
           variant="contained"
           color="success"
           startIcon={<DoneIcon />}
+          sx={{ color: 'background.paper' }}
           href=""
         >
           Veröffentlichen
@@ -621,6 +644,30 @@ export default function AdminApprovalDetail() {
         {/* user gets a notification about the approval of his product */}
         {/* after approving the product, set state to "published". (product should appear in the search) */}
       </Stack>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Ablehnungsgrund</DialogTitle>
+        <DialogContent>
+          <TextField
+            autoFocus
+            margin="normal"
+            id="rejectionText"
+            label="Ablehnungsgrund"
+            type="text"
+            fullWidth
+            variant="outlined"
+            multiline
+            rows={8}
+            focused
+            sx={{ width: '35vw' }}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>schließen</Button>
+          <Button variant="contained" color="error" onClick={() => {}}>
+            Ablehnen
+          </Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 }
