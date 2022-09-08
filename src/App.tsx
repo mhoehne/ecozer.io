@@ -104,7 +104,10 @@ export default function App() {
             />
           ) : null}
 
-          <Route path="/approval/detail" element={<AdminApprovalDetail />} />
+          <Route
+            path={`/approval/detail/:id`}
+            element={<AdminApprovalDetail />}
+          />
           <Route path="/user-list" element={<UserList />} />
           <Route path="/product-list" element={<ProductList />} />
         </Routes>

@@ -16,7 +16,12 @@ import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getProduct, IncrementProductViewCount, ProductType } from '../API';
+import {
+  getProduct,
+  IncrementProductViewCount,
+  ProductType,
+  AccountType,
+} from '../API';
 import { styled } from '@mui/material/styles';
 
 {

@@ -299,7 +299,7 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
                     size="small"
                     variant="contained"
                     color="warning"
-                    href="/approval/detail"
+                    href={`/approval/detail/${props.Product._id}`}
                     sx={{}}
                   >
                     <ImageSearchIcon />

@@ -16,7 +16,7 @@ import { GetProducts, ProductType, AccountType } from '../API';
 }
 
 {
-  /* catch each product with their state and display them in the correct tab "pending"/"rejected"/"published"(approved) */
+  /*  */
 }
 
 interface TabPanelProps {
