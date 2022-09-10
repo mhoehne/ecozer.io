@@ -57,13 +57,13 @@ export default function ProductDetail() {
     <>
       <Box sx={{ my: 10 }}>
         <Container component="main" maxWidth="md">
-          <Box px={{ xs: 2, sm: 2 }} py={{ xs: 2, sm: 2 }}>
+          <Box px={{ xs: 0, sm: 0 }} py={{ xs: 2, sm: 2 }}>
             <Grid
               container
               direction="row"
               justifyContent="center"
               rowSpacing={1}
-              columnSpacing={{ xs: 1, sm: 1, md: 2 }}
+              columnSpacing={{ xs: 0, sm: 0, md: 0 }}
               sx={{ p: 2 }}
               bgcolor="background.paper"
               color="text.primary"
@@ -141,7 +141,7 @@ export default function ProductDetail() {
           {/* ### Morphological Box ### */}
 
           <Box
-            px={{ xs: 6, sm: 6 }}
+            px={{ xs: 10, sm: 10 }}
             py={{ xs: 2, sm: 2 }}
             mx={{ xs: 0, sm: 0 }}
             my={{ xs: 0, sm: 0 }}
