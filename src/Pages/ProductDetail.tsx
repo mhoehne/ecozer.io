@@ -1,6 +1,5 @@
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 import { Grid, Container } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 import SampleImg from '../images/sample-img.png';

@@ -91,8 +91,8 @@ export default function App() {
           ) : null}
           {account ? (
             <Route
-              path={`/my-products/:id/edit"`}
-              element={<MyProductsEdit account={account} />}
+              path={`/my-products/:id/edit`}
+              element={<MyProductsEdit />}
             />
           ) : null}
 

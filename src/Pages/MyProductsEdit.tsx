@@ -41,11 +41,7 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   },
 }));
 
-interface MyProductEditProps {
-  account: AccountType;
-}
-
-export default function MyProductsEdit(props: MyProductEditProps) {
+export default function MyProductsEdit() {
   const params = useParams();
 
   const [product, setProduct] = useState<ProductType>();
@@ -59,31 +55,27 @@ export default function MyProductsEdit(props: MyProductEditProps) {
     <>
       <Box sx={{ my: 10 }}>
         <Container component="main" maxWidth="md">
-          <Box
-            px={{ xs: 2, sm: 2 }}
-            py={{ xs: 2, sm: 2 }}
-            bgcolor="background.paper"
-            color="text.primary"
-            sx={{ width: '100%', mt: 2 }}
-          >
+          <Box px={{ xs: 0, sm: 0 }} py={{ xs: 2, sm: 2 }}>
             <Grid
               container
               direction="row"
               justifyContent="center"
               rowSpacing={1}
-              columnSpacing={{ xs: 1, sm: 1, md: 2 }}
+              columnSpacing={{ xs: 0, sm: 0, md: 0 }}
               sx={{ p: 2 }}
+              bgcolor="background.paper"
+              color="text.primary"
             >
-              <Grid item xs={7}>
-                <CardMedia
-                  component="img"
-                  id="productImage"
-                  alt="product image"
-                  height="300"
-                  image={SampleImg}
-                />
-              </Grid>
-              <Grid item xs={5} sx={{ mt: -2 }}>
+              {/* <Grid item xs={7}>
+              <CardMedia
+                component="img"
+                id="productImage"
+                alt="product image"
+                height="300"
+                image={SampleImg}
+              />
+            </Grid> */}
+              <Grid item xs={10} sx={{ mt: -2 }}>
                 <Grid item xs={12}>
                   <TextField
                     margin="normal"
@@ -123,23 +115,23 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                     }}
                   />
                 </Grid>
-              </Grid>
-              <Grid item xs={12}>
-                <Box sx={{ mx: 0, mt: 0 }}>
-                  <TextField
-                    margin="normal"
-                    fullWidth
-                    id="productDescription"
-                    label="Produktbeschreibung"
-                    multiline
-                    rows={10}
-                    value={product?.productDescription}
-                    focused
-                    InputProps={{
-                      readOnly: true,
-                    }}
-                  />
-                </Box>
+                <Grid item xs={12}>
+                  <Box sx={{ mx: 0, mt: 0 }}>
+                    <TextField
+                      margin="normal"
+                      fullWidth
+                      id="productDescription"
+                      label="Produktbeschreibung"
+                      multiline
+                      rows={10}
+                      value={product?.productDescription}
+                      focused
+                      InputProps={{
+                        readOnly: true,
+                      }}
+                    />
+                  </Box>
+                </Grid>
               </Grid>
             </Grid>
           </Box>
@@ -147,7 +139,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
           {/* ### Morphological Box ### */}
 
           <Box
-            px={{ xs: 6, sm: 6 }}
+            px={{ xs: 10, sm: 10 }}
             py={{ xs: 2, sm: 2 }}
             mx={{ xs: 0, sm: 0 }}
             my={{ xs: 0, sm: 0 }}
@@ -196,7 +188,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           value="Gesetzeskonformität"
                           aria-label="Gesetzeskonformität"
                           selected={
-                            product?.anwendungsbereich.Gesetzeskonformität
+                            product?.anwendungsbereich?.Gesetzeskonformität
                           }
                         >
                           Gesetzeskonformität
@@ -205,7 +197,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="Certification"
                           value="Zertifizierung"
                           aria-label="Zertifizierung"
-                          selected={product?.anwendungsbereich.Zertifizierung}
+                          selected={product?.anwendungsbereich?.Zertifizierung}
                         >
                           Zertifizierung
                         </ToggleButton>
@@ -213,7 +205,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="EcoAccounting"
                           value="Ökobilanzierung"
                           aria-label="Ökobilanzierung"
-                          selected={product?.anwendungsbereich.Ökobilanzierung}
+                          selected={product?.anwendungsbereich?.Ökobilanzierung}
                         >
                           Bilanzierung
                         </ToggleButton>
@@ -221,7 +213,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="LifeCycle"
                           value="Lebenszyklus"
                           aria-label="Lebenszyklus"
-                          selected={product?.anwendungsbereich.Lebenszyklus}
+                          selected={product?.anwendungsbereich?.Lebenszyklus}
                         >
                           Lebenszyklus
                         </ToggleButton>
@@ -230,7 +222,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           value="Berichterstattung"
                           aria-label="Berichterstattung"
                           selected={
-                            product?.anwendungsbereich.Berichterstattung
+                            product?.anwendungsbereich?.Berichterstattung
                           }
                         >
                           Berichterstattung
@@ -241,7 +233,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           aria-label="Entscheidungsunterstützung"
                           selected={
                             product?.anwendungsbereich
-                              .Entscheidungsunterstützung
+                              ?.Entscheidungsunterstützung
                           }
                         >
                           Entscheidungsunterstützung
@@ -250,7 +242,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="OccupationalHealthAndSafety"
                           value="Arbeitsschutz"
                           aria-label="Arbeitsschutz"
-                          selected={product?.anwendungsbereich.Arbeitsschutz}
+                          selected={product?.anwendungsbereich?.Arbeitsschutz}
                         >
                           Arbeitsschutz
                         </ToggleButton>
@@ -286,7 +278,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="Waste"
                           value="Abfall"
                           aria-label="Abfall"
-                          selected={product?.objektAspekt.Abfall}
+                          selected={product?.objektAspekt?.Abfall}
                         >
                           Abfall
                         </ToggleButton>
@@ -294,7 +286,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="Facilities"
                           value="Anlagen"
                           aria-label="Anlagen"
-                          selected={product?.objektAspekt.Anlagen}
+                          selected={product?.objektAspekt?.Anlagen}
                         >
                           Anlagen
                         </ToggleButton>
@@ -302,7 +294,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="HazardousMaterial"
                           value="Gefahrstoff"
                           aria-label="Gefahrstoff"
-                          selected={product?.objektAspekt.Gefahrstoffe}
+                          selected={product?.objektAspekt?.Gefahrstoffe}
                         >
                           Gefahrstoff
                         </ToggleButton>
@@ -310,7 +302,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="Emission"
                           value="Emission"
                           aria-label="Emission"
-                          selected={product?.objektAspekt.Emissionen}
+                          selected={product?.objektAspekt?.Emissionen}
                         >
                           Emission
                         </ToggleButton>
@@ -318,7 +310,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="Energy"
                           value="Energie"
                           aria-label="Energie"
-                          selected={product?.objektAspekt.Energie}
+                          selected={product?.objektAspekt?.Energie}
                         >
                           Energie
                         </ToggleButton>
@@ -326,7 +318,9 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="SubstanceFlow"
                           value="Stoff/Stoffstrom"
                           aria-label="Stoff/Stoffstrom"
-                          selected={product?.objektAspekt['Stoffe/Stoffströme']}
+                          selected={
+                            product?.objektAspekt?.['Stoffe/Stoffströme']
+                          }
                         >
                           Stoff/Stoffstrom
                         </ToggleButton>
@@ -363,7 +357,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           value="Verwaltungszentriert"
                           aria-label="Verwaltungszentriert"
                           selected={
-                            product?.betrachtungskonzept.Verwaltungszentriert
+                            product?.betrachtungskonzept?.Verwaltungszentriert
                           }
                         >
                           Verwaltungszentriert
@@ -373,7 +367,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           value="Bewertungszentriert"
                           aria-label="Bewertungszentriert"
                           selected={
-                            product?.betrachtungskonzept.Bewertungszentriert
+                            product?.betrachtungskonzept?.Bewertungszentriert
                           }
                         >
                           Bewertungszentriert
@@ -383,7 +377,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           value="Managementzentriert"
                           aria-label="Managementzentriert"
                           selected={
-                            product?.betrachtungskonzept.Managementzentriert
+                            product?.betrachtungskonzept?.Managementzentriert
                           }
                         >
                           Managementzentriert
@@ -420,7 +414,9 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="LocationOperation"
                           value="Standort/Betrieb"
                           aria-label="Standort/Betrieb"
-                          selected={product?.systemgrenzen['Standort/Betrieb']}
+                          selected={
+                            product?.systemgrenzen?.['Standort/Betrieb']
+                          }
                         >
                           Standort/Betrieb
                         </ToggleButton>
@@ -428,7 +424,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="Process"
                           value="Prozess"
                           aria-label="Prozess"
-                          selected={product?.systemgrenzen.Prozess}
+                          selected={product?.systemgrenzen?.Prozess}
                         >
                           Prozess
                         </ToggleButton>
@@ -436,7 +432,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="ProductBased"
                           value="Produkt"
                           aria-label="Produkt"
-                          selected={product?.systemgrenzen.Produkt}
+                          selected={product?.systemgrenzen?.Produkt}
                         >
                           Produkt
                         </ToggleButton>
@@ -444,7 +440,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="Intercompany"
                           value="Zwischenbetrieblich"
                           aria-label="Zwischenbetrieblich"
-                          selected={product?.systemgrenzen.Zwischenbetrieblich}
+                          selected={product?.systemgrenzen?.Zwischenbetrieblich}
                         >
                           Zwischenbetrieblich
                         </ToggleButton>
@@ -480,7 +476,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="BusinessManagement"
                           value="Geschäftsführung"
                           aria-label="Geschäftsführung"
-                          selected={product?.zielgruppe.Geschäftsführung}
+                          selected={product?.zielgruppe?.Geschäftsführung}
                         >
                           Geschäftsführung
                         </ToggleButton>
@@ -488,7 +484,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="EnvironmentalOfficer"
                           value="Umweltbeauftragter"
                           aria-label="Umweltbeauftragter"
-                          selected={product?.zielgruppe.Umweltbeauftragte}
+                          selected={product?.zielgruppe?.Umweltbeauftragte}
                         >
                           Umweltbeauftragter
                         </ToggleButton>
@@ -496,7 +492,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="SpecialtyDepartment"
                           value="Fachabteilung"
                           aria-label="Fachabteilung"
-                          selected={product?.zielgruppe.Fachabteilung}
+                          selected={product?.zielgruppe?.Fachabteilung}
                         >
                           Fachabteilung
                         </ToggleButton>
@@ -504,7 +500,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="Staff"
                           value="Mitarbeiter"
                           aria-label="Mitarbeiter"
-                          selected={product?.zielgruppe.Mitarbeiter}
+                          selected={product?.zielgruppe?.Mitarbeiter}
                         >
                           Mitarbeiter
                         </ToggleButton>
@@ -512,7 +508,9 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="ExternalStakeholders"
                           value="Externe Stakeholder"
                           aria-label="Externe Stakeholder"
-                          selected={product?.zielgruppe['externe Stakeholder']}
+                          selected={
+                            product?.zielgruppe?.['externe Stakeholder']
+                          }
                         >
                           Externe Stakeholder
                         </ToggleButton>
@@ -548,7 +546,9 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="StandAlone"
                           value="Stand-Alone"
                           aria-label="Stand-Alone"
-                          selected={product?.gradDerIntegrierung['Stand-Alone']}
+                          selected={
+                            product?.gradDerIntegrierung?.['Stand-Alone']
+                          }
                         >
                           Stand-Alone
                         </ToggleButton>
@@ -556,7 +556,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="Addon"
                           value="Add-On"
                           aria-label="Add-On"
-                          selected={product?.gradDerIntegrierung['Add-On']}
+                          selected={product?.gradDerIntegrierung?.['Add-On']}
                         >
                           Add-On
                         </ToggleButton>
@@ -564,7 +564,7 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="Integration"
                           value="Intergriert"
                           aria-label="Intergriert"
-                          selected={product?.gradDerIntegrierung.integriert}
+                          selected={product?.gradDerIntegrierung?.integriert}
                         >
                           Intergriert
                         </ToggleButton>
@@ -572,7 +572,9 @@ export default function MyProductsEdit(props: MyProductEditProps) {
                           id="SaaS-Lösung"
                           value="SaaS-Lösung"
                           aria-label="SaaS-Lösung"
-                          selected={product?.gradDerIntegrierung['SaaS-Lösung']}
+                          selected={
+                            product?.gradDerIntegrierung?.['SaaS-Lösung']
+                          }
                         >
                           SaaS-Lösung
                         </ToggleButton>

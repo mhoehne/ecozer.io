@@ -314,7 +314,7 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
                       size="small"
                       variant="contained"
                       color="secondary"
-                      href={`/my-product/${props.Product._id}/edit`}
+                      href={`/my-products/${props.Product._id}/edit`}
                       sx={{}}
                     >
                       <EditIcon />
