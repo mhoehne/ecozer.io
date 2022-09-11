@@ -1,18 +1,24 @@
 import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
-import { Grid, Container } from '@mui/material';
+import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
+import {
+  Grid,
+  Container,
+  Stack,
+  Box,
+  TextField,
+  Typography,
+  Paper,
+  ToggleButton,
+  ToggleButtonGroup,
+} from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 import SampleImg from '../images/sample-img.png';
-import TextField from '@mui/material/TextField';
 import { getProduct, ProductType, AccountType } from '../API';
-import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useNavigate, NavigateFunction } from 'react-router-dom';
 
 {
   /* TODO */
@@ -27,7 +33,7 @@ import { useEffect, useState } from 'react';
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   '& .MuiToggleButtonGroup-grouped': {
-    margin: theme.spacing(0.5),
+    margin: theme.spacing(0),
     border: 0,
     '&.Mui-disabled': {
       border: 0,
@@ -41,7 +47,16 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   },
 }));
 
-export default function MyProductsEdit() {
+interface MyProductsEditProps {
+  account: AccountType | null;
+}
+
+export default function MyProductsEdit(props: MyProductsEditProps) {
+  const navigate = useNavigate();
+  if (props.account?._id === undefined) {
+    alert('Error: Account ID is not expected to be undefined');
+    return null;
+  }
   const params = useParams();
 
   const [product, setProduct] = useState<ProductType>();
@@ -51,9 +66,29 @@ export default function MyProductsEdit() {
     });
   }, []);
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    // onSubmit call setProduct, make sure that the values are set correctly
+    // setProduct(product)
+    //   .then((product) => {
+    //     return navigate('/my-products');
+    //   })
+    //   .catch((msg) => {
+    //     alert('error');
+    //   });
+  };
+
   return (
     <>
-      <Box sx={{ my: 10 }}>
+      <Box
+        sx={{ my: 10 }}
+        component="form"
+        noValidate
+        justifyContent="center"
+        alignItems="center"
+        onSubmit={handleSubmit}
+      >
         <Container component="main" maxWidth="md">
           <Box px={{ xs: 0, sm: 0 }} py={{ xs: 2, sm: 2 }}>
             <Grid
@@ -83,9 +118,8 @@ export default function MyProductsEdit() {
                     id="productName"
                     label="Produktname"
                     value={product?.productName}
-                    focused
                     InputProps={{
-                      readOnly: true,
+                      readOnly: false,
                     }}
                   />
                 </Grid>
@@ -96,9 +130,8 @@ export default function MyProductsEdit() {
                     id="productLink"
                     label="Website"
                     value={product?.productLink}
-                    focused
                     InputProps={{
-                      readOnly: true,
+                      readOnly: false,
                     }}
                   />
                 </Grid>
@@ -109,9 +142,8 @@ export default function MyProductsEdit() {
                     id="productCompany"
                     label="Unternehmen"
                     value={product?.productCompany}
-                    focused
                     InputProps={{
-                      readOnly: true,
+                      readOnly: false,
                     }}
                   />
                 </Grid>
@@ -125,9 +157,8 @@ export default function MyProductsEdit() {
                       multiline
                       rows={10}
                       value={product?.productDescription}
-                      focused
                       InputProps={{
-                        readOnly: true,
+                        readOnly: false,
                       }}
                     />
                   </Box>
@@ -585,6 +616,27 @@ export default function MyProductsEdit() {
               </Grid>
             </Box>
           </Box>
+          <Stack
+            direction="row"
+            justifyContent="flex-end"
+            alignItems="flex-start"
+            spacing={0}
+            sx={{ mt: 3 }}
+          >
+            <Button
+              size="medium"
+              variant="contained"
+              color="secondary"
+              startIcon={<SaveOutlinedIcon />}
+              sx={{ color: 'background.paper' }}
+              href=""
+              onClick={() => {
+                setProduct(product);
+              }}
+            >
+              Speichern
+            </Button>
+          </Stack>
         </Container>
       </Box>
     </>
