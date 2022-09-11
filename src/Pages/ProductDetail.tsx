@@ -27,7 +27,7 @@ import { useEffect, useState } from 'react';
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   '& .MuiToggleButtonGroup-grouped': {
-    margin: theme.spacing(0.5),
+    margin: theme.spacing(0),
     border: 0,
     '&.Mui-disabled': {
       border: 0,
