@@ -84,6 +84,7 @@ export default function ProductDetailViewCard(
                 id="productName"
                 label="Produktname"
                 required={true}
+                value={props.product.productName}
               />
 
               <TextField

@@ -85,6 +85,11 @@ export default function AdminApprovalDetail() {
     setOpen(false);
   };
 
+  const setPublished = () => {
+    // call API to update the product
+    // set product state
+  };
+
   return (
     <>
       <Box sx={{ my: 10 }}>
@@ -638,6 +643,7 @@ export default function AdminApprovalDetail() {
           startIcon={<DoneIcon />}
           sx={{ color: 'background.paper' }}
           href=""
+          onClick={setPublished}
         >
           Veröffentlichen
         </Button>
