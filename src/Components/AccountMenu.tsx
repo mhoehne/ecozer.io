@@ -140,7 +140,7 @@ function getAdminMenu(
         Produktliste
       </MenuItem>
       <Divider />
-      <MenuItem>
+      {/* <MenuItem>
         <ListItemIcon>
           <PersonAdd fontSize="small" />
         </ListItemIcon>
@@ -151,7 +151,7 @@ function getAdminMenu(
           <Settings fontSize="small" />
         </ListItemIcon>
         Einstellungen
-      </MenuItem>
+      </MenuItem> */}
       {/* call handleSubmit to remove cookie and redirect the user to the homepage */}
       <MenuItem component="form" onClick={handleSubmit}>
         <ListItemIcon>
