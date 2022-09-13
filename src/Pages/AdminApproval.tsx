@@ -8,7 +8,7 @@ import { GetProducts, ProductType, AccountType } from '../API';
   /* TODO */
 }
 {
-  /*  */
+  /* # unable to see all pending, rejected or published product from all users */
 }
 
 {
