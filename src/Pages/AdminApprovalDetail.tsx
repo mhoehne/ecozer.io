@@ -29,6 +29,7 @@ import {
   IncrementProductViewCount,
   ProductType,
   AccountType,
+  PutProducts,
 } from '../API';
 import { styled } from '@mui/material/styles';
 
@@ -67,7 +68,7 @@ export default function AdminApprovalDetail() {
     /* call publishProduct and set product state to published */
   }
   const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down('xl'));
+  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
   const params = useParams();
 
   const [product, setProduct] = useState<ProductType>();
@@ -88,7 +89,25 @@ export default function AdminApprovalDetail() {
     setOpen(false);
   };
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    // onSubmit call createProduct
+    // CreateProduct(product)
+    //   .then((product) => {
+    //     return navigate('/my-products');
+    //   })
+    //   .catch((msg) => {
+    //     alert('error');
+    //   });
+  };
+
   const setPublished = () => {
+    // call API to update the product
+    // set product state
+  };
+
+  const setRejected = () => {
     // call API to update the product
     // set product state
   };
@@ -677,7 +696,7 @@ export default function AdminApprovalDetail() {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>schließen</Button>
-          <Button variant="contained" color="error" onClick={() => {}}>
+          <Button variant="contained" color="error" onClick={setRejected}>
             Ablehnen
           </Button>
         </DialogActions>
