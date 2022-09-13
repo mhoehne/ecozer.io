@@ -9,9 +9,18 @@ import {
 } from '@mui/x-data-grid';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
-import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
+import { useTheme } from '@mui/material/styles';
 import { useEffect, useState, useCallback } from 'react';
-import { Box } from '@mui/material';
+import {
+  Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  useMediaQuery,
+} from '@mui/material';
 import {
   GetProducts,
   ProductType,
@@ -86,8 +95,17 @@ const onRowEdit = (products: ProductType[], state: GridEditRowsModel) => {
 export default function ProductListGrid() {
   // pagination
   const [pageSize, setPageSize] = React.useState<number>(20);
-
+  const [open, setOpen] = React.useState(false);
   const [products, setProducts] = useState<ProductType[]>([]);
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const deleteProduct = useCallback(
     (id) => () => {
@@ -127,7 +145,7 @@ export default function ProductListGrid() {
         <GridActionsCellItem
           icon={<AssignmentIndOutlinedIcon />}
           label="Zuweisen"
-          onClick={deleteProduct(params.id)}
+          onClick={handleClickOpen}
           showInMenu
         />,
       ],
@@ -181,28 +199,59 @@ export default function ProductListGrid() {
   }, []);
 
   return (
-    <Box
-      px={{ xs: 2, sm: 2 }}
-      mx={{ xs: 0, sm: 0 }}
-      bgcolor="background.paper"
-      color="text.primary"
-    >
-      <div style={{ height: '80vh', width: '100%' }}>
-        <DataGrid
-          rows={products}
-          columns={columns}
-          getRowId={(product) => product._id}
-          onEditRowsModelChange={(state) => onRowEdit(products, state)}
-          disableSelectionOnClick
-          density="standard"
-          components={{
-            Toolbar: CustomToolbar,
-          }}
-          pageSize={pageSize}
-          onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-          rowsPerPageOptions={[20, 40, 60]}
-        />
-      </div>
-    </Box>
+    <>
+      <Box
+        px={{ xs: 2, sm: 2 }}
+        mx={{ xs: 0, sm: 0 }}
+        bgcolor="background.paper"
+        color="text.primary"
+      >
+        <div style={{ height: '80vh', width: '100%' }}>
+          <DataGrid
+            rows={products}
+            columns={columns}
+            getRowId={(product) => product._id}
+            onEditRowsModelChange={(state) => onRowEdit(products, state)}
+            disableSelectionOnClick
+            density="standard"
+            components={{
+              Toolbar: CustomToolbar,
+            }}
+            pageSize={pageSize}
+            onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+            rowsPerPageOptions={[20, 40, 60]}
+          />
+        </div>
+      </Box>
+      <Dialog
+        fullScreen={fullScreen}
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="responsive-dialog-title"
+      >
+        <DialogTitle id="responsive-dialog-title">
+          {'Benutzerliste'}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Hier kannst du bald ein Produkt einem anderen Benutzer zuweisen.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button autoFocus onClick={handleClose}>
+            Schließen
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleClose}
+            autoFocus
+            sx={{ color: 'background.paper' }}
+          >
+            Zuweisen
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </>
   );
 }

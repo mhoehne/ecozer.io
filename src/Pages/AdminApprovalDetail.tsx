@@ -17,9 +17,11 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  useMediaQuery,
 } from '@mui/material';
 import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
+import { useTheme } from '@mui/material/styles';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import {
@@ -64,7 +66,8 @@ export default function AdminApprovalDetail() {
   {
     /* call publishProduct and set product state to published */
   }
-
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('xl'));
   const params = useParams();
 
   const [product, setProduct] = useState<ProductType>();
@@ -639,7 +642,7 @@ export default function AdminApprovalDetail() {
         <Button
           size="medium"
           variant="contained"
-          color="success"
+          color="primary"
           startIcon={<DoneIcon />}
           sx={{ color: 'background.paper' }}
           href=""
@@ -650,8 +653,14 @@ export default function AdminApprovalDetail() {
         {/* user gets a notification about the approval of his product */}
         {/* after approving the product, set state to "published". (product should appear in the search) */}
       </Stack>
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Ablehnungsgrund</DialogTitle>
+      <Dialog
+        fullScreen={fullScreen}
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="responsive-dialog-title"
+        fullWidth={true}
+      >
+        <DialogTitle id="responsive-dialog-title">Ablehnungsgrund</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
@@ -664,7 +673,6 @@ export default function AdminApprovalDetail() {
             multiline
             rows={8}
             focused
-            sx={{ width: '35vw' }}
           />
         </DialogContent>
         <DialogActions>
