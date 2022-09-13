@@ -16,6 +16,7 @@ import AppBarTop from './Components/AppBarTop';
 import Dashboard from './Pages/Dashboard';
 import Glossar from './Pages/Glossar';
 import ProductList from './Pages/ProductList';
+import NotificationLog from './Pages/NotificationLog';
 import { useCookies } from 'react-cookie';
 import { useState, useEffect } from 'react';
 import { AccountType, ProductType, GetAccountByEmail, getProduct } from './API';
@@ -77,6 +78,7 @@ export default function App() {
 
           {/* User */}
           <Route path="/account" element={<Account />} />
+          <Route path="/notification-log" element={<NotificationLog />} />
           {account ? (
             <Route
               path="/my-products"

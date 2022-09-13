@@ -93,7 +93,7 @@ export default function NotificationMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem component={Link} to="/notification-logs">
+        <MenuItem component={Link} to="/notification-log">
           Dieses Feature ist bald verfügbar
         </MenuItem>
         <List
