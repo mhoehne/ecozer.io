@@ -1,8 +1,18 @@
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import CardMedia from '@mui/material/CardMedia';
+import * as React from 'react';
+import {
+  Container,
+  Button,
+  Grid,
+  Box,
+  Link,
+  CardMedia,
+  TextField,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from '@mui/material';
 import LogoFooter from '../images/S20_HTW_Berlin_Logo_neg_WEISS_RGB.png';
 
 {
@@ -19,6 +29,16 @@ import LogoFooter from '../images/S20_HTW_Berlin_Logo_neg_WEISS_RGB.png';
 }
 
 export default function Footer() {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <footer>
       <Box
@@ -48,10 +68,64 @@ export default function Footer() {
 
             <Grid item xs={12} sm={3}>
               <Box>
-                <Link href="#" underline="none" color="inherit">
-                  Footer Link
+                <Link
+                  onClick={handleClickOpen}
+                  underline="none"
+                  color="inherit"
+                >
+                  Bug melden
                 </Link>
               </Box>
+              <Dialog open={open} onClose={handleClose}>
+                <DialogTitle>Bug melden</DialogTitle>
+                <DialogContent>
+                  <DialogContentText></DialogContentText>
+                  <TextField
+                    autoFocus
+                    margin="dense"
+                    label="Email Address"
+                    type="email"
+                    fullWidth
+                    variant="outlined"
+                  />
+                  <TextField
+                    autoFocus
+                    margin="dense"
+                    label="Browser"
+                    type="text"
+                    fullWidth
+                    variant="outlined"
+                  />
+                  <TextField
+                    autoFocus
+                    margin="dense"
+                    label="Seitenname"
+                    type="text"
+                    fullWidth
+                    variant="outlined"
+                  />
+                  <TextField
+                    autoFocus
+                    margin="dense"
+                    label="Schritte zum Reproduzieren"
+                    type="text"
+                    fullWidth
+                    variant="outlined"
+                    multiline
+                    rows={8}
+                  />
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleClose}>zurück</Button>
+                  <Button
+                    variant="contained"
+                    onClick={handleClose}
+                    sx={{ color: 'background.paper' }}
+                  >
+                    Senden
+                  </Button>
+                </DialogActions>
+              </Dialog>
             </Grid>
 
             <Grid item xs={12} sm={3}>
