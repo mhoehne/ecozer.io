@@ -81,17 +81,7 @@ export default function AdminApproval(props: AdminApprovalProps) {
     if (value == 1) {
       state = 'rejected';
     }
-    GetProducts(
-      null,
-      account_id ?? null,
-      zielgruppe,
-      anwendungsbereich,
-      gradDerIntegrierung,
-      objektAspekt,
-      systemgrenzen,
-      betrachtungskonzept,
-      state
-    )
+    GetProducts(null, null, [], [], [], [], [], [], state)
       .then((result) => {
         setProducts(result.data.products);
       })
