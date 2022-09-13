@@ -1,13 +1,25 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
+import {
+  Box,
+  Menu,
+  MenuItem,
+  ListItemIcon,
+  IconButton,
+  Tooltip,
+  Badge,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemAvatar,
+  Avatar,
+  Divider,
+} from '@mui/material';
 import { Link } from 'react-router-dom';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import Badge from '@mui/material/Badge';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
+import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
+import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 
 {
   /* TODO */
@@ -34,7 +46,14 @@ export default function NotificationMenu() {
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Tooltip title="Benachrichtigungen">
           <IconButton onClick={handleClick} size="medium" color="inherit">
-            <Badge badgeContent={1} color="error">
+            <Badge
+              color="secondary"
+              variant="dot"
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+            >
               <NotificationsIcon color="info" />
             </Badge>
           </IconButton>
@@ -74,9 +93,72 @@ export default function NotificationMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem component={Link} to="">
-          <ListItemIcon></ListItemIcon>this feature is coming soon
+        <MenuItem component={Link} to="/notification-logs">
+          Dieses Feature ist bald verfügbar
         </MenuItem>
+        <List
+          sx={{
+            width: '100%',
+            maxWidth: 360,
+            bgcolor: 'background.paper',
+          }}
+        >
+          <Divider variant="fullWidth" component="li" />
+          <ListItem
+            alignItems="center"
+            secondaryAction={
+              <IconButton edge="end" aria-label="delete">
+                <CancelOutlinedIcon />
+              </IconButton>
+            }
+          >
+            <ListItemAvatar>
+              <Avatar sx={{ backgroundColor: '#fc998d' }}>
+                <CloseOutlinedIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="Abgelehnt" secondary="Begründung..." />
+          </ListItem>
+          <Divider variant="fullWidth" component="li" />
+          <ListItem
+            alignItems="center"
+            secondaryAction={
+              <IconButton edge="end" aria-label="delete">
+                <CancelOutlinedIcon />
+              </IconButton>
+            }
+          >
+            <ListItemAvatar>
+              <Avatar sx={{ backgroundColor: '#50cc52' }}>
+                <CheckOutlinedIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText
+              primary="Veröffentlicht"
+              secondary="Ihr Produkt `Name` wurde veröffentlicht. "
+            />
+          </ListItem>
+          <Divider variant="fullWidth" component="li" />
+          <ListItem
+            // sx={{ backgroundColor: '#ffec96' }}
+            alignItems="center"
+            secondaryAction={
+              <IconButton edge="end" aria-label="delete">
+                <CancelOutlinedIcon />
+              </IconButton>
+            }
+          >
+            <ListItemAvatar>
+              <Avatar sx={{ backgroundColor: '#ffbf03' }}>
+                <AccessTimeOutlinedIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText
+              primary="Überprüfung ausstehend"
+              secondary="Ihr Produkt `Name` wird in kürze von einem Administrator überprüft."
+            />
+          </ListItem>
+        </List>
       </Menu>
     </React.Fragment>
   );
