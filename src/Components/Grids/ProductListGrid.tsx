@@ -8,6 +8,7 @@ import {
   GridRowId,
 } from '@mui/x-data-grid';
 import DeleteIcon from '@mui/icons-material/Delete';
+import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
 import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
 import { useEffect, useState, useCallback } from 'react';
 import { Box } from '@mui/material';
@@ -123,18 +124,17 @@ export default function ProductListGrid() {
           onClick={deleteProduct(params.id)}
           showInMenu
         />,
+        <GridActionsCellItem
+          icon={<AssignmentIndOutlinedIcon />}
+          label="Zuweisen"
+          onClick={deleteProduct(params.id)}
+          showInMenu
+        />,
       ],
     },
     {
-      field: 'account_id',
-      headerName: 'AID',
-      type: 'string',
-      width: 50,
-      editable: true,
-    },
-    {
       field: '_id',
-      headerName: 'PID',
+      headerName: 'ID',
       type: 'string',
       width: 50,
       editable: false,
