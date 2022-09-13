@@ -289,24 +289,22 @@ export default function AccordionFilter(props: AccordionFilterProps) {
               <FormControlLabel
                 control={
                   <Checkbox
-                    checked={props.Anwendungsbereich.includes(
-                      'Unternehmensverbünde'
-                    )}
+                    checked={props.Anwendungsbereich.includes('Arbeitsschutz')}
                   />
                 }
-                label="Unternehmensverbünde"
+                label="Arbeitsschutz"
                 onChange={useCallback(
                   function (event, checked) {
                     if (checked === true) {
                       const newAnwendungsbereich = [
                         ...props.Anwendungsbereich,
-                        'Unternehmensverbünde',
+                        'Arbeitsschutz',
                       ];
                       props.setAnwendungsbereich(newAnwendungsbereich);
                     } else {
                       props.setAnwendungsbereich(
                         props.Anwendungsbereich.filter(
-                          (name) => 'Unternehmensverbünde' != name
+                          (name) => 'Arbeitsschutz' != name
                         )
                       );
                     }
