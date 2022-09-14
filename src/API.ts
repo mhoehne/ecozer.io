@@ -256,20 +256,18 @@ export function PutProducts(
 }
 
 export function PublishProduct(
-  productID: ProductType
-): Promise<AxiosResponse<ProductCreatedResultType>> {
-  return axios.post<ProductCreatedResultType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/${productID}/publish`,
-    productID
+  productID: string
+): Promise<AxiosResponse<ProductType>> {
+  return axios.post<ProductType>(
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/${productID}/publish`
   );
 }
 
 export function RejectProduct(
-  productID: ProductType
-): Promise<AxiosResponse<ProductCreatedResultType>> {
-  return axios.post<ProductCreatedResultType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/${productID}/reject`,
-    productID
+  productID: string
+): Promise<AxiosResponse<ProductType>> {
+  return axios.post<ProductType>(
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/${productID}/reject`
   );
 }
 
