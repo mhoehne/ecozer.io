@@ -93,27 +93,29 @@ export default function AdminApprovalDetail() {
   };
 
   const setPublished = () => {
-    // call API to update the product
-    // set product state
-    // PublishProduct(product?.state as string)
-    //   .then((product) => {
-    //     return navigate('/approval');
-    //   })
-    //   .catch((msg) => {
-    //     alert('error');
-    //   });
+    if (params.id === undefined) {
+      return;
+    }
+    PublishProduct(params.id)
+      .then((product) => {
+        return;
+      })
+      .catch((msg) => {
+        alert('error');
+      });
   };
 
   const setRejected = () => {
-    // call API to update the product
-    // set product state
-    // RejectProduct(product?.state as string)
-    //   .then((product) => {
-    //     return navigate('/approval');
-    //   })
-    //   .catch((msg) => {
-    //     alert('error');
-    //   });
+    if (params.id === undefined) {
+      return;
+    }
+    RejectProduct(params.id)
+      .then((product) => {
+        return;
+      })
+      .catch((msg) => {
+        alert('error');
+      });
   };
 
   return (
@@ -214,7 +216,7 @@ export default function AdminApprovalDetail() {
           >
             <Box sx={{ width: '100%', my: 3 }}>
               <Typography variant="h4" align="center" sx={{ m: 5 }}>
-                Mermale & Ausprägungen
+                Merkmale & Ausprägungen
               </Typography>
               <Grid
                 container
@@ -638,42 +640,43 @@ export default function AdminApprovalDetail() {
                   </div>
                 </Grid>
               </Grid>
+              <Stack
+                direction="row"
+                justifyContent="flex-end"
+                alignItems="flex-start"
+                spacing={2}
+                sx={{ m: 5 }}
+              >
+                <Button
+                  size="medium"
+                  variant="contained"
+                  color="error"
+                  startIcon={<CloseIcon />}
+                  onClick={handleClickOpen}
+                >
+                  Ablehnen
+                </Button>
+                {/* "Ablehnen"/reject button triggers a dialog, where the admin can put a short description why he rejected the product */}
+                {/* User gets a notification about the rejection and the description of the admin dialog */}
+                {/* after rejecting the product, set state to "rejected" */}
+                <Button
+                  variant="contained"
+                  color="primary"
+                  startIcon={<DoneIcon />}
+                  sx={{ color: 'background.paper' }}
+                  onClick={setPublished}
+                  href="/approval"
+                >
+                  Veröffentlichen
+                </Button>
+                {/* user gets a notification about the approval of his product */}
+                {/* after approving the product, set state to "published". (product should appear in the search) */}
+              </Stack>
             </Box>
           </Box>
         </Container>
       </Box>
 
-      <Stack
-        direction="row"
-        justifyContent="flex-end"
-        alignItems="flex-start"
-        spacing={2}
-        sx={{ m: 5 }}
-      >
-        <Button
-          size="medium"
-          variant="contained"
-          color="error"
-          startIcon={<CloseIcon />}
-          onClick={handleClickOpen}
-        >
-          Ablehnen
-        </Button>
-        {/* "Ablehnen"/reject button triggers a dialog, where the admin can put a short description why he rejected the product */}
-        {/* User gets a notification about the rejection and the description of the admin dialog */}
-        {/* after rejecting the product, set state to "rejected" */}
-        <Button
-          variant="contained"
-          color="primary"
-          startIcon={<DoneIcon />}
-          sx={{ color: 'background.paper' }}
-          onClick={setPublished}
-        >
-          Veröffentlichen
-        </Button>
-        {/* user gets a notification about the approval of his product */}
-        {/* after approving the product, set state to "published". (product should appear in the search) */}
-      </Stack>
       <Dialog
         fullScreen={fullScreen}
         open={open}
@@ -698,7 +701,12 @@ export default function AdminApprovalDetail() {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>schließen</Button>
-          <Button variant="contained" color="error" onClick={setRejected}>
+          <Button
+            variant="contained"
+            color="error"
+            onClick={setRejected}
+            href="/approval"
+          >
             Ablehnen
           </Button>
         </DialogActions>

@@ -43,11 +43,13 @@ export default function ProductDetailViewCard(
           container
           direction="row"
           justifyContent="center"
-          rowSpacing={0}
-          columnSpacing={{ xs: 1, sm: 1, md: 2 }}
+          rowSpacing={1}
+          columnSpacing={{ xs: 0, sm: 0, md: 0 }}
           sx={{ p: 2 }}
+          bgcolor="background.paper"
+          color="text.primary"
         >
-          {/* <Grid item xs={7}> */}
+          {/* <Grid item xs={0}> */}
           {/* <CardMedia
               component="img"
               id="productImage"
