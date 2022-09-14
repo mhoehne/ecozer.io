@@ -23,7 +23,7 @@ import {
 } from '@mui/material';
 import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useNavigate, NavigateFunction, useParams } from 'react-router-dom';
 import {
   getProduct,
@@ -100,11 +100,10 @@ export default function AdminApprovalDetail(props: AdminApprovalDetailProps) {
     setOpen(false);
   };
 
-  const setPublished = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const setPublished = () => {
     // call API to update the product
     // set product state
-    PublishProduct(product?._id)
+    PublishProduct(product?.state as string)
       .then((product) => {
         return navigate('/approval');
       })
@@ -116,7 +115,7 @@ export default function AdminApprovalDetail(props: AdminApprovalDetailProps) {
   const setRejected = () => {
     // call API to update the product
     // set product state
-    RejectProduct(product?._id)
+    RejectProduct(product?.state as string)
       .then((product) => {
         return navigate('/approval');
       })
