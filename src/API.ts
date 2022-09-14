@@ -255,6 +255,24 @@ export function PutProducts(
   );
 }
 
+export function PublishProduct(
+  productID: ProductType
+): Promise<AxiosResponse<ProductCreatedResultType>> {
+  return axios.post<ProductCreatedResultType>(
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/${productID}/publish`,
+    productID
+  );
+}
+
+export function RejectProduct(
+  productID: ProductType
+): Promise<AxiosResponse<ProductCreatedResultType>> {
+  return axios.post<ProductCreatedResultType>(
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/${productID}/reject`,
+    productID
+  );
+}
+
 /*DELETE*************************************************************************************************/
 
 export function DeleteProduct(product: ProductType): Promise<AxiosResponse> {
