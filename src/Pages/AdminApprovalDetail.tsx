@@ -103,25 +103,25 @@ export default function AdminApprovalDetail(props: AdminApprovalDetailProps) {
   const setPublished = () => {
     // call API to update the product
     // set product state
-    PublishProduct(product?.state as string)
-      .then((product) => {
-        return navigate('/approval');
-      })
-      .catch((msg) => {
-        alert('error');
-      });
+    // PublishProduct(product?.state as string)
+    //   .then((product) => {
+    //     return navigate('/approval');
+    //   })
+    //   .catch((msg) => {
+    //     alert('error');
+    //   });
   };
 
   const setRejected = () => {
     // call API to update the product
     // set product state
-    RejectProduct(product?.state as string)
-      .then((product) => {
-        return navigate('/approval');
-      })
-      .catch((msg) => {
-        alert('error');
-      });
+    // RejectProduct(product?.state as string)
+    //   .then((product) => {
+    //     return navigate('/approval');
+    //   })
+    //   .catch((msg) => {
+    //     alert('error');
+    //   });
   };
 
   return (
