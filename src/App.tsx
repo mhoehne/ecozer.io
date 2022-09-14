@@ -108,7 +108,7 @@ export default function App() {
 
           <Route
             path={`/approval/detail/:id`}
-            element={<AdminApprovalDetail account={account} />}
+            element={<AdminApprovalDetail />}
           />
           <Route path="/user-list" element={<UserList />} />
           <Route path="/product-list" element={<ProductList />} />
