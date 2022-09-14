@@ -62,22 +62,14 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   },
 }));
 
-interface AdminApprovalDetailProps {
-  account: AccountType | null;
-}
-
-export default function AdminApprovalDetail(props: AdminApprovalDetailProps) {
+export default function AdminApprovalDetail() {
   {
     /* when rejected button is clicked => show popup and enter a reason for the rejection => then click again on send button and call rejectProduct */
   }
   {
     /* call publishProduct and set product state to published */
   }
-  const navigate = useNavigate();
-  if (props.account?._id === undefined) {
-    alert('Error: Account ID is not expected to be undefined');
-    return null;
-  }
+
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
   const params = useParams();
