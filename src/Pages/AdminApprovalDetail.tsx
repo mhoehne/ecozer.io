@@ -18,20 +18,22 @@ import {
   DialogContentText,
   DialogTitle,
   useMediaQuery,
+  useTheme,
+  styled,
 } from '@mui/material';
 import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
-import { useTheme } from '@mui/material/styles';
-import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useNavigate, NavigateFunction, useParams } from 'react-router-dom';
 import {
   getProduct,
   IncrementProductViewCount,
   ProductType,
   AccountType,
   PutProducts,
+  RejectProduct,
+  PublishProduct,
 } from '../API';
-import { styled } from '@mui/material/styles';
 
 {
   /* TODO */
@@ -60,12 +62,21 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   },
 }));
 
-export default function AdminApprovalDetail() {
+interface AdminApprovalDetailProps {
+  account: AccountType | null;
+}
+
+export default function AdminApprovalDetail(props: AdminApprovalDetailProps) {
   {
     /* when rejected button is clicked => show popup and enter a reason for the rejection => then click again on send button and call rejectProduct */
   }
   {
     /* call publishProduct and set product state to published */
+  }
+  const navigate = useNavigate();
+  if (props.account?._id === undefined) {
+    alert('Error: Account ID is not expected to be undefined');
+    return null;
   }
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
@@ -89,27 +100,29 @@ export default function AdminApprovalDetail() {
     setOpen(false);
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const setPublished = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    // onSubmit call createProduct
-    // CreateProduct(product)
-    //   .then((product) => {
-    //     return navigate('/my-products');
-    //   })
-    //   .catch((msg) => {
-    //     alert('error');
-    //   });
-  };
-
-  const setPublished = () => {
     // call API to update the product
     // set product state
+    PublishProduct(product?._id)
+      .then((product) => {
+        return navigate('/approval');
+      })
+      .catch((msg) => {
+        alert('error');
+      });
   };
 
   const setRejected = () => {
     // call API to update the product
     // set product state
+    RejectProduct(product?._id)
+      .then((product) => {
+        return navigate('/approval');
+      })
+      .catch((msg) => {
+        alert('error');
+      });
   };
 
   return (
@@ -659,12 +672,10 @@ export default function AdminApprovalDetail() {
         {/* User gets a notification about the rejection and the description of the admin dialog */}
         {/* after rejecting the product, set state to "rejected" */}
         <Button
-          size="medium"
           variant="contained"
           color="primary"
           startIcon={<DoneIcon />}
           sx={{ color: 'background.paper' }}
-          href=""
           onClick={setPublished}
         >
           Veröffentlichen
