@@ -72,7 +72,7 @@ export default function ProductDetailViewCard(
             />*/}
           {/* </Grid> */}
           <Grid item xs={12} sx={{ mt: -2 }}>
-            <Grid item xs={4}>
+            <Grid item xs={12}>
               <TextField
                 onChange={function (event) {
                   const productname = {
@@ -83,6 +83,7 @@ export default function ProductDetailViewCard(
                 }}
                 margin="normal"
                 fullWidth
+                focused
                 id="productName"
                 label="Produktname"
                 required={true}
@@ -102,6 +103,7 @@ export default function ProductDetailViewCard(
                 id="productLink"
                 label="Website"
                 required={true}
+                value={props.product.productLink}
               />
               <TextField
                 onChange={function (event) {
@@ -116,6 +118,7 @@ export default function ProductDetailViewCard(
                 id="productCompany"
                 label="Firmenname"
                 required={true}
+                value={props.product.productCompany}
               />
             </Grid>
           </Grid>
@@ -136,6 +139,7 @@ export default function ProductDetailViewCard(
                 required={true}
                 multiline
                 rows={10}
+                value={props.product.productDescription}
               />
             </Box>
           </Grid>
