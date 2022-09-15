@@ -155,15 +155,17 @@ export default function ProductDetail() {
           >
             <Box sx={{ width: '100%', my: 3 }}>
               <Typography variant="h4" align="center" sx={{ m: 5 }}>
-                Mermale & Ausprägungen
+                Merkmale & Ausprägungen
               </Typography>
               <Grid
                 container
+                columns={{ xs: 4, sm: 6, md: 12 }}
                 direction="row"
                 justifyContent="space-between"
                 alignItems="flex-start"
-                rowSpacing={1}
-                columnSpacing={{ xs: 1, sm: 1, md: 1 }}
+                rowSpacing={3}
+                columnSpacing={{ xs: 1, sm: 2, md: 2 }}
+                xs={12}
               >
                 <Grid item xs="auto">
                   <Typography align="center" variant="h6">
@@ -266,9 +268,9 @@ export default function ProductDetail() {
                       elevation={0}
                       sx={{
                         display: 'flex',
-                        border: (theme) => `1px solid ${theme.palette.divider}`,
+                        border: (theme) => `2px solid ${theme.palette.divider}`,
                         flexWrap: 'wrap',
-                        my: 1,
+                        px: 0.4,
                       }}
                     >
                       {/* BETRACHTUNGSOBJEKT */}
@@ -344,9 +346,9 @@ export default function ProductDetail() {
                       elevation={0}
                       sx={{
                         display: 'flex',
-                        border: (theme) => `1px solid ${theme.palette.divider}`,
+                        border: (theme) => `2px solid ${theme.palette.divider}`,
                         flexWrap: 'wrap',
-                        my: 1,
+                        px: 0.4,
                       }}
                     >
                       {/* BETRACHTUNGSKONZEPT */}
@@ -402,9 +404,9 @@ export default function ProductDetail() {
                       elevation={0}
                       sx={{
                         display: 'flex',
-                        border: (theme) => `1px solid ${theme.palette.divider}`,
+                        border: (theme) => `2px solid ${theme.palette.divider}`,
                         flexWrap: 'wrap',
-                        my: 1,
+                        px: 0.4,
                       }}
                     >
                       {/* BETRACHTUNGSGRENZEN */}
@@ -464,9 +466,9 @@ export default function ProductDetail() {
                       elevation={0}
                       sx={{
                         display: 'flex',
-                        border: (theme) => `1px solid ${theme.palette.divider}`,
+                        border: (theme) => `2px solid ${theme.palette.divider}`,
                         flexWrap: 'wrap',
-                        my: 1,
+                        px: 0.4,
                       }}
                     >
                       {/* ZIELGRUPPE / ANWENDER */}
@@ -534,9 +536,9 @@ export default function ProductDetail() {
                       elevation={0}
                       sx={{
                         display: 'flex',
-                        border: (theme) => `1px solid ${theme.palette.divider}`,
+                        border: (theme) => `2px solid ${theme.palette.divider}`,
                         flexWrap: 'wrap',
-                        my: 1,
+                        px: 0.4,
                       }}
                     >
                       {/* ITEGRATIONSGRAD */}

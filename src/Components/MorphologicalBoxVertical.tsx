@@ -71,7 +71,7 @@ export default function MorphologicalBoxVertical(
             container
             columns={{ xs: 4, sm: 6, md: 12 }}
             direction="row"
-            justifyContent="center"
+            justifyContent="space-between"
             alignItems="flex-start"
             rowSpacing={3}
             columnSpacing={{ xs: 1, sm: 2, md: 2 }}

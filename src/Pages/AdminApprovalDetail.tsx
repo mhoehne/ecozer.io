@@ -48,7 +48,8 @@ import {
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   '& .MuiToggleButtonGroup-grouped': {
-    margin: theme.spacing(0),
+    marginTop: theme.spacing(0.4),
+    marginBottom: theme.spacing(0.4),
     border: 0,
     '&.Mui-disabled': {
       border: 0,
@@ -58,6 +59,10 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
     },
     '&:first-of-type': {
       borderRadius: theme.shape.borderRadius,
+    },
+    '&.Mui-selected': {
+      color: theme.palette.text.secondary,
+      backgroundColor: theme.palette.primary.light,
     },
   },
 }));
@@ -220,11 +225,13 @@ export default function AdminApprovalDetail() {
               </Typography>
               <Grid
                 container
+                columns={{ xs: 4, sm: 6, md: 12 }}
                 direction="row"
                 justifyContent="space-between"
                 alignItems="flex-start"
-                rowSpacing={1}
-                columnSpacing={{ xs: 1, sm: 1, md: 1 }}
+                rowSpacing={3}
+                columnSpacing={{ xs: 1, sm: 2, md: 2 }}
+                xs={12}
               >
                 <Grid item xs="auto">
                   <Typography align="center" variant="h6">
@@ -236,9 +243,9 @@ export default function AdminApprovalDetail() {
                       elevation={0}
                       sx={{
                         display: 'flex',
-                        border: (theme) => `1px solid ${theme.palette.divider}`,
+                        border: (theme) => `2px solid ${theme.palette.divider}`,
                         flexWrap: 'wrap',
-                        my: 1,
+                        px: 0.4,
                       }}
                     >
                       <StyledToggleButtonGroup
@@ -327,9 +334,9 @@ export default function AdminApprovalDetail() {
                       elevation={0}
                       sx={{
                         display: 'flex',
-                        border: (theme) => `1px solid ${theme.palette.divider}`,
+                        border: (theme) => `2px solid ${theme.palette.divider}`,
                         flexWrap: 'wrap',
-                        my: 1,
+                        px: 0.4,
                       }}
                     >
                       {/* BETRACHTUNGSOBJEKT */}
@@ -403,9 +410,9 @@ export default function AdminApprovalDetail() {
                       elevation={0}
                       sx={{
                         display: 'flex',
-                        border: (theme) => `1px solid ${theme.palette.divider}`,
+                        border: (theme) => `2px solid ${theme.palette.divider}`,
                         flexWrap: 'wrap',
-                        my: 1,
+                        px: 0.4,
                       }}
                     >
                       {/* BETRACHTUNGSKONZEPT */}
@@ -461,9 +468,9 @@ export default function AdminApprovalDetail() {
                       elevation={0}
                       sx={{
                         display: 'flex',
-                        border: (theme) => `1px solid ${theme.palette.divider}`,
+                        border: (theme) => `2px solid ${theme.palette.divider}`,
                         flexWrap: 'wrap',
-                        my: 1,
+                        px: 0.4,
                       }}
                     >
                       {/* BETRACHTUNGSGRENZEN */}
@@ -521,9 +528,9 @@ export default function AdminApprovalDetail() {
                       elevation={0}
                       sx={{
                         display: 'flex',
-                        border: (theme) => `1px solid ${theme.palette.divider}`,
+                        border: (theme) => `2px solid ${theme.palette.divider}`,
                         flexWrap: 'wrap',
-                        my: 1,
+                        px: 0.4,
                       }}
                     >
                       {/* ZIELGRUPPE / ANWENDER */}
@@ -589,9 +596,9 @@ export default function AdminApprovalDetail() {
                       elevation={0}
                       sx={{
                         display: 'flex',
-                        border: (theme) => `1px solid ${theme.palette.divider}`,
+                        border: (theme) => `2px solid ${theme.palette.divider}`,
                         flexWrap: 'wrap',
-                        my: 1,
+                        px: 0.4,
                       }}
                     >
                       {/* ITEGRATIONSGRAD */}
@@ -640,40 +647,40 @@ export default function AdminApprovalDetail() {
                   </div>
                 </Grid>
               </Grid>
-              <Stack
-                direction="row"
-                justifyContent="flex-end"
-                alignItems="flex-start"
-                spacing={2}
-                sx={{ m: 5 }}
-              >
-                <Button
-                  size="medium"
-                  variant="contained"
-                  color="error"
-                  startIcon={<CloseIcon />}
-                  onClick={handleClickOpen}
-                >
-                  Ablehnen
-                </Button>
-                {/* "Ablehnen"/reject button triggers a dialog, where the admin can put a short description why he rejected the product */}
-                {/* User gets a notification about the rejection and the description of the admin dialog */}
-                {/* after rejecting the product, set state to "rejected" */}
-                <Button
-                  variant="contained"
-                  color="primary"
-                  startIcon={<DoneIcon />}
-                  sx={{ color: 'background.paper' }}
-                  onClick={setPublished}
-                  href="/approval"
-                >
-                  Veröffentlichen
-                </Button>
-                {/* user gets a notification about the approval of his product */}
-                {/* after approving the product, set state to "published". (product should appear in the search) */}
-              </Stack>
             </Box>
           </Box>
+          <Stack
+            direction="row"
+            justifyContent="flex-end"
+            alignItems="flex-start"
+            spacing={2}
+            sx={{ mt: 3, mr: 1 }}
+          >
+            <Button
+              size="medium"
+              variant="contained"
+              color="error"
+              startIcon={<CloseIcon />}
+              onClick={handleClickOpen}
+            >
+              Ablehnen
+            </Button>
+            {/* "Ablehnen"/reject button triggers a dialog, where the admin can put a short description why he rejected the product */}
+            {/* User gets a notification about the rejection and the description of the admin dialog */}
+            {/* after rejecting the product, set state to "rejected" */}
+            <Button
+              variant="contained"
+              color="primary"
+              startIcon={<DoneIcon />}
+              sx={{ color: 'background.paper' }}
+              onClick={setPublished}
+              href="/approval"
+            >
+              Veröffentlichen
+            </Button>
+            {/* user gets a notification about the approval of his product */}
+            {/* after approving the product, set state to "published". (product should appear in the search) */}
+          </Stack>
         </Container>
       </Box>
 
