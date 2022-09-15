@@ -65,7 +65,7 @@ export default function MorphologicalBoxVertical(
       >
         <Box my={{ xs: 2, sm: 2 }}>
           <Typography variant="h4" align="center" sx={{ mb: 5 }}>
-            Mermale & Ausprägungen
+            Merkmale & Ausprägungen
           </Typography>
           <Grid
             container
