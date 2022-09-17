@@ -10,6 +10,7 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
@@ -61,6 +62,14 @@ export default function ProductDetail() {
     <>
       <Box sx={{ my: 10 }}>
         <Container component="main" maxWidth="md">
+          <Button
+            href="/search"
+            variant="text"
+            startIcon={<ArrowBackIosNewOutlinedIcon />}
+            sx={{ color: 'text.secondary' }}
+          >
+            zur Suche
+          </Button>
           <Box px={{ xs: 0, sm: 0 }} py={{ xs: 2, sm: 2 }}>
             <Grid
               container
