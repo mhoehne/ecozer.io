@@ -1,15 +1,16 @@
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import { Grid, Container } from '@mui/material';
-import CardMedia from '@mui/material/CardMedia';
-import SampleImg from '../images/sample-img.png';
-import TextField from '@mui/material/TextField';
+import {
+  Grid,
+  Container,
+  Box,
+  Button,
+  TextField,
+  Typography,
+  styled,
+  Paper,
+  ToggleButton,
+  ToggleButtonGroup,
+} from '@mui/material';
 import { getProduct, IncrementProductViewCount, ProductType } from '../API';
-import Typography from '@mui/material/Typography';
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
