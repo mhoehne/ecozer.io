@@ -23,7 +23,7 @@ import DoneIcon from '@mui/icons-material/Done';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import EditIcon from '@mui/icons-material/Edit';
 import ImageSearchIcon from '@mui/icons-material/ImageSearch';
-import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import FingerprintOutlinedIcon from '@mui/icons-material/FingerprintOutlined';
 import Tooltip from '@mui/material/Tooltip';
@@ -279,9 +279,9 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
             <Button
               size="small"
               href={`/search/product-detail/${props.Product._id}`}
-              startIcon={<AddOutlinedIcon />}
+              startIcon={<ArrowBackIosOutlinedIcon />}
             >
-              Details
+              Zur Detailansicht
             </Button>
           </Grid>
           <Grid item xs={4}>

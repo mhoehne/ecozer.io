@@ -69,7 +69,7 @@ export default function ProductDetail() {
             startIcon={<ArrowBackIosNewOutlinedIcon />}
             sx={{ color: 'text.secondary' }}
           >
-            zur Suche
+            Zurück zur Produktsuche
           </Button>
           <Box px={{ xs: 0, sm: 0 }} py={{ xs: 2, sm: 2 }}>
             <Grid
