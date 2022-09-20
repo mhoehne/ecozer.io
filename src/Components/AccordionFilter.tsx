@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import DisabledByDefaultOutlinedIcon from '@mui/icons-material/DisabledByDefaultOutlined';
 import { styled } from '@mui/material/styles';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
@@ -88,7 +89,11 @@ export default function AccordionFilter(props: AccordionFilterProps) {
       >
         <Typography variant="h6" sx={{ m: 1 }}>
           Suchfilter
+          <Tooltip title="ausgewählte Filter werden sofort angewendet">
+            <InfoOutlinedIcon sx={{ fontSize: 30, pl: 0.5, pt: 1.5 }} />
+          </Tooltip>
         </Typography>
+
         <Tooltip title="Alle ausgewählten Filter zurücksetzen">
           <Button
             size="small"
