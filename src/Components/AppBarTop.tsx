@@ -7,6 +7,7 @@ import {
   Button,
   Stack,
   styled,
+  Tooltip,
 } from '@mui/material';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import AccountMenu from './AccountMenu';
@@ -66,7 +67,7 @@ function loggedoutbox() {
           sx={{ color: 'background.paper' }}
           href="/signup"
         >
-          Jetzt registrieren
+          Jetzt Produkt erstellen
         </Button>
         <Button
           variant="outlined"
@@ -101,14 +102,16 @@ export default function AppBarTop(props: AppBarTopProps) {
       <AppBar position="fixed" sx={{ backgroundColor: '#fff' }}>
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
-            <MenuItem component={Link} to="/">
-              <CardMedia
-                component="img"
-                sx={{ maxHeight: '40px' }}
-                alt="htw logo"
-                image={Logo}
-              />
-            </MenuItem>
+            <Tooltip title="zur Startseite">
+              <MenuItem component={Link} to="/">
+                <CardMedia
+                  component="img"
+                  sx={{ maxHeight: '40px' }}
+                  alt="Startseite"
+                  image={Logo}
+                />
+              </MenuItem>
+            </Tooltip>
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
 
