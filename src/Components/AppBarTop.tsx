@@ -1,17 +1,21 @@
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
+import {
+  Box,
+  Toolbar,
+  Typography,
+  CardMedia,
+  MenuItem,
+  Button,
+  Stack,
+  styled,
+} from '@mui/material';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import AccountMenu from './AccountMenu';
 import Logo from '../images/Q04_HTW_Berlin_Logo_quer_pos_FARBIG_RGB.jpg';
-import CardMedia from '@mui/material/CardMedia';
-import MenuItem from '@mui/material/MenuItem';
 import LoginIcon from '@mui/icons-material/Login';
-import { Button, Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
 import NotificationMenu from './NotificationMenu';
 import { AccountType } from '../API';
+import AccountSettings from './AccountSettings';
 
 {
   /* TODO */
@@ -82,6 +86,7 @@ function loggedoinbox(account: AccountType | null) {
     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
       <NotificationMenu />
       <AccountMenu Account={account} />
+      <AccountSettings Account={account} />
     </Box>
   );
 }

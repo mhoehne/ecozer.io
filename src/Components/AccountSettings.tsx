@@ -14,11 +14,10 @@ import Logout from '@mui/icons-material/Logout';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import BadgeIcon from '@mui/icons-material/Badge';
 import ViewListIcon from '@mui/icons-material/ViewList';
-import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import { Link, useNavigate, NavigateFunction } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import HomeIcon from '@mui/icons-material/Home';
-import ManageSearchIcon from '@mui/icons-material/ManageSearch';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { AccountType } from '../API';
 
 {
@@ -102,49 +101,17 @@ function getAdminMenu(
       transformOrigin={{ horizontal: 'right', vertical: 'top' }}
       anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
     >
-      <MenuItem component={Link} to="/">
+      <MenuItem component={Link} to="/account">
         <ListItemIcon>
-          <HomeIcon fontSize="small" />
+          <AccountBoxIcon fontSize="small" />
         </ListItemIcon>
-        Startseite
+        Einstellungen
       </MenuItem>
-      <MenuItem component={Link} to="/search">
+      <MenuItem component="form" onClick={handleSubmit}>
         <ListItemIcon>
-          <ManageSearchIcon fontSize="small" />
+          <Logout fontSize="small" />
         </ListItemIcon>
-        Produktsuche
-      </MenuItem>
-      {/* <MenuItem component={Link} to="/dashboard">
-        <ListItemIcon>
-          <DashboardIcon fontSize="small" />
-        </ListItemIcon>
-        Dashboard
-      </MenuItem> */}
-      <MenuItem component={Link} to="/my-products">
-        <ListItemIcon>
-          <DashboardCustomizeIcon fontSize="small" />
-        </ListItemIcon>
-        Meine Produkte
-      </MenuItem>
-
-      <Divider />
-      <MenuItem component={Link} to="/approval">
-        <ListItemIcon>
-          <FactCheckIcon fontSize="small" />
-        </ListItemIcon>
-        Zulassung
-      </MenuItem>
-      <MenuItem component={Link} to="/user-list">
-        <ListItemIcon>
-          <BadgeIcon fontSize="small" />
-        </ListItemIcon>
-        Benutzerliste
-      </MenuItem>
-      <MenuItem component={Link} to="/product-list">
-        <ListItemIcon>
-          <ViewListIcon fontSize="small" />
-        </ListItemIcon>
-        Produktliste
+        Logout
       </MenuItem>
     </Menu>
   );
@@ -203,35 +170,23 @@ function getUserMenu(
       transformOrigin={{ horizontal: 'right', vertical: 'top' }}
       anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
     >
-      <MenuItem component={Link} to="/">
+      <MenuItem component={Link} to="/account">
         <ListItemIcon>
-          <HomeIcon fontSize="small" />
+          <AccountBoxIcon fontSize="small" />
         </ListItemIcon>
-        Startseite
+        Einstellungen
       </MenuItem>
-      <MenuItem component={Link} to="/search">
+      <MenuItem component="form" onClick={handleSubmit}>
         <ListItemIcon>
-          <ManageSearchIcon fontSize="small" />
+          <Logout fontSize="small" />
         </ListItemIcon>
-        Produktsuche
-      </MenuItem>
-      {/* <MenuItem component={Link} to="/dashboard">
-        <ListItemIcon>
-          <DashboardIcon fontSize="small" />
-        </ListItemIcon>
-        Dashboard
-      </MenuItem> */}
-      <MenuItem component={Link} to="/my-products">
-        <ListItemIcon>
-          <DashboardCustomizeIcon fontSize="small" />
-        </ListItemIcon>
-        Meine Produkte
+        Logout
       </MenuItem>
     </Menu>
   );
 }
 
-export default function AccountMenu(props: AccountMenuProps) {
+export default function AccountSettings(props: AccountMenuProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -257,9 +212,9 @@ export default function AccountMenu(props: AccountMenuProps) {
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-        <Tooltip title="Menü">
+        <Tooltip title="Account">
           <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
-            <MenuRoundedIcon fontSize="large" color="info" />
+            <AccountCircleIcon fontSize="large" color="info" />
           </IconButton>
         </Tooltip>
       </Box>
