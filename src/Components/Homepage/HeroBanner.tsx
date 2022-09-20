@@ -60,10 +60,11 @@ export default function HeroBanner() {
             <Button
               size="large"
               variant="contained"
+              color="secondary"
               href="/search"
               sx={{ color: 'background.paper' }}
             >
-              Jetzt passendes Produkt finden!
+              Jetzt passendes Produkt finden
             </Button>
           </Stack>
         </Container>
