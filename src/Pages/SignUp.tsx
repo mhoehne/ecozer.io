@@ -1,17 +1,12 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
+import {Button, TextField, Link, Grid, Box, Typography, Container, FormControl, InputLabel, IconButton, InputAdornment, OutlinedInput} from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CreateAccount } from '../API';
 import { useNavigate, NavigateFunction } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
+import { useState } from 'react';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 {
   /* TODO */
@@ -24,9 +19,14 @@ import { useCookies } from 'react-cookie';
   /* Note: */
 }
 
+interface State {
+  password: string;
+  showPassword: boolean;
+}
+
 const theme = createTheme();
 
-export default function SignUp() {
+export default function SignUp(prop: State) {
   const [cookies, setCookie] = useCookies(['email']);
   const navigate = useNavigate();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -95,6 +95,27 @@ export default function SignUp() {
         alert('error');
         // error
       });
+  };
+
+  const [values, setValues] = React.useState<State>({
+    password: '',
+    showPassword: false,
+  });
+
+  const handleChange =
+    (prop: keyof State) => (event: React.ChangeEvent<HTMLInputElement>) => {
+      setValues({ ...values, [prop]: event.target.value });
+    };
+
+  const handleClickShowPassword = () => { 
+    setValues({
+      ...values,
+      showPassword: !values.showPassword,
+    });
+  };
+
+  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
   };
 
   return (
@@ -174,6 +195,27 @@ export default function SignUp() {
                   type="password"
                   autoComplete="new-password"
                 />
+                <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <OutlinedInput
+            id="outlined-adornment-password"
+            type={values.showPassword ? 'text' : 'password'}
+            value={values.password}
+            onChange={handleChange('password')}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            }
+            label="Password"
+          />
               </Grid>
               {/* <Grid item xs={12}>
                 <FormControlLabel
