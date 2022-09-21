@@ -8,7 +8,9 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { GetAccountByEmail, AccountType } from '../API';
+import { GetAccountByEmail, AccountType, GetAccounts } from '../API';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 {
   /* TODO */
@@ -19,6 +21,10 @@ import { GetAccountByEmail, AccountType } from '../API';
 
 {
   /* Note: */
+}
+
+interface AccountProps {
+  account: AccountType | null;
 }
 
 const theme = createTheme();
@@ -34,6 +40,15 @@ export default function Account() {
       password: data.get('password'),
     });
   };
+
+  const params = useParams();
+
+  // const [account, setAccount] = useState<AccountType>();
+  // useEffect(() => {
+  //   GetAccounts().then((result) => {
+  //     setAccount(result.data);
+  //   });
+  // }, []);
 
   return (
     <>
@@ -65,7 +80,8 @@ export default function Account() {
                   required
                   fullWidth
                   id="firstName"
-                  label="First Name"
+                  label="Vorname"
+                  // value={account?.firstName}
                   autoFocus
                 />
               </Grid>
