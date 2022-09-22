@@ -29,7 +29,7 @@ interface AccountProps {
 
 const theme = createTheme();
 
-export default function Account() {
+export default function Account(props: AccountProps) {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -42,13 +42,6 @@ export default function Account() {
   };
 
   const params = useParams();
-
-  // const [account, setAccount] = useState<AccountType>();
-  // useEffect(() => {
-  //   GetAccounts().then((result) => {
-  //     setAccount(result.data);
-  //   });
-  // }, []);
 
   return (
     <>
@@ -81,7 +74,7 @@ export default function Account() {
                   fullWidth
                   id="firstName"
                   label="Vorname"
-                  // value={account?.firstName}
+                  value={props.account?.firstName}
                   autoFocus
                 />
               </Grid>

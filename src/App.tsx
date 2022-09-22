@@ -77,7 +77,7 @@ export default function App() {
           <Route path="/signup" element={<SignUp />} />
 
           {/* User */}
-          <Route path="/account" element={<Account />} />
+          <Route path="/account" element={<Account account={account} />} />
           <Route path="/notification-log" element={<NotificationLog />} />
           {account ? (
             <Route

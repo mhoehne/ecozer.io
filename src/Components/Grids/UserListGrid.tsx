@@ -6,6 +6,7 @@ import {
   GridToolbarContainer,
   GridToolbarDensitySelector,
   GridRowId,
+  deDE,
 } from '@mui/x-data-grid';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
@@ -235,6 +236,7 @@ export default function DataGridDemo() {
     >
       <div style={{ height: '80vh', width: '100%' }}>
         <DataGrid
+          localeText={deDE.components.MuiDataGrid.defaultProps.localeText}
           rows={accounts}
           columns={columns}
           getRowId={(account) => account._id}

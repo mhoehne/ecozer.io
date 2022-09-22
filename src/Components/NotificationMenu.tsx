@@ -140,7 +140,6 @@ export default function NotificationMenu() {
           </ListItem>
           <Divider variant="fullWidth" component="li" />
           <ListItem
-            // sx={{ backgroundColor: '#ffec96' }}
             alignItems="center"
             secondaryAction={
               <IconButton edge="end" aria-label="delete">
