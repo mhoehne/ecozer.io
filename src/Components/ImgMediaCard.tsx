@@ -230,14 +230,18 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
                 {props.enableActionButtons ||
                 props.Account?.isAdmin === true ? (
                   <>
-                    <Chip
-                      icon={<VisibilityOutlinedIcon />}
-                      label={props.Product.viewCounter}
-                    />
-                    <Chip
-                      icon={<FingerprintOutlinedIcon />}
-                      label={props.Product._id}
-                    />
+                    <Tooltip title="Aufrufe">
+                      <Chip
+                        icon={<VisibilityOutlinedIcon />}
+                        label={props.Product.viewCounter}
+                      />
+                    </Tooltip>
+                    <Tooltip title="Produkt ID">
+                      <Chip
+                        icon={<FingerprintOutlinedIcon />}
+                        label={props.Product._id}
+                      />
+                    </Tooltip>
                   </>
                 ) : null}
               </Stack>
