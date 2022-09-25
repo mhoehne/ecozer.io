@@ -313,7 +313,7 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
 
               {props.enableActionButtons ? (
                 <>
-                  <Tooltip title="editieren" enterDelay={500} leaveDelay={200}>
+                  <Tooltip title="bearbeiten" enterDelay={500} leaveDelay={200}>
                     <Button
                       size="small"
                       variant="contained"
