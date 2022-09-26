@@ -13,6 +13,7 @@ import {
   DialogContentText,
   DialogTitle,
 } from '@mui/material';
+import { AccountType, ProductType } from '../API';
 
 {
   /* TODO */
@@ -27,9 +28,12 @@ import {
   /* Note: */
 }
 
-interface AssignProductProps {}
+interface AssignProductProps {
+  Account: AccountType | null;
+  Procut: ProductType | null;
+}
 
-export default function AssignProduct() {
+export default function AssignProduct(props: AssignProductProps) {
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
