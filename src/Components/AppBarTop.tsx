@@ -85,7 +85,7 @@ function loggedoutbox() {
 function loggedoinbox(account: AccountType | null) {
   return (
     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-      <NotificationMenu />
+      <NotificationMenu Account={account} />
       <AccountMenu Account={account} />
       <AccountSettings Account={account} />
     </Box>

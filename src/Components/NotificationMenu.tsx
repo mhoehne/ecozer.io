@@ -15,6 +15,7 @@ import {
   Divider,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { AccountType } from '../API';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
@@ -32,7 +33,11 @@ import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
   /* Note: */
 }
 
-export default function NotificationMenu() {
+interface NotificationMenuProps {
+  Account: AccountType | null;
+}
+
+export default function NotificationMenu(props: NotificationMenuProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
