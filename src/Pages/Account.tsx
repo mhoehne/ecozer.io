@@ -14,7 +14,8 @@ import {
 import { GetAccountByEmail, AccountType, GetAccounts } from '../API';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Form, Formik, Field } from 'formik';
+import { Form, Formik, Field, FormikValues } from 'formik';
+import { string } from 'yup';
 
 {
   /* TODO */
@@ -31,6 +32,8 @@ interface AccountProps {
   account: AccountType | null;
 }
 
+const initialValues: FormikValues = {};
+
 const theme = createTheme();
 
 export default function Account(props: AccountProps) {
@@ -46,14 +49,14 @@ export default function Account(props: AccountProps) {
   //   });
   // }, []);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
+  const handleSubmit = (values: FormikValues): void => {
+    alert(JSON.stringify(values));
+    // const data = new FormData(event.currentTarget);
 
     // eslint-disable-next-line no-console
     console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+      email: values.get('email'),
+      password: values.get('password'),
     });
   };
 
@@ -78,8 +81,8 @@ export default function Account(props: AccountProps) {
           <Typography component="h1" variant="h5">
             Account
           </Typography>
-          <Formik initialValues={{}} onSubmit={() => {}}>
-            {({ values, errors, touched }) => (
+          <Formik initialValues={{}} onSubmit={(handleSubmit) => {}}>
+            {({ values, errors }) => (
               <Form>
                 <Box sx={{ mt: 3 }}>
                   <Grid container spacing={2}>
