@@ -30,7 +30,7 @@ import {
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import TablePagination from '@mui/material/TablePagination';
-import AssignProduct from '../AssignProduct';
+// import {AssignProduct} from '../AssignProduct';
 
 {
   /* TODO */
@@ -94,7 +94,6 @@ const onRowEdit = (products: ProductType[], state: GridEditRowsModel) => {
 };
 
 export default function ProductListGrid() {
-  // pagination
   const [pageSize, setPageSize] = React.useState<number>(20);
   const [open, setOpen] = React.useState(false);
   const [products, setProducts] = useState<ProductType[]>([]);
@@ -224,6 +223,7 @@ export default function ProductListGrid() {
           />
         </div>
       </Box>
+      {/* <AssignProduct/> */}
       <Dialog
         fullScreen={fullScreen}
         open={open}
