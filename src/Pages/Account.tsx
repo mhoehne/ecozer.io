@@ -1,16 +1,20 @@
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {
+  Avatar,
+  Button,
+  CssBaseline,
+  TextField,
+  Grid,
+  Box,
+  Typography,
+  Container,
+  createTheme,
+  ThemeProvider,
+} from '@mui/material';
 import { GetAccountByEmail, AccountType, GetAccounts } from '../API';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Form, Formik } from 'formik';
 
 {
   /* TODO */
@@ -48,7 +52,8 @@ export default function Account(props: AccountProps) {
       <Container component="main" maxWidth="xs">
         <Box
           sx={{
-            my: 15,
+            mt: 15,
+            mb: 5,
             p: 5,
             display: 'flex',
             flexDirection: 'column',
@@ -75,7 +80,6 @@ export default function Account(props: AccountProps) {
                   id="firstName"
                   label="Vorname"
                   value={props.account?.firstName}
-                  autoFocus
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -84,6 +88,7 @@ export default function Account(props: AccountProps) {
                   fullWidth
                   id="lastName"
                   label="Nachname"
+                  value={props.account?.lastName}
                   name="lastName"
                   autoComplete="family-name"
                 />
@@ -94,10 +99,49 @@ export default function Account(props: AccountProps) {
                   fullWidth
                   id="email"
                   label="E-Mail-Adresse"
+                  value={props.account?.emailAddress}
                   name="email"
                   autoComplete="email"
                 />
               </Grid>
+            </Grid>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{
+                mt: 3,
+                mb: 2,
+                color: 'background.paper',
+              }}
+            >
+              SPEICHERN
+            </Button>
+            <Grid container justifyContent="flex-end"></Grid>
+          </Box>
+        </Box>
+      </Container>
+      <Container component="main" maxWidth="xs" sx={{ mt: 0 }}>
+        <Box
+          sx={{
+            mb: 15,
+            p: 5,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            backgroundColor: 'background.paper',
+          }}
+        >
+          <Typography component="h1" variant="h5">
+            Passwort ändern
+          </Typography>
+          <Box
+            component="form"
+            noValidate
+            onSubmit={handleSubmit}
+            sx={{ mt: 3 }}
+          >
+            <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
                   required
