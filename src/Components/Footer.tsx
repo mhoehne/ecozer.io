@@ -60,17 +60,21 @@ export default function Footer() {
             </Grid>
             <Grid item xs={12} sm={3}>
               <Box>
-                <Link href="/test" underline="none" color="inherit">
-                  Footer Link
+                <Link href="/signupformik" underline="none" color="inherit">
+                  SignUpFormikTest
                 </Link>
               </Box>
             </Grid>
 
             <Grid item xs={12} sm={3}>
               <Box>
-                <Button onClick={handleClickOpen} color="inherit">
+                <Link
+                  onClick={handleClickOpen}
+                  underline="none"
+                  color="inherit"
+                >
                   Bug melden
-                </Button>
+                </Link>
               </Box>
               <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Bug melden</DialogTitle>

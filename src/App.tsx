@@ -22,6 +22,7 @@ import { useState, useEffect } from 'react';
 import { AccountType, ProductType, GetAccountByEmail, getProduct } from './API';
 import { mixed } from 'yup/lib/locale';
 import MyProductsEdit from './Pages/MyProductsEdit';
+import SignUpFormik from './Pages/SignUpFormik';
 
 {
   /* TODO */
@@ -75,6 +76,7 @@ export default function App() {
           {/* Sign In/Up */}
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/signupformik" element={<SignUpFormik />} />
 
           {/* User */}
           <Route path="/account" element={<Account account={account} />} />
