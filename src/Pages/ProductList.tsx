@@ -1,6 +1,8 @@
 import ProductListGrid from '../Components/Grids/ProductListGrid';
 import SearchBarBoxed from '../Components/SearchBarBoxed';
 import { Box, Typography } from '@mui/material';
+import Account from './Account';
+import { AccountType } from '../API';
 
 {
   /* TODO */
@@ -13,7 +15,15 @@ import { Box, Typography } from '@mui/material';
   /* Note: */
 }
 
-export default function UserList() {
+interface UserListProps {
+  account: AccountType | null;
+}
+
+export default function UserList(props: UserListProps) {
+  if (props.account === null) {
+    return null;
+  }
+
   return (
     <>
       <Box
@@ -32,7 +42,7 @@ export default function UserList() {
           enableAddProductButton={false}
           enableAutocompleteSearch={false}
         /> */}
-        <ProductListGrid />
+        <ProductListGrid account={props.account} />
       </Box>
     </>
   );

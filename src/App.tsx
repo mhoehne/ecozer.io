@@ -113,7 +113,10 @@ export default function App() {
             element={<AdminApprovalDetail />}
           />
           <Route path="/user-list" element={<UserList />} />
-          <Route path="/product-list" element={<ProductList />} />
+          <Route
+            path="/product-list"
+            element={<ProductList account={account} />}
+          />
         </Routes>
       </Container>
       <Footer />

@@ -26,11 +26,13 @@ import {
   ProductType,
   PutProducts,
   DeleteProduct,
+  AccountType,
 } from '../../API';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import TablePagination from '@mui/material/TablePagination';
-// import {AssignProduct} from '../AssignProduct';
+import AssignProduct from '../AssignProduct';
+import Account from '../../Pages/Account';
 
 {
   /* TODO */
@@ -93,15 +95,30 @@ const onRowEdit = (products: ProductType[], state: GridEditRowsModel) => {
   }
 };
 
-export default function ProductListGrid() {
+interface ProductListGridProps {
+  account: AccountType;
+}
+
+export default function ProductListGrid(props: ProductListGridProps) {
   const [pageSize, setPageSize] = React.useState<number>(20);
   const [open, setOpen] = React.useState(false);
   const [products, setProducts] = useState<ProductType[]>([]);
+  const [product, setProduct] = useState<ProductType>();
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
-  const handleClickOpen = () => {
+  const handleClickOpen = (id: number) => () => {
+    let product = products.find((p) => p._id === id);
+    console.log(products, id);
+    if (product === undefined) {
+      console.error(
+        `Could not find a product with ID "${id}". This is most likely a bug.`
+      );
+      return;
+    }
+
     setOpen(true);
+    setProduct(product);
   };
   const handleClose = () => {
     setOpen(false);
@@ -110,7 +127,7 @@ export default function ProductListGrid() {
   const deleteProduct = useCallback(
     (id) => () => {
       let product = products.find((p) => p._id === id);
-      console.log(id, product);
+
       if (product === undefined) {
         console.error(
           `Could not find a product with ID "${id}". This is most likely a bug.`
@@ -139,13 +156,13 @@ export default function ProductListGrid() {
         <GridActionsCellItem
           icon={<DeleteIcon />}
           label="Löschen"
-          onClick={deleteProduct(params.id)}
+          onClick={deleteProduct(parseInt(params.id))}
           showInMenu
         />,
         <GridActionsCellItem
           icon={<AssignmentIndOutlinedIcon />}
           label="Zuweisen"
-          onClick={handleClickOpen}
+          onClick={handleClickOpen(parseInt(params.id))}
           showInMenu
         />,
       ],
@@ -223,8 +240,15 @@ export default function ProductListGrid() {
           />
         </div>
       </Box>
-      {/* <AssignProduct/> */}
-      <Dialog
+      {product ? (
+        <AssignProduct
+          open={open}
+          handleClose={handleClose}
+          Account={props.account}
+          Product={product}
+        />
+      ) : null}
+      {/* <Dialog
         fullScreen={fullScreen}
         open={open}
         onClose={handleClose}
@@ -252,7 +276,7 @@ export default function ProductListGrid() {
             Zuweisen
           </Button>
         </DialogActions>
-      </Dialog>
+      </Dialog> */}
     </>
   );
 }

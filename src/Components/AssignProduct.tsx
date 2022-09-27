@@ -30,22 +30,17 @@ import { AccountType, ProductType } from '../API';
 
 interface AssignProductProps {
   Account: AccountType | null;
-  Procut: ProductType | null;
+  Product: ProductType | null;
+  open: boolean;
+  handleClose: Function;
 }
 
 export default function AssignProduct(props: AssignProductProps) {
-  const [open, setOpen] = React.useState(false);
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
   return (
     <>
       <Dialog
-        open={open}
-        onClose={handleClose}
+        open={props.open}
+        onClose={() => props.handleClose()}
         aria-labelledby="responsive-dialog-title"
       >
         <DialogTitle id="responsive-dialog-title">
@@ -57,13 +52,13 @@ export default function AssignProduct(props: AssignProductProps) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose}>
+          <Button autoFocus onClick={() => props.handleClose()}>
             Schließen
           </Button>
           <Button
             variant="contained"
             color="primary"
-            onClick={handleClose}
+            onClick={() => props.handleClose()}
             autoFocus
             sx={{ color: 'background.paper' }}
           >

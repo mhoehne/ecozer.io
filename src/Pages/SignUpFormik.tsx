@@ -19,6 +19,7 @@ import { useNavigate, NavigateFunction } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import { Formik, Form, Field, useField } from 'formik';
 import Account from './Account';
+import { Check } from '@mui/icons-material';
 
 {
   /* TODO */
@@ -234,15 +235,10 @@ export interface MyCheckboxProps extends CheckboxProps {
 }
 
 export function MyCheckbox(props: MyCheckboxProps) {
-  const [field] = useField({
+  const field = useField({
     name: props.name,
     type: 'checkbox',
     value: props.value,
   });
-  return (
-    <FormControlLabel
-      control={<Checkbox {...props} {...field} />}
-      label={props.label}
-    />
-  );
+  return <Field as={Checkbox} name={props.name} label={props.label} />;
 }
