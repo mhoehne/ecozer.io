@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {
+  Autocomplete,
   Container,
   Button,
   Grid,
@@ -13,7 +14,8 @@ import {
   DialogContentText,
   DialogTitle,
 } from '@mui/material';
-import { AccountType, ProductType } from '../API';
+import { AccountType, ProductType, GetAccounts } from '../API';
+import { useState, useEffect } from 'react';
 
 {
   /* TODO */
@@ -36,6 +38,19 @@ interface AssignProductProps {
 }
 
 export default function AssignProduct(props: AssignProductProps) {
+  const [accounts, setAccounts] = useState<AccountType[]>([]);
+  useEffect(() => {
+    GetAccounts().then((result) => {
+      setAccounts(result.data.accounts);
+    });
+  }, []);
+
+  const options = accounts.map(({ emailAddress }) => {
+    return {
+      text: emailAddress,
+    };
+  });
+
   return (
     <>
       <Dialog
@@ -50,6 +65,13 @@ export default function AssignProduct(props: AssignProductProps) {
           <DialogContentText>
             Hier kannst du bald ein Produkt einem anderen Benutzer zuweisen.
           </DialogContentText>
+          <Autocomplete
+            disablePortal
+            id="autocomplete-account"
+            options={options.sort((a, b) => -b.text.localeCompare(a.text))}
+            sx={{ width: 300 }}
+            renderInput={(params) => <TextField {...params} label="Benutzer" />}
+          />
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={() => props.handleClose()}>

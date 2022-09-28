@@ -25,7 +25,6 @@ interface SearchBarBoxedProps {
 }
 
 export default function SearchBarBoxed(props: SearchBarBoxedProps) {
-  const navigate = useNavigate();
   const [products, setProducts] = useState<ProductType[]>([]);
   useEffect(() => {
     GetProducts(null, null, [], [], [], [], [], [], 'published').then(
