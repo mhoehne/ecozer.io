@@ -109,14 +109,12 @@ export default function ProductListGrid(props: ProductListGridProps) {
 
   const handleClickOpen = (id: number) => () => {
     let product = products.find((p) => p._id === id);
-    console.log(products, id);
     if (product === undefined) {
       console.error(
         `Could not find a product with ID "${id}". This is most likely a bug.`
       );
       return;
     }
-
     setOpen(true);
     setProduct(product);
   };
@@ -124,28 +122,24 @@ export default function ProductListGrid(props: ProductListGridProps) {
     setOpen(false);
   };
 
-  const deleteProduct = useCallback(
-    (id) => () => {
-      let product = products.find((p) => p._id === id);
-
-      if (product === undefined) {
-        console.error(
-          `Could not find a product with ID "${id}". This is most likely a bug.`
-        );
-        return;
-      }
-      DeleteProduct(product)
-        .then(() => {
-          setTimeout(() => {
-            setProducts((prevRows) => prevRows.filter((row) => row._id !== id));
-          });
-        })
-        .catch((e) => {
-          console.log(e);
+  const deleteProduct = (id: number) => () => {
+    let product = products.find((p) => p._id === id);
+    if (product === undefined) {
+      console.error(
+        `Could not find a product with ID "${id}". This is most likely a bug.`
+      );
+      return;
+    }
+    DeleteProduct(product)
+      .then(() => {
+        setTimeout(() => {
+          setProducts((prevRows) => prevRows.filter((row) => row._id !== id));
         });
-    },
-    [products]
-  );
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 
   const columns = [
     {
