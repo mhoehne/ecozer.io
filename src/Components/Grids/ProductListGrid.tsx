@@ -6,6 +6,7 @@ import {
   GridToolbarContainer,
   GridToolbarDensitySelector,
   GridRowId,
+  deDE,
 } from '@mui/x-data-grid';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
@@ -141,6 +142,28 @@ export default function ProductListGrid(props: ProductListGridProps) {
       });
   };
 
+  // const deleteProduct = useCallback(
+  //   (id) => () => {
+  //     let product = products.find((p) => p._id === id);
+  //     if (product === undefined) {
+  //       console.error(
+  //         `Could not find an account with ID "${id}". This is most likely a bug.`
+  //       );
+  //       return;
+  //     }
+  //     DeleteProduct(product)
+  //       .then(() => {
+  //         setTimeout(() => {
+  //           setProducts((prevRows) => prevRows.filter((row) => row._id !== id));
+  //         });
+  //       })
+  //       .catch((e) => {
+  //         console.log(e);
+  //       });
+  //   },
+  //   [products]
+  // );
+
   const columns = [
     {
       field: 'actions',
@@ -219,6 +242,7 @@ export default function ProductListGrid(props: ProductListGridProps) {
       >
         <div style={{ height: '80vh', width: '100%' }}>
           <DataGrid
+            localeText={deDE.components.MuiDataGrid.defaultProps.localeText}
             rows={products}
             columns={columns}
             getRowId={(product) => product._id}
@@ -242,35 +266,6 @@ export default function ProductListGrid(props: ProductListGridProps) {
           Product={product}
         />
       ) : null}
-      {/* <Dialog
-        fullScreen={fullScreen}
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="responsive-dialog-title"
-      >
-        <DialogTitle id="responsive-dialog-title">
-          {'Benutzerliste'}
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            Hier kannst du bald ein Produkt einem anderen Benutzer zuweisen.
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Schließen
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleClose}
-            autoFocus
-            sx={{ color: 'background.paper' }}
-          >
-            Zuweisen
-          </Button>
-        </DialogActions>
-      </Dialog> */}
     </>
   );
 }
