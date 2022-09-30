@@ -37,7 +37,7 @@ export default function NewestProducts() {
           color="text.primary"
           gutterBottom
         >
-          Neuste Produkte
+          Die neuesten Produkte
         </Typography>
       </Container>
 
