@@ -80,7 +80,7 @@ export default function MorphologicalBoxVertical(
             {/* ANWENDUNGSBEREICH */}
             <Grid item xs="auto" sm="auto" md="auto">
               <Typography align="center" variant="h6">
-                Anwendungsgebiet
+                Anwendungsbereich
               </Typography>
 
               <Paper
@@ -157,7 +157,7 @@ export default function MorphologicalBoxVertical(
                     value="Ökobilanzierung"
                     aria-label="Ökobilanzierung"
                   >
-                    Bilanzierung
+                    Ökobilanzierung
                   </ToggleButton>
                   <ToggleButton
                     selected={props.product.anwendungsbereich.Lebenszyklus}
@@ -281,7 +281,7 @@ export default function MorphologicalBoxVertical(
                     value="Abfall"
                     aria-label="Abfall"
                   >
-                    Abfall
+                    Abfälle
                   </ToggleButton>
                   <ToggleButton
                     selected={props.product.objektAspekt.Anlagen}
@@ -315,10 +315,10 @@ export default function MorphologicalBoxVertical(
                       props.setProduct(hazardousMaterial);
                     }}
                     id="HazardousMaterial"
-                    value="Gefahrstoff"
-                    aria-label="Gefahrstoff"
+                    value="Gefahrstoffe"
+                    aria-label="Gefahrstoffe"
                   >
-                    Gefahrstoff
+                    Gefahrstoffe
                   </ToggleButton>
                   <ToggleButton
                     selected={props.product.objektAspekt.Emissionen}
@@ -471,6 +471,7 @@ export default function MorphologicalBoxVertical(
                 </StyledToggleButtonGroup>
               </Paper>
             </Grid>
+
             {/* BETRACHTUNGSGRENZEN */}
 
             <Grid item xs="auto">
@@ -578,7 +579,7 @@ export default function MorphologicalBoxVertical(
 
             <Grid item xs="auto">
               <Typography align="center" variant="h6">
-                Anwender
+                Zielgruppe / Anwender
               </Typography>
 
               <div>
