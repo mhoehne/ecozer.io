@@ -137,7 +137,9 @@ export default function SignUpFormik() {
                 lastLogin: null,
                 acceptedTermAndConditions: false,
               }}
-              onSubmit={() => {}}
+              onSubmit={async (values) => {
+                alert(JSON.stringify(values, null, 2));
+              }}
             >
               {({ values }) => (
                 <Form>
@@ -200,10 +202,10 @@ export default function SignUpFormik() {
                       />
                     </Grid>
                     <Grid item xs={12}>
-                      <MyCheckbox
-                        name="GRPD"
-                        label="Ich habe die Datenschutzrichtlinien gelesen und bin damit einverstanden."
-                      />
+                      <Field
+                        as={Checkbox}
+                        name="acceptedTermAndConditions"
+                      ></Field>
                     </Grid>
                   </Grid>
                   <pre>{JSON.stringify(values, null, 4)}</pre>
@@ -239,26 +241,5 @@ export default function SignUpFormik() {
         </Box>
       </Container>
     </>
-  );
-}
-
-export interface MyCheckboxProps extends CheckboxProps {
-  name: string;
-  value?: string;
-  label?: string;
-}
-
-export function MyCheckbox(props: MyCheckboxProps) {
-  const field = useField({
-    name: props.name,
-    type: 'checkbox',
-    value: props.value,
-  });
-  return (
-    <FormControlLabel
-      control={<Checkbox {...props} {...field} />}
-      name={props.name}
-      label={props.label}
-    />
   );
 }
