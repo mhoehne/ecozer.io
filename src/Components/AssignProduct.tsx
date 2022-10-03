@@ -46,9 +46,7 @@ export default function AssignProduct(props: AssignProductProps) {
   }, []);
 
   const options = accounts.map(({ emailAddress }) => {
-    return {
-      text: emailAddress,
-    };
+    return emailAddress;
   });
 
   return (
@@ -68,7 +66,7 @@ export default function AssignProduct(props: AssignProductProps) {
           <Autocomplete
             disablePortal
             id="autocomplete-account"
-            options={options.sort((a, b) => -b.text.localeCompare(a.text))}
+            options={options}
             sx={{ width: 300 }}
             renderInput={(params) => <TextField {...params} label="Benutzer" />}
           />

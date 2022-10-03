@@ -202,11 +202,15 @@ export default function SignUpFormik() {
                       />
                     </Grid>
                     <Grid item xs={12}>
-                      <Field
-                        as={Checkbox}
-                        name="acceptedTermAndConditions"
+                      <FormControlLabel
+                        control={
+                          <Field
+                            as={Checkbox}
+                            name="acceptedTermAndConditions"
+                          />
+                        }
                         label="Ich habe die Datenschutzrichtlinien gelesen und bin damit einverstanden."
-                      ></Field>
+                      />
                     </Grid>
                   </Grid>
                   <pre>{JSON.stringify(values, null, 4)}</pre>

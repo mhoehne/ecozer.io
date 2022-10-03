@@ -279,7 +279,7 @@ export function DeleteProduct(product: ProductType): Promise<AxiosResponse> {
   return axios.delete<ProductType>(
     `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products`,
     {
-      data: { emailAddress: product },
+      data: { ...product },
     }
   );
 }
