@@ -80,6 +80,7 @@ export default function SignUpFormik() {
     }
 
     const lastLogin = 'null';
+    const acceptedTermAndConditions = false;
 
     const account = {
       _id: undefined,
@@ -90,7 +91,7 @@ export default function SignUpFormik() {
       lastName,
       companyName,
       lastLogin,
-      // acceptedTermAndConditions,
+      acceptedTermAndConditions,
     };
 
     CreateAccount(account)
@@ -124,7 +125,20 @@ export default function SignUpFormik() {
             Erforderliche Felder sind mit * gekennzeichnet
           </Typography>
           <CardContent>
-            <Formik initialValues={Account} onSubmit={() => {}}>
+            <Formik
+              initialValues={{
+                _id: undefined,
+                emailAddress: '',
+                isAdmin: false,
+                password: '',
+                firstName: '',
+                lastName: '',
+                companyName: '',
+                lastLogin: null,
+                acceptedTermAndConditions: false,
+              }}
+              onSubmit={() => {}}
+            >
               {({ values }) => (
                 <Form>
                   <Grid container spacing={2}>
@@ -240,5 +254,11 @@ export function MyCheckbox(props: MyCheckboxProps) {
     type: 'checkbox',
     value: props.value,
   });
-  return <Field as={Checkbox} name={props.name} label={props.label} />;
+  return (
+    <FormControlLabel
+      control={<Checkbox {...props} {...field} />}
+      name={props.name}
+      label={props.label}
+    />
+  );
 }

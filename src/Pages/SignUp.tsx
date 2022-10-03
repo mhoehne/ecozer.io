@@ -72,6 +72,7 @@ export default function SignUp() {
     }
 
     const lastLogin = 'null';
+    const acceptedTermAndConditions = false;
 
     const account = {
       _id: undefined,
@@ -82,6 +83,7 @@ export default function SignUp() {
       lastName,
       companyName,
       lastLogin,
+      acceptedTermAndConditions,
     };
 
     CreateAccount(account)
@@ -175,12 +177,17 @@ export default function SignUp() {
                   autoComplete="new-password"
                 />
               </Grid>
-              {/* <Grid item xs={12}>
+              <Grid item xs={12}>
                 <FormControlLabel
-                  control={<Checkbox value="privacyTerms" color="primary" />}
+                  control={
+                    <Checkbox
+                      value="acceptedTermAndConditions"
+                      color="primary"
+                    />
+                  }
                   label="Ich habe die Datenschutzrichtlinien gelesen und bin damit einverstanden."
                 />
-              </Grid> */}
+              </Grid>
             </Grid>
             <Button
               type="submit"

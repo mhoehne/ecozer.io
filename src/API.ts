@@ -20,6 +20,7 @@ export type AccountType = {
   lastName: string;
   companyName: string;
   lastLogin: string;
+  acceptedTermAndConditions: boolean;
 };
 
 export type AccountsResultType = {
