@@ -251,7 +251,7 @@ export default function ImgMediaCard(props: ImageMediaCardProps) {
                 {props.Product.productCompany}
               </Typography>
             </Grid>
-            <Grid item xs={8}>
+            <Grid item xs={12}>
               <Typography variant="body2" color="text.secondary">
                 {props.Product.productDescription}
               </Typography>
