@@ -205,6 +205,7 @@ export default function SignUpFormik() {
                       <Field
                         as={Checkbox}
                         name="acceptedTermAndConditions"
+                        label="Ich habe die Datenschutzrichtlinien gelesen und bin damit einverstanden."
                       ></Field>
                     </Grid>
                   </Grid>
