@@ -45,8 +45,8 @@ export default function AssignProduct(props: AssignProductProps) {
     });
   }, []);
 
-  const options = accounts.map(({ emailAddress }) => {
-    return emailAddress;
+  const options = accounts.map(({ emailAddress, _id }) => {
+    return 'ID: ' + _id + ' ' + 'E-Mail: ' + emailAddress;
   });
 
   return (
@@ -55,6 +55,7 @@ export default function AssignProduct(props: AssignProductProps) {
         open={props.open}
         onClose={() => props.handleClose()}
         aria-labelledby="responsive-dialog-title"
+        fullWidth={true}
       >
         <DialogTitle id="responsive-dialog-title">
           {'Benutzerliste'}
@@ -67,7 +68,7 @@ export default function AssignProduct(props: AssignProductProps) {
             disablePortal
             id="autocomplete-account"
             options={options}
-            sx={{ width: 300 }}
+            sx={{ width: 'maxWidth', minHeight: 320, mt: 3 }}
             renderInput={(params) => <TextField {...params} label="Benutzer" />}
           />
         </DialogContent>
