@@ -103,8 +103,12 @@ export default function Search(props: SearchProps) {
         enableAutocompleteSearch={true}
         setSearchterm={setSearchterm}
       />
-
-      <Grid container rowSpacing={0} columnSpacing={{ xs: 0, sm: 0, md: 0 }}>
+      <Grid
+        container
+        rowSpacing={0}
+        columnSpacing={{ xs: 0, sm: 0, md: 0 }}
+        minHeight="115rem"
+      >
         <Grid
           item
           xs={4}
