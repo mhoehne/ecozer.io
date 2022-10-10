@@ -69,16 +69,16 @@ export default function MorphologicalBoxVertical(
           </Typography>
           <Grid
             container
-            columns={{ xs: 4, sm: 6, md: 12 }}
+            columns={{ xs: 6, sm: 12, md: 12 }}
             direction="row"
-            justifyContent="space-between"
+            justifyContent="center"
             alignItems="flex-start"
             rowSpacing={3}
-            columnSpacing={{ xs: 1, sm: 2, md: 2 }}
+            columnSpacing={{ xs: 4, sm: 4, md: 10 }}
             xs={12}
           >
             {/* ANWENDUNGSBEREICH */}
-            <Grid item xs="auto" sm="auto" md="auto">
+            <Grid item xs={3}>
               <Typography align="center" variant="h6">
                 Anwendungsbereich
               </Typography>
@@ -244,7 +244,7 @@ export default function MorphologicalBoxVertical(
 
             {/* BETRACHTUNGSOBJEKT */}
 
-            <Grid item xs="auto">
+            <Grid item xs={3}>
               <Typography align="center" variant="h6">
                 Betrachtungsobjekt
               </Typography>
@@ -379,102 +379,9 @@ export default function MorphologicalBoxVertical(
               </Paper>
             </Grid>
 
-            {/* BETRACHTUNGSKONZEPT */}
-
-            <Grid item xs="auto">
-              <Typography align="center" variant="h6">
-                Betrachtungskonzept
-              </Typography>
-
-              <Paper
-                elevation={0}
-                sx={{
-                  display: 'flex',
-                  border: (theme) => `2px solid ${theme.palette.divider}`,
-                  flexWrap: 'wrap',
-                  px: 0.5,
-                }}
-              >
-                <StyledToggleButtonGroup
-                  orientation="vertical"
-                  size="small"
-                  color="primary"
-                  aria-label="selection"
-                  fullWidth={true}
-                >
-                  <ToggleButton
-                    selected={
-                      props.product.betrachtungskonzept.Verwaltungszentriert
-                    }
-                    onClick={() => {
-                      const administrationCentric = {
-                        ...props.product,
-                        betrachtungskonzept: {
-                          ...props.product.betrachtungskonzept,
-                          Verwaltungszentriert:
-                            !props.product.betrachtungskonzept
-                              .Verwaltungszentriert,
-                        },
-                      };
-                      props.setProduct(administrationCentric);
-                    }}
-                    id="AdministrationCentric"
-                    value="Verwaltungszentriert"
-                    aria-label="Verwaltungszentriert"
-                  >
-                    Verwaltungszentriert
-                  </ToggleButton>
-                  <ToggleButton
-                    selected={
-                      props.product.betrachtungskonzept.Bewertungszentriert
-                    }
-                    onClick={() => {
-                      const assessmentCentric = {
-                        ...props.product,
-                        betrachtungskonzept: {
-                          ...props.product.betrachtungskonzept,
-                          Bewertungszentriert:
-                            !props.product.betrachtungskonzept
-                              .Bewertungszentriert,
-                        },
-                      };
-                      props.setProduct(assessmentCentric);
-                    }}
-                    id="AssessmentCentric"
-                    value="Bewertungszentriert"
-                    aria-label="Bewertungszentriert"
-                  >
-                    Bewertungszentriert
-                  </ToggleButton>
-                  <ToggleButton
-                    selected={
-                      props.product.betrachtungskonzept.Managementzentriert
-                    }
-                    onClick={() => {
-                      const managementCentric = {
-                        ...props.product,
-                        betrachtungskonzept: {
-                          ...props.product.betrachtungskonzept,
-                          Managementzentriert:
-                            !props.product.betrachtungskonzept
-                              .Managementzentriert,
-                        },
-                      };
-                      props.setProduct(managementCentric);
-                    }}
-                    id="ManagementCentric"
-                    value="Managementzentriert"
-                    aria-label="Managementzentriert"
-                  >
-                    Managementzentriert
-                  </ToggleButton>
-                </StyledToggleButtonGroup>
-              </Paper>
-            </Grid>
-
             {/* BETRACHTUNGSGRENZEN */}
 
-            <Grid item xs="auto">
+            <Grid item xs={3}>
               <Typography align="center" variant="h6">
                 Betrachtungsgrenzen
               </Typography>
@@ -575,9 +482,118 @@ export default function MorphologicalBoxVertical(
               </div>
             </Grid>
 
+            {/* ITEGRATIONSGRAD */}
+
+            <Grid item xs={3}>
+              <Typography align="center" variant="h6">
+                Integrationsgrad
+              </Typography>
+
+              <div>
+                <Paper
+                  elevation={0}
+                  sx={{
+                    display: 'flex',
+                    border: (theme) => `2px solid ${theme.palette.divider}`,
+                    flexWrap: 'wrap',
+                    px: 0.5,
+                  }}
+                >
+                  <StyledToggleButtonGroup
+                    orientation="vertical"
+                    size="small"
+                    color="primary"
+                    aria-label="selection"
+                    fullWidth={true}
+                  >
+                    <ToggleButton
+                      selected={
+                        props.product.gradDerIntegrierung['Stand-Alone']
+                      }
+                      onClick={() => {
+                        const standAlone = {
+                          ...props.product,
+                          gradDerIntegrierung: {
+                            ...props.product.gradDerIntegrierung,
+                            ['Stand-Alone']:
+                              !props.product.gradDerIntegrierung['Stand-Alone'],
+                          },
+                        };
+                        props.setProduct(standAlone);
+                      }}
+                      id="StandAlone"
+                      value="Stand-Alone"
+                      aria-label="Stand-Alone"
+                    >
+                      Stand-Alone
+                    </ToggleButton>
+                    <ToggleButton
+                      selected={props.product.gradDerIntegrierung['Add-On']}
+                      onClick={() => {
+                        const addon = {
+                          ...props.product,
+                          gradDerIntegrierung: {
+                            ...props.product.gradDerIntegrierung,
+                            ['Add-On']:
+                              !props.product.gradDerIntegrierung['Add-On'],
+                          },
+                        };
+                        props.setProduct(addon);
+                      }}
+                      id="Addon"
+                      value="Add-On"
+                      aria-label="Add-On"
+                    >
+                      Add-On
+                    </ToggleButton>
+                    <ToggleButton
+                      selected={props.product.gradDerIntegrierung.integriert}
+                      onClick={() => {
+                        const integration = {
+                          ...props.product,
+                          gradDerIntegrierung: {
+                            ...props.product.gradDerIntegrierung,
+                            integriert:
+                              !props.product.gradDerIntegrierung.integriert,
+                          },
+                        };
+                        props.setProduct(integration);
+                      }}
+                      id="Integration"
+                      value="Intergriert"
+                      aria-label="Intergriert"
+                    >
+                      Intergriert
+                    </ToggleButton>
+                    <ToggleButton
+                      selected={
+                        props.product.gradDerIntegrierung['SaaS-Lösung']
+                      }
+                      onClick={() => {
+                        const SaaSLösung = {
+                          ...props.product,
+                          gradDerIntegrierung: {
+                            ...props.product.gradDerIntegrierung,
+                            ['SaaS-Lösung']:
+                              !props.product.gradDerIntegrierung['SaaS-Lösung'],
+                          },
+                        };
+                        props.setProduct(SaaSLösung);
+                      }}
+                      id="SaaS-Lösung"
+                      value="SaaS-Lösung"
+                      aria-label="SaaS-Lösung"
+                    >
+                      SaaS-Lösung
+                    </ToggleButton>
+                  </StyledToggleButtonGroup>
+                </Paper>
+              </div>
+            </Grid>
+
             {/* ZIELGRUPPE / ANWENDER */}
 
-            <Grid item xs="auto">
+            <Grid item xs={3}>
               <Typography align="center" variant="h6">
                 Zielgruppe / Anwender
               </Typography>
@@ -698,113 +714,97 @@ export default function MorphologicalBoxVertical(
               </div>
             </Grid>
 
-            {/* ITEGRATIONSGRAD */}
+            {/* BETRACHTUNGSKONZEPT */}
 
-            <Grid item xs="auto">
+            <Grid item xs={3}>
               <Typography align="center" variant="h6">
-                Integrationsgrad
+                Betrachtungskonzept
               </Typography>
 
-              <div>
-                <Paper
-                  elevation={0}
-                  sx={{
-                    display: 'flex',
-                    border: (theme) => `2px solid ${theme.palette.divider}`,
-                    flexWrap: 'wrap',
-                    px: 0.5,
-                  }}
+              <Paper
+                elevation={0}
+                sx={{
+                  display: 'flex',
+                  border: (theme) => `2px solid ${theme.palette.divider}`,
+                  flexWrap: 'wrap',
+                  px: 0.5,
+                }}
+              >
+                <StyledToggleButtonGroup
+                  orientation="vertical"
+                  size="small"
+                  color="primary"
+                  aria-label="selection"
+                  fullWidth={true}
                 >
-                  <StyledToggleButtonGroup
-                    orientation="vertical"
-                    size="small"
-                    color="primary"
-                    aria-label="selection"
-                    fullWidth={true}
+                  <ToggleButton
+                    selected={
+                      props.product.betrachtungskonzept.Verwaltungszentriert
+                    }
+                    onClick={() => {
+                      const administrationCentric = {
+                        ...props.product,
+                        betrachtungskonzept: {
+                          ...props.product.betrachtungskonzept,
+                          Verwaltungszentriert:
+                            !props.product.betrachtungskonzept
+                              .Verwaltungszentriert,
+                        },
+                      };
+                      props.setProduct(administrationCentric);
+                    }}
+                    id="AdministrationCentric"
+                    value="Verwaltungszentriert"
+                    aria-label="Verwaltungszentriert"
                   >
-                    <ToggleButton
-                      selected={
-                        props.product.gradDerIntegrierung['Stand-Alone']
-                      }
-                      onClick={() => {
-                        const standAlone = {
-                          ...props.product,
-                          gradDerIntegrierung: {
-                            ...props.product.gradDerIntegrierung,
-                            ['Stand-Alone']:
-                              !props.product.gradDerIntegrierung['Stand-Alone'],
-                          },
-                        };
-                        props.setProduct(standAlone);
-                      }}
-                      id="StandAlone"
-                      value="Stand-Alone"
-                      aria-label="Stand-Alone"
-                    >
-                      Stand-Alone
-                    </ToggleButton>
-                    <ToggleButton
-                      selected={props.product.gradDerIntegrierung['Add-On']}
-                      onClick={() => {
-                        const addon = {
-                          ...props.product,
-                          gradDerIntegrierung: {
-                            ...props.product.gradDerIntegrierung,
-                            ['Add-On']:
-                              !props.product.gradDerIntegrierung['Add-On'],
-                          },
-                        };
-                        props.setProduct(addon);
-                      }}
-                      id="Addon"
-                      value="Add-On"
-                      aria-label="Add-On"
-                    >
-                      Add-On
-                    </ToggleButton>
-                    <ToggleButton
-                      selected={props.product.gradDerIntegrierung.integriert}
-                      onClick={() => {
-                        const integration = {
-                          ...props.product,
-                          gradDerIntegrierung: {
-                            ...props.product.gradDerIntegrierung,
-                            integriert:
-                              !props.product.gradDerIntegrierung.integriert,
-                          },
-                        };
-                        props.setProduct(integration);
-                      }}
-                      id="Integration"
-                      value="Intergriert"
-                      aria-label="Intergriert"
-                    >
-                      Intergriert
-                    </ToggleButton>
-                    <ToggleButton
-                      selected={
-                        props.product.gradDerIntegrierung['SaaS-Lösung']
-                      }
-                      onClick={() => {
-                        const SaaSLösung = {
-                          ...props.product,
-                          gradDerIntegrierung: {
-                            ...props.product.gradDerIntegrierung,
-                            ['SaaS-Lösung']:
-                              !props.product.gradDerIntegrierung['SaaS-Lösung'],
-                          },
-                        };
-                        props.setProduct(SaaSLösung);
-                      }}
-                      id="SaaS-Lösung"
-                      value="SaaS-Lösung"
-                      aria-label="SaaS-Lösung"
-                    >
-                      SaaS-Lösung
-                    </ToggleButton>
-                  </StyledToggleButtonGroup>
-                </Paper>
-              </div>
+                    Verwaltungszentriert
+                  </ToggleButton>
+                  <ToggleButton
+                    selected={
+                      props.product.betrachtungskonzept.Bewertungszentriert
+                    }
+                    onClick={() => {
+                      const assessmentCentric = {
+                        ...props.product,
+                        betrachtungskonzept: {
+                          ...props.product.betrachtungskonzept,
+                          Bewertungszentriert:
+                            !props.product.betrachtungskonzept
+                              .Bewertungszentriert,
+                        },
+                      };
+                      props.setProduct(assessmentCentric);
+                    }}
+                    id="AssessmentCentric"
+                    value="Bewertungszentriert"
+                    aria-label="Bewertungszentriert"
+                  >
+                    Bewertungszentriert
+                  </ToggleButton>
+                  <ToggleButton
+                    selected={
+                      props.product.betrachtungskonzept.Managementzentriert
+                    }
+                    onClick={() => {
+                      const managementCentric = {
+                        ...props.product,
+                        betrachtungskonzept: {
+                          ...props.product.betrachtungskonzept,
+                          Managementzentriert:
+                            !props.product.betrachtungskonzept
+                              .Managementzentriert,
+                        },
+                      };
+                      props.setProduct(managementCentric);
+                    }}
+                    id="ManagementCentric"
+                    value="Managementzentriert"
+                    aria-label="Managementzentriert"
+                  >
+                    Managementzentriert
+                  </ToggleButton>
+                </StyledToggleButtonGroup>
+              </Paper>
             </Grid>
           </Grid>
         </Box>
