@@ -169,7 +169,7 @@ export default function ProductDetail() {
               </Typography>
               <Grid
                 container
-                columns={{ xs: 4, sm: 6, md: 12 }}
+                columns={{ xs: 12, sm: 12, md: 12 }}
                 direction="row"
                 justifyContent="space-between"
                 alignItems="flex-start"
@@ -177,7 +177,7 @@ export default function ProductDetail() {
                 columnSpacing={{ xs: 1, sm: 2, md: 2 }}
                 xs={12}
               >
-                <Grid item xs="auto">
+                <Grid item xs={6}>
                   <Typography align="center" variant="h6">
                     Anwendungsgebiet
                   </Typography>
@@ -268,7 +268,7 @@ export default function ProductDetail() {
                     </Paper>
                   </div>
                 </Grid>
-                <Grid item xs="auto">
+                <Grid item xs={6}>
                   <Typography align="center" variant="h6">
                     Betrachtungsobjekt
                   </Typography>
@@ -346,9 +346,11 @@ export default function ProductDetail() {
                     </Paper>
                   </div>
                 </Grid>
-                <Grid item xs="auto">
+
+                {/* ITEGRATIONSGRAD */}
+                <Grid item xs={6}>
                   <Typography align="center" variant="h6">
-                    Betrachtungskonzept
+                    Integrationsgrad
                   </Typography>
 
                   <div>
@@ -361,8 +363,6 @@ export default function ProductDetail() {
                         px: 0.4,
                       }}
                     >
-                      {/* BETRACHTUNGSKONZEPT */}
-
                       <StyledToggleButtonGroup
                         orientation="vertical"
                         size="small"
@@ -371,40 +371,47 @@ export default function ProductDetail() {
                         fullWidth={true}
                       >
                         <ToggleButton
-                          id="AdministrationCentric"
-                          value="Verwaltungszentriert"
-                          aria-label="Verwaltungszentriert"
+                          id="StandAlone"
+                          value="Stand-Alone"
+                          aria-label="Stand-Alone"
                           selected={
-                            product?.betrachtungskonzept?.Verwaltungszentriert
+                            product?.gradDerIntegrierung?.['Stand-Alone']
                           }
                         >
-                          Verwaltungszentriert
+                          Stand-Alone
                         </ToggleButton>
                         <ToggleButton
-                          id="AssessmentCentric"
-                          value="Bewertungszentriert"
-                          aria-label="Bewertungszentriert"
-                          selected={
-                            product?.betrachtungskonzept?.Bewertungszentriert
-                          }
+                          id="Addon"
+                          value="Add-On"
+                          aria-label="Add-On"
+                          selected={product?.gradDerIntegrierung?.['Add-On']}
                         >
-                          Bewertungszentriert
+                          Add-On
                         </ToggleButton>
                         <ToggleButton
-                          id="ManagementCentric"
-                          value="Managementzentriert"
-                          aria-label="Managementzentriert"
+                          id="Integration"
+                          value="Intergriert"
+                          aria-label="Intergriert"
+                          selected={product?.gradDerIntegrierung?.integriert}
+                        >
+                          Intergriert
+                        </ToggleButton>
+                        <ToggleButton
+                          id="SaaS-Lösung"
+                          value="SaaS-Lösung"
+                          aria-label="SaaS-Lösung"
                           selected={
-                            product?.betrachtungskonzept?.Managementzentriert
+                            product?.gradDerIntegrierung?.['SaaS-Lösung']
                           }
                         >
-                          Managementzentriert
+                          SaaS-Lösung
                         </ToggleButton>
                       </StyledToggleButtonGroup>
                     </Paper>
                   </div>
                 </Grid>
-                <Grid item xs="auto">
+
+                <Grid item xs={6}>
                   <Typography align="center" variant="h6">
                     Betrachtungsgrenzen
                   </Typography>
@@ -466,7 +473,7 @@ export default function ProductDetail() {
                     </Paper>
                   </div>
                 </Grid>
-                <Grid item xs="auto">
+                <Grid item xs={6}>
                   <Typography align="center" variant="h6">
                     Anwender
                   </Typography>
@@ -536,9 +543,11 @@ export default function ProductDetail() {
                     </Paper>
                   </div>
                 </Grid>
-                <Grid item xs="auto">
+                {/* BETRACHTUNGSKONZEPT */}
+
+                <Grid item xs={6}>
                   <Typography align="center" variant="h6">
-                    Integrationsgrad
+                    Betrachtungskonzept
                   </Typography>
 
                   <div>
@@ -551,8 +560,6 @@ export default function ProductDetail() {
                         px: 0.4,
                       }}
                     >
-                      {/* ITEGRATIONSGRAD */}
-
                       <StyledToggleButtonGroup
                         orientation="vertical"
                         size="small"
@@ -561,40 +568,34 @@ export default function ProductDetail() {
                         fullWidth={true}
                       >
                         <ToggleButton
-                          id="StandAlone"
-                          value="Stand-Alone"
-                          aria-label="Stand-Alone"
+                          id="AdministrationCentric"
+                          value="Verwaltungszentriert"
+                          aria-label="Verwaltungszentriert"
                           selected={
-                            product?.gradDerIntegrierung?.['Stand-Alone']
+                            product?.betrachtungskonzept?.Verwaltungszentriert
                           }
                         >
-                          Stand-Alone
+                          Verwaltungszentriert
                         </ToggleButton>
                         <ToggleButton
-                          id="Addon"
-                          value="Add-On"
-                          aria-label="Add-On"
-                          selected={product?.gradDerIntegrierung?.['Add-On']}
-                        >
-                          Add-On
-                        </ToggleButton>
-                        <ToggleButton
-                          id="Integration"
-                          value="Intergriert"
-                          aria-label="Intergriert"
-                          selected={product?.gradDerIntegrierung?.integriert}
-                        >
-                          Intergriert
-                        </ToggleButton>
-                        <ToggleButton
-                          id="SaaS-Lösung"
-                          value="SaaS-Lösung"
-                          aria-label="SaaS-Lösung"
+                          id="AssessmentCentric"
+                          value="Bewertungszentriert"
+                          aria-label="Bewertungszentriert"
                           selected={
-                            product?.gradDerIntegrierung?.['SaaS-Lösung']
+                            product?.betrachtungskonzept?.Bewertungszentriert
                           }
                         >
-                          SaaS-Lösung
+                          Bewertungszentriert
+                        </ToggleButton>
+                        <ToggleButton
+                          id="ManagementCentric"
+                          value="Managementzentriert"
+                          aria-label="Managementzentriert"
+                          selected={
+                            product?.betrachtungskonzept?.Managementzentriert
+                          }
+                        >
+                          Managementzentriert
                         </ToggleButton>
                       </StyledToggleButtonGroup>
                     </Paper>
