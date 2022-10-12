@@ -1,19 +1,13 @@
-import {
-  Grid,
-  Container,
-  Box,
-  Button,
-  TextField,
-  Typography,
-  styled,
-  Paper,
-  ToggleButton,
-  ToggleButtonGroup,
-} from '@mui/material';
-import { getProduct, IncrementProductViewCount, ProductType } from '../API';
-import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
-import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
+import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
+import {
+    Box, Button, Container, Grid, Paper, styled, TextField, ToggleButton, ToggleButtonGroup,
+    Typography
+} from '@mui/material';
+
+import { getProduct, IncrementProductViewCount, ProductType } from '../API';
 
 {
   /* TODO */

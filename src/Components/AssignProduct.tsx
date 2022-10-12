@@ -1,21 +1,11 @@
-import * as React from 'react';
+import { useEffect, useState } from 'react';
+
 import {
-  Autocomplete,
-  Container,
-  Button,
-  Grid,
-  Box,
-  Link,
-  CardMedia,
-  TextField,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
+    Autocomplete, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle,
+    TextField
 } from '@mui/material';
-import { AccountType, ProductType, GetAccounts } from '../API';
-import { useState, useEffect } from 'react';
+
+import { AccountType, GetAccounts, ProductType } from '../API';
 
 {
   /* TODO */

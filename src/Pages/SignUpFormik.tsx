@@ -1,25 +1,17 @@
+import { Field, Form, Formik, useField } from 'formik';
 import * as React from 'react';
+import { useCookies } from 'react-cookie';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
+
+import { Check } from '@mui/icons-material';
 import {
-  Button,
-  Card,
-  CardContent,
-  Typography,
-  TextField,
-  Link,
-  Grid,
-  Box,
-  Container,
-  FormControlLabel,
-  Checkbox,
-  CheckboxProps,
+    Box, Button, Card, CardContent, Checkbox, CheckboxProps, Container, FormControlLabel, Grid,
+    Link, TextField, Typography
 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 import { CreateAccount } from '../API';
-import { useNavigate, NavigateFunction } from 'react-router-dom';
-import { useCookies } from 'react-cookie';
-import { Formik, Form, Field, useField } from 'formik';
 import Account from './Account';
-import { Check } from '@mui/icons-material';
 
 {
   /* TODO */

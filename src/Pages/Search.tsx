@@ -1,13 +1,15 @@
-import Grid from '@mui/material/Grid';
-import ImageBanner from '../Components/ImageBanner';
-import Box from '@mui/material/Box';
-import SearchBarBoxed from '../Components/SearchBarBoxed';
-import AccordionFilter from '../Components/AccordionFilter';
-import ImgMediaCard from '../Components/ImgMediaCard';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
 import { useEffect, useState } from 'react';
-import { GetProducts, ProductType, AccountType } from '../API';
+
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+
+import { AccountType, GetProducts, ProductType } from '../API';
+import AccordionFilter from '../Components/AccordionFilter';
+import ImageBanner from '../Components/ImageBanner';
+import ImgMediaCard from '../Components/ImgMediaCard';
+import SearchBarBoxed from '../Components/SearchBarBoxed';
 import BannerBackgroundImage from '../images/layered-waves-haikei_1.svg';
 
 {

@@ -1,26 +1,19 @@
-import Button from '@mui/material/Button';
+import { useEffect, useState } from 'react';
+import { NavigateFunction, useNavigate, useParams } from 'react-router-dom';
+
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 import {
-  Grid,
-  Container,
-  Stack,
-  Box,
-  TextField,
-  Typography,
-  Paper,
-  ToggleButton,
-  ToggleButtonGroup,
+    Box, Container, Grid, Paper, Stack, TextField, ToggleButton, ToggleButtonGroup, Typography
 } from '@mui/material';
+import Button from '@mui/material/Button';
 import CardMedia from '@mui/material/CardMedia';
-import SampleImg from '../images/sample-img.png';
-import { getProduct, ProductType, AccountType, PutProducts } from '../API';
 import { styled } from '@mui/material/styles';
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { useNavigate, NavigateFunction } from 'react-router-dom';
-import ProductDetailViewCard from '../Components/ProductDetailViewCard';
+
+import { AccountType, getProduct, ProductType, PutProducts } from '../API';
 import MorphologicalBoxVertical from '../Components/MorphologicalBoxVertical';
+import ProductDetailViewCard from '../Components/ProductDetailViewCard';
+import SampleImg from '../images/sample-img.png';
 
 {
   /* TODO */
