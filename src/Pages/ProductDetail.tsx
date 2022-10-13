@@ -72,7 +72,7 @@ export default function ProductDetail() {
               justifyContent="center"
               rowSpacing={1}
               columnSpacing={{ xs: 0, sm: 0, md: 0 }}
-              sx={{ p: 2 }}
+              sx={{ p: 1 }}
               bgcolor="background.paper"
               color="text.primary"
             >
@@ -87,7 +87,10 @@ export default function ProductDetail() {
             </Grid> */}
               <Grid item xs={10} sx={{ mt: -2 }}>
                 <Grid item xs={12}>
-                  <TextField
+                  <Typography variant="h4" gutterBottom sx={{ mt: 3 }}>
+                    {product?.productName}
+                  </Typography>
+                  {/* <TextField
                     margin="normal"
                     fullWidth
                     id="productName"
@@ -97,7 +100,7 @@ export default function ProductDetail() {
                     InputProps={{
                       readOnly: true,
                     }}
-                  />
+                  /> */}
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
@@ -126,7 +129,7 @@ export default function ProductDetail() {
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <Box sx={{ mx: 0, mt: 0 }}>
+                  <Box sx={{ mx: 0, mt: 0, mb: 3 }}>
                     <TextField
                       margin="normal"
                       fullWidth
@@ -165,13 +168,12 @@ export default function ProductDetail() {
                 container
                 columns={{ xs: 12, sm: 12, md: 12 }}
                 direction="row"
-                justifyContent="space-between"
+                justifyContent="center"
                 alignItems="flex-start"
                 rowSpacing={3}
-                columnSpacing={{ xs: 1, sm: 2, md: 2 }}
-                xs={12}
+                columnSpacing={{ xs: 3, sm: 3, md: 3 }}
               >
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6} md={6}>
                   <Typography align="center" variant="h6">
                     Anwendungsgebiet
                   </Typography>
@@ -262,7 +264,7 @@ export default function ProductDetail() {
                     </Paper>
                   </div>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6} md={6}>
                   <Typography align="center" variant="h6">
                     Betrachtungsobjekt
                   </Typography>
@@ -342,7 +344,7 @@ export default function ProductDetail() {
                 </Grid>
 
                 {/* ITEGRATIONSGRAD */}
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6} md={6}>
                   <Typography align="center" variant="h6">
                     Integrationsgrad
                   </Typography>
@@ -405,7 +407,7 @@ export default function ProductDetail() {
                   </div>
                 </Grid>
 
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6} md={6}>
                   <Typography align="center" variant="h6">
                     Betrachtungsgrenzen
                   </Typography>
@@ -467,7 +469,7 @@ export default function ProductDetail() {
                     </Paper>
                   </div>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6} md={6}>
                   <Typography align="center" variant="h6">
                     Anwender
                   </Typography>
@@ -539,7 +541,7 @@ export default function ProductDetail() {
                 </Grid>
                 {/* BETRACHTUNGSKONZEPT */}
 
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6} md={6}>
                   <Typography align="center" variant="h6">
                     Betrachtungskonzept
                   </Typography>
