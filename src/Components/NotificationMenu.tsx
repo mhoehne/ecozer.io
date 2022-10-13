@@ -1,26 +1,18 @@
 import * as React from 'react';
-import {
-  Box,
-  Menu,
-  MenuItem,
-  ListItemIcon,
-  IconButton,
-  Tooltip,
-  Badge,
-  List,
-  ListItem,
-  ListItemText,
-  ListItemAvatar,
-  Avatar,
-  Divider,
-} from '@mui/material';
 import { Link } from 'react-router-dom';
-import { AccountType } from '../API';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
-import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
+
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
+import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import PollOutlinedIcon from '@mui/icons-material/PollOutlined';
+import {
+    Avatar, Badge, Box, Divider, IconButton, List, ListItem, ListItemAvatar, ListItemText, Menu,
+    MenuItem, Tooltip
+} from '@mui/material';
+
+import { AccountType } from '../API';
 
 {
   /* TODO */
@@ -118,11 +110,33 @@ export default function NotificationMenu(props: NotificationMenuProps) {
             }
           >
             <ListItemAvatar>
+              <Avatar sx={{ backgroundColor: '#c861ff' }}>
+                <PollOutlinedIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText
+              primary="Produkt zugewiesen"
+              secondary="Dir wurde ein Produkt zugewiesen. Nimm gern zusätzlich an unserer 3 minütigen Umfrage teil: {LINK}"
+            />
+          </ListItem>
+          <Divider variant="fullWidth" component="li" />
+          <ListItem
+            alignItems="center"
+            secondaryAction={
+              <IconButton edge="end" aria-label="delete">
+                <CancelOutlinedIcon />
+              </IconButton>
+            }
+          >
+            <ListItemAvatar>
               <Avatar sx={{ backgroundColor: '#fc998d' }}>
                 <CloseOutlinedIcon />
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary="Abgelehnt" secondary="Begründung..." />
+            <ListItemText
+              primary="Produkt abgelehnt"
+              secondary="{Begründung}"
+            />
           </ListItem>
           <Divider variant="fullWidth" component="li" />
           <ListItem
@@ -139,8 +153,8 @@ export default function NotificationMenu(props: NotificationMenuProps) {
               </Avatar>
             </ListItemAvatar>
             <ListItemText
-              primary="Veröffentlicht"
-              secondary="Ihr Produkt `Name` wurde veröffentlicht. "
+              primary="Produkt veröffentlicht"
+              secondary="Ihr Produkt `Name` wurde veröffentlicht und ist nun für alle sichtbar. "
             />
           </ListItem>
           <Divider variant="fullWidth" component="li" />
@@ -159,7 +173,7 @@ export default function NotificationMenu(props: NotificationMenuProps) {
             </ListItemAvatar>
             <ListItemText
               primary="Überprüfung ausstehend"
-              secondary="Ihr Produkt `Name` wird in kürze von einem Administrator überprüft."
+              secondary="Ihr Produkt `Name` wird in kürze von einem Administrator überprüft. Bitte habe etwas Geduld."
             />
           </ListItem>
         </List>
