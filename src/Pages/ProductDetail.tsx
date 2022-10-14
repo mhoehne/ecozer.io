@@ -87,7 +87,7 @@ export default function ProductDetail() {
             </Grid> */}
               <Grid item xs={10} sx={{ mt: -2 }}>
                 <Grid item xs={12}>
-                  <Typography variant="h4" gutterBottom sx={{ mt: 3 }}>
+                  <Typography variant="h4" gutterBottom sx={{ mt: 4, mb: 0 }}>
                     {product?.productName}
                   </Typography>
                   {/* <TextField
