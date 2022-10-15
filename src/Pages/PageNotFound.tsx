@@ -15,7 +15,7 @@ import Typography from '@mui/material/Typography';
 export default function PageNotFound() {
   return (
     <>
-      <Box sx={{ mt: 20 }}>
+      <Box sx={{ mt: 20, mb: 40 }}>
         <Typography>Seite nicht gefunden</Typography>
       </Box>
     </>

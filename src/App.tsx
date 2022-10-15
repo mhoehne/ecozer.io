@@ -119,7 +119,7 @@ export default function App() {
             path="/product-list"
             element={<ProductList account={account} />}
           />
-          <Route path="*" element={<PageNotFound />} />
+          <Route path="/*" element={<PageNotFound />} />
         </Routes>
       </Container>
       <Footer />
