@@ -1,28 +1,30 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './Pages/HomePage';
-import Search from './Pages/Search';
-import ProductDetail from './Pages/ProductDetail';
+import { useEffect, useState } from 'react';
+import { useCookies } from 'react-cookie';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import Container from '@mui/material/Container';
+
+import { AccountType, GetAccountByEmail } from './API';
+import AppBarTop from './Components/AppBarTop';
+import Footer from './Components/Footer';
 import Account from './Pages/Account';
-import MyProducts from './Pages/MyProducts';
 import AddProduct from './Pages/AddProduct';
-import SignIn from './Pages/SignIn';
-import SignUp from './Pages/SignUp';
 import AdminApproval from './Pages/AdminApproval';
 import AdminApprovalDetail from './Pages/AdminApprovalDetail';
-import UserList from './Pages/UserList';
-import Container from '@mui/material/Container';
-import Footer from './Components/Footer';
-import AppBarTop from './Components/AppBarTop';
 import Dashboard from './Pages/Dashboard';
 import Glossar from './Pages/Glossar';
-import ProductList from './Pages/ProductList';
-import NotificationLog from './Pages/NotificationLog';
-import { useCookies } from 'react-cookie';
-import { useState, useEffect } from 'react';
-import { AccountType, ProductType, GetAccountByEmail, getProduct } from './API';
-import { mixed } from 'yup/lib/locale';
+import HomePage from './Pages/HomePage';
+import MyProducts from './Pages/MyProducts';
 import MyProductsEdit from './Pages/MyProductsEdit';
+import NotificationLog from './Pages/NotificationLog';
+import PageNotFound from './Pages/PageNotFound';
+import ProductDetail from './Pages/ProductDetail';
+import ProductList from './Pages/ProductList';
+import Search from './Pages/Search';
+import SignIn from './Pages/SignIn';
+import SignUp from './Pages/SignUp';
 import SignUpFormik from './Pages/SignUpFormik';
+import UserList from './Pages/UserList';
 
 {
   /* TODO */
@@ -117,6 +119,7 @@ export default function App() {
             path="/product-list"
             element={<ProductList account={account} />}
           />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Container>
       <Footer />
