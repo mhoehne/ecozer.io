@@ -8,8 +8,8 @@ import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import PollOutlinedIcon from '@mui/icons-material/PollOutlined';
 import {
-    Avatar, Badge, Box, Divider, IconButton, List, ListItem, ListItemAvatar, ListItemText, Menu,
-    MenuItem, Tooltip
+    Avatar, Badge, Box, Divider, IconButton, List, ListItem, ListItemAvatar, ListItemButton,
+    ListItemText, Menu, MenuItem, Tooltip
 } from '@mui/material';
 
 import { AccountType } from '../API';
@@ -101,81 +101,88 @@ export default function NotificationMenu(props: NotificationMenuProps) {
           }}
         >
           <Divider variant="fullWidth" component="li" />
-          <ListItem
-            alignItems="center"
-            secondaryAction={
-              <IconButton edge="end" aria-label="delete">
-                <CancelOutlinedIcon />
-              </IconButton>
-            }
-          >
-            <ListItemAvatar>
-              <Avatar sx={{ backgroundColor: '#c861ff' }}>
-                <PollOutlinedIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText
-              primary="Produkt zugewiesen"
-              secondary="Dir wurde ein Produkt zugewiesen. Nimm gern zusätzlich an unserer 3 minütigen Umfrage teil: {LINK}"
-            />
-          </ListItem>
+          <ListItemButton>
+            <ListItem
+              alignItems="center"
+              secondaryAction={
+                <IconButton edge="end" aria-label="delete">
+                  <CancelOutlinedIcon />
+                </IconButton>
+              }
+            >
+              <ListItemAvatar>
+                <Avatar sx={{ backgroundColor: '#c861ff' }}>
+                  <PollOutlinedIcon />
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText
+                primary="Produkt zugewiesen"
+                secondary="Dir wurde ein Produkt zugewiesen. Nimm gern zusätzlich an unserer 3 minütigen Umfrage teil."
+              />
+            </ListItem>
+          </ListItemButton>
           <Divider variant="fullWidth" component="li" />
-          <ListItem
-            alignItems="center"
-            secondaryAction={
-              <IconButton edge="end" aria-label="delete">
-                <CancelOutlinedIcon />
-              </IconButton>
-            }
-          >
-            <ListItemAvatar>
-              <Avatar sx={{ backgroundColor: '#fc998d' }}>
-                <CloseOutlinedIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText
-              primary="Produkt abgelehnt"
-              secondary="{Begründung}"
-            />
-          </ListItem>
+          <ListItemButton>
+            <ListItem
+              alignItems="center"
+              secondaryAction={
+                <IconButton edge="end" aria-label="delete">
+                  <CancelOutlinedIcon />
+                </IconButton>
+              }
+            >
+              <ListItemAvatar>
+                <Avatar sx={{ backgroundColor: '#fc998d' }}>
+                  <CloseOutlinedIcon />
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText
+                primary="Produkt abgelehnt"
+                secondary="{Begründung}"
+              />
+            </ListItem>
+          </ListItemButton>
           <Divider variant="fullWidth" component="li" />
-          <ListItem
-            alignItems="center"
-            secondaryAction={
-              <IconButton edge="end" aria-label="delete">
-                <CancelOutlinedIcon />
-              </IconButton>
-            }
-          >
-            <ListItemAvatar>
-              <Avatar sx={{ backgroundColor: '#50cc52' }}>
-                <CheckOutlinedIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText
-              primary="Produkt veröffentlicht"
-              secondary="Ihr Produkt `Name` wurde veröffentlicht und ist nun für alle sichtbar. "
-            />
-          </ListItem>
-          <Divider variant="fullWidth" component="li" />
-          <ListItem
-            alignItems="center"
-            secondaryAction={
-              <IconButton edge="end" aria-label="delete">
-                <CancelOutlinedIcon />
-              </IconButton>
-            }
-          >
-            <ListItemAvatar>
-              <Avatar sx={{ backgroundColor: '#ffbf03' }}>
-                <AccessTimeOutlinedIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText
-              primary="Überprüfung ausstehend"
-              secondary="Ihr Produkt `Name` wird in kürze von einem Administrator überprüft. Bitte habe etwas Geduld."
-            />
-          </ListItem>
+          <ListItemButton>
+            <ListItem
+              alignItems="center"
+              secondaryAction={
+                <IconButton edge="end" aria-label="delete">
+                  <CancelOutlinedIcon />
+                </IconButton>
+              }
+            >
+              <ListItemAvatar>
+                <Avatar sx={{ backgroundColor: '#50cc52' }}>
+                  <CheckOutlinedIcon />
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText
+                primary="Produkt veröffentlicht"
+                secondary="Ihr Produkt `Name` wurde veröffentlicht und ist nun für alle sichtbar. "
+              />
+            </ListItem>
+          </ListItemButton>
+          <ListItemButton>
+            <ListItem
+              alignItems="center"
+              secondaryAction={
+                <IconButton edge="end" aria-label="delete">
+                  <CancelOutlinedIcon />
+                </IconButton>
+              }
+            >
+              <ListItemAvatar>
+                <Avatar sx={{ backgroundColor: '#ffbf03' }}>
+                  <AccessTimeOutlinedIcon />
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText
+                primary="Überprüfung ausstehend"
+                secondary="Ihr Produkt `Name` wird in kürze von einem Administrator überprüft. Bitte habe etwas Geduld."
+              />
+            </ListItem>
+          </ListItemButton>
         </List>
       </Menu>
     </React.Fragment>

@@ -18,11 +18,14 @@ import {
   /* Note: */
 }
 
-interface MultiStepSurveyProps {}
+interface MultiStepSurveyProps {
+  open: boolean;
+  handleClose: Function;
+}
 
 const steps = ['Step one', 'Step two', 'step three'];
 
-export default function MultiStepSurvey() {
+export default function MultiStepSurvey(props: MultiStepSurveyProps) {
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
