@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
+import { Box, Container, Grid, Typography } from '@mui/material';
 
 import { AccountType, GetProducts, ProductType } from '../API';
 import AccordionFilter from '../Components/AccordionFilter';
