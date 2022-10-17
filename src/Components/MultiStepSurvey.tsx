@@ -20,21 +20,12 @@ import {
 
 interface MultiStepSurveyProps {
   open: boolean;
-  handleClose: Function;
+  setOpen: Function;
 }
 
 const steps = ['Step one', 'Step two', 'step three'];
 
 export default function MultiStepSurvey(props: MultiStepSurveyProps) {
-  const [open, setOpen] = React.useState(false);
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set<number>());
 
@@ -82,8 +73,7 @@ export default function MultiStepSurvey(props: MultiStepSurveyProps) {
   return (
     <>
       <Dialog
-        open={open}
-        onClose={handleClose}
+        open={props.open}
         aria-labelledby="responsive-dialog-title"
         fullWidth={true}
       >
@@ -150,7 +140,12 @@ export default function MultiStepSurvey(props: MultiStepSurveyProps) {
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose}>
+          <Button
+            autoFocus
+            onClick={() => {
+              props.setOpen(false);
+            }}
+          >
             Schließen
           </Button>
         </DialogActions>

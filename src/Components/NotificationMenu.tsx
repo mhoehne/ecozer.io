@@ -13,6 +13,7 @@ import {
 } from '@mui/material';
 
 import { AccountType } from '../API';
+import MultiStepSurvey from './MultiStepSurvey';
 
 {
   /* TODO */
@@ -31,6 +32,7 @@ interface NotificationMenuProps {
 
 export default function NotificationMenu(props: NotificationMenuProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [surveyOpen, setsurveyOpen] = React.useState(false);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -101,26 +103,40 @@ export default function NotificationMenu(props: NotificationMenuProps) {
           }}
         >
           <Divider variant="fullWidth" component="li" />
-          <ListItemButton>
-            <ListItem
-              alignItems="center"
-              secondaryAction={
-                <IconButton edge="end" aria-label="delete">
-                  <CancelOutlinedIcon />
-                </IconButton>
-              }
+
+          <ListItem
+            disablePadding={true}
+            alignItems="center"
+            secondaryAction={
+              <IconButton edge="end" aria-label="delete">
+                <CancelOutlinedIcon />
+              </IconButton>
+            }
+          >
+            <ListItemButton
+              onClick={() => {
+                setsurveyOpen(true);
+              }}
             >
-              <ListItemAvatar>
+              <ListItemAvatar
+                onClick={() => {
+                  setsurveyOpen(true);
+                }}
+              >
                 <Avatar sx={{ backgroundColor: '#c861ff' }}>
                   <PollOutlinedIcon />
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
+                onClick={() => {
+                  setsurveyOpen(true);
+                }}
                 primary="Produkt zugewiesen"
                 secondary="Dir wurde ein Produkt zugewiesen. Nimm gern zusätzlich an unserer 3 minütigen Umfrage teil."
               />
-            </ListItem>
-          </ListItemButton>
+            </ListItemButton>
+          </ListItem>
+
           <Divider variant="fullWidth" component="li" />
           <ListItemButton>
             <ListItem
@@ -185,6 +201,7 @@ export default function NotificationMenu(props: NotificationMenuProps) {
           </ListItemButton>
         </List>
       </Menu>
+      <MultiStepSurvey open={surveyOpen} setOpen={setsurveyOpen} />
     </React.Fragment>
   );
 }

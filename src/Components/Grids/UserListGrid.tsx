@@ -1,21 +1,17 @@
-import * as React from 'react';
-import {
-  DataGrid,
-  GridActionsCellItem,
-  GridEditRowsModel,
-  GridToolbarContainer,
-  GridToolbarDensitySelector,
-  GridRowId,
-  deDE,
-} from '@mui/x-data-grid';
-import DeleteIcon from '@mui/icons-material/Delete';
+import { useCallback, useEffect, useState } from 'react';
+
 import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
-import { useEffect, useState, useCallback } from 'react';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { Box } from '@mui/material';
-import { GetAccounts, AccountType, PutAccount, DeleteAccount } from '../../API';
+import MuiAlert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import TablePagination from '@mui/material/TablePagination';
+import {
+    DataGrid, deDE, GridActionsCellItem, GridEditRowsModel, GridRowId, GridToolbarContainer,
+    GridToolbarDensitySelector
+} from '@mui/x-data-grid';
+
+import { AccountType, DeleteAccount, GetAccounts, PutAccount } from '../../API';
 
 {
   /* TODO */
@@ -38,7 +34,9 @@ function CustomToolbar() {
 
 const onRowEdit = (accounts: AccountType[], state: GridEditRowsModel) => {
   for (const _id in state) {
-    const accountNewFields: { [key: string]: string } = { _id: _id };
+    const accountNewFields: { [key: string]: string | number } = {
+      _id: parseInt(_id),
+    };
 
     // Get all new values from `state` into `accountNewFields`
     for (const field in state[_id]) {
@@ -52,7 +50,7 @@ const onRowEdit = (accounts: AccountType[], state: GridEditRowsModel) => {
 
     // Find an account inside `accounts` state variable
     let account = accounts.find((acc) => acc._id === parseInt(_id));
-
+    console.log(accounts, _id);
     // Did not find an account: should never happen. Send error to console and skip this email to avoid a crash.
     if (account === undefined) {
       console.error(
@@ -80,7 +78,7 @@ const onRowEdit = (accounts: AccountType[], state: GridEditRowsModel) => {
 
 export default function DataGridDemo() {
   // pagination
-  const [pageSize, setPageSize] = React.useState<number>(20);
+  const [pageSize, setPageSize] = useState<number>(20);
 
   const [accounts, setAccounts] = useState<AccountType[]>([]);
 
