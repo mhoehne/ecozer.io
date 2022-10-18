@@ -1,39 +1,20 @@
 import * as React from 'react';
-import {
-  DataGrid,
-  GridActionsCellItem,
-  GridEditRowsModel,
-  GridToolbarContainer,
-  GridToolbarDensitySelector,
-  GridRowId,
-  deDE,
-} from '@mui/x-data-grid';
-import DeleteIcon from '@mui/icons-material/Delete';
+
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
-import { useTheme } from '@mui/material/styles';
-import { useEffect, useState, useCallback } from 'react';
-import {
-  Box,
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  useMediaQuery,
-} from '@mui/material';
-import {
-  GetProducts,
-  ProductType,
-  PutProducts,
-  DeleteProduct,
-  AccountType,
-} from '../../API';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { Box, useMediaQuery } from '@mui/material';
+import MuiAlert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import { useTheme } from '@mui/material/styles';
 import TablePagination from '@mui/material/TablePagination';
-import AssignProduct from '../AssignProduct';
+import {
+    DataGrid, deDE, GridActionsCellItem, GridEditRowsModel, GridToolbarContainer,
+    GridToolbarDensitySelector
+} from '@mui/x-data-grid';
+
+import { AccountType, DeleteProduct, GetProducts, ProductType, PutProducts } from '../../API';
 import Account from '../../Pages/Account';
+import AssignProduct from '../AssignProduct';
 
 {
   /* TODO */
@@ -56,7 +37,9 @@ function CustomToolbar() {
 
 const onRowEdit = (products: ProductType[], state: GridEditRowsModel) => {
   for (const _id in state) {
-    const productNewFields: { [key: string]: string } = { _id: _id };
+    const productNewFields: { [key: string]: string | number } = {
+      _id: parseInt(_id),
+    };
 
     // Get all new values from `state` into `productNewFields`
     for (const field in state[_id]) {
@@ -103,8 +86,8 @@ interface ProductListGridProps {
 export default function ProductListGrid(props: ProductListGridProps) {
   const [pageSize, setPageSize] = React.useState<number>(20);
   const [open, setOpen] = React.useState(false);
-  const [products, setProducts] = useState<ProductType[]>([]);
-  const [product, setProduct] = useState<ProductType>();
+  const [products, setProducts] = React.useState<ProductType[]>([]);
+  const [product, setProduct] = React.useState<ProductType>();
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -224,7 +207,7 @@ export default function ProductListGrid(props: ProductListGridProps) {
     },
   ];
 
-  useEffect(() => {
+  React.useEffect(() => {
     GetProducts(null, null, [], [], [], [], [], [], null)
       .then((result) => {
         setProducts(result.data.products);
