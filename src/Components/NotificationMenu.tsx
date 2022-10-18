@@ -108,7 +108,7 @@ export default function NotificationMenu(props: NotificationMenuProps) {
             disablePadding={true}
             alignItems="center"
             secondaryAction={
-              <IconButton edge="end" aria-label="delete">
+              <IconButton edge="end" aria-label="delete" onClick={() => {}}>
                 <CancelOutlinedIcon />
               </IconButton>
             }
@@ -138,15 +138,17 @@ export default function NotificationMenu(props: NotificationMenuProps) {
           </ListItem>
 
           <Divider variant="fullWidth" component="li" />
-          <ListItemButton>
-            <ListItem
-              alignItems="center"
-              secondaryAction={
-                <IconButton edge="end" aria-label="delete">
-                  <CancelOutlinedIcon />
-                </IconButton>
-              }
-            >
+
+          <ListItem
+            disablePadding={true}
+            alignItems="center"
+            secondaryAction={
+              <IconButton edge="end" aria-label="delete" onClick={() => {}}>
+                <CancelOutlinedIcon />
+              </IconButton>
+            }
+          >
+            <ListItemButton>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: '#fc998d' }}>
                   <CloseOutlinedIcon />
@@ -156,18 +158,21 @@ export default function NotificationMenu(props: NotificationMenuProps) {
                 primary="Produkt abgelehnt"
                 secondary="{Begründung}"
               />
-            </ListItem>
-          </ListItemButton>
+            </ListItemButton>
+          </ListItem>
+
           <Divider variant="fullWidth" component="li" />
-          <ListItemButton>
-            <ListItem
-              alignItems="center"
-              secondaryAction={
-                <IconButton edge="end" aria-label="delete">
-                  <CancelOutlinedIcon />
-                </IconButton>
-              }
-            >
+
+          <ListItem
+            disablePadding={true}
+            alignItems="center"
+            secondaryAction={
+              <IconButton edge="end" aria-label="delete" onClick={() => {}}>
+                <CancelOutlinedIcon />
+              </IconButton>
+            }
+          >
+            <ListItemButton>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: '#50cc52' }}>
                   <CheckOutlinedIcon />
@@ -177,17 +182,20 @@ export default function NotificationMenu(props: NotificationMenuProps) {
                 primary="Produkt veröffentlicht"
                 secondary="Ihr Produkt `Name` wurde veröffentlicht und ist nun für alle sichtbar. "
               />
-            </ListItem>
-          </ListItemButton>
-          <ListItemButton>
-            <ListItem
-              alignItems="center"
-              secondaryAction={
-                <IconButton edge="end" aria-label="delete">
-                  <CancelOutlinedIcon />
-                </IconButton>
-              }
-            >
+            </ListItemButton>
+          </ListItem>
+          <Divider variant="fullWidth" component="li" />
+
+          <ListItem
+            disablePadding={true}
+            alignItems="center"
+            secondaryAction={
+              <IconButton edge="end" aria-label="delete" onClick={() => {}}>
+                <CancelOutlinedIcon />
+              </IconButton>
+            }
+          >
+            <ListItemButton>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: '#ffbf03' }}>
                   <AccessTimeOutlinedIcon />
@@ -197,8 +205,8 @@ export default function NotificationMenu(props: NotificationMenuProps) {
                 primary="Überprüfung ausstehend"
                 secondary="Ihr Produkt `Name` wird in kürze von einem Administrator überprüft. Bitte habe etwas Geduld."
               />
-            </ListItem>
-          </ListItemButton>
+            </ListItemButton>
+          </ListItem>
         </List>
       </Menu>
       <MultiStepSurvey open={surveyOpen} setOpen={setsurveyOpen} />
