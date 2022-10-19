@@ -66,6 +66,7 @@ function loggedoutbox() {
         </Button>
         <Button
           variant="outlined"
+          color="secondary"
           size="small"
           startIcon={<LoginIcon />}
           href="/signin"
