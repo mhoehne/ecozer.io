@@ -1,22 +1,16 @@
+import { Link } from 'react-router-dom';
+
+import LoginIcon from '@mui/icons-material/Login';
 import {
-  Box,
-  Toolbar,
-  Typography,
-  CardMedia,
-  MenuItem,
-  Button,
-  Stack,
-  styled,
-  Tooltip,
+    Box, Button, CardMedia, MenuItem, Stack, styled, Toolbar, Tooltip, Typography
 } from '@mui/material';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import AccountMenu from './AccountMenu';
-import Logo from '../images/Q04_HTW_Berlin_Logo_quer_pos_FARBIG_RGB.jpg';
-import LoginIcon from '@mui/icons-material/Login';
-import { Link } from 'react-router-dom';
-import NotificationMenu from './NotificationMenu';
+
 import { AccountType } from '../API';
+import Logo from '../images/Q04_HTW_Berlin_Logo_quer_pos_FARBIG_RGB.jpg';
+import AccountMenu from './AccountMenu';
 import AccountSettings from './AccountSettings';
+import NotificationMenu from './NotificationMenu';
 
 {
   /* TODO */
@@ -63,11 +57,12 @@ function loggedoutbox() {
       <Stack direction="row" spacing={2}>
         <Button
           variant="contained"
+          color="secondary"
           size="small"
           sx={{ color: 'background.paper' }}
           href="/signup"
         >
-          Jetzt Produkt erstellen
+          Produkt erstellen
         </Button>
         <Button
           variant="outlined"
