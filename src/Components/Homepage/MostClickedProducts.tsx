@@ -1,9 +1,11 @@
+import { useEffect, useState } from 'react';
+
 import Container from '@mui/material/Container';
-import ImgMediaCard from '../ImgMediaCard';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import { useEffect, useState } from 'react';
+
 import { ListMostViewedProducts, ProductType } from '../../API';
+import ImgMediaCard from '../ImgMediaCard';
 
 {
   /* TODO */

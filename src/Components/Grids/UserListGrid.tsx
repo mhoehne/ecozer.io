@@ -4,8 +4,6 @@ import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Box } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
-import Snackbar from '@mui/material/Snackbar';
-import TablePagination from '@mui/material/TablePagination';
 import {
     DataGrid, deDE, GridActionsCellItem, GridEditRowsModel, GridRowId, GridToolbarContainer,
     GridToolbarDensitySelector

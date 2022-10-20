@@ -1,18 +1,10 @@
 import * as React from 'react';
+
 import {
-  Container,
-  Button,
-  Grid,
-  Box,
-  Link,
-  CardMedia,
-  TextField,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
+    Box, Button, CardMedia, Container, Dialog, DialogActions, DialogContent, DialogContentText,
+    DialogTitle, Grid, Link, TextField
 } from '@mui/material';
+
 import LogoFooter from '../images/S20_HTW_Berlin_Logo_neg_WEISS_RGB.png';
 
 {

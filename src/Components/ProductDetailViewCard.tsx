@@ -1,12 +1,13 @@
-import Box from '@mui/material/Box';
 import { Grid } from '@mui/material';
+import Box from '@mui/material/Box';
 import CardMedia from '@mui/material/CardMedia';
-import SampleImg from '../images/sample-img.png';
 import TextField from '@mui/material/TextField';
+
+import { ProductType } from '../API';
 import FileDrop from '../Components/ImageFileDrop/FileDrop';
 import FileUploadBox from '../Components/ImageFileDrop/FileUploadBox';
+import SampleImg from '../images/sample-img.png';
 import ImageFileUpload from './ImageFileDrop/ImageFileUpload';
-import { ProductType } from '../API';
 import ImageFileUploadIndex from './ImageFileUpload/ImageFileUploadIndex';
 
 {

@@ -1,6 +1,7 @@
-import { Box, Typography, Button } from '@mui/material';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
+
+import { Box, Button, Typography } from '@mui/material';
 
 {
   /* TODO */

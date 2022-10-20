@@ -1,12 +1,14 @@
-import Container from '@mui/material/Container';
-import ProductDetailViewCard from '../Components/ProductDetailViewCard';
-import MorphologicalBoxVertical from '../Components/MorphologicalBoxVertical';
-import { Box, Button, Grid } from '@mui/material';
-import Item from '@mui/material/Grid';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import SendIcon from '@mui/icons-material/Send';
-import { CreateProduct, ProductType, AccountType } from '../API';
-import { useEffect, useState, useCallback } from 'react';
-import { useNavigate, NavigateFunction } from 'react-router-dom';
+import { Box, Button, Grid } from '@mui/material';
+import Container from '@mui/material/Container';
+import Item from '@mui/material/Grid';
+
+import { AccountType, CreateProduct, ProductType } from '../API';
+import MorphologicalBoxVertical from '../Components/MorphologicalBoxVertical';
+import ProductDetailViewCard from '../Components/ProductDetailViewCard';
 
 {
   /* TODO */

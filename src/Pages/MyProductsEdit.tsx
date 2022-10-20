@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
-import { NavigateFunction, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
-import {
-    Box, Container, Grid, Paper, Stack, TextField, ToggleButton, ToggleButtonGroup, Typography
-} from '@mui/material';
+import { Box, Container, Stack, ToggleButtonGroup } from '@mui/material';
 import Button from '@mui/material/Button';
 import CardMedia from '@mui/material/CardMedia';
 import { styled } from '@mui/material/styles';

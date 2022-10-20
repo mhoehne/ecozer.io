@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { useDropzone, FileRejection, FileError } from 'react-dropzone';
+import { FileError, FileRejection, useDropzone } from 'react-dropzone';
 
 {
   /* TODO */

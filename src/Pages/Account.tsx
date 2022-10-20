@@ -1,20 +1,10 @@
+import { Field, Form, Formik } from 'formik';
 import * as React from 'react';
-import {
-  Avatar,
-  Button,
-  CssBaseline,
-  TextField,
-  Grid,
-  Box,
-  Typography,
-  Container,
-  createTheme,
-  ThemeProvider,
-} from '@mui/material';
-import { GetAccountByEmail, AccountType, GetAccounts } from '../API';
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Form, Formik, Field } from 'formik';
+
+import { Box, Button, Container, createTheme, Grid, TextField, Typography } from '@mui/material';
+
+import { AccountType } from '../API';
 
 {
   /* TODO */

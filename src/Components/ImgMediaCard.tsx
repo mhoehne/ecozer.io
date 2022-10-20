@@ -1,33 +1,25 @@
-import SampleImg from '../images/sample-img.png';
 import { useCallback, useState } from 'react';
-import {
-  Box,
-  Card,
-  CardActionArea,
-  Button,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Typography,
-  Container,
-  Grid,
-  Stack,
-} from '@mui/material';
-import Divider from '@mui/material/Divider';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Chip from '@mui/material/Chip';
-import DoneIcon from '@mui/icons-material/Done';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import EditIcon from '@mui/icons-material/Edit';
-import ImageSearchIcon from '@mui/icons-material/ImageSearch';
+
 import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
-import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import DoneIcon from '@mui/icons-material/Done';
+import EditIcon from '@mui/icons-material/Edit';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FingerprintOutlinedIcon from '@mui/icons-material/FingerprintOutlined';
+import ImageSearchIcon from '@mui/icons-material/ImageSearch';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import {
+    Button, Card, CardActionArea, CardActions, CardContent, Grid, Stack, Typography
+} from '@mui/material';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import Chip from '@mui/material/Chip';
+import Divider from '@mui/material/Divider';
 import Tooltip from '@mui/material/Tooltip';
-import { AccountType, ProductType, DeleteProduct, PutProducts } from '../API';
+
+import { AccountType, DeleteProduct, ProductType } from '../API';
+import SampleImg from '../images/sample-img.png';
 
 {
   /* TODO */

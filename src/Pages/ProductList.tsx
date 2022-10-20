@@ -1,8 +1,9 @@
+import { Box, Typography } from '@mui/material';
+
+import { AccountType } from '../API';
 import ProductListGrid from '../Components/Grids/ProductListGrid';
 import SearchBarBoxed from '../Components/SearchBarBoxed';
-import { Box, Typography } from '@mui/material';
 import Account from './Account';
-import { AccountType } from '../API';
 
 {
   /* TODO */

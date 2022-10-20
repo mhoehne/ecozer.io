@@ -1,11 +1,12 @@
-import SearchBar from '../Components/SearchBar';
-import { Stack, Button, Tooltip, TextField, Autocomplete } from '@mui/material';
+import { useEffect, useState } from 'react';
+
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
+import { Autocomplete, Button, Stack, TextField, Tooltip } from '@mui/material';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+
 import { GetProducts, ProductType } from '../API';
-import { useState, useEffect } from 'react';
-import { useNavigate, NavigateFunction } from 'react-router-dom';
+import SearchBar from '../Components/SearchBar';
 
 {
   /* TODO */

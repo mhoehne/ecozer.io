@@ -2,11 +2,8 @@ import * as React from 'react';
 
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Box, useMediaQuery } from '@mui/material';
+import { Box, useMediaQuery, useTheme } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
-import Snackbar from '@mui/material/Snackbar';
-import { useTheme } from '@mui/material/styles';
-import TablePagination from '@mui/material/TablePagination';
 import {
     DataGrid, deDE, GridActionsCellItem, GridEditRowsModel, GridToolbarContainer,
     GridToolbarDensitySelector

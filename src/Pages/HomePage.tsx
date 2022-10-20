@@ -1,9 +1,10 @@
-import { styled } from '@mui/material/styles';
 import { Paper } from '@mui/material';
+import { styled } from '@mui/material/styles';
+
+import HeroBanner from '../Components/Homepage/HeroBanner';
 import HowItWorks from '../Components/Homepage/HowItWorks';
 import MostClickedProducts from '../Components/Homepage/MostClickedProducts';
 import NewestProducts from '../Components/Homepage/NewestPorducts';
-import HeroBanner from '../Components/Homepage/HeroBanner';
 
 {
   /* TODO */

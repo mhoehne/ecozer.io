@@ -1,7 +1,8 @@
 import { Box, Container, Grid } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import TotalVisits from '../Components/Dashboard/TotalVisits';
+
 import LatestVisits from '../Components/Dashboard/LatestVisits';
+import TotalVisits from '../Components/Dashboard/TotalVisits';
 import UserProducts from '../Components/Dashboard/UserProducts';
 
 {

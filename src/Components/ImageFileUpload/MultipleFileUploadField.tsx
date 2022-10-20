@@ -1,7 +1,9 @@
-import { Grid, makeStyles, Box } from '@mui/material';
 import { useField } from 'formik';
 import React, { useCallback, useEffect, useState } from 'react';
 import { FileError, FileRejection, useDropzone } from 'react-dropzone';
+
+import { Box, Grid } from '@mui/material';
+
 import { SingleFileUploadWithProgress } from './SingleFileUploadWithProgress';
 import { UploadError } from './UploadError';
 

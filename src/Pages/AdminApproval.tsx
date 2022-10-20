@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { Tabs, Tab, Typography, Box, Container, Grid } from '@mui/material';
+
+import { Box, Container, Grid, Tab, Tabs, Typography } from '@mui/material';
+
+import { AccountType, GetProducts, ProductType } from '../API';
 import ImgMediaCard from '../Components/ImgMediaCard';
-import { useEffect, useState, useCallback } from 'react';
-import { GetProducts, ProductType, AccountType } from '../API';
 
 {
   /* TODO */

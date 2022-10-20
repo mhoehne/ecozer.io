@@ -1,7 +1,8 @@
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import GlossarItem from '../Components/GlossarItem';
 import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+
+import GlossarItem from '../Components/GlossarItem';
 import ImageBanner from '../Components/ImageBanner';
 import BannerBackgroundImage2 from '../images/layered-waves-haikei_2.svg';
 

@@ -1,23 +1,17 @@
 import * as React from 'react';
-import {
-  Box,
-  Menu,
-  MenuItem,
-  ListItemIcon,
-  Divider,
-  IconButton,
-  Tooltip,
-} from '@mui/material';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
-import Logout from '@mui/icons-material/Logout';
-import FactCheckIcon from '@mui/icons-material/FactCheck';
-import BadgeIcon from '@mui/icons-material/Badge';
-import ViewListIcon from '@mui/icons-material/ViewList';
-import { Link, useNavigate, NavigateFunction } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
-import HomeIcon from '@mui/icons-material/Home';
+import { Link, NavigateFunction, useNavigate } from 'react-router-dom';
+
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import BadgeIcon from '@mui/icons-material/Badge';
+import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
+import FactCheckIcon from '@mui/icons-material/FactCheck';
+import HomeIcon from '@mui/icons-material/Home';
+import Logout from '@mui/icons-material/Logout';
+import ViewListIcon from '@mui/icons-material/ViewList';
+import { Box, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material';
+
 import { AccountType } from '../API';
 
 {

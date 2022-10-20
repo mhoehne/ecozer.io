@@ -1,10 +1,11 @@
-import React from 'react';
-import ImgMediaCard from '../Components/ImgMediaCard';
+import React, { useCallback, useEffect, useState } from 'react';
+
+import { Box, Container, Tab, Tabs, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
+
+import { AccountType, GetProducts, ProductType } from '../API';
+import ImgMediaCard from '../Components/ImgMediaCard';
 import SearchBarBoxed from '../Components/SearchBarBoxed';
-import { useEffect, useState, useCallback } from 'react';
-import { GetProducts, ProductType, AccountType } from '../API';
-import { Typography, Container, Box, Tab, Tabs } from '@mui/material';
 import BannerBackground2 from '../images/layered-waves-haikei_2.svg';
 
 {

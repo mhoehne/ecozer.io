@@ -1,39 +1,18 @@
 import * as React from 'react';
-import ProductDetailViewCard from '../Components/ProductDetailViewCard';
-import MorphologicalBoxVertical from '../Components/MorphologicalBoxVertical';
-import {
-  Box,
-  Button,
-  Stack,
-  Container,
-  Grid,
-  TextField,
-  Typography,
-  ToggleButton,
-  ToggleButtonGroup,
-  Paper,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  useMediaQuery,
-  useTheme,
-  styled,
-} from '@mui/material';
-import DoneIcon from '@mui/icons-material/Done';
+import { useParams } from 'react-router-dom';
+
 import CloseIcon from '@mui/icons-material/Close';
-import { useEffect, useState, useCallback } from 'react';
-import { useNavigate, NavigateFunction, useParams } from 'react-router-dom';
+import DoneIcon from '@mui/icons-material/Done';
 import {
-  getProduct,
-  IncrementProductViewCount,
-  ProductType,
-  AccountType,
-  PutProducts,
-  RejectProduct,
-  PublishProduct,
+    Box, Button, Container, Dialog, DialogActions, DialogContent, DialogTitle, Grid, Paper, Stack,
+    styled, TextField, ToggleButton, ToggleButtonGroup, Typography, useMediaQuery, useTheme
+} from '@mui/material';
+
+import {
+    getProduct, IncrementProductViewCount, ProductType, PublishProduct, RejectProduct
 } from '../API';
+import MorphologicalBoxVertical from '../Components/MorphologicalBoxVertical';
+import ProductDetailViewCard from '../Components/ProductDetailViewCard';
 
 {
   /* TODO */

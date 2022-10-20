@@ -1,5 +1,7 @@
-import { Grid, LinearProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+
+import { Grid, LinearProgress } from '@mui/material';
+
 import { FileHeader } from './FileHeader';
 
 export interface SingleFileUploadWithProgressProps {

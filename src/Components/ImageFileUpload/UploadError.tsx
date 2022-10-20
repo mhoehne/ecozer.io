@@ -1,11 +1,8 @@
-import {
-  createStyles,
-  LinearProgress,
-  Typography,
-  withStyles,
-} from '@mui/material';
 import React from 'react';
 import { FileError } from 'react-dropzone';
+
+import { Typography } from '@mui/material';
+
 import { FileHeader } from './FileHeader';
 
 export interface UploadErrorProps {
