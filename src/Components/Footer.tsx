@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import {
     Box, Button, CardMedia, Container, Dialog, DialogActions, DialogContent, DialogContentText,
-    DialogTitle, Grid, Link, TextField
+    DialogTitle, Grid, Link, MenuItem, TextField
 } from '@mui/material';
 
 import LogoFooter from '../images/S20_HTW_Berlin_Logo_neg_WEISS_RGB.png';
@@ -20,6 +20,25 @@ import LogoFooter from '../images/S20_HTW_Berlin_Logo_neg_WEISS_RGB.png';
   /* Note: */
 }
 
+const types = [
+  {
+    value: 'Bug',
+    label: 'Bug melden',
+  },
+  {
+    value: 'Feedback',
+    label: 'Feedback geben',
+  },
+  {
+    value: 'Improvement',
+    label: 'Verbesserungsvorschlag',
+  },
+  {
+    value: 'Feature Request',
+    label: 'Feature anfragen',
+  },
+];
+
 export default function Footer() {
   const [open, setOpen] = React.useState(false);
 
@@ -29,6 +48,12 @@ export default function Footer() {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const [type, setType] = React.useState('');
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setType(event.target.value);
   };
 
   return (
@@ -62,24 +87,44 @@ export default function Footer() {
               <Box>
                 <Link
                   onClick={handleClickOpen}
+                  href="#"
                   underline="none"
                   color="inherit"
                 >
-                  Bug melden
+                  Kontakt
                 </Link>
               </Box>
               <Dialog open={open} onClose={handleClose}>
-                <DialogTitle>Bug melden</DialogTitle>
+                <DialogTitle>Kontakt</DialogTitle>
                 <DialogContent>
                   <DialogContentText></DialogContentText>
                   <TextField
                     autoFocus
+                    required
                     margin="dense"
                     label="Email Address"
                     type="email"
                     fullWidth
                     variant="outlined"
+                    sx={{ mb: 2 }}
                   />
+                  <TextField
+                    id="outlined-select-type"
+                    required
+                    select
+                    label="Grund wählen"
+                    type="text"
+                    fullWidth
+                    value={type}
+                    onChange={handleChange}
+                    sx={{ mb: 1 }}
+                  >
+                    {types.map((option) => (
+                      <MenuItem key={option.value} value={option.value}>
+                        {option.label}
+                      </MenuItem>
+                    ))}
+                  </TextField>
                   <TextField
                     autoFocus
                     margin="dense"
@@ -87,6 +132,7 @@ export default function Footer() {
                     type="text"
                     fullWidth
                     variant="outlined"
+                    sx={{ mb: 1 }}
                   />
                   <TextField
                     autoFocus
@@ -95,6 +141,7 @@ export default function Footer() {
                     type="text"
                     fullWidth
                     variant="outlined"
+                    sx={{ mb: 1 }}
                   />
                   <TextField
                     autoFocus
