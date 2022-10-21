@@ -62,7 +62,7 @@ export default function AdminApproval(props: AdminApprovalProps) {
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
-  const [products, setProducts] = useState<ProductType[]>([]);
+  const [products, setProducts] = React.useState<ProductType[]>([]);
   const account_id = props.account._id;
   const zielgruppe: string[] = [];
   const anwendungsbereich: string[] = [];
@@ -71,7 +71,7 @@ export default function AdminApproval(props: AdminApprovalProps) {
   const systemgrenzen: string[] = [];
   const betrachtungskonzept: string[] = [];
 
-  useEffect(() => {
+  React.useEffect(() => {
     let state = 'pending';
     if (value == 2) {
       state = 'published';

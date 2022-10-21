@@ -58,8 +58,8 @@ export default function AdminApprovalDetail() {
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
   const params = useParams();
 
-  const [product, setProduct] = useState<ProductType>();
-  useEffect(() => {
+  const [product, setProduct] = React.useState<ProductType>();
+  React.useEffect(() => {
     getProduct(params.id ?? '-1').then((result) => {
       IncrementProductViewCount(params.id ?? '-1').then(() => {
         setProduct(result.data);
