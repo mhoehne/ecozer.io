@@ -112,7 +112,7 @@ export default function Footer() {
                     id="outlined-select-type"
                     required
                     select
-                    label="Grund wählen"
+                    label="Anliegen"
                     type="text"
                     fullWidth
                     value={type}
@@ -146,7 +146,7 @@ export default function Footer() {
                   <TextField
                     autoFocus
                     margin="dense"
-                    label="Schritte zum Reproduzieren"
+                    label="Beschreibung"
                     type="text"
                     fullWidth
                     variant="outlined"
