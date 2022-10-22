@@ -23,14 +23,14 @@ interface MultiStepSurveyProps {
   setOpen: Function;
 }
 
-const steps = ['Step one', 'Step two', 'step three'];
+const steps = ['Benutzer', 'Unternehmen', 'Feedback'];
 
 export default function MultiStepSurvey(props: MultiStepSurveyProps) {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set<number>());
 
   const isStepOptional = (step: number) => {
-    return step === 1;
+    return step === 3;
   };
 
   const isStepSkipped = (step: number) => {
@@ -54,9 +54,9 @@ export default function MultiStepSurvey(props: MultiStepSurveyProps) {
 
   const handleSkip = () => {
     if (!isStepOptional(activeStep)) {
-      // You probably want to guard against something like this,
+      // Probably want to guard against something like this,
       // it should never occur unless someone's actively trying to break something.
-      throw new Error("You can't skip a step that isn't optional.");
+      throw new Error('Du kannst diesen Schritt nicht überspringen');
     }
 
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -80,7 +80,7 @@ export default function MultiStepSurvey(props: MultiStepSurveyProps) {
         <DialogTitle id="responsive-dialog-title">{'Umfrage'}</DialogTitle>
         <DialogContent>
           <Box sx={{ width: '100%' }}>
-            <Stepper activeStep={activeStep}>
+            <Stepper activeStep={activeStep} sx={{ color: 'background.paper' }}>
               {steps.map((label, index) => {
                 const stepProps: { completed?: boolean } = {};
                 const labelProps: {
@@ -104,7 +104,7 @@ export default function MultiStepSurvey(props: MultiStepSurveyProps) {
             {activeStep === steps.length ? (
               <React.Fragment>
                 <Typography sx={{ mt: 2, mb: 1 }}>
-                  All steps completed - you&apos;re finished
+                  Du bist fertig! Vielen Dank für deine Teilnahme.
                 </Typography>
                 <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                   <Box sx={{ flex: '1 1 auto' }} />
@@ -114,25 +114,29 @@ export default function MultiStepSurvey(props: MultiStepSurveyProps) {
             ) : (
               <React.Fragment>
                 <Typography sx={{ mt: 2, mb: 1 }}>
-                  Step {activeStep + 1}
+                  Content {activeStep + 1}
                 </Typography>
                 <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                   <Button
-                    color="inherit"
+                    color="primary"
                     disabled={activeStep === 0}
                     onClick={handleBack}
                     sx={{ mr: 1 }}
                   >
-                    Back
+                    zurück
                   </Button>
                   <Box sx={{ flex: '1 1 auto' }} />
                   {isStepOptional(activeStep) && (
-                    <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
-                      Skip
+                    <Button color="primary" onClick={handleSkip} sx={{ mr: 1 }}>
+                      Überspringen
                     </Button>
                   )}
-                  <Button onClick={handleNext}>
-                    {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                  <Button
+                    variant="contained"
+                    sx={{ color: 'background.paper' }}
+                    onClick={handleNext}
+                  >
+                    {activeStep === steps.length - 1 ? 'Abschicken' : 'Weiter'}
                   </Button>
                 </Box>
               </React.Fragment>
