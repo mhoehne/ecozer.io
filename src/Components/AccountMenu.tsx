@@ -140,6 +140,18 @@ function getAdminMenu(
         </ListItemIcon>
         Produktliste
       </MenuItem>
+      <MenuItem component={Link} to="/product-list">
+        <ListItemIcon>
+          <ViewListIcon fontSize="small" />
+        </ListItemIcon>
+        Umfragedaten
+      </MenuItem>
+      <MenuItem component={Link} to="/product-list">
+        <ListItemIcon>
+          <ViewListIcon fontSize="small" />
+        </ListItemIcon>
+        Reportings
+      </MenuItem>
     </Menu>
   );
 }
