@@ -3,14 +3,16 @@ import { useCookies } from 'react-cookie';
 import { Link, NavigateFunction, useNavigate } from 'react-router-dom';
 
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import BadgeIcon from '@mui/icons-material/Badge';
-import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
-import FactCheckIcon from '@mui/icons-material/FactCheck';
-import HomeIcon from '@mui/icons-material/Home';
+import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
+import DashboardCustomizeOutlinedIcon from '@mui/icons-material/DashboardCustomizeOutlined';
+import FactCheckOutlinedIcon from '@mui/icons-material/FactCheckOutlined';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import ListAltOutlinedIcon from '@mui/icons-material/ListAltOutlined';
+import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
 import Logout from '@mui/icons-material/Logout';
-import ManageSearchIcon from '@mui/icons-material/ManageSearch';
+import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
-import ViewListIcon from '@mui/icons-material/ViewList';
+import PollOutlinedIcon from '@mui/icons-material/PollOutlined';
 import { Box, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material';
 
 import { AccountType } from '../API';
@@ -98,13 +100,13 @@ function getAdminMenu(
     >
       <MenuItem component={Link} to="/">
         <ListItemIcon>
-          <HomeIcon fontSize="small" />
+          <HomeOutlinedIcon fontSize="small" />
         </ListItemIcon>
         Startseite
       </MenuItem>
       <MenuItem component={Link} to="/search">
         <ListItemIcon>
-          <ManageSearchIcon fontSize="small" />
+          <ManageSearchOutlinedIcon fontSize="small" />
         </ListItemIcon>
         Produktsuche
       </MenuItem>
@@ -116,7 +118,7 @@ function getAdminMenu(
       </MenuItem> */}
       <MenuItem component={Link} to="/my-products">
         <ListItemIcon>
-          <DashboardCustomizeIcon fontSize="small" />
+          <DashboardCustomizeOutlinedIcon fontSize="small" />
         </ListItemIcon>
         Meine Produkte
       </MenuItem>
@@ -124,31 +126,31 @@ function getAdminMenu(
       <Divider />
       <MenuItem component={Link} to="/approval">
         <ListItemIcon>
-          <FactCheckIcon fontSize="small" />
+          <FactCheckOutlinedIcon fontSize="small" />
         </ListItemIcon>
         Zulassung
       </MenuItem>
       <MenuItem component={Link} to="/user-list">
         <ListItemIcon>
-          <BadgeIcon fontSize="small" />
+          <BadgeOutlinedIcon fontSize="small" />
         </ListItemIcon>
         Benutzerliste
       </MenuItem>
       <MenuItem component={Link} to="/product-list">
         <ListItemIcon>
-          <ViewListIcon fontSize="small" />
+          <ListOutlinedIcon fontSize="small" />
         </ListItemIcon>
         Produktliste
       </MenuItem>
-      <MenuItem component={Link} to="/product-list">
+      <MenuItem component={Link} to="/user-survey">
         <ListItemIcon>
-          <ViewListIcon fontSize="small" />
+          <PollOutlinedIcon fontSize="small" />
         </ListItemIcon>
         Umfragedaten
       </MenuItem>
-      <MenuItem component={Link} to="/product-list">
+      <MenuItem component={Link} to="/reportings">
         <ListItemIcon>
-          <ViewListIcon fontSize="small" />
+          <ListAltOutlinedIcon fontSize="small" />
         </ListItemIcon>
         Reportings
       </MenuItem>
@@ -211,13 +213,13 @@ function getUserMenu(
     >
       <MenuItem component={Link} to="/">
         <ListItemIcon>
-          <HomeIcon fontSize="small" />
+          <HomeOutlinedIcon fontSize="small" />
         </ListItemIcon>
         Startseite
       </MenuItem>
       <MenuItem component={Link} to="/search">
         <ListItemIcon>
-          <ManageSearchIcon fontSize="small" />
+          <ManageSearchOutlinedIcon fontSize="small" />
         </ListItemIcon>
         Produktsuche
       </MenuItem>
@@ -229,7 +231,7 @@ function getUserMenu(
       </MenuItem> */}
       <MenuItem component={Link} to="/my-products">
         <ListItemIcon>
-          <DashboardCustomizeIcon fontSize="small" />
+          <DashboardCustomizeOutlinedIcon fontSize="small" />
         </ListItemIcon>
         Meine Produkte
       </MenuItem>

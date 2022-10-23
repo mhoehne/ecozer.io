@@ -2,13 +2,13 @@ import * as React from 'react';
 import { useCookies } from 'react-cookie';
 import { Link, NavigateFunction, useNavigate } from 'react-router-dom';
 
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import BadgeIcon from '@mui/icons-material/Badge';
 import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import HomeIcon from '@mui/icons-material/Home';
-import Logout from '@mui/icons-material/Logout';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import { Box, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material';
 
@@ -97,13 +97,13 @@ function getAdminMenu(
     >
       <MenuItem component={Link} to="/account">
         <ListItemIcon>
-          <AccountBoxIcon fontSize="small" />
+          <AccountBoxOutlinedIcon fontSize="small" />
         </ListItemIcon>
         Einstellungen
       </MenuItem>
       <MenuItem component="form" onClick={handleSubmit}>
         <ListItemIcon>
-          <Logout fontSize="small" />
+          <LogoutOutlinedIcon fontSize="small" />
         </ListItemIcon>
         Logout
       </MenuItem>
@@ -166,13 +166,13 @@ function getUserMenu(
     >
       <MenuItem component={Link} to="/account">
         <ListItemIcon>
-          <AccountBoxIcon fontSize="small" />
+          <AccountBoxOutlinedIcon fontSize="small" />
         </ListItemIcon>
         Einstellungen
       </MenuItem>
       <MenuItem component="form" onClick={handleSubmit}>
         <ListItemIcon>
-          <Logout fontSize="small" />
+          <LogoutOutlinedIcon fontSize="small" />
         </ListItemIcon>
         Logout
       </MenuItem>
