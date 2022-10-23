@@ -114,11 +114,25 @@ export default function App() {
             path={`/approval/detail/:id`}
             element={<AdminApprovalDetail />}
           />
-          <Route path="/user-list" element={<UserList />} />
-          <Route
-            path="/product-list"
-            element={<ProductList account={account} />}
-          />
+          {account ? <Route path="/user-list" element={<UserList />} /> : null}
+          {account ? (
+            <Route
+              path="/product-list"
+              element={<ProductList account={account} />}
+            />
+          ) : null}
+          {account ? (
+            <Route
+              path="/user-survey"
+              element={<ProductList account={account} />}
+            />
+          ) : null}
+          {account ? (
+            <Route
+              path="/reportings"
+              element={<ProductList account={account} />}
+            />
+          ) : null}
           <Route path="/*" element={<PageNotFound />} />
         </Routes>
       </Container>
