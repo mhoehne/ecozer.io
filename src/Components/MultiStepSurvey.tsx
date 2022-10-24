@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
+import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import {
     Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, Step, StepLabel, Stepper,
     Typography
@@ -122,13 +124,14 @@ export default function MultiStepSurvey(props: MultiStepSurveyProps) {
                     disabled={activeStep === 0}
                     onClick={handleBack}
                     sx={{ mr: 1 }}
+                    startIcon={<ArrowBackIosNewOutlinedIcon />}
                   >
                     zurück
                   </Button>
                   <Box sx={{ flex: '1 1 auto' }} />
                   {isStepOptional(activeStep) && (
                     <Button color="primary" onClick={handleSkip} sx={{ mr: 1 }}>
-                      Überspringen
+                      Weiter
                     </Button>
                   )}
                   <Button
