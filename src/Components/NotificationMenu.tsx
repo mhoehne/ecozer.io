@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 
 import { AccountType } from '../API';
-import MultiStepSurvey from './MultiStepSurvey';
+import MultiStepSurvey from './Survey/MultiStepSurvey';
 
 {
   /* TODO */

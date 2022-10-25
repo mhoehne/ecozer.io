@@ -7,6 +7,10 @@ import {
     Typography
 } from '@mui/material';
 
+import ContactForm from './ContactForm';
+import FeedbackForm from './FeedbackForm';
+import QuestionForm from './QuestionForm';
+
 {
   /* TODO */
 }
@@ -26,6 +30,19 @@ interface MultiStepSurveyProps {
 }
 
 const steps = ['Benutzer', 'Unternehmen', 'Feedback'];
+
+function getStepContent(step: number) {
+  switch (step) {
+    case 0:
+      return <ContactForm />;
+    case 1:
+      return <QuestionForm />;
+    case 2:
+      return <FeedbackForm />;
+    default:
+      throw new Error('Unknown step');
+  }
+}
 
 export default function MultiStepSurvey(props: MultiStepSurveyProps) {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -82,7 +99,10 @@ export default function MultiStepSurvey(props: MultiStepSurveyProps) {
         <DialogTitle id="responsive-dialog-title">{'Umfrage'}</DialogTitle>
         <DialogContent>
           <Box sx={{ width: '100%' }}>
-            <Stepper activeStep={activeStep} sx={{ color: 'background.paper' }}>
+            <Stepper
+              activeStep={activeStep}
+              sx={{ backgroundColor: 'background.paper' }}
+            >
               {steps.map((label, index) => {
                 const stepProps: { completed?: boolean } = {};
                 const labelProps: {
@@ -115,25 +135,20 @@ export default function MultiStepSurvey(props: MultiStepSurveyProps) {
               </React.Fragment>
             ) : (
               <React.Fragment>
-                <Typography sx={{ mt: 2, mb: 1 }}>
-                  Content {activeStep + 1}
-                </Typography>
+                {getStepContent(activeStep)}
                 <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                  <Button
-                    color="primary"
-                    disabled={activeStep === 0}
-                    onClick={handleBack}
-                    sx={{ mr: 1 }}
-                    startIcon={<ArrowBackIosNewOutlinedIcon />}
-                  >
-                    zurück
-                  </Button>
-                  <Box sx={{ flex: '1 1 auto' }} />
-                  {isStepOptional(activeStep) && (
-                    <Button color="primary" onClick={handleSkip} sx={{ mr: 1 }}>
-                      Weiter
+                  {activeStep !== 0 && (
+                    <Button
+                      color="primary"
+                      disabled={activeStep === 0}
+                      onClick={handleBack}
+                      sx={{ mr: 1 }}
+                      startIcon={<ArrowBackIosNewOutlinedIcon />}
+                    >
+                      zurück
                     </Button>
                   )}
+                  <Box sx={{ flex: '1 1 auto' }} />
                   <Button
                     variant="contained"
                     sx={{ color: 'background.paper' }}
