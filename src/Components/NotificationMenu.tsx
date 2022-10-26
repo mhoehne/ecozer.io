@@ -12,7 +12,7 @@ import {
     ListItemText, Menu, MenuItem, Tooltip
 } from '@mui/material';
 
-import { AccountType } from '../API';
+import { AccountType, NotificationType } from '../API';
 import MultiStepSurvey from './Survey/MultiStepSurvey';
 
 {
@@ -31,6 +31,38 @@ interface NotificationMenuProps {
 }
 
 export default function NotificationMenu(props: NotificationMenuProps) {
+  const [notifications, setNotifications] = React.useState<NotificationType[]>([
+    {
+      _id: 1,
+      account_id: 0,
+      productName: 'null',
+      message: 'pending',
+      messageType: 'pending',
+      rejectReason: 'null',
+      createdAt: new Date(),
+      isRead: false,
+    },
+    {
+      _id: 2,
+      account_id: 0,
+      productName: 'null',
+      message: 'rejected',
+      messageType: 'rejected',
+      rejectReason: 'rejected',
+      createdAt: new Date(),
+      isRead: false,
+    },
+    {
+      _id: 3,
+      account_id: 0,
+      productName: 'null',
+      message: 'published',
+      messageType: 'published',
+      rejectReason: 'null',
+      createdAt: new Date(),
+      isRead: false,
+    },
+  ]);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [surveyOpen, setsurveyOpen] = React.useState(false);
   const open = Boolean(anchorEl);
@@ -102,6 +134,50 @@ export default function NotificationMenu(props: NotificationMenuProps) {
             bgcolor: 'background.paper',
           }}
         >
+          {notifications.map((notification) => {
+            let backgroundColor = '#c861ff';
+            if (notification.messageType === 'rejected') {
+              backgroundColor = '#fc998d';
+            }
+
+            /* do the same with the other colors*/
+            let avatarIcon = <PollOutlinedIcon />;
+            if (notification.messageType === 'rejected') {
+              avatarIcon = <CloseOutlinedIcon />;
+            }
+            return (
+              <>
+                <Divider variant="fullWidth" component="li" />
+
+                <ListItem
+                  disablePadding={true}
+                  alignItems="center"
+                  secondaryAction={
+                    <IconButton
+                      edge="end"
+                      aria-label="delete"
+                      onClick={() => {}}
+                    >
+                      <CancelOutlinedIcon />
+                    </IconButton>
+                  }
+                >
+                  <ListItemButton component={Link} to="/my-products/rejection">
+                    <ListItemAvatar>
+                      <Avatar sx={{ backgroundColor: backgroundColor }}>
+                        {avatarIcon}
+                      </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText
+                      primary="Produkt abgelehnt"
+                      secondary="{Begründung}"
+                    />
+                  </ListItemButton>
+                </ListItem>
+              </>
+            );
+          })}
+
           <Divider variant="fullWidth" component="li" />
 
           <ListItem
@@ -148,7 +224,7 @@ export default function NotificationMenu(props: NotificationMenuProps) {
               </IconButton>
             }
           >
-            <ListItemButton component={Link} to="/my-products">
+            <ListItemButton component={Link} to="/my-products/rejection">
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: '#fc998d' }}>
                   <CloseOutlinedIcon />

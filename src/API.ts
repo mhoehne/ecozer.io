@@ -316,3 +316,22 @@ export function checkDeAuthentication(
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<PRODUCT*CRUD*SECTION*/
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+export type NotificationType = {
+  _id: number;
+  account_id: number;
+  productName: string;
+  message: string;
+  messageType: 'pending' | 'published' | 'unpublished' | 'rejected';
+  rejectReason: string | null;
+  createdAt: Date;
+  isRead: boolean;
+};
+
+/* NOTIFICATIONS */
+
+export function GetNotifications(): Promise<AxiosResponse<NotificationType>> {
+  return axios.get<NotificationType>(
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/notifications?limit=5`
+  );
+}

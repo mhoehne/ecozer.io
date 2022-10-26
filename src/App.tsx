@@ -86,9 +86,16 @@ export default function App() {
           {account ? (
             <Route
               path="/my-products"
-              element={<MyProducts account={account} />}
+              element={<MyProducts tab="published" account={account} />}
             />
           ) : null}
+          {account ? (
+            <Route
+              path="/my-products/rejection"
+              element={<MyProducts tab="rejected" account={account} />}
+            />
+          ) : null}
+
           {account ? (
             <Route
               path="/my-products/add-product"
