@@ -16,12 +16,17 @@ import QuestionForm from './QuestionForm';
 }
 {
   /* 
-# check new grid v2 component from MUI, could be a better for the footer  
+  
   */
 }
 
 {
   /* Note: */
+}
+{
+  /* 
+  
+  */
 }
 
 interface MultiStepSurveyProps {

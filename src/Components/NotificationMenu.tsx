@@ -132,7 +132,7 @@ export default function NotificationMenu(props: NotificationMenuProps) {
                   setsurveyOpen(true);
                 }}
                 primary="Produkt zugewiesen"
-                secondary="Dir wurde ein Produkt zugewiesen. Nimm gern zusätzlich an unserer 3 minütigen Umfrage teil."
+                secondary="Dir wurde ein Produkt zugewiesen. Nimm gern zusätzlich an unserer kurzen Umfrage teil."
               />
             </ListItemButton>
           </ListItem>
@@ -148,7 +148,7 @@ export default function NotificationMenu(props: NotificationMenuProps) {
               </IconButton>
             }
           >
-            <ListItemButton>
+            <ListItemButton component={Link} to="/my-products">
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: '#fc998d' }}>
                   <CloseOutlinedIcon />
@@ -172,7 +172,7 @@ export default function NotificationMenu(props: NotificationMenuProps) {
               </IconButton>
             }
           >
-            <ListItemButton>
+            <ListItemButton component={Link} to="/my-products">
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: '#50cc52' }}>
                   <CheckOutlinedIcon />
@@ -195,7 +195,7 @@ export default function NotificationMenu(props: NotificationMenuProps) {
               </IconButton>
             }
           >
-            <ListItemButton>
+            <ListItemButton component={Link} to="/my-products">
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: '#ffbf03' }}>
                   <AccessTimeOutlinedIcon />
