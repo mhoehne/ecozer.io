@@ -34,7 +34,7 @@ interface MultiStepSurveyProps {
   setOpen: Function;
 }
 
-const steps = ['Benutzer', 'Unternehmen', 'Feedback'];
+const steps = ['Unternehmen', 'Fragen', 'Feedback'];
 
 function getStepContent(step: number) {
   switch (step) {

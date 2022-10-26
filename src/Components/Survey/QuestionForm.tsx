@@ -9,55 +9,57 @@ import Typography from '@mui/material/Typography';
 export default function QuestionForm() {
   return (
     <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-        Payment method
-      </Typography>
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
+      <Grid container spacing={3} sx={{ mt: 2 }}>
+        <Grid item xs={12} md={12}>
+          <Typography variant="h6" gutterBottom>
+            Frage text hier.
+          </Typography>
           <TextField
             required
             id="cardName"
-            label="Name on card"
+            label="Antwort"
             fullWidth
             autoComplete="cc-name"
-            variant="standard"
+            variant="outlined"
           />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={12}>
+          <Typography variant="h6" gutterBottom>
+            Frage text hier.
+          </Typography>
           <TextField
             required
-            id="cardNumber"
-            label="Card number"
+            id="cardName"
+            label="Antwort"
             fullWidth
-            autoComplete="cc-number"
-            variant="standard"
+            autoComplete="cc-name"
+            variant="outlined"
           />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={12}>
+          <Typography variant="h6" gutterBottom>
+            Frage text hier.
+          </Typography>
           <TextField
             required
-            id="expDate"
-            label="Expiry date"
+            id="cardName"
+            label="Antwort"
             fullWidth
-            autoComplete="cc-exp"
-            variant="standard"
+            autoComplete="cc-name"
+            variant="outlined"
           />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={12}>
+          <Typography variant="h6" gutterBottom>
+            Frage text hier.
+          </Typography>
           <TextField
             required
-            id="cvv"
-            label="CVV"
-            helperText="Last three digits on signature strip"
+            id="cardName"
+            label="Antwort"
             fullWidth
-            autoComplete="cc-csc"
-            variant="standard"
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <FormControlLabel
-            control={<Checkbox color="secondary" name="saveCard" value="yes" />}
-            label="Remember credit card details for next time"
+            autoComplete="cc-name"
+            variant="outlined"
           />
         </Grid>
       </Grid>
