@@ -29,6 +29,7 @@ import MultiStepSurvey from './Survey/MultiStepSurvey';
 
 interface NotificationMenuProps {
   Account: AccountType | null;
+  // Notification: NotificationType | null;
 }
 
 export default function NotificationMenu(props: NotificationMenuProps) {
@@ -160,7 +161,6 @@ export default function NotificationMenu(props: NotificationMenuProps) {
               backgroundColor = '#c861ff';
             }
 
-            /* do the same with the other colors*/
             let avatarIcon = <NotificationsOutlinedIcon />;
             if (notification.messageType === 'rejected') {
               avatarIcon = <CloseOutlinedIcon />;
@@ -173,6 +173,43 @@ export default function NotificationMenu(props: NotificationMenuProps) {
             }
             if (notification.messageType === 'assigned') {
               avatarIcon = <PollOutlinedIcon />;
+            }
+
+            let notificationTextPrimary = '';
+            if (notification.messageType === 'rejected') {
+              notificationTextPrimary = 'Produkt abgelehnt';
+            }
+            if (notification.messageType === 'published') {
+              notificationTextPrimary = 'Produkt veröffentlicht';
+            }
+            if (notification.messageType === 'pending') {
+              notificationTextPrimary = 'Überprüfung ausstehend';
+            }
+            if (notification.messageType === 'assigned') {
+              notificationTextPrimary = 'Produkt zugewiesen';
+            }
+
+            let notificationTextSecondary = '';
+            if (notification.messageType === 'rejected') {
+              notificationTextSecondary = '{RejectReason}';
+            }
+            if (notification.messageType === 'published') {
+              notificationTextSecondary =
+                'Ihr Produkt' +
+                {} +
+                'wurde veröffentlicht und ist nun für alle sichtbar.';
+            }
+            if (notification.messageType === 'pending') {
+              notificationTextSecondary =
+                'Dein Produkt' +
+                {} +
+                'wird in kürze von einem Administrator überprüft. Bitte habe etwas Geduld.';
+            }
+            if (notification.messageType === 'assigned') {
+              notificationTextSecondary =
+                'Dir wurde Produkt' +
+                {} +
+                'zugewiesen. Nimm gern zusätzlich an unserer kurzen Umfrage teil.';
             }
 
             return (
@@ -199,8 +236,8 @@ export default function NotificationMenu(props: NotificationMenuProps) {
                       </Avatar>
                     </ListItemAvatar>
                     <ListItemText
-                      primary="Produkt abgelehnt"
-                      secondary="{Begründung}"
+                      primary={notificationTextPrimary}
+                      secondary={notificationTextSecondary}
                     />
                   </ListItemButton>
                 </ListItem>
@@ -309,7 +346,7 @@ export default function NotificationMenu(props: NotificationMenuProps) {
               </ListItemAvatar>
               <ListItemText
                 primary="Überprüfung ausstehend"
-                secondary="Ihr Produkt `Name` wird in kürze von einem Administrator überprüft. Bitte habe etwas Geduld."
+                secondary="Dein Produkt `Name` wird in kürze von einem Administrator überprüft. Bitte habe etwas Geduld."
               />
             </ListItemButton>
           </ListItem>

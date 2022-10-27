@@ -25,6 +25,7 @@ import NotificationMenu from './NotificationMenu';
 
 interface AppBarTopProps {
   Account: AccountType | null;
+  // Notification: NotificationType | null;
 }
 
 const drawerWidth = 240;
