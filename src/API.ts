@@ -322,7 +322,12 @@ export type NotificationType = {
   account_id: number;
   productName: string;
   message: string;
-  messageType: 'pending' | 'published' | 'unpublished' | 'rejected';
+  messageType:
+    | 'pending'
+    | 'published'
+    | 'unpublished'
+    | 'rejected'
+    | 'assigned';
   rejectReason: string | null;
   createdAt: Date;
   isRead: boolean;

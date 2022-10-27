@@ -6,6 +6,7 @@ import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 import PollOutlinedIcon from '@mui/icons-material/PollOutlined';
 import {
     Avatar, Badge, Box, Divider, IconButton, List, ListItem, ListItemAvatar, ListItemButton,
@@ -58,6 +59,16 @@ export default function NotificationMenu(props: NotificationMenuProps) {
       productName: 'null',
       message: 'published',
       messageType: 'published',
+      rejectReason: 'null',
+      createdAt: new Date(),
+      isRead: false,
+    },
+    {
+      _id: 4,
+      account_id: 0,
+      productName: 'null',
+      message: 'assigned',
+      messageType: 'assigned',
       rejectReason: 'null',
       createdAt: new Date(),
       isRead: false,
@@ -135,16 +146,35 @@ export default function NotificationMenu(props: NotificationMenuProps) {
           }}
         >
           {notifications.map((notification) => {
-            let backgroundColor = '#c861ff';
+            let backgroundColor = '#292929';
             if (notification.messageType === 'rejected') {
               backgroundColor = '#fc998d';
             }
+            if (notification.messageType === 'published') {
+              backgroundColor = '#50cc52';
+            }
+            if (notification.messageType === 'pending') {
+              backgroundColor = '#ffbf03';
+            }
+            if (notification.messageType === 'assigned') {
+              backgroundColor = '#c861ff';
+            }
 
             /* do the same with the other colors*/
-            let avatarIcon = <PollOutlinedIcon />;
+            let avatarIcon = <NotificationsOutlinedIcon />;
             if (notification.messageType === 'rejected') {
               avatarIcon = <CloseOutlinedIcon />;
             }
+            if (notification.messageType === 'published') {
+              avatarIcon = <CheckOutlinedIcon />;
+            }
+            if (notification.messageType === 'pending') {
+              avatarIcon = <AccessTimeOutlinedIcon />;
+            }
+            if (notification.messageType === 'assigned') {
+              avatarIcon = <PollOutlinedIcon />;
+            }
+
             return (
               <>
                 <Divider variant="fullWidth" component="li" />
