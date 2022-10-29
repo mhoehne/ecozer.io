@@ -152,68 +152,46 @@ export default function NotificationMenu(props: NotificationMenuProps) {
         >
           {notifications.map((notification) => {
             let backgroundColor = '#292929';
+            let avatarIcon = <NotificationsOutlinedIcon />;
+            let notificationTextPrimary = '';
+            let notificationTextSecondary = '';
+            let linkTo = '';
             if (notification.messageType === 'rejected') {
               backgroundColor = '#fc998d';
+              avatarIcon = <CloseOutlinedIcon />;
+              notificationTextPrimary = 'Produkt abgelehnt';
+              notificationTextSecondary = '{RejectReason}';
+              linkTo = '/my-products/rejection';
             }
             if (notification.messageType === 'published') {
               backgroundColor = '#50cc52';
-            }
-            if (notification.messageType === 'pending') {
-              backgroundColor = '#ffbf03';
-            }
-            if (notification.messageType === 'assigned') {
-              backgroundColor = '#c861ff';
-            }
-
-            let avatarIcon = <NotificationsOutlinedIcon />;
-            if (notification.messageType === 'rejected') {
-              avatarIcon = <CloseOutlinedIcon />;
-            }
-            if (notification.messageType === 'published') {
               avatarIcon = <CheckOutlinedIcon />;
-            }
-            if (notification.messageType === 'pending') {
-              avatarIcon = <AccessTimeOutlinedIcon />;
-            }
-            if (notification.messageType === 'assigned') {
-              avatarIcon = <PollOutlinedIcon />;
-            }
-
-            let notificationTextPrimary = '';
-            if (notification.messageType === 'rejected') {
-              notificationTextPrimary = 'Produkt abgelehnt';
-            }
-            if (notification.messageType === 'published') {
               notificationTextPrimary = 'Produkt veröffentlicht';
-            }
-            if (notification.messageType === 'pending') {
-              notificationTextPrimary = 'Überprüfung ausstehend';
-            }
-            if (notification.messageType === 'assigned') {
-              notificationTextPrimary = 'Produkt zugewiesen';
-            }
-
-            let notificationTextSecondary = '';
-            if (notification.messageType === 'rejected') {
-              notificationTextSecondary = '{RejectReason}';
-            }
-            if (notification.messageType === 'published') {
               notificationTextSecondary =
                 'Ihr Produkt' +
                 {} +
                 'wurde veröffentlicht und ist nun für alle sichtbar.';
+              linkTo = '/my-products';
             }
             if (notification.messageType === 'pending') {
+              backgroundColor = '#ffbf03';
+              avatarIcon = <AccessTimeOutlinedIcon />;
+              notificationTextPrimary = 'Überprüfung ausstehend';
               notificationTextSecondary =
                 'Dein Produkt' +
                 {} +
                 'wird in kürze von einem Administrator überprüft. Bitte habe etwas Geduld.';
+              linkTo = '/my-products';
             }
             if (notification.messageType === 'assigned') {
+              backgroundColor = '#c861ff';
+              avatarIcon = <PollOutlinedIcon />;
+              notificationTextPrimary = 'Produkt zugewiesen';
               notificationTextSecondary =
                 'Dir wurde Produkt' +
                 {} +
-                'zugewiesen. Nimm gern zusätzlich an unserer kurzen Umfrage teil.';
+                'zugewiesen. Nehme gern zusätzlich an unserer kurzen Umfrage teil.';
+              linkTo = '#';
             }
 
             return (
@@ -233,7 +211,7 @@ export default function NotificationMenu(props: NotificationMenuProps) {
                     </IconButton>
                   }
                 >
-                  <ListItemButton component={Link} to="/my-products/rejection">
+                  <ListItemButton component={Link} to={linkTo}>
                     <ListItemAvatar>
                       <Avatar sx={{ backgroundColor: backgroundColor }}>
                         {avatarIcon}
@@ -280,77 +258,6 @@ export default function NotificationMenu(props: NotificationMenuProps) {
                 }}
                 primary="Produkt zugewiesen"
                 secondary="Dir wurde ein Produkt zugewiesen. Nimm gern zusätzlich an unserer kurzen Umfrage teil."
-              />
-            </ListItemButton>
-          </ListItem>
-
-          <Divider variant="fullWidth" component="li" />
-
-          <ListItem
-            disablePadding={true}
-            alignItems="center"
-            secondaryAction={
-              <IconButton edge="end" aria-label="delete" onClick={() => {}}>
-                <CancelOutlinedIcon />
-              </IconButton>
-            }
-          >
-            <ListItemButton component={Link} to="/my-products/rejection">
-              <ListItemAvatar>
-                <Avatar sx={{ backgroundColor: '#fc998d' }}>
-                  <CloseOutlinedIcon />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary="Produkt abgelehnt"
-                secondary="{Begründung}"
-              />
-            </ListItemButton>
-          </ListItem>
-
-          <Divider variant="fullWidth" component="li" />
-
-          <ListItem
-            disablePadding={true}
-            alignItems="center"
-            secondaryAction={
-              <IconButton edge="end" aria-label="delete" onClick={() => {}}>
-                <CancelOutlinedIcon />
-              </IconButton>
-            }
-          >
-            <ListItemButton component={Link} to="/my-products">
-              <ListItemAvatar>
-                <Avatar sx={{ backgroundColor: '#50cc52' }}>
-                  <CheckOutlinedIcon />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary="Produkt veröffentlicht"
-                secondary="Ihr Produkt `Name` wurde veröffentlicht und ist nun für alle sichtbar. "
-              />
-            </ListItemButton>
-          </ListItem>
-          <Divider variant="fullWidth" component="li" />
-
-          <ListItem
-            disablePadding={true}
-            alignItems="center"
-            secondaryAction={
-              <IconButton edge="end" aria-label="delete" onClick={() => {}}>
-                <CancelOutlinedIcon />
-              </IconButton>
-            }
-          >
-            <ListItemButton component={Link} to="/my-products">
-              <ListItemAvatar>
-                <Avatar sx={{ backgroundColor: '#ffbf03' }}>
-                  <AccessTimeOutlinedIcon />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary="Überprüfung ausstehend"
-                secondary="Dein Produkt `Name` wird in kürze von einem Administrator überprüft. Bitte habe etwas Geduld."
               />
             </ListItemButton>
           </ListItem>
