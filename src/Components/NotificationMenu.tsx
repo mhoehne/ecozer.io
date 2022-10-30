@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
+import CircleNotificationsOutlinedIcon from '@mui/icons-material/CircleNotificationsOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 import PollOutlinedIcon from '@mui/icons-material/PollOutlined';
 import {
     Avatar, Badge, Box, Divider, IconButton, List, ListItem, ListItemAvatar, ListItemButton,
-    ListItemText, Menu, MenuItem, Tooltip
+    ListItemIcon, ListItemText, Menu, MenuItem, Tooltip
 } from '@mui/material';
 
 import { AccountType, NotificationType } from '../API';
@@ -141,7 +142,10 @@ export default function NotificationMenu(props: NotificationMenuProps) {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem component={Link} to="/notification-log">
-          Dieses Feature ist bald verfügbar
+          <ListItemIcon>
+            <CircleNotificationsOutlinedIcon fontSize="small" />
+          </ListItemIcon>
+          Alle Benachrichtigungen ansehen
         </MenuItem>
         <List
           sx={{
@@ -156,6 +160,7 @@ export default function NotificationMenu(props: NotificationMenuProps) {
             let notificationTextPrimary = '';
             let notificationTextSecondary = '';
             let linkTo = '';
+
             if (notification.messageType === 'rejected') {
               backgroundColor = '#fc998d';
               avatarIcon = <CloseOutlinedIcon />;
