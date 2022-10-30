@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
-import { Box, Container, Tab, Tabs, Typography } from '@mui/material';
+import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
+import { Box, Button, Container, Stack, Tab, Tabs, Tooltip, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 
 import { AccountType, GetProducts, ProductType } from '../API';
@@ -143,11 +144,6 @@ export default function MyProducts(props: MyProductProps) {
           </Typography>
         </Container>
       </Box>
-      <SearchBarBoxed
-        enableAddProductButton={true}
-        enableAutocompleteSearch={false}
-        setSearchterm={setSearchterm}
-      />
 
       <Box
         px={{ xs: 2, sm: 2 }}
@@ -157,17 +153,57 @@ export default function MyProducts(props: MyProductProps) {
         bgcolor="background.paper"
         color="text.primary"
       >
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            aria-label="basic tabs example"
-          >
-            <Tab label="Veröffentlicht" {...a11yProps(0)} />
-            <Tab label="Prüfung ausstehend" {...a11yProps(1)} />
-            <Tab label="Abgelehnt" {...a11yProps(2)} />
-          </Tabs>
-        </Box>
+        <Grid container>
+          <Grid item xs={5}>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              aria-label="basic tabs example"
+            >
+              <Tab
+                sx={{ borderBottom: 1, borderColor: 'divider' }}
+                label="Veröffentlicht"
+                {...a11yProps(0)}
+              />
+              <Tab
+                sx={{ borderBottom: 1, borderColor: 'divider' }}
+                label="Prüfung ausstehend"
+                {...a11yProps(1)}
+              />
+              <Tab
+                sx={{ borderBottom: 1, borderColor: 'divider' }}
+                label="Abgelehnt"
+                {...a11yProps(2)}
+              />
+            </Tabs>
+          </Grid>
+          <Grid item xs={7}>
+            <Stack
+              direction="row"
+              justifyContent="flex-end"
+              alignItems="center"
+              spacing={2}
+            >
+              <Tooltip title="" enterDelay={500} leaveDelay={200}>
+                <Button
+                  size="large"
+                  variant="contained"
+                  color="secondary"
+                  href="/my-products/add-product"
+                  sx={{}}
+                  startIcon={<AddCircleOutlineOutlinedIcon />}
+                >
+                  Produkt erstellen
+                </Button>
+              </Tooltip>
+            </Stack>
+            {/* <SearchBarBoxed
+              enableAddProductButton={false}
+              enableAutocompleteSearch={false}
+              setSearchterm={setSearchterm}
+            /> */}
+          </Grid>
+        </Grid>
       </Box>
       <TabPanel value={value} index={0}>
         <Grid container spacing={0}>
