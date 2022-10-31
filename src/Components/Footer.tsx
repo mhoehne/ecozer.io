@@ -102,6 +102,16 @@ export default function Footer() {
                     autoFocus
                     required
                     margin="dense"
+                    label="Name"
+                    type="name"
+                    fullWidth
+                    variant="outlined"
+                    sx={{ mb: 2 }}
+                  />
+                  <TextField
+                    autoFocus
+                    required
+                    margin="dense"
                     label="Email Address"
                     type="email"
                     fullWidth
