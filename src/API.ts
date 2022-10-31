@@ -370,4 +370,10 @@ export function CreateReporting(
   );
 }
 
+export function GetReportings(): Promise<AxiosResponse<ReportingResultType>> {
+  return axios.get<ReportingResultType>(
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/reportings`
+  );
+}
+
 export type SurveyType = {};
