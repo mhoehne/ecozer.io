@@ -359,7 +359,7 @@ export type ReportingResultType = {
   reporting: ReportingType;
 };
 
-export type ReportingCreatedResultType = ProductType | string;
+export type ReportingCreatedResultType = ReportingType | string;
 
 export function CreateReporting(
   reporting: ReportingType
@@ -376,4 +376,43 @@ export function GetReportings(): Promise<AxiosResponse<ReportingResultType>> {
   );
 }
 
-export type SurveyType = {};
+/* SURVEY */
+export type SurveyType = {
+  _id: number;
+  firstName: string;
+  lastName: string;
+  emailAddress: string;
+  role: string;
+  companySize: string;
+  Q1: string;
+  Q2: string;
+  Q3: string;
+  Q4: string;
+  feedbackField: string;
+};
+export type SurveyEntriesResultType = {
+  surveyEntries: SurveyType[];
+};
+
+export type SurveyEntryResultType = {
+  surveyEntry: SurveyType;
+};
+
+export type SurveyEntryCreatedResultType = SurveyType | string;
+
+export function CreateSurveyEntry(
+  surveyEntry: SurveyType
+): Promise<AxiosResponse<SurveyEntryCreatedResultType>> {
+  return axios.post<SurveyEntryCreatedResultType>(
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/user-survey`,
+    surveyEntry
+  );
+}
+
+export function GetSurveyEntries(): Promise<
+  AxiosResponse<SurveyEntryResultType>
+> {
+  return axios.get<SurveyEntryResultType>(
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/user-survey`
+  );
+}
