@@ -340,3 +340,25 @@ export function GetNotifications(): Promise<AxiosResponse<NotificationType>> {
     `http://${process.env.REACT_APP_API_HOSTNAME}:8000/notifications?limit=5`
   );
 }
+
+export type ReportingType = {};
+export type ReportingsResultType = {
+  reportings: ReportingType[];
+};
+
+export type ReportingResultType = {
+  product: ProductType;
+};
+
+export type ReportingCreatedResultType = ProductType | string;
+
+export function CreateReporting(
+  reporting: ReportingType
+): Promise<AxiosResponse<ReportingCreatedResultType>> {
+  return axios.post<ReportingCreatedResultType>(
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/reportings`,
+    reporting
+  );
+}
+
+export type SurveyType = {};

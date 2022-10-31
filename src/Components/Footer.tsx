@@ -1,10 +1,12 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import {
     Box, Button, CardMedia, Container, Dialog, DialogActions, DialogContent, DialogContentText,
     DialogTitle, Grid, Link, MenuItem, TextField
 } from '@mui/material';
 
+import { CreateReporting, ReportingType } from '../API';
 import LogoFooter from '../images/S20_HTW_Berlin_Logo_neg_WEISS_RGB.png';
 
 {
@@ -40,6 +42,7 @@ const types = [
 ];
 
 export default function Footer() {
+  const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -54,6 +57,30 @@ export default function Footer() {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setType(event.target.value);
+  };
+
+  const [reporting, setReporting] = React.useState<ReportingType>({
+    _id: undefined,
+    state: '',
+    viewCounter: undefined,
+    productImage: '',
+    productName: '',
+    productLink: '',
+    productCompany: '',
+    productDescription: '',
+  });
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    // onSubmit call createProduct
+    CreateReporting(reporting)
+      .then((reporting) => {
+        return navigate('/my-products');
+      })
+      .catch((msg) => {
+        alert('error');
+      });
   };
 
   return (
@@ -96,84 +123,93 @@ export default function Footer() {
               </Box>
               <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Kontakt</DialogTitle>
-                <DialogContent>
-                  <DialogContentText></DialogContentText>
-                  <TextField
-                    autoFocus
-                    required
-                    margin="dense"
-                    label="Name"
-                    type="name"
-                    fullWidth
-                    variant="outlined"
-                    sx={{ mb: 2 }}
-                  />
-                  <TextField
-                    autoFocus
-                    required
-                    margin="dense"
-                    label="Email Address"
-                    type="email"
-                    fullWidth
-                    variant="outlined"
-                    sx={{ mb: 2 }}
-                  />
-                  <TextField
-                    id="outlined-select-type"
-                    required
-                    select
-                    label="Anliegen"
-                    type="text"
-                    fullWidth
-                    value={type}
-                    onChange={handleChange}
-                    sx={{ mb: 1 }}
-                  >
-                    {types.map((option) => (
-                      <MenuItem key={option.value} value={option.value}>
-                        {option.label}
-                      </MenuItem>
-                    ))}
-                  </TextField>
-                  <TextField
-                    autoFocus
-                    margin="dense"
-                    label="Browser"
-                    type="text"
-                    fullWidth
-                    variant="outlined"
-                    sx={{ mb: 1 }}
-                  />
-                  <TextField
-                    autoFocus
-                    margin="dense"
-                    label="Seitenname"
-                    type="text"
-                    fullWidth
-                    variant="outlined"
-                    sx={{ mb: 1 }}
-                  />
-                  <TextField
-                    autoFocus
-                    margin="dense"
-                    label="Beschreibung"
-                    type="text"
-                    fullWidth
-                    variant="outlined"
-                    multiline
-                    rows={8}
-                  />
-                </DialogContent>
-                <DialogActions>
-                  <Button onClick={handleClose}>zurück</Button>
-                  <Button
-                    variant="contained"
-                    onClick={handleClose}
-                    sx={{ color: 'background.paper' }}
-                  >
-                    Senden
-                  </Button>
-                </DialogActions>
+                <Box
+                  component="form"
+                  noValidate
+                  justifyContent="center"
+                  alignItems="center"
+                  onSubmit={handleSubmit}
+                >
+                  <DialogContent>
+                    <DialogContentText></DialogContentText>
+
+                    <TextField
+                      autoFocus
+                      required
+                      margin="dense"
+                      label="Name"
+                      type="name"
+                      fullWidth
+                      variant="outlined"
+                      sx={{ mb: 2 }}
+                    />
+                    <TextField
+                      autoFocus
+                      required
+                      margin="dense"
+                      label="Email Address"
+                      type="email"
+                      fullWidth
+                      variant="outlined"
+                      sx={{ mb: 2 }}
+                    />
+                    <TextField
+                      id="outlined-select-type"
+                      required
+                      select
+                      label="Anliegen"
+                      type="text"
+                      fullWidth
+                      value={type}
+                      onChange={handleChange}
+                      sx={{ mb: 1 }}
+                    >
+                      {types.map((option) => (
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                      ))}
+                    </TextField>
+                    <TextField
+                      autoFocus
+                      margin="dense"
+                      label="Browser"
+                      type="text"
+                      fullWidth
+                      variant="outlined"
+                      sx={{ mb: 1 }}
+                    />
+                    <TextField
+                      autoFocus
+                      margin="dense"
+                      label="Seitenname"
+                      type="text"
+                      fullWidth
+                      variant="outlined"
+                      sx={{ mb: 1 }}
+                    />
+                    <TextField
+                      autoFocus
+                      margin="dense"
+                      label="Beschreibung"
+                      type="text"
+                      fullWidth
+                      variant="outlined"
+                      multiline
+                      rows={8}
+                    />
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={handleClose}>zurück</Button>
+                    <Button
+                      variant="contained"
+                      onClick={handleClose}
+                      sx={{ color: 'background.paper' }}
+                    >
+                      Senden
+                    </Button>
+                  </DialogActions>
+                </Box>
               </Dialog>
             </Grid>
 
