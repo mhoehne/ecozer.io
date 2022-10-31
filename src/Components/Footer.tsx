@@ -61,13 +61,12 @@ export default function Footer() {
 
   const [reporting, setReporting] = React.useState<ReportingType>({
     _id: undefined,
-    state: '',
-    viewCounter: undefined,
-    productImage: '',
-    productName: '',
-    productLink: '',
-    productCompany: '',
-    productDescription: '',
+    name: '',
+    emailAddress: '',
+    issue: '',
+    browser: '',
+    pageName: '',
+    feedbackField: '',
   });
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -161,8 +160,8 @@ export default function Footer() {
                       type="text"
                       fullWidth
                       value={type}
-                      onChange={handleChange}
                       sx={{ mb: 1 }}
+                      onChange={handleChange}
                     >
                       {types.map((option) => (
                         <MenuItem key={option.value} value={option.value}>
@@ -202,6 +201,7 @@ export default function Footer() {
                   <DialogActions>
                     <Button onClick={handleClose}>zurück</Button>
                     <Button
+                      type="submit"
                       variant="contained"
                       onClick={handleClose}
                       sx={{ color: 'background.paper' }}

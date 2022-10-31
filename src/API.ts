@@ -341,13 +341,22 @@ export function GetNotifications(): Promise<AxiosResponse<NotificationType>> {
   );
 }
 
-export type ReportingType = {};
+/* REPORTING */
+export type ReportingType = {
+  _id: number | undefined;
+  name: string;
+  emailAddress: string;
+  issue: string;
+  browser: string;
+  pageName: string;
+  feedbackField: string;
+};
 export type ReportingsResultType = {
   reportings: ReportingType[];
 };
 
 export type ReportingResultType = {
-  product: ProductType;
+  reporting: ReportingType;
 };
 
 export type ReportingCreatedResultType = ProductType | string;
