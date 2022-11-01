@@ -42,7 +42,7 @@ export default function NotificationMenu(props: NotificationMenuProps) {
     {
       _id: 1,
       account_id: 0,
-      productName: 'null',
+      productName: 'Test',
       message: 'pending',
       messageType: 'pending',
       rejectReason: 'null',
@@ -182,10 +182,7 @@ export default function NotificationMenu(props: NotificationMenuProps) {
               backgroundColor = '#ffbf03';
               avatarIcon = <AccessTimeOutlinedIcon />;
               notificationTextPrimary = 'Überprüfung ausstehend';
-              notificationTextSecondary =
-                'Dein Produkt' +
-                {} +
-                'wird in kürze von einem Administrator überprüft. Bitte habe etwas Geduld.';
+              notificationTextSecondary = `Dein Produkt ${notification.productName} wird in kürze von einem Administrator überprüft. Bitte habe etwas Geduld.`;
               linkTo = '/my-products';
             }
             if (notification.messageType === 'assigned') {
@@ -216,7 +213,15 @@ export default function NotificationMenu(props: NotificationMenuProps) {
                     </IconButton>
                   }
                 >
-                  <ListItemButton component={Link} to={linkTo}>
+                  <ListItemButton
+                    component={Link}
+                    to={linkTo}
+                    onClick={() => {
+                      if (notification.messageType === 'assigned') {
+                        setsurveyOpen(true);
+                      }
+                    }}
+                  >
                     <ListItemAvatar>
                       <Avatar sx={{ backgroundColor: backgroundColor }}>
                         {avatarIcon}
