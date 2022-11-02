@@ -11,7 +11,7 @@ import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined
 import PollOutlinedIcon from '@mui/icons-material/PollOutlined';
 import {
     Avatar, Badge, Box, Divider, IconButton, List, ListItem, ListItemAvatar, ListItemButton,
-    ListItemIcon, ListItemText, Menu, MenuItem, Tooltip
+    ListItemText, Menu, Tooltip
 } from '@mui/material';
 
 import { AccountType, NotificationType } from '../API';
@@ -141,12 +141,16 @@ export default function NotificationMenu(props: NotificationMenuProps) {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem component={Link} to="/notification-log">
-          <ListItemIcon>
-            <CircleNotificationsOutlinedIcon fontSize="small" />
-          </ListItemIcon>
-          Alle Benachrichtigungen ansehen
-        </MenuItem>
+        <ListItem disablePadding={true} alignItems="center">
+          <ListItemButton component={Link} to={'/notification-log'}>
+            <ListItemAvatar>
+              <Avatar>
+                <CircleNotificationsOutlinedIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText>Alle Benachrichtigungen ansehen</ListItemText>
+          </ListItemButton>
+        </ListItem>
         <List
           sx={{
             width: '100%',
