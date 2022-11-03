@@ -240,41 +240,6 @@ export default function NotificationMenu(props: NotificationMenuProps) {
               </>
             );
           })}
-
-          <Divider variant="fullWidth" component="li" />
-
-          <ListItem
-            disablePadding={true}
-            alignItems="center"
-            secondaryAction={
-              <IconButton edge="end" aria-label="delete" onClick={() => {}}>
-                <CancelOutlinedIcon />
-              </IconButton>
-            }
-          >
-            <ListItemButton
-              onClick={() => {
-                setsurveyOpen(true);
-              }}
-            >
-              <ListItemAvatar
-                onClick={() => {
-                  setsurveyOpen(true);
-                }}
-              >
-                <Avatar sx={{ backgroundColor: '#c861ff' }}>
-                  <PollOutlinedIcon />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                onClick={() => {
-                  setsurveyOpen(true);
-                }}
-                primary="Produkt zugewiesen"
-                secondary="Dir wurde ein Produkt zugewiesen. Nimm gern zusätzlich an unserer kurzen Umfrage teil."
-              />
-            </ListItemButton>
-          </ListItem>
         </List>
       </Menu>
       <MultiStepSurvey open={surveyOpen} setOpen={setsurveyOpen} />
