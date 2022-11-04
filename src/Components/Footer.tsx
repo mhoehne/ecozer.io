@@ -15,6 +15,7 @@ import LogoFooter from '../images/S20_HTW_Berlin_Logo_neg_WEISS_RGB.png';
 {
   /* 
 # check new grid v2 component from MUI, could be a better for the footer  
+# create new component for the dialog and use formik for the form
   */
 }
 
