@@ -9,7 +9,7 @@ import Account from './Account';
   /* TODO */
 }
 {
-  /*  */
+  /* # replace list data with survey entries */
 }
 
 {
