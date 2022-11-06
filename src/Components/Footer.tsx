@@ -2,8 +2,8 @@ import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import {
-    Box, Button, CardMedia, Container, Dialog, DialogActions, DialogContent, DialogContentText,
-    DialogTitle, Grid, Link, MenuItem, TextField
+    Box, Button, CardMedia, Container, Dialog, DialogActions, DialogContent, DialogTitle, Grid,
+    Link, MenuItem, TextField
 } from '@mui/material';
 
 import { CreateReporting, ReportingType } from '../API';
@@ -131,7 +131,7 @@ export default function Footer() {
                   onSubmit={handleSubmit}
                 >
                   <DialogContent>
-                    <DialogContentText></DialogContentText>
+                    {/* <DialogContentText></DialogContentText> */}
 
                     <TextField
                       autoFocus
