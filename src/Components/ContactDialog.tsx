@@ -2,14 +2,16 @@ import * as React from 'react';
 
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
+import {
+    Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, MenuItem, TextField
+} from '@mui/material';
 
 {
   /* TODO */
 }
 {
   /* 
-  
+  # add formik
   */
 }
 
@@ -22,75 +24,137 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/
   */
 }
 
-interface MultiStepSurveyProps {
+interface ContactDialogProps {
   open: boolean;
   setOpen: Function;
 }
 
-export default function MultiStepSurvey(props: MultiStepSurveyProps) {
-  const [activeStep, setActiveStep] = React.useState(0);
-  const [skipped, setSkipped] = React.useState(new Set<number>());
+export default function ContactDialog(props: ContactDialogProps) {
+  const [type, setType] = React.useState('');
 
-  const isStepOptional = (step: number) => {
-    return step === 3;
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setType(event.target.value);
   };
 
-  const isStepSkipped = (step: number) => {
-    return skipped.has(step);
-  };
-
-  const handleNext = () => {
-    let newSkipped = skipped;
-    if (isStepSkipped(activeStep)) {
-      newSkipped = new Set(newSkipped.values());
-      newSkipped.delete(activeStep);
-    }
-
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setSkipped(newSkipped);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleSkip = () => {
-    if (!isStepOptional(activeStep)) {
-      // Probably want to guard against something like this,
-      // it should never occur unless someone's actively trying to break something.
-      throw new Error('Du kannst diesen Schritt nicht überspringen');
-    }
-
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setSkipped((prevSkipped) => {
-      const newSkipped = new Set(prevSkipped.values());
-      newSkipped.add(activeStep);
-      return newSkipped;
-    });
-  };
-  const handleReset = () => {
-    setActiveStep(0);
-  };
+  const types = [
+    {
+      value: 'Bug',
+      label: 'Bug melden',
+    },
+    {
+      value: 'Feedback',
+      label: 'Feedback geben',
+    },
+    {
+      value: 'Improvement',
+      label: 'Verbesserungsvorschlag',
+    },
+    {
+      value: 'Feature Request',
+      label: 'Feature anfragen',
+    },
+  ];
 
   return (
     <>
-      <Dialog
-        open={props.open}
-        aria-labelledby="responsive-dialog-title"
-        fullWidth={true}
-      >
-        <DialogTitle id="responsive-dialog-title">{'Umfrage'}</DialogTitle>
-        <DialogContent></DialogContent>
-        <DialogActions>
-          <Button
-            autoFocus
-            onClick={() => {
-              props.setOpen(false);
-            }}
-          >
-            Schließen
-          </Button>
-        </DialogActions>
+      <Dialog open={props.open}>
+        <DialogTitle>Kontakt</DialogTitle>
+        <Box
+          component="form"
+          noValidate
+          justifyContent="center"
+          alignItems="center"
+          // onSubmit={handleSubmit}
+        >
+          <DialogContent>
+            {/* <DialogContentText></DialogContentText> */}
+
+            <TextField
+              autoFocus
+              required
+              margin="dense"
+              label="Name"
+              type="name"
+              fullWidth
+              variant="outlined"
+              sx={{ mb: 2 }}
+            />
+            <TextField
+              autoFocus
+              required
+              margin="dense"
+              label="Email Address"
+              type="email"
+              fullWidth
+              variant="outlined"
+              sx={{ mb: 2 }}
+            />
+            <TextField
+              id="outlined-select-type"
+              required
+              select
+              label="Anliegen"
+              type="text"
+              fullWidth
+              value={types}
+              sx={{ mb: 1 }}
+              onChange={handleChange}
+            >
+              {types.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+            <TextField
+              autoFocus
+              margin="dense"
+              label="Browser"
+              type="text"
+              fullWidth
+              variant="outlined"
+              sx={{ mb: 1 }}
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              label="Seitenname"
+              type="text"
+              fullWidth
+              variant="outlined"
+              sx={{ mb: 1 }}
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              label="Beschreibung"
+              type="text"
+              fullWidth
+              variant="outlined"
+              multiline
+              rows={8}
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button
+              onClick={() => {
+                props.setOpen(false);
+              }}
+            >
+              zurück
+            </Button>
+            <Button
+              type="submit"
+              variant="contained"
+              onClick={() => {
+                props.setOpen(false);
+              }}
+              sx={{ color: 'background.paper' }}
+            >
+              Senden
+            </Button>
+          </DialogActions>
+        </Box>
       </Dialog>
     </>
   );
