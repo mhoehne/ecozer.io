@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { Box, CardMedia, Container, Grid, Link } from '@mui/material';
 
-import { CreateReporting, ReportingType } from '../API';
 import LogoFooter from '../images/S20_HTW_Berlin_Logo_neg_WEISS_RGB.png';
+import ContactDialog from './ContactDialog';
 
 {
   /* TODO */
@@ -20,39 +19,8 @@ import LogoFooter from '../images/S20_HTW_Berlin_Logo_neg_WEISS_RGB.png';
 }
 
 export default function Footer() {
-  const navigate = useNavigate();
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const [reporting, setReporting] = React.useState<ReportingType>({
-    _id: undefined,
-    name: '',
-    emailAddress: '',
-    issue: '',
-    browser: '',
-    pageName: '',
-    feedbackField: '',
-  });
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    // onSubmit call createProduct
-    CreateReporting(reporting)
-      .then((reporting) => {
-        return navigate('/my-products');
-      })
-      .catch((msg) => {
-        alert('error');
-      });
-  };
+  // set to false later, just true for testing
+  const [contactOpen, setContactOpen] = React.useState(true);
 
   return (
     <footer>
@@ -84,7 +52,9 @@ export default function Footer() {
             <Grid item xs={12} sm={3}>
               <Box>
                 <Link
-                  onClick={handleClickOpen}
+                  onClick={() => {
+                    setContactOpen(true);
+                  }}
                   href="#"
                   underline="none"
                   color="inherit"
@@ -124,6 +94,7 @@ export default function Footer() {
           </Grid>
         </Container>
       </Box>
+      <ContactDialog open={contactOpen} setOpen={setContactOpen} />
     </footer>
   );
 }

@@ -1,10 +1,13 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import {
     Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, MenuItem, TextField
 } from '@mui/material';
+
+import { CreateReporting, ReportingType } from '../API';
 
 {
   /* TODO */
@@ -54,6 +57,28 @@ export default function ContactDialog(props: ContactDialogProps) {
       label: 'Feature anfragen',
     },
   ];
+  const navigate = useNavigate();
+  const [reporting, setReporting] = React.useState<ReportingType>({
+    _id: undefined,
+    name: '',
+    emailAddress: '',
+    issue: '',
+    browser: '',
+    pageName: '',
+    feedbackField: '',
+  });
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    // onSubmit call createProduct
+    CreateReporting(reporting)
+      .then((reporting) => {
+        return navigate('/my-products');
+      })
+      .catch((msg) => {
+        alert('error');
+      });
+  };
 
   return (
     <>
