@@ -1,6 +1,7 @@
-import { Field, Form, Formik } from 'formik';
+import { Field, Form, Formik, useFormik } from 'formik';
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
+import * as yup from 'yup';
 
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
@@ -39,6 +40,32 @@ export default function ContactDialog(props: ContactDialogProps) {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setType(event.target.value);
   };
+
+  const validationSchema = yup.object({
+    email: yup
+      .string()
+      .email('Enter a valid email')
+      .required('Email is required'),
+    password: yup
+      .string()
+      .min(8, 'Password should be of minimum 8 characters length')
+      .required('Password is required'),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      issue: '',
+      browser: '',
+      pageName: '',
+      feedbackField: '',
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
 
   const types = [
     {
@@ -85,20 +112,7 @@ export default function ContactDialog(props: ContactDialogProps) {
     <>
       <Dialog open={props.open}>
         <DialogTitle>Kontakt</DialogTitle>
-        <Formik
-          initialValues={{
-            name: '',
-            email: '',
-            issue: '',
-            browser: '',
-            pageName: '',
-            feedbackField: '',
-          }}
-          onSubmit={async (values) => {
-            await new Promise((r) => setTimeout(r, 500));
-            alert(JSON.stringify(values, null, 2));
-          }}
-        >
+        <form onSubmit={formik.handleSubmit}>
           <Box
             component="form"
             noValidate
@@ -118,6 +132,10 @@ export default function ContactDialog(props: ContactDialogProps) {
                 fullWidth
                 variant="outlined"
                 sx={{ mb: 2 }}
+                value={formik.values.name}
+                onChange={formik.handleChange}
+                error={formik.touched.name && Boolean(formik.errors.name)}
+                helperText={formik.touched.name && formik.errors.name}
               />
               <TextField
                 autoFocus
@@ -195,7 +213,7 @@ export default function ContactDialog(props: ContactDialogProps) {
               </Button>
             </DialogActions>
           </Box>
-        </Formik>
+        </form>
       </Dialog>
     </>
   );
