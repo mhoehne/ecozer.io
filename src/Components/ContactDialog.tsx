@@ -146,6 +146,10 @@ export default function ContactDialog(props: ContactDialogProps) {
                 fullWidth
                 variant="outlined"
                 sx={{ mb: 2 }}
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                error={formik.touched.email && Boolean(formik.errors.email)}
+                helperText={formik.touched.email && formik.errors.email}
               />
               <TextField
                 id="outlined-select-type"
@@ -156,7 +160,7 @@ export default function ContactDialog(props: ContactDialogProps) {
                 fullWidth
                 value={types}
                 sx={{ mb: 1 }}
-                onChange={handleChange}
+                onChange={formik.handleChange}
               >
                 {types.map((option) => (
                   <MenuItem key={option.value} value={option.value}>
@@ -172,6 +176,10 @@ export default function ContactDialog(props: ContactDialogProps) {
                 fullWidth
                 variant="outlined"
                 sx={{ mb: 1 }}
+                value={formik.values.browser}
+                onChange={formik.handleChange}
+                error={formik.touched.browser && Boolean(formik.errors.browser)}
+                helperText={formik.touched.browser && formik.errors.browser}
               />
               <TextField
                 autoFocus
@@ -181,6 +189,12 @@ export default function ContactDialog(props: ContactDialogProps) {
                 fullWidth
                 variant="outlined"
                 sx={{ mb: 1 }}
+                value={formik.values.pageName}
+                onChange={formik.handleChange}
+                error={
+                  formik.touched.pageName && Boolean(formik.errors.pageName)
+                }
+                helperText={formik.touched.pageName && formik.errors.pageName}
               />
               <TextField
                 autoFocus
@@ -191,6 +205,15 @@ export default function ContactDialog(props: ContactDialogProps) {
                 variant="outlined"
                 multiline
                 rows={8}
+                value={formik.values.feedbackField}
+                onChange={formik.handleChange}
+                error={
+                  formik.touched.feedbackField &&
+                  Boolean(formik.errors.feedbackField)
+                }
+                helperText={
+                  formik.touched.feedbackField && formik.errors.feedbackField
+                }
               />
             </DialogContent>
             <DialogActions>
