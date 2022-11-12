@@ -1,4 +1,4 @@
-import { Field, Form, Formik } from 'formik';
+import { Field, Form, Formik, FormikHelpers } from 'formik';
 import * as React from 'react';
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
@@ -133,7 +133,7 @@ export default function SignUpFormik() {
               }}
             >
               {({ values }) => (
-                <Form>
+                <Form onSubmit={handleSubmit}>
                   <Grid container spacing={2}>
                     <Grid item xs={12} sm={6}>
                       <Field
@@ -205,23 +205,22 @@ export default function SignUpFormik() {
                     </Grid>
                   </Grid>
                   <pre>{JSON.stringify(values, null, 4)}</pre>
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    sx={{
+                      mt: 3,
+                      mb: 2,
+                      color: 'background.paper',
+                    }}
+                  >
+                    Account erstellen
+                  </Button>
                 </Form>
               )}
             </Formik>
           </CardContent>
-
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{
-              mt: 3,
-              mb: 2,
-              color: 'background.paper',
-            }}
-          >
-            Account erstellen
-          </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>
               <Link href="/signin" variant="body2">

@@ -20,7 +20,7 @@ import ContactDialog from './ContactDialog';
 
 export default function Footer() {
   // set to false later, just true for testing
-  const [contactOpen, setContactOpen] = React.useState(true);
+  const [contactOpen, setContactOpen] = React.useState(false);
 
   return (
     <footer>

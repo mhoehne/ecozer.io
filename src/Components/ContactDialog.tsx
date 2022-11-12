@@ -52,6 +52,18 @@ export default function ContactDialog(props: ContactDialogProps) {
       .required('Password is required'),
   });
 
+  // const WithMaterialUI = () => {
+  //   const formik = useFormik({
+  //     initialValues: {
+  //       email: 'foobar@example.com',
+  //       password: 'foobar',
+  //     },
+  //     validationSchema: validationSchema,
+  //     onSubmit: (values) => {
+  //       alert(JSON.stringify(values, null, 2));
+  //     },
+  //   });
+
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -112,23 +124,24 @@ export default function ContactDialog(props: ContactDialogProps) {
     <>
       <Dialog open={props.open}>
         <DialogTitle>Kontakt</DialogTitle>
-        <form onSubmit={formik.handleSubmit}>
-          <Box
-            component="form"
-            noValidate
-            justifyContent="center"
-            alignItems="center"
-            // onSubmit={handleSubmit}
-          >
+
+        <Box
+          component="form"
+          noValidate
+          justifyContent="center"
+          alignItems="center"
+          // onSubmit={handleSubmit}
+        >
+          <form onSubmit={formik.handleSubmit}>
             <DialogContent>
               {/* <DialogContentText></DialogContentText> */}
 
               <TextField
                 autoFocus
                 required
+                id="name"
                 margin="dense"
                 label="Name"
-                type="name"
                 fullWidth
                 variant="outlined"
                 sx={{ mb: 2 }}
@@ -140,9 +153,9 @@ export default function ContactDialog(props: ContactDialogProps) {
               <TextField
                 autoFocus
                 required
+                id="email"
                 margin="dense"
-                label="Email Address"
-                type="email"
+                label="Email Adresse"
                 fullWidth
                 variant="outlined"
                 sx={{ mb: 2 }}
@@ -155,12 +168,12 @@ export default function ContactDialog(props: ContactDialogProps) {
                 id="outlined-select-type"
                 required
                 select
+                // id="issue"
                 label="Anliegen"
-                type="text"
                 fullWidth
                 value={types}
                 sx={{ mb: 1 }}
-                onChange={formik.handleChange}
+                onChange={handleChange}
               >
                 {types.map((option) => (
                   <MenuItem key={option.value} value={option.value}>
@@ -170,9 +183,9 @@ export default function ContactDialog(props: ContactDialogProps) {
               </TextField>
               <TextField
                 autoFocus
+                id="browser"
                 margin="dense"
                 label="Browser"
-                type="text"
                 fullWidth
                 variant="outlined"
                 sx={{ mb: 1 }}
@@ -183,6 +196,7 @@ export default function ContactDialog(props: ContactDialogProps) {
               />
               <TextField
                 autoFocus
+                id="pageName"
                 margin="dense"
                 label="Seitenname"
                 type="text"
@@ -198,6 +212,7 @@ export default function ContactDialog(props: ContactDialogProps) {
               />
               <TextField
                 autoFocus
+                id="feedbackField"
                 margin="dense"
                 label="Beschreibung"
                 type="text"
@@ -235,8 +250,9 @@ export default function ContactDialog(props: ContactDialogProps) {
                 Senden
               </Button>
             </DialogActions>
-          </Box>
-        </form>
+          </form>
+          {/* <pre>{JSON.stringify(values, null, 4)}</pre> */}
+        </Box>
       </Dialog>
     </>
   );
