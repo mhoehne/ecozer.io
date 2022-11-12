@@ -21,7 +21,7 @@ import MultiStepSurvey from './Survey/MultiStepSurvey';
   /* TODO */
 }
 {
-  /*  */
+  /* trigger list item when notification is triggered */
 }
 
 {
@@ -141,6 +141,8 @@ export default function NotificationMenu(props: NotificationMenuProps) {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
+        {/* trigger list item when notification is triggered */}
+
         <ListItem disablePadding={true} alignItems="center">
           <ListItemButton component={Link} to={'/notification-log'}>
             <ListItemAvatar>
