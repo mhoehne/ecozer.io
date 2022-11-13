@@ -22,7 +22,6 @@ import ProductDetail from './Pages/ProductDetail';
 import ProductList from './Pages/ProductList';
 import Search from './Pages/Search';
 import SignIn from './Pages/SignIn';
-import SignUp from './Pages/SignUp';
 import SignUpFormik from './Pages/SignUpFormik';
 import UserList from './Pages/UserList';
 
@@ -77,8 +76,7 @@ export default function App() {
 
           {/* Sign In/Up */}
           <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/signupformik" element={<SignUpFormik />} />
+          <Route path="/signup" element={<SignUpFormik />} />
 
           {/* User */}
           <Route path="/account" element={<Account account={account} />} />
