@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 
-import { AccountType } from '../API';
-import ProductListGrid from '../Components/Grids/ProductListGrid';
+import { ReportingType } from '../API';
+import ReportingListGrid from '../Components/Grids/ReportingListGrid';
 import SearchBarBoxed from '../Components/SearchBarBoxed';
 import Account from './Account';
 
@@ -16,12 +16,12 @@ import Account from './Account';
   /* Note: */
 }
 
-interface UserListProps {
-  account: AccountType | null;
+interface ReportingListProps {
+  reporting: ReportingType | null;
 }
 
-export default function UserList(props: UserListProps) {
-  if (props.account === null) {
+export default function ReportingList(props: ReportingListProps) {
+  if (props.reporting === null) {
     return null;
   }
 
@@ -37,13 +37,13 @@ export default function UserList(props: UserListProps) {
         color="text.primary"
       >
         <Typography variant="h4" sx={{ mx: 2 }}>
-          Produktliste
+          Reportings
         </Typography>
         {/* <SearchBarBoxed
           enableAddProductButton={false}
           enableAutocompleteSearch={false}
         /> */}
-        <ProductListGrid account={props.account} />
+        <ReportingListGrid />
       </Box>
     </>
   );

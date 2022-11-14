@@ -52,33 +52,6 @@ export default function ContactDialog(props: ContactDialogProps) {
       .required('Password is required'),
   });
 
-  // const WithMaterialUI = () => {
-  //   const formik = useFormik({
-  //     initialValues: {
-  //       email: 'foobar@example.com',
-  //       password: 'foobar',
-  //     },
-  //     validationSchema: validationSchema,
-  //     onSubmit: (values) => {
-  //       alert(JSON.stringify(values, null, 2));
-  //     },
-  //   });
-
-  const formik = useFormik({
-    initialValues: {
-      name: '',
-      email: '',
-      issue: '',
-      browser: '',
-      pageName: '',
-      feedbackField: '',
-    },
-    validationSchema: validationSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
-
   const types = [
     {
       value: 'Bug',
@@ -132,10 +105,22 @@ export default function ContactDialog(props: ContactDialogProps) {
           alignItems="center"
           // onSubmit={handleSubmit}
         >
-          <form onSubmit={formik.handleSubmit}>
-            <DialogContent>
-              {/* <DialogContentText></DialogContentText> */}
-
+          <DialogContent>
+            {/* <DialogContentText></DialogContentText> */}
+            <Formik
+              initialValues={{
+                _id: undefined,
+                name: '',
+                emailAddress: '',
+                issue: '',
+                browser: '',
+                pageName: '',
+                feedbackField: '',
+              }}
+              onSubmit={async (values) => {
+                alert(JSON.stringify(values, null, 2));
+              }}
+            >
               <TextField
                 autoFocus
                 required
@@ -145,10 +130,6 @@ export default function ContactDialog(props: ContactDialogProps) {
                 fullWidth
                 variant="outlined"
                 sx={{ mb: 2 }}
-                value={formik.values.name}
-                onChange={formik.handleChange}
-                error={formik.touched.name && Boolean(formik.errors.name)}
-                helperText={formik.touched.name && formik.errors.name}
               />
               <TextField
                 autoFocus
@@ -159,10 +140,6 @@ export default function ContactDialog(props: ContactDialogProps) {
                 fullWidth
                 variant="outlined"
                 sx={{ mb: 2 }}
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                error={formik.touched.email && Boolean(formik.errors.email)}
-                helperText={formik.touched.email && formik.errors.email}
               />
               <TextField
                 id="outlined-select-type"
@@ -189,10 +166,6 @@ export default function ContactDialog(props: ContactDialogProps) {
                 fullWidth
                 variant="outlined"
                 sx={{ mb: 1 }}
-                value={formik.values.browser}
-                onChange={formik.handleChange}
-                error={formik.touched.browser && Boolean(formik.errors.browser)}
-                helperText={formik.touched.browser && formik.errors.browser}
               />
               <TextField
                 autoFocus
@@ -203,12 +176,6 @@ export default function ContactDialog(props: ContactDialogProps) {
                 fullWidth
                 variant="outlined"
                 sx={{ mb: 1 }}
-                value={formik.values.pageName}
-                onChange={formik.handleChange}
-                error={
-                  formik.touched.pageName && Boolean(formik.errors.pageName)
-                }
-                helperText={formik.touched.pageName && formik.errors.pageName}
               />
               <TextField
                 autoFocus
@@ -220,37 +187,29 @@ export default function ContactDialog(props: ContactDialogProps) {
                 variant="outlined"
                 multiline
                 rows={8}
-                value={formik.values.feedbackField}
-                onChange={formik.handleChange}
-                error={
-                  formik.touched.feedbackField &&
-                  Boolean(formik.errors.feedbackField)
-                }
-                helperText={
-                  formik.touched.feedbackField && formik.errors.feedbackField
-                }
               />
-            </DialogContent>
-            <DialogActions>
-              <Button
-                onClick={() => {
-                  props.setOpen(false);
-                }}
-              >
-                zurück
-              </Button>
-              <Button
-                type="submit"
-                variant="contained"
-                onClick={() => {
-                  props.setOpen(false);
-                }}
-                sx={{ color: 'background.paper' }}
-              >
-                Senden
-              </Button>
-            </DialogActions>
-          </form>
+            </Formik>
+          </DialogContent>
+          <DialogActions>
+            <Button
+              onClick={() => {
+                props.setOpen(false);
+              }}
+            >
+              zurück
+            </Button>
+            <Button
+              type="submit"
+              variant="contained"
+              onClick={() => {
+                props.setOpen(false);
+              }}
+              sx={{ color: 'background.paper' }}
+            >
+              Senden
+            </Button>
+          </DialogActions>
+
           {/* <pre>{JSON.stringify(values, null, 4)}</pre> */}
         </Box>
       </Dialog>
