@@ -9,7 +9,7 @@ import {
     GridToolbarDensitySelector
 } from '@mui/x-data-grid';
 
-import { ReportingType } from '../../API';
+import { GetReportings, ReportingType } from '../../API';
 
 {
   /* TODO */
@@ -129,6 +129,14 @@ export default function ReportingListGrid() {
       editable: false,
     },
   ];
+
+  // React.useEffect(() => {
+  //   GetReportings(null, [], [], [], [], [], [], null)
+  //     .then((result) => {
+  //       setReportings(result.data.reporting);
+  //     })
+  //     .catch();
+  // }, []);
 
   return (
     <Box

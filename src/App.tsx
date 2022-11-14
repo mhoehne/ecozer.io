@@ -20,6 +20,7 @@ import NotificationLog from './Pages/NotificationLog';
 import PageNotFound from './Pages/PageNotFound';
 import ProductDetail from './Pages/ProductDetail';
 import ProductList from './Pages/ProductList';
+import ReportingList from './Pages/ReportingList';
 import Search from './Pages/Search';
 import SignIn from './Pages/SignIn';
 import SignUpFormik from './Pages/SignUpFormik';
@@ -135,7 +136,7 @@ export default function App() {
           {account ? (
             <Route
               path="/reportings"
-              element={<ProductList account={account} />}
+              element={<ReportingList account={account} />}
             />
           ) : null}
           <Route path="/*" element={<PageNotFound />} />

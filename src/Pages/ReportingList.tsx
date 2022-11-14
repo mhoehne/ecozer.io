@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 
-import { ReportingType } from '../API';
+import { AccountType, ReportingType } from '../API';
 import ReportingListGrid from '../Components/Grids/ReportingListGrid';
 import SearchBarBoxed from '../Components/SearchBarBoxed';
 import Account from './Account';
@@ -17,11 +17,11 @@ import Account from './Account';
 }
 
 interface ReportingListProps {
-  reporting: ReportingType | null;
+  account: AccountType | null;
 }
 
 export default function ReportingList(props: ReportingListProps) {
-  if (props.reporting === null) {
+  if (props.account === null) {
     return null;
   }
 
