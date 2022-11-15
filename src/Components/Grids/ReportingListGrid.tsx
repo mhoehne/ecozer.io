@@ -130,13 +130,13 @@ export default function ReportingListGrid() {
     },
   ];
 
-  // React.useEffect(() => {
-  //   GetReportings(null, [], [], [], [], [], [], null)
-  //     .then((result) => {
-  //       setReportings(result.data.reporting);
-  //     })
-  //     .catch();
-  // }, []);
+  useEffect(() => {
+    GetReportings()
+      .then((result) => {
+        setReportings(result.data.reportings);
+      })
+      .catch();
+  }, []);
 
   return (
     <Box

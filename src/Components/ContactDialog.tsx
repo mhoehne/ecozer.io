@@ -35,12 +35,6 @@ interface ContactDialogProps {
 }
 
 export default function ContactDialog(props: ContactDialogProps) {
-  const [type, setType] = React.useState('');
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setType(event.target.value);
-  };
-
   const validationSchema = yup.object({
     email: yup
       .string()
@@ -80,115 +74,122 @@ export default function ContactDialog(props: ContactDialogProps) {
     pageName: '',
     feedbackField: '',
   });
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
 
-    // onSubmit call createProduct
-    CreateReporting(reporting)
-      .then((reporting) => {
-        return navigate('/my-products');
-      })
-      .catch((msg) => {
-        alert('error');
-      });
-  };
+  const formik = useFormik({
+    initialValues: {
+      _id: undefined,
+      name: '',
+      emailAddress: '',
+      issue: '',
+      browser: '',
+      pageName: '',
+      feedbackField: '',
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+      CreateReporting(values)
+        .then(() => {
+          return navigate('/my-products');
+        })
+        .catch((msg) => {
+          alert('error');
+        });
+    },
+  });
 
   return (
     <>
       <Dialog open={props.open}>
         <DialogTitle>Kontakt</DialogTitle>
-
         <Box
           component="form"
           noValidate
           justifyContent="center"
           alignItems="center"
-          // onSubmit={handleSubmit}
+          onSubmit={formik.handleSubmit}
         >
           <DialogContent>
             {/* <DialogContentText></DialogContentText> */}
-            <Formik
-              initialValues={{
-                _id: undefined,
-                name: '',
-                emailAddress: '',
-                issue: '',
-                browser: '',
-                pageName: '',
-                feedbackField: '',
-              }}
-              onSubmit={async (values) => {
-                alert(JSON.stringify(values, null, 2));
-              }}
+
+            <TextField
+              autoFocus
+              required
+              name="name"
+              value={formik.values.name}
+              onChange={formik.handleChange}
+              margin="dense"
+              label="Name"
+              fullWidth
+              variant="outlined"
+              sx={{ mb: 2 }}
+            />
+            <TextField
+              autoFocus
+              required
+              name="emailAddress"
+              value={formik.values.emailAddress}
+              onChange={formik.handleChange}
+              margin="dense"
+              label="Email Adresse"
+              fullWidth
+              variant="outlined"
+              sx={{ mb: 2 }}
+            />
+            <TextField
+              id="outlined-select-type"
+              required
+              select
+              name="issue"
+              value={formik.values.issue}
+              onChange={formik.handleChange}
+              label="Anliegen"
+              fullWidth
+              sx={{ mb: 1 }}
+              //onChange={handleChange}
             >
-              <TextField
-                autoFocus
-                required
-                id="name"
-                margin="dense"
-                label="Name"
-                fullWidth
-                variant="outlined"
-                sx={{ mb: 2 }}
-              />
-              <TextField
-                autoFocus
-                required
-                id="email"
-                margin="dense"
-                label="Email Adresse"
-                fullWidth
-                variant="outlined"
-                sx={{ mb: 2 }}
-              />
-              <TextField
-                id="outlined-select-type"
-                required
-                select
-                // id="issue"
-                label="Anliegen"
-                fullWidth
-                value={types}
-                sx={{ mb: 1 }}
-                onChange={handleChange}
-              >
-                {types.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </TextField>
-              <TextField
-                autoFocus
-                id="browser"
-                margin="dense"
-                label="Browser"
-                fullWidth
-                variant="outlined"
-                sx={{ mb: 1 }}
-              />
-              <TextField
-                autoFocus
-                id="pageName"
-                margin="dense"
-                label="Seitenname"
-                type="text"
-                fullWidth
-                variant="outlined"
-                sx={{ mb: 1 }}
-              />
-              <TextField
-                autoFocus
-                id="feedbackField"
-                margin="dense"
-                label="Beschreibung"
-                type="text"
-                fullWidth
-                variant="outlined"
-                multiline
-                rows={8}
-              />
-            </Formik>
+              {types.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+            <TextField
+              autoFocus
+              name="browser"
+              value={formik.values.browser}
+              onChange={formik.handleChange}
+              margin="dense"
+              label="Browser"
+              fullWidth
+              variant="outlined"
+              sx={{ mb: 1 }}
+            />
+            <TextField
+              autoFocus
+              name="pageName"
+              value={formik.values.pageName}
+              onChange={formik.handleChange}
+              margin="dense"
+              label="Seitenname"
+              type="text"
+              fullWidth
+              variant="outlined"
+              sx={{ mb: 1 }}
+            />
+            <TextField
+              autoFocus
+              name="feedbackField"
+              value={formik.values.feedbackField}
+              onChange={formik.handleChange}
+              margin="dense"
+              label="Beschreibung"
+              type="text"
+              fullWidth
+              variant="outlined"
+              multiline
+              rows={8}
+            />
           </DialogContent>
           <DialogActions>
             <Button
@@ -209,7 +210,6 @@ export default function ContactDialog(props: ContactDialogProps) {
               Senden
             </Button>
           </DialogActions>
-
           {/* <pre>{JSON.stringify(values, null, 4)}</pre> */}
         </Box>
       </Dialog>

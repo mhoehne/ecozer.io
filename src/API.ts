@@ -355,10 +355,6 @@ export type ReportingsResultType = {
   reportings: ReportingType[];
 };
 
-export type ReportingResultType = {
-  reporting: ReportingType;
-};
-
 export type ReportingCreatedResultType = ReportingType | string;
 
 export function CreateReporting(
@@ -370,8 +366,8 @@ export function CreateReporting(
   );
 }
 
-export function GetReportings(): Promise<AxiosResponse<ReportingResultType>> {
-  return axios.get<ReportingResultType>(
+export function GetReportings(): Promise<AxiosResponse<ReportingsResultType>> {
+  return axios.get<ReportingsResultType>(
     `http://${process.env.REACT_APP_API_HOSTNAME}:8000/reportings`
   );
 }
