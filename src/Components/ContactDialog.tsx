@@ -36,14 +36,11 @@ interface ContactDialogProps {
 
 export default function ContactDialog(props: ContactDialogProps) {
   const validationSchema = yup.object({
-    email: yup
+    emailAddress: yup
       .string()
-      .email('Enter a valid email')
-      .required('Email is required'),
-    password: yup
-      .string()
-      .min(8, 'Password should be of minimum 8 characters length')
-      .required('Password is required'),
+      .email('Bitte vollständige E-Mail-Adresse eingeben!')
+      .required('E-Mail-Adresse ist erforderlich.'),
+    name: yup.string().min(3, 'Name should be of minimum 3 characters length'),
   });
 
   const types = [
@@ -65,15 +62,6 @@ export default function ContactDialog(props: ContactDialogProps) {
     },
   ];
   const navigate = useNavigate();
-  const [reporting, setReporting] = React.useState<ReportingType>({
-    _id: undefined,
-    name: '',
-    emailAddress: '',
-    issue: '',
-    browser: '',
-    pageName: '',
-    feedbackField: '',
-  });
 
   const formik = useFormik({
     initialValues: {
@@ -118,6 +106,8 @@ export default function ContactDialog(props: ContactDialogProps) {
               name="name"
               value={formik.values.name}
               onChange={formik.handleChange}
+              error={formik.touched.name && Boolean(formik.errors.name)}
+              helperText={formik.touched.name && formik.errors.name}
               margin="dense"
               label="Name"
               fullWidth
@@ -130,6 +120,13 @@ export default function ContactDialog(props: ContactDialogProps) {
               name="emailAddress"
               value={formik.values.emailAddress}
               onChange={formik.handleChange}
+              error={
+                formik.touched.emailAddress &&
+                Boolean(formik.errors.emailAddress)
+              }
+              helperText={
+                formik.touched.emailAddress && formik.errors.emailAddress
+              }
               margin="dense"
               label="Email Adresse"
               fullWidth
@@ -146,7 +143,6 @@ export default function ContactDialog(props: ContactDialogProps) {
               label="Anliegen"
               fullWidth
               sx={{ mb: 1 }}
-              //onChange={handleChange}
             >
               {types.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
