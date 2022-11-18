@@ -1,5 +1,6 @@
 import { Field, Form, Formik, useFormik } from 'formik';
 import * as React from 'react';
+import * as yup from 'yup';
 
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
@@ -49,6 +50,37 @@ function getStepContent(step: number) {
       throw new Error('Unknown step');
   }
 }
+
+const validationSchema = yup.object({
+  emailAddress: yup
+    .string()
+    .email('Bitte vollständige E-Mail-Adresse eingeben!')
+    .required('E-Mail-Adresse ist erforderlich.'),
+  name: yup.string().min(3, 'Name should be of minimum 3 characters length'),
+});
+
+const formik = useFormik({
+  initialValues: {
+    _id: undefined,
+    name: '',
+    emailAddress: '',
+    issue: '',
+    browser: '',
+    pageName: '',
+    feedbackField: '',
+  },
+  validationSchema: validationSchema,
+  onSubmit: (values) => {
+    alert(JSON.stringify(values, null, 2));
+    // CreateReporting(values)
+    //   .then(() => {
+    //     return navigate('/my-products');
+    //   })
+    //   .catch((msg) => {
+    //     alert('error');
+    //   });
+  },
+});
 
 export default function MultiStepSurvey(props: MultiStepSurveyProps) {
   const [activeStep, setActiveStep] = React.useState(0);
