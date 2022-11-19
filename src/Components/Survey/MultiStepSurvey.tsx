@@ -53,38 +53,6 @@ function getStepContent(step: number) {
   }
 }
 
-const validationSchema = yup.object({
-  emailAddress: yup
-    .string()
-    .email('Bitte vollständige E-Mail-Adresse eingeben!')
-    .required('E-Mail-Adresse ist erforderlich.'),
-  name: yup.string().min(3, 'Name should be of minimum 3 characters length'),
-});
-
-const navigate = useNavigate();
-const formik = useFormik({
-  initialValues: {
-    _id: undefined,
-    name: '',
-    emailAddress: '',
-    issue: '',
-    browser: '',
-    pageName: '',
-    feedbackField: '',
-  },
-  validationSchema: validationSchema,
-  onSubmit: (values) => {
-    alert(JSON.stringify(values, null, 2));
-    CreateReporting(values)
-      .then(() => {
-        return navigate('/my-products');
-      })
-      .catch((msg) => {
-        alert('error');
-      });
-  },
-});
-
 export default function MultiStepSurvey(props: MultiStepSurveyProps) {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set<number>());
@@ -129,6 +97,38 @@ export default function MultiStepSurvey(props: MultiStepSurveyProps) {
   const handleReset = () => {
     setActiveStep(0);
   };
+
+  const validationSchema = yup.object({
+    emailAddress: yup
+      .string()
+      .email('Bitte vollständige E-Mail-Adresse eingeben!')
+      .required('E-Mail-Adresse ist erforderlich.'),
+    name: yup.string().min(3, 'Name should be of minimum 3 characters length'),
+  });
+
+  const navigate = useNavigate();
+  const formik = useFormik({
+    initialValues: {
+      _id: undefined,
+      name: '',
+      emailAddress: '',
+      issue: '',
+      browser: '',
+      pageName: '',
+      feedbackField: '',
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+      CreateReporting(values)
+        .then(() => {
+          return navigate('/my-products');
+        })
+        .catch((msg) => {
+          alert('error');
+        });
+    },
+  });
 
   return (
     <>
