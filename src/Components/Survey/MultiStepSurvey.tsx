@@ -1,5 +1,6 @@
 import { Field, Form, Formik, useFormik } from 'formik';
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
@@ -9,6 +10,7 @@ import {
     Typography
 } from '@mui/material';
 
+import { CreateReporting, ReportingType } from '../../API';
 import ContactForm from './ContactForm';
 import FeedbackForm from './FeedbackForm';
 import QuestionForm from './QuestionForm';
@@ -59,6 +61,7 @@ const validationSchema = yup.object({
   name: yup.string().min(3, 'Name should be of minimum 3 characters length'),
 });
 
+const navigate = useNavigate();
 const formik = useFormik({
   initialValues: {
     _id: undefined,
@@ -72,13 +75,13 @@ const formik = useFormik({
   validationSchema: validationSchema,
   onSubmit: (values) => {
     alert(JSON.stringify(values, null, 2));
-    // CreateReporting(values)
-    //   .then(() => {
-    //     return navigate('/my-products');
-    //   })
-    //   .catch((msg) => {
-    //     alert('error');
-    //   });
+    CreateReporting(values)
+      .then(() => {
+        return navigate('/my-products');
+      })
+      .catch((msg) => {
+        alert('error');
+      });
   },
 });
 
@@ -136,7 +139,11 @@ export default function MultiStepSurvey(props: MultiStepSurveyProps) {
       >
         <DialogTitle id="responsive-dialog-title">{'Umfrage'}</DialogTitle>
         <DialogContent>
-          <Box sx={{ width: '100%' }}>
+          <Box
+            component="form"
+            onSubmit={formik.handleSubmit}
+            sx={{ width: '100%' }}
+          >
             <Stepper
               activeStep={activeStep}
               sx={{ backgroundColor: 'background.paper' }}
