@@ -372,7 +372,7 @@ export function GetReportings(): Promise<AxiosResponse<ReportingsResultType>> {
   );
 }
 
-/* SURVEY */
+/* SURVEY ###################################################################### */
 export type SurveyType = {
   _id: number;
   firstName: string;
@@ -390,10 +390,6 @@ export type SurveyEntriesResultType = {
   surveyEntries: SurveyType[];
 };
 
-export type SurveyEntryResultType = {
-  surveyEntry: SurveyType;
-};
-
 export type SurveyEntryCreatedResultType = SurveyType | string;
 
 export function CreateSurveyEntry(
@@ -406,9 +402,9 @@ export function CreateSurveyEntry(
 }
 
 export function GetSurveyEntries(): Promise<
-  AxiosResponse<SurveyEntryResultType>
+  AxiosResponse<SurveyEntriesResultType>
 > {
-  return axios.get<SurveyEntryResultType>(
+  return axios.get<SurveyEntriesResultType>(
     `http://${process.env.REACT_APP_API_HOSTNAME}:8000/user-survey`
   );
 }
