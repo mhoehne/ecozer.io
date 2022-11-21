@@ -25,6 +25,7 @@ import Search from './Pages/Search';
 import SignIn from './Pages/SignIn';
 import SignUpFormik from './Pages/SignUpFormik';
 import UserList from './Pages/UserList';
+import UserSurveyList from './Pages/UserSurveyList';
 
 {
   /* TODO */
@@ -130,7 +131,7 @@ export default function App() {
           {account ? (
             <Route
               path="/user-survey"
-              element={<ProductList account={account} />}
+              element={<UserSurveyList account={account} />}
             />
           ) : null}
           {account ? (

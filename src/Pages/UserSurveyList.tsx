@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 
 import { AccountType } from '../API';
-import ProductListGrid from '../Components/Grids/ProductListGrid';
+import SurveyListGrid from '../Components/Grids/SurveyListGrid';
 import SearchBarBoxed from '../Components/SearchBarBoxed';
 import Account from './Account';
 
@@ -37,13 +37,13 @@ export default function UserList(props: UserListProps) {
         color="text.primary"
       >
         <Typography variant="h4" sx={{ mx: 2 }}>
-          Produktliste
+          Umfragedaten
         </Typography>
         {/* <SearchBarBoxed
           enableAddProductButton={false}
           enableAutocompleteSearch={false}
         /> */}
-        <ProductListGrid account={props.account} />
+        <SurveyListGrid />
       </Box>
     </>
   );
