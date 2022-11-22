@@ -79,7 +79,6 @@ export default function ContactDialog(props: ContactDialogProps) {
     validationSchema: validationSchema,
 
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
       CreateReporting(values)
         .then(() => {
           props.setOpen(false);
@@ -103,8 +102,6 @@ export default function ContactDialog(props: ContactDialogProps) {
           onSubmit={formik.handleSubmit}
         >
           <DialogContent>
-            {/* <DialogContentText></DialogContentText> */}
-
             <TextField
               autoFocus
               required
@@ -200,15 +197,11 @@ export default function ContactDialog(props: ContactDialogProps) {
             <Button
               type="submit"
               variant="contained"
-              // onClick={() => {
-              //   props.setOpen(false);
-              // }}
               sx={{ color: 'background.paper' }}
             >
               Senden
             </Button>
           </DialogActions>
-          {/* <pre>{JSON.stringify(values, null, 4)}</pre> */}
         </Box>
       </Dialog>
     </>
