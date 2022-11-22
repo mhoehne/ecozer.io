@@ -40,7 +40,10 @@ export default function ContactDialog(props: ContactDialogProps) {
       .string()
       .email('Bitte vollständige E-Mail-Adresse eingeben!')
       .required('E-Mail-Adresse ist erforderlich.'),
-    name: yup.string().min(3, 'Name should be of minimum 3 characters length'),
+    name: yup
+      .string()
+      .min(3, 'Name should be of minimum 3 characters length')
+      .required('Name ist erforderlich.'),
   });
 
   const types = [
@@ -74,17 +77,23 @@ export default function ContactDialog(props: ContactDialogProps) {
       feedbackField: '',
     },
     validationSchema: validationSchema,
+
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
       CreateReporting(values)
         .then(() => {
-          return navigate('/my-products');
+          props.setOpen(false);
+          formik.resetForm();
         })
         .catch((msg) => {
           alert('error');
         });
     },
   });
+
+  console.log(formik.errors.emailAddress);
+  console.log(formik.isValid);
+  console.log(formik.touched);
 
   return (
     <>
@@ -107,7 +116,7 @@ export default function ContactDialog(props: ContactDialogProps) {
               value={formik.values.name}
               onChange={formik.handleChange}
               error={formik.touched.name && Boolean(formik.errors.name)}
-              helperText={formik.touched.name && formik.errors.name}
+              helperText={formik.errors.name}
               margin="dense"
               label="Name"
               fullWidth
@@ -115,7 +124,6 @@ export default function ContactDialog(props: ContactDialogProps) {
               sx={{ mb: 2 }}
             />
             <TextField
-              autoFocus
               required
               name="emailAddress"
               value={formik.values.emailAddress}
@@ -124,9 +132,7 @@ export default function ContactDialog(props: ContactDialogProps) {
                 formik.touched.emailAddress &&
                 Boolean(formik.errors.emailAddress)
               }
-              helperText={
-                formik.touched.emailAddress && formik.errors.emailAddress
-              }
+              helperText={formik.errors.emailAddress}
               margin="dense"
               label="Email Adresse"
               fullWidth
@@ -198,9 +204,9 @@ export default function ContactDialog(props: ContactDialogProps) {
             <Button
               type="submit"
               variant="contained"
-              onClick={() => {
-                props.setOpen(false);
-              }}
+              // onClick={() => {
+              //   props.setOpen(false);
+              // }}
               sx={{ color: 'background.paper' }}
             >
               Senden
