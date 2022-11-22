@@ -91,10 +91,6 @@ export default function ContactDialog(props: ContactDialogProps) {
     },
   });
 
-  console.log(formik.errors.emailAddress);
-  console.log(formik.isValid);
-  console.log(formik.touched);
-
   return (
     <>
       <Dialog open={props.open}>
