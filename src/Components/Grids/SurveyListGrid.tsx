@@ -86,9 +86,9 @@ export default function ReportingListGrid() {
     },
     {
       field: 'account_id',
-      headerName: 'ACC.ID',
+      headerName: 'Account ID',
       type: 'string',
-      width: 50,
+      width: 100,
       editable: false,
     },
     {
@@ -106,13 +106,13 @@ export default function ReportingListGrid() {
     {
       field: 'emailAddress',
       headerName: 'E-Mail-Adresse',
-      width: 250,
+      width: 200,
       editable: true,
     },
     {
       field: 'role',
       headerName: 'Position',
-      width: 250,
+      width: 150,
       editable: true,
     },
 

@@ -1,7 +1,8 @@
-import { Field, Form, Formik, FormikHelpers } from 'formik';
+import { Field, Form, Formik, useFormik } from 'formik';
 import * as React from 'react';
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
+import * as yup from 'yup';
 
 import {
     Box, Button, CardContent, Checkbox, Container, FormControlLabel, Grid, Link, TextField,
@@ -97,6 +98,17 @@ export default function SignUpFormik() {
         // error
       });
   };
+
+  const validationSchema = yup.object({
+    emailAddress: yup
+      .string()
+      .email('Bitte vollständige E-Mail-Adresse eingeben!')
+      .required('E-Mail-Adresse ist erforderlich.'),
+    name: yup
+      .string()
+      .min(3, 'Name should be of minimum 3 characters length')
+      .required('Name ist erforderlich.'),
+  });
 
   return (
     <>
