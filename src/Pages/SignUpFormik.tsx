@@ -86,29 +86,45 @@ export default function SignUpFormik() {
       acceptedTermAndConditions,
     };
 
-    CreateAccount(account)
-      .then((account) => {
-        // alert('success');
-        // success
-        setCookie('email', emailAddress, { path: '/' });
-        return navigate('/my-products');
-      })
-      .catch((msg) => {
-        alert('error');
-        // error
-      });
-  };
+    const validationSchema = yup.object({
+      emailAddress: yup
+        .string()
+        .email('Bitte vollständige E-Mail-Adresse eingeben!')
+        .required('E-Mail-Adresse ist erforderlich.'),
+      name: yup
+        .string()
+        .min(3, 'Name should be of minimum 3 characters length')
+        .required('Name ist erforderlich.'),
+    });
 
-  const validationSchema = yup.object({
-    emailAddress: yup
-      .string()
-      .email('Bitte vollständige E-Mail-Adresse eingeben!')
-      .required('E-Mail-Adresse ist erforderlich.'),
-    name: yup
-      .string()
-      .min(3, 'Name should be of minimum 3 characters length')
-      .required('Name ist erforderlich.'),
-  });
+    const formik = useFormik({
+      initialValues: {
+        _id: undefined,
+        emailAddress: '',
+        isAdmin: '',
+        password: '',
+        firstName: '',
+        lastName: '',
+        companyName: '',
+        lastLogin: '',
+        acceptedTermAndConditions: false,
+      },
+      validationSchema: validationSchema,
+      onSubmit: (values) => {
+        CreateAccount(account)
+          .then((account) => {
+            // alert('success');
+            // success
+            setCookie('email', emailAddress, { path: '/' });
+            return navigate('/my-products');
+          })
+          .catch((msg) => {
+            alert('error');
+            // error
+          });
+      },
+    });
+  };
 
   return (
     <>
