@@ -108,7 +108,6 @@ export default function SignUpFormik() {
       .required('Der Name des Unternehmens ist erforderlich.'),
   });
 
-formik-signin-yup
   const formik = useFormik({
     initialValues: {
       _id: undefined,
