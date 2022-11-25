@@ -112,7 +112,7 @@ export default function SignUpFormik() {
     initialValues: {
       _id: undefined,
       emailAddress: '',
-      isAdmin: '',
+      isAdmin: false,
       password: '',
       firstName: '',
       lastName: '',
@@ -124,7 +124,7 @@ export default function SignUpFormik() {
     onSubmit: (values) => {
       CreateAccount(values)
         .then((values) => {
-          setCookie('email', emailAddress, { path: '/' });
+          setCookie('email', formik.values.emailAddress, { path: '/' });
           return navigate('/my-products');
         })
         .catch((msg) => {
