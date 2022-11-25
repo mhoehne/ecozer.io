@@ -29,99 +29,110 @@ const theme = createTheme();
 export default function SignUpFormik() {
   const [cookies, setCookie] = useCookies(['email']);
   const navigate = useNavigate();
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
+  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  //   const data = new FormData(event.currentTarget);
 
-    // eslint-disable-next-line no-console
-    const emailAddress = data.get('emailAddress')?.toString();
+  // eslint-disable-next-line no-console
+  // const emailAddress = data.get('emailAddress')?.toString();
 
-    if (emailAddress === undefined) {
-      alert('invalid email address');
-      return;
-    }
+  // if (emailAddress === undefined) {
+  //   alert('invalid email address');
+  //   return;
+  // }
 
-    const isAdmin = false;
+  // const isAdmin = false;
 
-    const password = data.get('password')?.toString();
+  // const password = data.get('password')?.toString();
 
-    if (password === undefined) {
-      alert('invalid password');
-      return;
-    }
+  // if (password === undefined) {
+  //   alert('invalid password');
+  //   return;
+  // }
 
-    const firstName = data.get('firstName')?.toString();
+  // const firstName = data.get('firstName')?.toString();
 
-    if (firstName === undefined) {
-      alert('invalid First Name');
-      return;
-    }
+  // if (firstName === undefined) {
+  //   alert('invalid First Name');
+  //   return;
+  // }
 
-    const lastName = data.get('lastName')?.toString();
+  // const lastName = data.get('lastName')?.toString();
 
-    if (lastName === undefined) {
-      alert('invalid Last Name');
-      return;
-    }
+  // if (lastName === undefined) {
+  //   alert('invalid Last Name');
+  //   return;
+  // }
 
-    const companyName = data.get('companyName')?.toString();
+  // const companyName = data.get('companyName')?.toString();
 
-    if (companyName === undefined) {
-      alert('invalid Company Name');
-      return;
-    }
+  // if (companyName === undefined) {
+  //   alert('invalid Company Name');
+  //   return;
+  // }
 
-    const lastLogin = 'null';
-    const acceptedTermAndConditions = false;
+  // const lastLogin = 'null';
+  // const acceptedTermAndConditions = false;
 
-    const account = {
+  // const account = {
+  //   _id: undefined,
+  //   emailAddress,
+  //   isAdmin,
+  //   password,
+  //   firstName,
+  //   lastName,
+  //   companyName,
+  //   lastLogin,
+  //   acceptedTermAndConditions,
+  // };
+  // };
+  const validationSchema = yup.object({
+    emailAddress: yup
+      .string()
+      .email('Bitte vollständige E-Mail-Adresse eingeben!')
+      .required('E-Mail-Adresse ist erforderlich.'),
+    password: yup
+      .string()
+      .min(8, 'Passwort sollte mindestens eine Länge von 8 Zeichen haben.')
+      .required('Passwort ist erforderlich.'),
+    firstName: yup
+      .string()
+      .min(2, 'Vorname sollte mindestens eine Länge von 2 Zeichen haben.')
+      .required('Vorname ist erforderlich.'),
+    lastName: yup
+      .string()
+      .min(2, 'Nachname sollte mindestens eine Länge von 2 Zeichen haben.')
+      .required('Nachname ist erforderlich.'),
+    companyName: yup
+      .string()
+      .required('Der Name des Unternehmens ist erforderlich.'),
+  });
+
+formik-signin-yup
+  const formik = useFormik({
+    initialValues: {
       _id: undefined,
-      emailAddress,
-      isAdmin,
-      password,
-      firstName,
-      lastName,
-      companyName,
-      lastLogin,
-      acceptedTermAndConditions,
-    };
-
-    const validationSchema = yup.object({
-      emailAddress: yup
-        .string()
-        .email('Bitte vollständige E-Mail-Adresse eingeben!')
-        .required('E-Mail-Adresse ist erforderlich.'),
-      name: yup
-        .string()
-        .min(3, 'Name should be of minimum 3 characters length')
-        .required('Name ist erforderlich.'),
-    });
-
-    const formik = useFormik({
-      initialValues: {
-        _id: undefined,
-        emailAddress: '',
-        isAdmin: '',
-        password: '',
-        firstName: '',
-        lastName: '',
-        companyName: '',
-        lastLogin: '',
-        acceptedTermAndConditions: false,
-      },
-      validationSchema: validationSchema,
-      onSubmit: (values) => {
-        CreateAccount(account)
-          .then((account) => {
-            setCookie('email', emailAddress, { path: '/' });
-            return navigate('/my-products');
-          })
-          .catch((msg) => {
-            alert('error');
-          });
-      },
-    });
-  };
+      emailAddress: '',
+      isAdmin: false,
+      password: '',
+      firstName: '',
+      lastName: '',
+      companyName: '',
+      lastLogin: '',
+      acceptedTermAndConditions: false,
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      CreateAccount(values)
+        .then((values) => {
+          setCookie('email', formik.values.emailAddress, { path: '/' });
+          return navigate('/my-products');
+        })
+        .catch((msg) => {
+          alert('error');
+        });
+    },
+  });
 
   return (
     <>
@@ -140,109 +151,131 @@ export default function SignUpFormik() {
           <Typography variant="caption" display="block" gutterBottom>
             Erforderliche Felder sind mit * gekennzeichnet
           </Typography>
-          <CardContent>
-            <Formik
-              initialValues={{
-                _id: undefined,
-                emailAddress: '',
-                isAdmin: false,
-                password: '',
-                firstName: '',
-                lastName: '',
-                companyName: '',
-                lastLogin: null,
-                acceptedTermAndConditions: false,
-              }}
-              onSubmit={async (values) => {
-                alert(JSON.stringify(values, null, 2));
-              }}
-            >
-              {/* {({ values }) => ( */}
-              <Form onSubmit={handleSubmit}>
-                <Grid container spacing={2}>
-                  <Grid item xs={12} sm={6}>
-                    <Field
-                      as={TextField}
-                      autoComplete="given-name"
-                      name="firstName"
-                      required
-                      fullWidth
-                      id="firstName"
-                      label="Vorname"
-                      autoFocus
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <Field
-                      as={TextField}
-                      required
-                      fullWidth
-                      id="lastName"
-                      label="Nachname"
-                      name="lastName"
-                      autoComplete="family-name"
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Field
-                      as={TextField}
-                      required
-                      fullWidth
-                      id="companyName"
-                      label="Firmenname"
-                      name="companyName"
-                      autoComplete="companyName"
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Field
-                      as={TextField}
-                      required
-                      fullWidth
-                      id="emailAddress"
-                      label="E-Mail-Adresse"
-                      name="emailAddress"
-                      autoComplete="email"
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Field
-                      as={TextField}
-                      required
-                      fullWidth
-                      id="password"
-                      name="password"
-                      label="Passwort"
-                      type="password"
-                      autoComplete="new-password"
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <FormControlLabel
-                      control={
-                        <Field as={Checkbox} name="acceptedTermAndConditions" />
-                      }
-                      label="Ich habe die Datenschutzrichtlinien gelesen und bin damit einverstanden."
-                    />
-                  </Grid>
+          <Box
+            component="form"
+            noValidate
+            justifyContent="center"
+            alignItems="center"
+            onSubmit={formik.handleSubmit}
+          >
+            <CardContent>
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <Field
+                    as={TextField}
+                    autoComplete="given-name"
+                    name="firstName"
+                    required
+                    fullWidth
+                    value={formik.values.firstName}
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.firstName &&
+                      Boolean(formik.errors.firstName)
+                    }
+                    helperText={formik.errors.firstName}
+                    id="firstName"
+                    label="Vorname"
+                    autoFocus
+                  />
                 </Grid>
-                {/* <pre>{JSON.stringify(values, null, 4)}</pre> */}
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{
-                    mt: 3,
-                    mb: 2,
-                    color: 'background.paper',
-                  }}
-                >
-                  Account erstellen
-                </Button>
-              </Form>
-              {/* )} */}
-            </Formik>
-          </CardContent>
+                <Grid item xs={12} sm={6}>
+                  <Field
+                    as={TextField}
+                    required
+                    fullWidth
+                    id="lastName"
+                    label="Nachname"
+                    name="lastName"
+                    value={formik.values.lastName}
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.lastName && Boolean(formik.errors.lastName)
+                    }
+                    helperText={formik.errors.lastName}
+                    autoComplete="family-name"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <Field
+                    as={TextField}
+                    required
+                    fullWidth
+                    id="companyName"
+                    label="Firmenname"
+                    name="companyName"
+                    autoComplete="companyName"
+                    value={formik.values.companyName}
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.companyName &&
+                      Boolean(formik.errors.companyName)
+                    }
+                    helperText={formik.errors.companyName}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <Field
+                    as={TextField}
+                    required
+                    fullWidth
+                    id="emailAddress"
+                    label="E-Mail-Adresse"
+                    name="emailAddress"
+                    autoComplete="email"
+                    value={formik.values.emailAddress}
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.emailAddress &&
+                      Boolean(formik.errors.emailAddress)
+                    }
+                    helperText={formik.errors.emailAddress}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <Field
+                    as={TextField}
+                    required
+                    fullWidth
+                    id="password"
+                    name="password"
+                    label="Passwort"
+                    type="password"
+                    autoComplete="new-password"
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.password && Boolean(formik.errors.password)
+                    }
+                    helperText={formik.errors.password}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <FormControlLabel
+                    control={
+                      <Field as={Checkbox} name="acceptedTermAndConditions" />
+                    }
+                    label="Ich habe die Datenschutzrichtlinien gelesen und bin damit einverstanden."
+                    value={formik.values.acceptedTermAndConditions}
+                    onChange={formik.handleChange}
+                  />
+                </Grid>
+              </Grid>
+              {/* <pre>{JSON.stringify(values, null, 4)}</pre> */}
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{
+                  mt: 3,
+                  mb: 2,
+                  color: 'background.paper',
+                }}
+              >
+                Account erstellen
+              </Button>
+            </CardContent>
+          </Box>
           <Grid container justifyContent="flex-end">
             <Grid item>
               <Link href="/signin" variant="body2">
