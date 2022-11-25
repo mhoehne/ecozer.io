@@ -113,14 +113,11 @@ export default function SignUpFormik() {
       onSubmit: (values) => {
         CreateAccount(account)
           .then((account) => {
-            // alert('success');
-            // success
             setCookie('email', emailAddress, { path: '/' });
             return navigate('/my-products');
           })
           .catch((msg) => {
             alert('error');
-            // error
           });
       },
     });
