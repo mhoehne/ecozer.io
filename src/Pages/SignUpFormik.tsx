@@ -24,8 +24,6 @@ import Account from './Account';
   /* Note: */
 }
 
-const theme = createTheme();
-
 export default function SignUpFormik() {
   const [cookies, setCookie] = useCookies(['email']);
   const navigate = useNavigate();
