@@ -29,63 +29,6 @@ const theme = createTheme();
 export default function SignUpFormik() {
   const [cookies, setCookie] = useCookies(['email']);
   const navigate = useNavigate();
-  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-  //   const data = new FormData(event.currentTarget);
-
-  // eslint-disable-next-line no-console
-  // const emailAddress = data.get('emailAddress')?.toString();
-
-  // if (emailAddress === undefined) {
-  //   alert('invalid email address');
-  //   return;
-  // }
-
-  // const isAdmin = false;
-
-  // const password = data.get('password')?.toString();
-
-  // if (password === undefined) {
-  //   alert('invalid password');
-  //   return;
-  // }
-
-  // const firstName = data.get('firstName')?.toString();
-
-  // if (firstName === undefined) {
-  //   alert('invalid First Name');
-  //   return;
-  // }
-
-  // const lastName = data.get('lastName')?.toString();
-
-  // if (lastName === undefined) {
-  //   alert('invalid Last Name');
-  //   return;
-  // }
-
-  // const companyName = data.get('companyName')?.toString();
-
-  // if (companyName === undefined) {
-  //   alert('invalid Company Name');
-  //   return;
-  // }
-
-  // const lastLogin = 'null';
-  // const acceptedTermAndConditions = false;
-
-  // const account = {
-  //   _id: undefined,
-  //   emailAddress,
-  //   isAdmin,
-  //   password,
-  //   firstName,
-  //   lastName,
-  //   companyName,
-  //   lastLogin,
-  //   acceptedTermAndConditions,
-  // };
-  // };
   const validationSchema = yup.object({
     emailAddress: yup
       .string()
