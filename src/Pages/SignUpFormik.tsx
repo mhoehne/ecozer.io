@@ -160,8 +160,7 @@ export default function SignUpFormik() {
             <CardContent>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
-                  <Field
-                    as={TextField}
+                  <TextField
                     autoComplete="given-name"
                     name="firstName"
                     required
@@ -179,8 +178,7 @@ export default function SignUpFormik() {
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <Field
-                    as={TextField}
+                  <TextField
                     required
                     fullWidth
                     id="lastName"
@@ -196,8 +194,7 @@ export default function SignUpFormik() {
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <Field
-                    as={TextField}
+                  <TextField
                     required
                     fullWidth
                     id="companyName"
@@ -214,8 +211,7 @@ export default function SignUpFormik() {
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <Field
-                    as={TextField}
+                  <TextField
                     required
                     fullWidth
                     id="emailAddress"
@@ -232,8 +228,7 @@ export default function SignUpFormik() {
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <Field
-                    as={TextField}
+                  <TextField
                     required
                     fullWidth
                     id="password"
