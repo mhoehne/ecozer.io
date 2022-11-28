@@ -10,7 +10,7 @@ import {
     Typography
 } from '@mui/material';
 
-import { CreateReporting, ReportingType } from '../../API';
+import { CreateReporting, CreateSurveyEntry, ReportingType } from '../../API';
 import ContactForm from './ContactForm';
 import FeedbackForm from './FeedbackForm';
 import QuestionForm from './QuestionForm';
@@ -104,23 +104,33 @@ export default function MultiStepSurvey(props: MultiStepSurveyProps) {
       .email('Bitte vollständige E-Mail-Adresse eingeben!')
       .required('E-Mail-Adresse ist erforderlich.'),
     name: yup.string().min(3, 'Name should be of minimum 3 characters length'),
+    role: yup.string().required('x'),
+    companySize: yup.string().required('x'),
+    corporateSector: yup.string().required('x'),
+    Q1: yup.string().required('x'),
+    Q2: yup.string().required('x'),
+    Q3: yup.string().required('x'),
+    Q4: yup.string().required('x'),
+    feedbackField: yup.string().required('x'),
   });
 
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       _id: undefined,
-      name: '',
-      emailAddress: '',
-      issue: '',
-      browser: '',
-      pageName: '',
-      feedbackField: '',
+      role: '',
+      companySize: '',
+      corporateSector: '',
+      Q1: '',
+      Q2: '',
+      Q3: '',
+      Q4: '',
+      feedbackField: 'feedback',
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-      CreateReporting(values)
+      CreateSurveyEntry(values)
         .then(() => {
           return navigate('/my-products');
         })

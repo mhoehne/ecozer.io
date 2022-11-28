@@ -11,9 +11,7 @@ export default function QuestionForm() {
     <React.Fragment>
       <Grid container spacing={3} sx={{ mt: 2 }}>
         <Grid item xs={12} md={12}>
-          <Typography variant="h6" gutterBottom>
-            Frage text hier.
-          </Typography>
+          <Typography gutterBottom>Frage text hier.</Typography>
           <TextField
             required
             id="cardName"
@@ -24,9 +22,7 @@ export default function QuestionForm() {
           />
         </Grid>
         <Grid item xs={12} md={12}>
-          <Typography variant="h6" gutterBottom>
-            Frage text hier.
-          </Typography>
+          <Typography gutterBottom>Frage text hier.</Typography>
           <TextField
             required
             id="cardName"
@@ -37,9 +33,7 @@ export default function QuestionForm() {
           />
         </Grid>
         <Grid item xs={12} md={12}>
-          <Typography variant="h6" gutterBottom>
-            Frage text hier.
-          </Typography>
+          <Typography gutterBottom>Frage text hier.</Typography>
           <TextField
             required
             id="cardName"
@@ -50,9 +44,7 @@ export default function QuestionForm() {
           />
         </Grid>
         <Grid item xs={12} md={12}>
-          <Typography variant="h6" gutterBottom>
-            Frage text hier.
-          </Typography>
+          <Typography gutterBottom>Frage text hier.</Typography>
           <TextField
             required
             id="cardName"

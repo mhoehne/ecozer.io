@@ -374,12 +374,10 @@ export function GetReportings(): Promise<AxiosResponse<ReportingsResultType>> {
 
 /* SURVEY ###################################################################### */
 export type SurveyType = {
-  _id: number;
-  firstName: string;
-  lastName: string;
-  emailAddress: string;
+  _id: number | undefined;
   role: string;
   companySize: string;
+  corporateSector: string;
   Q1: string;
   Q2: string;
   Q3: string;
