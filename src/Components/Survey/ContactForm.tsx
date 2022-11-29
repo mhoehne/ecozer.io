@@ -6,7 +6,11 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
-export default function ContactForm() {
+interface ContactFormProps {
+  useFormik: Function;
+}
+
+export default function ContactForm(props: ContactFormProps) {
   return (
     <React.Fragment>
       <Grid container spacing={3} sx={{ mt: 2 }}>

@@ -1,8 +1,13 @@
+import { Field, Form, Formik, useFormik } from 'formik';
 import * as React from 'react';
 
 import { Grid, TextField } from '@mui/material';
 
-export default function FeedbackForm() {
+interface FeedbackFormProps {
+  useFormik: Function;
+}
+
+export default function FeedbackForm(props: FeedbackFormProps) {
   return (
     <React.Fragment>
       <Grid container spacing={3} sx={{ mt: 2 }}>
@@ -10,10 +15,9 @@ export default function FeedbackForm() {
           <TextField
             multiline
             rows={10}
-            id="cardName"
+            id="feedbackField"
             label="Feld für sonstiges Feedback oder Wünsche"
             fullWidth
-            autoComplete="cc-name"
             variant="outlined"
           />
         </Grid>

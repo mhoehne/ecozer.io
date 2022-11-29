@@ -43,11 +43,11 @@ const steps = ['Unternehmen', 'Fragen', 'Feedback'];
 function getStepContent(step: number) {
   switch (step) {
     case 0:
-      return <ContactForm />;
+      return <ContactForm useFormik={useFormik} />;
     case 1:
-      return <QuestionForm />;
+      return <QuestionForm useFormik={useFormik} />;
     case 2:
-      return <FeedbackForm />;
+      return <FeedbackForm useFormik={useFormik} />;
     default:
       throw new Error('Unknown step');
   }
