@@ -14,7 +14,7 @@ import {
     ListItemText, Menu, Tooltip
 } from '@mui/material';
 
-import { AccountType, NotificationType } from '../API';
+import { AccountType, GetNotifications, NotificationType } from '../API';
 import MultiStepSurvey from './Survey/MultiStepSurvey';
 
 {

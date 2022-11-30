@@ -187,16 +187,14 @@ export default function SignUpFormik() {
                 </Grid>
                 <Grid item xs={12}>
                   <FormControlLabel
-                    control={
-                      <Field as={Checkbox} name="acceptedTermAndConditions" />
-                    }
+                    control={<Checkbox name="acceptedTermAndConditions" />}
                     label="Ich habe die Datenschutzrichtlinien gelesen und bin damit einverstanden."
                     value={formik.values.acceptedTermAndConditions}
                     onChange={formik.handleChange}
                   />
                 </Grid>
               </Grid>
-              {/* <pre>{JSON.stringify(values, null, 4)}</pre> */}
+              <pre>{JSON.stringify(formik.values, null, 4)}</pre>
               <Button
                 type="submit"
                 fullWidth
