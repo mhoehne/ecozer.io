@@ -24,6 +24,16 @@ export default function QuestionForm(props: QuestionFormProps) {
     Q4: yup.string().required('x'),
   });
 
+  const formik = useFormik({
+    initialValues: {
+      Q1: '',
+      Q2: '',
+      Q3: '',
+      Q4: '',
+    },
+    onSubmit: (values) => {},
+  });
+
   return (
     <React.Fragment>
       <Grid container spacing={3} sx={{ mt: 2 }}>

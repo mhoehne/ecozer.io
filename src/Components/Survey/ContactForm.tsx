@@ -23,6 +23,16 @@ export default function ContactForm(props: ContactFormProps) {
     corporateSector: yup.string().required('x'),
   });
 
+  const formik = useFormik({
+    initialValues: {
+      _id: undefined,
+      role: '',
+      companySize: '',
+      corporateSector: '',
+    },
+    onSubmit: (values) => {},
+  });
+
   return (
     <React.Fragment>
       <Grid container spacing={3} sx={{ mt: 2 }}>
@@ -33,6 +43,10 @@ export default function ContactForm(props: ContactFormProps) {
             label="Rolle im Unternehmen"
             fullWidth
             variant="outlined"
+            // value={formik.values.name}
+            //   onChange={formik.handleChange}
+            //   error={formik.touched.name && Boolean(formik.errors.name)}
+            //   helperText={formik.errors.name}
           />
         </Grid>
         <Grid item xs={12}>

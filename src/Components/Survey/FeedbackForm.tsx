@@ -17,6 +17,13 @@ export default function FeedbackForm(props: FeedbackFormProps) {
     feedbackField: yup.string().required('x'),
   });
 
+  const formik = useFormik({
+    initialValues: {
+      feedbackField: '',
+    },
+    onSubmit: (values) => {},
+  });
+
   return (
     <React.Fragment>
       <Grid container spacing={3} sx={{ mt: 2 }}>
