@@ -1,7 +1,6 @@
 import { Field, Form, Formik, useFormik } from 'formik';
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
-import * as yup from 'yup';
 
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
@@ -10,7 +9,7 @@ import {
     Typography
 } from '@mui/material';
 
-import { CreateReporting, CreateSurveyEntry, ReportingType } from '../../API';
+import { CreateSurveyEntry, SurveyType } from '../../API';
 import ContactForm from './ContactForm';
 import FeedbackForm from './FeedbackForm';
 import QuestionForm from './QuestionForm';
@@ -38,16 +37,34 @@ interface MultiStepSurveyProps {
   setOpen: Function;
 }
 
+const [surveyForm, setSurveyForm] = React.useState<SurveyType>({
+  _id: undefined,
+  role: '',
+  companySize: '',
+  corporateSector: '',
+  Q1: '',
+  Q2: '',
+  Q3: '',
+  Q4: '',
+  feedbackField: '',
+});
+
 const steps = ['Unternehmen', 'Fragen', 'Feedback'];
 
 function getStepContent(step: number) {
   switch (step) {
     case 0:
-      return <ContactForm useFormik={useFormik} />;
+      return (
+        <ContactForm surveyForm={surveyForm} setSurveyForm={setSurveyForm} />
+      );
     case 1:
-      return <QuestionForm useFormik={useFormik} />;
+      return (
+        <QuestionForm surveyForm={surveyForm} setSurveyForm={setSurveyForm} />
+      );
     case 2:
-      return <FeedbackForm useFormik={useFormik} />;
+      return (
+        <FeedbackForm surveyForm={surveyForm} setSurveyForm={setSurveyForm} />
+      );
     default:
       throw new Error('Unknown step');
   }
@@ -94,25 +111,10 @@ export default function MultiStepSurvey(props: MultiStepSurveyProps) {
       return newSkipped;
     });
   };
+
   const handleReset = () => {
     setActiveStep(0);
   };
-
-  const validationSchema = yup.object({
-    emailAddress: yup
-      .string()
-      .email('Bitte vollständige E-Mail-Adresse eingeben!')
-      .required('E-Mail-Adresse ist erforderlich.'),
-    name: yup.string().min(3, 'Name should be of minimum 3 characters length'),
-    role: yup.string().required('x'),
-    companySize: yup.string().required('x'),
-    corporateSector: yup.string().required('x'),
-    Q1: yup.string().required('x'),
-    Q2: yup.string().required('x'),
-    Q3: yup.string().required('x'),
-    Q4: yup.string().required('x'),
-    feedbackField: yup.string().required('x'),
-  });
 
   const navigate = useNavigate();
   const formik = useFormik({
@@ -125,9 +127,8 @@ export default function MultiStepSurvey(props: MultiStepSurveyProps) {
       Q2: '',
       Q3: '',
       Q4: '',
-      feedbackField: 'feedback',
+      feedbackField: '',
     },
-    validationSchema: validationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
       CreateSurveyEntry(values)

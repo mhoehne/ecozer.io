@@ -1,4 +1,6 @@
+import { Field, Form, Formik, useFormik } from 'formik';
 import * as React from 'react';
+import * as yup from 'yup';
 
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -6,11 +8,22 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
+import { SurveyType } from '../../API';
+
 interface QuestionFormProps {
-  useFormik: Function;
+  surveyForm: SurveyType;
+  setSurveyForm: Function;
 }
 
 export default function QuestionForm(props: QuestionFormProps) {
+  const validationSchema = yup.object({
+    emailAddress: yup.string().required('E-Mail-Adresse ist erforderlich.'),
+    Q1: yup.string().required('x'),
+    Q2: yup.string().required('x'),
+    Q3: yup.string().required('x'),
+    Q4: yup.string().required('x'),
+  });
+
   return (
     <React.Fragment>
       <Grid container spacing={3} sx={{ mt: 2 }}>
