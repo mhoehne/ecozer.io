@@ -12,15 +12,17 @@ interface FeedbackFormProps {
 }
 
 export default function FeedbackForm(props: FeedbackFormProps) {
+  // validation for step 1
   const validationSchema = yup.object({
-    emailAddress: yup.string().required('E-Mail-Adresse ist erforderlich.'),
     feedbackField: yup.string().required('x'),
   });
 
+  //formik hook for all values in step 3
   const formik = useFormik({
     initialValues: {
       feedbackField: '',
     },
+    validationSchema: validationSchema,
     onSubmit: (values) => {},
   });
 
@@ -35,6 +37,13 @@ export default function FeedbackForm(props: FeedbackFormProps) {
             label="Feld für sonstiges Feedback oder Wünsche"
             fullWidth
             variant="outlined"
+            value={formik.values.feedbackField}
+            onChange={formik.handleChange}
+            error={
+              formik.touched.feedbackField &&
+              Boolean(formik.errors.feedbackField)
+            }
+            helperText={formik.errors.feedbackField}
           />
         </Grid>
       </Grid>

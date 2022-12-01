@@ -16,13 +16,14 @@ interface ContactFormProps {
 }
 
 export default function ContactForm(props: ContactFormProps) {
+  // validation for step 1
   const validationSchema = yup.object({
-    emailAddress: yup.string().required('E-Mail-Adresse ist erforderlich.'),
     role: yup.string().required('x'),
     companySize: yup.string().required('x'),
     corporateSector: yup.string().required('x'),
   });
 
+  //formik hook for all values in step 1
   const formik = useFormik({
     initialValues: {
       _id: undefined,
@@ -30,6 +31,8 @@ export default function ContactForm(props: ContactFormProps) {
       companySize: '',
       corporateSector: '',
     },
+    validationSchema: validationSchema,
+    //how to submit just these values?
     onSubmit: (values) => {},
   });
 
@@ -43,10 +46,10 @@ export default function ContactForm(props: ContactFormProps) {
             label="Rolle im Unternehmen"
             fullWidth
             variant="outlined"
-            // value={formik.values.name}
-            //   onChange={formik.handleChange}
-            //   error={formik.touched.name && Boolean(formik.errors.name)}
-            //   helperText={formik.errors.name}
+            value={formik.values.role}
+            onChange={formik.handleChange}
+            error={formik.touched.role && Boolean(formik.errors.role)}
+            helperText={formik.errors.role}
           />
         </Grid>
         <Grid item xs={12}>
@@ -56,6 +59,12 @@ export default function ContactForm(props: ContactFormProps) {
             label="Unternehmensgröße"
             fullWidth
             variant="outlined"
+            value={formik.values.companySize}
+            onChange={formik.handleChange}
+            error={
+              formik.touched.companySize && Boolean(formik.errors.companySize)
+            }
+            helperText={formik.errors.companySize}
           />
         </Grid>
         <Grid item xs={12}>
@@ -65,6 +74,13 @@ export default function ContactForm(props: ContactFormProps) {
             label="Unternehmensbereich"
             fullWidth
             variant="outlined"
+            value={formik.values.corporateSector}
+            onChange={formik.handleChange}
+            error={
+              formik.touched.corporateSector &&
+              Boolean(formik.errors.corporateSector)
+            }
+            helperText={formik.errors.corporateSector}
           />
         </Grid>
       </Grid>

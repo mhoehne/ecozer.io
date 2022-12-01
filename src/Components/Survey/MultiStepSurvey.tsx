@@ -37,6 +37,7 @@ interface MultiStepSurveyProps {
   setOpen: Function;
 }
 
+//useState for the form entries
 const [surveyForm, setSurveyForm] = React.useState<SurveyType>({
   _id: undefined,
   role: '',
@@ -51,6 +52,7 @@ const [surveyForm, setSurveyForm] = React.useState<SurveyType>({
 
 const steps = ['Unternehmen', 'Fragen', 'Feedback'];
 
+//passing the useState to the components
 function getStepContent(step: number) {
   switch (step) {
     case 0:
@@ -117,6 +119,8 @@ export default function MultiStepSurvey(props: MultiStepSurveyProps) {
   };
 
   const navigate = useNavigate();
+
+  //formik hook
   const formik = useFormik({
     initialValues: {
       _id: undefined,
@@ -152,6 +156,7 @@ export default function MultiStepSurvey(props: MultiStepSurveyProps) {
         <DialogContent>
           <Box
             component="form"
+            //handle the formik submit for the whole multi step form
             onSubmit={formik.handleSubmit}
             sx={{ width: '100%' }}
           >
