@@ -53,6 +53,10 @@ const [surveyForm, setSurveyForm] = React.useState<SurveyType>({
 const steps = ['Unternehmen', 'Fragen', 'Feedback'];
 
 //passing the useState to the components
+// function myFunctionA() {
+//   function myFunctionB() {}
+//   myFunctionB();
+// }
 function getStepContent(step: number) {
   switch (step) {
     case 0:
