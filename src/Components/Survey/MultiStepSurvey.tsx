@@ -57,6 +57,8 @@ const steps = ['Unternehmen', 'Fragen', 'Feedback'];
 //   function myFunctionB() {}
 //   myFunctionB();
 // }
+//
+
 function getStepContent(step: number) {
   switch (step) {
     case 0:
