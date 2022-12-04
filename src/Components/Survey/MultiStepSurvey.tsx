@@ -107,8 +107,6 @@ export default function MultiStepSurvey(props: MultiStepSurveyProps) {
 
   const handleSkip = () => {
     if (!isStepOptional(activeStep)) {
-      // Probably want to guard against something like this,
-      // it should never occur unless someone's actively trying to break something.
       throw new Error('Du kannst diesen Schritt nicht überspringen');
     }
 
