@@ -37,19 +37,6 @@ interface MultiStepSurveyProps {
   setOpen: Function;
 }
 
-//useState for the form entries
-const [surveyForm, setSurveyForm] = React.useState<SurveyType>({
-  _id: undefined,
-  role: '',
-  companySize: '',
-  corporateSector: '',
-  Q1: '',
-  Q2: '',
-  Q3: '',
-  Q4: '',
-  feedbackField: '',
-});
-
 const steps = ['Unternehmen', 'Fragen', 'Feedback'];
 
 //passing the useState to the components
@@ -60,6 +47,18 @@ const steps = ['Unternehmen', 'Fragen', 'Feedback'];
 //
 
 function getStepContent(step: number) {
+  const [surveyForm, setSurveyForm] = React.useState<SurveyType>({
+    _id: undefined,
+    role: '',
+    companySize: '',
+    corporateSector: '',
+    Q1: '',
+    Q2: '',
+    Q3: '',
+    Q4: '',
+    feedbackField: '',
+  });
+
   switch (step) {
     case 0:
       return (
