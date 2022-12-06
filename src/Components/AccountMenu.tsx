@@ -15,7 +15,7 @@ import { Box, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } from 
 import { AccountType } from '../API';
 
 interface AccountMenuProps {
-  Account: AccountType | null;
+  account: AccountType | null;
 }
 
 function getAdminMenu(
@@ -174,11 +174,11 @@ function getUserMenu(
   );
 }
 
-export default function AccountMenu(props: AccountMenuProps) {
+export default function AccountMenu({ account }: AccountMenuProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
-  const isAdminMenu = props.Account?.isAdmin === true;
+  const isAdminMenu = account?.isAdmin === true;
 
   return (
     <>

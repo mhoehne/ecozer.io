@@ -71,7 +71,7 @@ function loggedInBox(account: AccountType) {
   return (
     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
       <NotificationMenu Account={account} />
-      <AccountMenu Account={account} />
+      <AccountMenu account={account} />
       <AccountSettings Account={account} />
     </Box>
   );
