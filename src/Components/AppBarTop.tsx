@@ -40,7 +40,7 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-function loggedoutbox() {
+function loggedOutBox() {
   return (
     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
       <Stack direction="row" spacing={2}>
@@ -67,7 +67,7 @@ function loggedoutbox() {
   );
 }
 
-function loggedoinbox(account: AccountType | null) {
+function loggedInBox(account: AccountType | null) {
   return (
     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
       <NotificationMenu Account={account} />
@@ -100,7 +100,7 @@ export default function AppBarTop(props: AppBarTopProps) {
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
 
-          {isLoggedOut ? loggedoutbox() : loggedoinbox(props.account)}
+          {isLoggedOut ? loggedOutBox() : loggedInBox(props.account)}
         </Toolbar>
       </AppBar>
     </Box>
