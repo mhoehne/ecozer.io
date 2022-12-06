@@ -77,10 +77,9 @@ function loggedInBox(account: AccountType | null) {
   );
 }
 
-export default function AppBarTop(props: AppBarTopProps) {
+export default function AppBarTop({ account }: AppBarTopProps) {
   // check if cookie received from signin page
-
-  const isLoggedOut = props.account === null;
+  const isLoggedIn = account !== null;
 
   return (
     <Box sx={{ display: 'flex', padding: 0 }}>
@@ -99,8 +98,7 @@ export default function AppBarTop(props: AppBarTopProps) {
             </Tooltip>
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
-
-          {isLoggedOut ? loggedOutBox() : loggedInBox(props.account)}
+          {isLoggedIn ? loggedInBox(account) : loggedOutBox() }
         </Toolbar>
       </AppBar>
     </Box>
