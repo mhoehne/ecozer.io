@@ -51,7 +51,7 @@ export default function App() {
 
   return (
     <Router>
-      <AppBarTop Account={account} />
+      <AppBarTop account={account} />
       <Container maxWidth={false} disableGutters={true} sx={{ mt: 8 }}>
         {/* A <Switch> or <Routes> (in react-router-dom v6) looks through its children <Route>s and
         renders the first one that matches the current URL. */}

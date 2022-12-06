@@ -24,7 +24,7 @@ import NotificationMenu from './NotificationMenu';
 }
 
 interface AppBarTopProps {
-  Account: AccountType | null;
+  account: AccountType | null;
   // Notification: NotificationType | null;
 }
 
@@ -92,7 +92,7 @@ function loggedoinbox(account: AccountType | null) {
 export default function AppBarTop(props: AppBarTopProps) {
   // check if cookie received from signin page
 
-  const isLoggedOut = props.Account === null;
+  const isLoggedOut = props.account === null;
 
   return (
     <Box sx={{ display: 'flex', padding: 0 }}>
@@ -112,7 +112,7 @@ export default function AppBarTop(props: AppBarTopProps) {
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
 
-          {isLoggedOut ? loggedoutbox() : loggedoinbox(props.Account)}
+          {isLoggedOut ? loggedoutbox() : loggedoinbox(props.account)}
         </Toolbar>
       </AppBar>
     </Box>
