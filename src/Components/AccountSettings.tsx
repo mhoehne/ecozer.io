@@ -4,12 +4,7 @@ import { Link, NavigateFunction, useNavigate } from 'react-router-dom';
 
 import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import BadgeIcon from '@mui/icons-material/Badge';
-import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
-import FactCheckIcon from '@mui/icons-material/FactCheck';
-import HomeIcon from '@mui/icons-material/Home';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
-import ViewListIcon from '@mui/icons-material/ViewList';
 import { Box, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material';
 
 import { AccountType } from '../API';
@@ -50,7 +45,7 @@ function getAdminMenu(
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const [cookies, setCookie, removeCookie] = useCookies(['email']);
+  const [,, removeCookie] = useCookies(['email']);
   const navigate = useNavigate();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -119,7 +114,7 @@ function getUserMenu(
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const [cookies, setCookie, removeCookie] = useCookies(['email']);
+  const [,, removeCookie] = useCookies(['email']);
   const navigate = useNavigate();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -191,17 +186,6 @@ export default function AccountSettings(props: AccountMenuProps) {
   };
 
   const isAdminMenu = props.account?.isAdmin === true;
-
-  const [cookies, setCookie, removeCookie] = useCookies(['email']);
-  const navigate = useNavigate();
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    try {
-      await deauthenticate(navigate, removeCookie);
-    } catch {
-      alert('something went wrong');
-    }
-  };
 
   return (
     <React.Fragment>
