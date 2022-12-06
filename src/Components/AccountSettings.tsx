@@ -161,14 +161,14 @@ function getUserMenu(
   );
 }
 
-export default function AccountSettings(props: AccountMenuProps) {
+export default function AccountSettings({ account }: AccountMenuProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const isAdminMenu = props.account?.isAdmin === true;
+  const isAdminMenu = account?.isAdmin === true;
 
   return (
     <React.Fragment>
