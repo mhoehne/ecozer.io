@@ -67,7 +67,7 @@ function loggedOutBox() {
   );
 }
 
-function loggedInBox(account: AccountType | null) {
+function loggedInBox(account: AccountType) {
   return (
     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
       <NotificationMenu Account={account} />
