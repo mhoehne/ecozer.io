@@ -14,17 +14,6 @@ import { Box, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } from 
 
 import { AccountType } from '../API';
 
-{
-  /* TODO */
-}
-{
-  /*  */
-}
-
-{
-  /* Note: */
-}
-
 interface AccountMenuProps {
   Account: AccountType | null;
 }
@@ -83,12 +72,6 @@ function getAdminMenu(
         </ListItemIcon>
         Produktsuche
       </MenuItem>
-      {/* <MenuItem component={Link} to="/dashboard">
-        <ListItemIcon>
-          <DashboardIcon fontSize="small" />
-        </ListItemIcon>
-        Dashboard
-      </MenuItem> */}
       <MenuItem component={Link} to="/my-products">
         <ListItemIcon>
           <DashboardCustomizeOutlinedIcon fontSize="small" />
@@ -185,12 +168,6 @@ function getUserMenu(
         </ListItemIcon>
         Produktsuche
       </MenuItem>
-      {/* <MenuItem component={Link} to="/dashboard">
-        <ListItemIcon>
-          <DashboardIcon fontSize="small" />
-        </ListItemIcon>
-        Dashboard
-      </MenuItem> */}
       <MenuItem component={Link} to="/my-products">
         <ListItemIcon>
           <DashboardCustomizeOutlinedIcon fontSize="small" />
