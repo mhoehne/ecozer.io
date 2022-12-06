@@ -21,16 +21,14 @@ interface AccountMenuProps {
 function getAdminMenu(
   open: boolean,
   anchorEl: null | HTMLElement,
-  setAnchorEl: Function,
+  handleDropdownMenuClose: Function,
 ) {
-  const handleClose = () => setAnchorEl(null);
-
   return (
     <Menu
       anchorEl={anchorEl}
       open={open}
-      onClose={handleClose}
-      onClick={handleClose}
+      onClose={() => handleDropdownMenuClose()}
+      onClick={() => handleDropdownMenuClose()}
       PaperProps={{
         elevation: 0,
         sx: {
@@ -117,16 +115,14 @@ function getAdminMenu(
 function getUserMenu(
   open: boolean,
   anchorEl: null | HTMLElement,
-  setAnchorEl: Function
+  handleDropdownMenuClose: Function
 ) {
-  const handleClose = () => setAnchorEl(null);
-
   return (
     <Menu
       anchorEl={anchorEl}
       open={open}
-      onClose={handleClose}
-      onClick={handleClose}
+      onClose={() => handleDropdownMenuClose()}
+      onClick={() => handleDropdownMenuClose()}
       PaperProps={{
         elevation: 0,
         sx: {
@@ -181,12 +177,6 @@ function getUserMenu(
 export default function AccountMenu(props: AccountMenuProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
   const isAdminMenu = props.Account?.isAdmin === true;
 
@@ -194,14 +184,18 @@ export default function AccountMenu(props: AccountMenuProps) {
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Tooltip title="Menü">
-          <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
+          <IconButton
+            onClick={(event) => setAnchorEl(event.currentTarget)}
+            size="small"
+            sx={{ ml: 2 }}
+          >
             <MenuRoundedIcon fontSize="large" color="info" />
           </IconButton>
         </Tooltip>
       </Box>
       {isAdminMenu
-        ? getAdminMenu(open, anchorEl, setAnchorEl)
-        : getUserMenu(open, anchorEl, setAnchorEl)}
+        ? getAdminMenu(open, anchorEl, () => setAnchorEl(null))
+        : getUserMenu(open, anchorEl, () => setAnchorEl(null))}
     </React.Fragment>
   );
 }
