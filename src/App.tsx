@@ -29,7 +29,7 @@ import UserSurveyList from './Pages/UserSurveyList';
 
 export default function App() {
   const [account, setAccount] = useState<AccountType | null>(null);
-  const [cookies, setCookies] = useCookies(['email']);
+  const [cookies] = useCookies(['email']);
 
   useEffect(() => {
     console.log(cookies);
