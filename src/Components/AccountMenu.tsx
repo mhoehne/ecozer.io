@@ -181,7 +181,7 @@ export default function AccountMenu(props: AccountMenuProps) {
   const isAdminMenu = props.Account?.isAdmin === true;
 
   return (
-    <React.Fragment>
+    <>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Tooltip title="Menü">
           <IconButton
@@ -196,6 +196,6 @@ export default function AccountMenu(props: AccountMenuProps) {
       {isAdminMenu
         ? getAdminMenu(open, anchorEl, () => setAnchorEl(null))
         : getUserMenu(open, anchorEl, () => setAnchorEl(null))}
-    </React.Fragment>
+    </>
   );
 }
