@@ -11,7 +11,6 @@ import Account from './Pages/Account';
 import AddProduct from './Pages/AddProduct';
 import AdminApproval from './Pages/AdminApproval';
 import AdminApprovalDetail from './Pages/AdminApprovalDetail';
-import Dashboard from './Pages/Dashboard';
 import Glossar from './Pages/Glossar';
 import HomePage from './Pages/HomePage';
 import MyProducts from './Pages/MyProducts';
@@ -30,6 +29,7 @@ import UserSurveyList from './Pages/UserSurveyList';
 export default function App() {
   const [account, setAccount] = useState<AccountType | null>(null);
   const [cookies] = useCookies(['email']);
+
   if (!cookies.email && account !== null) {
     setAccount(null);
   }
