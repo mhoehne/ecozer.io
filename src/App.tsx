@@ -27,17 +27,6 @@ import SignUpFormik from './Pages/SignUpFormik';
 import UserList from './Pages/UserList';
 import UserSurveyList from './Pages/UserSurveyList';
 
-{
-  /* TODO */
-}
-{
-  /*  */
-}
-
-{
-  /* Note: */
-}
-
 export default function App() {
   const [account, setAccount] = useState<AccountType | null>(null);
   const [cookies, setCookies] = useCookies(['email']);
