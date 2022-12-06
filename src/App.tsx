@@ -72,63 +72,55 @@ export default function App() {
           {/* User */}
           <Route path="/account" element={<Account account={account} />} />
           <Route path="/notification-log" element={<NotificationLog />} />
-          {account ? (
-            <Route
-              path="/my-products"
-              element={<MyProducts tab="published" account={account} />}
-            />
-          ) : null}
-          {account ? (
-            <Route
-              path="/my-products/rejection"
-              element={<MyProducts tab="rejected" account={account} />}
-            />
-          ) : null}
+          {account && (
+            <>
+              <Route
+                path="/my-products"
+                element={<MyProducts tab="published" account={account} />}
+              />
+              <Route
+                path="/my-products/rejection"
+                element={<MyProducts tab="rejected" account={account} />}
+              />
+              <Route
+                path="/my-products/add-product"
+                element={<AddProduct account={account} />}
+              />
+              <Route
+                path={`/my-products/:id/edit`}
+                element={<MyProductsEdit account={account} />}
+              />
 
-          {account ? (
-            <Route
-              path="/my-products/add-product"
-              element={<AddProduct account={account} />}
-            />
-          ) : null}
-          {account ? (
-            <Route
-              path={`/my-products/:id/edit`}
-              element={<MyProductsEdit account={account} />}
-            />
-          ) : null}
-
-          {/* Admin */}
-          {account ? (
-            <Route
-              path="/approval"
-              element={<AdminApproval account={account} />}
-            />
-          ) : null}
+              {/* Admin */}
+              <Route
+                path="/approval"
+                element={<AdminApproval account={account} />}
+              />
+            </>
+          )}
 
           <Route
             path={`/approval/detail/:id`}
             element={<AdminApprovalDetail />}
           />
-          {account ? <Route path="/user-list" element={<UserList />} /> : null}
-          {account ? (
-            <Route
-              path="/product-list"
-              element={<ProductList account={account} />}
-            />
-          ) : null}
-          {account ? (
-            <Route
-              path="/user-survey"
-              element={<UserSurveyList account={account} />}
-            />
-          ) : null}
-          {account ? (
-            <Route
-              path="/reportings"
-              element={<ReportingList account={account} />}
-            />
-          ) : null}
+          
+          {account && (
+            <>
+              <Route path="/user-list" element={<UserList />} />
+              <Route
+                path="/product-list"
+                element={<ProductList account={account} />}
+              />
+              <Route
+                path="/user-survey"
+                element={<UserSurveyList account={account} />}
+              />
+              <Route
+                path="/reportings"
+                element={<ReportingList account={account} />}
+              />
+            </>
+          )}
           <Route path="/*" element={<PageNotFound />} />
         </Routes>
       </Container>
