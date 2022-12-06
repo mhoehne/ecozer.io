@@ -12,20 +12,8 @@ import AccountMenu from './AccountMenu';
 import AccountSettings from './AccountSettings';
 import NotificationMenu from './NotificationMenu';
 
-{
-  /* TODO */
-}
-{
-  /*  */
-}
-
-{
-  /* Note: */
-}
-
 interface AppBarTopProps {
   account: AccountType | null;
-  // Notification: NotificationType | null;
 }
 
 const drawerWidth = 240;
