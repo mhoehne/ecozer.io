@@ -32,7 +32,6 @@ export default function App() {
   const [cookies] = useCookies(['email']);
 
   useEffect(() => {
-    console.log(cookies);
     if (cookies.email === null || cookies.email === undefined) {
       setAccount(null);
 
@@ -43,7 +42,6 @@ export default function App() {
       GetAccountByEmail(cookies.email)
         .then((result) => {
           setAccount(result.data.account);
-          console.log(result);
         })
         .catch();
     }
