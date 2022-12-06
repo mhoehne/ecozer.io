@@ -175,9 +175,6 @@ export default function AccountSettings(props: AccountMenuProps) {
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
   const isAdminMenu = props.account?.isAdmin === true;
 
