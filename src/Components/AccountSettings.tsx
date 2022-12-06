@@ -13,8 +13,7 @@ interface AccountMenuProps {
   account: AccountType | null;
 }
 
-// function to remove the cookie
-export async function deauthenticate(
+export async function logOutAndRedirectToHomePage(
   navigate: NavigateFunction,
   removeCookie: Function
 ) {
@@ -37,7 +36,7 @@ function getAdminMenu(
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      await deauthenticate(navigate, removeCookie);
+      await logOutAndRedirectToHomePage(navigate, removeCookie);
     } catch {
       alert('something went wrong');
     }
@@ -105,7 +104,7 @@ function getUserMenu(
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      await deauthenticate(navigate, removeCookie);
+      await logOutAndRedirectToHomePage(navigate, removeCookie);
     } catch {
       alert('something went wrong');
     }
