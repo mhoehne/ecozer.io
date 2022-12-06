@@ -30,18 +30,16 @@ import UserSurveyList from './Pages/UserSurveyList';
 export default function App() {
   const [account, setAccount] = useState<AccountType | null>(null);
   const [cookies] = useCookies(['email']);
-
-  if (!cookies.email) {
+  if (!cookies.email && account !== null) {
     setAccount(null);
   }
-
   useEffect(() => {
     if (account === null && cookies.email) {
       GetAccountByEmail(cookies.email)
         .then(({ data: { account } }) => setAccount(account))
         .catch();
     }
-  }, [account]);
+  }, [account, cookies]);
 
   return (
     <Router>
@@ -97,7 +95,7 @@ export default function App() {
             path={`/approval/detail/:id`}
             element={<AdminApprovalDetail />}
           />
-          
+
           {account && (
             <>
               <Route path="/user-list" element={<UserList />} />
