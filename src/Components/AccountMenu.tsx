@@ -1,15 +1,12 @@
 import * as React from 'react';
-import { useCookies } from 'react-cookie';
-import { Link, NavigateFunction, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import DashboardCustomizeOutlinedIcon from '@mui/icons-material/DashboardCustomizeOutlined';
 import FactCheckOutlinedIcon from '@mui/icons-material/FactCheckOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import ListAltOutlinedIcon from '@mui/icons-material/ListAltOutlined';
 import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
-import Logout from '@mui/icons-material/Logout';
 import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import PollOutlinedIcon from '@mui/icons-material/PollOutlined';
@@ -32,37 +29,13 @@ interface AccountMenuProps {
   Account: AccountType | null;
 }
 
-// function to remove the cookie
-export async function deauthenticate(
-  navigate: NavigateFunction,
-  removeCookie: Function
-) {
-  try {
-    removeCookie('email', { path: '/' });
-    return navigate('/');
-  } catch (e) {
-    console.log(e);
-  }
-}
-
 function getAdminMenu(
   open: boolean,
   anchorEl: null | HTMLElement,
-  setAnchorEl: Function
+  setAnchorEl: Function,
 ) {
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const [cookies, setCookie, removeCookie] = useCookies(['email']);
-  const navigate = useNavigate();
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    try {
-      await deauthenticate(navigate, removeCookie);
-    } catch {
-      alert('something went wrong');
-    }
-  };
+  const handleClose = () => setAnchorEl(null);
+
   return (
     <Menu
       anchorEl={anchorEl}
@@ -163,19 +136,8 @@ function getUserMenu(
   anchorEl: null | HTMLElement,
   setAnchorEl: Function
 ) {
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const [cookies, setCookie, removeCookie] = useCookies(['email']);
-  const navigate = useNavigate();
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    try {
-      await deauthenticate(navigate, removeCookie);
-    } catch {
-      alert('something went wrong');
-    }
-  };
+  const handleClose = () => setAnchorEl(null);
+
   return (
     <Menu
       anchorEl={anchorEl}
@@ -250,17 +212,6 @@ export default function AccountMenu(props: AccountMenuProps) {
   };
 
   const isAdminMenu = props.Account?.isAdmin === true;
-
-  const [cookies, setCookie, removeCookie] = useCookies(['email']);
-  const navigate = useNavigate();
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    try {
-      await deauthenticate(navigate, removeCookie);
-    } catch {
-      alert('something went wrong');
-    }
-  };
 
   return (
     <React.Fragment>
