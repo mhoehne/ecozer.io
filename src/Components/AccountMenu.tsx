@@ -19,14 +19,14 @@ interface AccountMenuProps {
 }
 
 function getAdminMenu(
-  open: boolean,
+  isOpen: boolean,
   anchorEl: null | HTMLElement,
   handleDropdownMenuClose: Function,
 ) {
   return (
     <Menu
       anchorEl={anchorEl}
-      open={open}
+      open={isOpen}
       onClose={() => handleDropdownMenuClose()}
       onClick={() => handleDropdownMenuClose()}
       PaperProps={{
@@ -113,14 +113,14 @@ function getAdminMenu(
 }
 
 function getUserMenu(
-  open: boolean,
+  isOpen: boolean,
   anchorEl: null | HTMLElement,
   handleDropdownMenuClose: Function
 ) {
   return (
     <Menu
       anchorEl={anchorEl}
-      open={open}
+      open={isOpen}
       onClose={() => handleDropdownMenuClose()}
       onClick={() => handleDropdownMenuClose()}
       PaperProps={{
@@ -176,8 +176,8 @@ function getUserMenu(
 
 export default function AccountMenu({ account }: AccountMenuProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
 
+  const isOpen = Boolean(anchorEl);
   const isAdminMenu = account?.isAdmin === true;
 
   return (
@@ -194,8 +194,8 @@ export default function AccountMenu({ account }: AccountMenuProps) {
         </Tooltip>
       </Box>
       {isAdminMenu
-        ? getAdminMenu(open, anchorEl, () => setAnchorEl(null))
-        : getUserMenu(open, anchorEl, () => setAnchorEl(null))}
+        ? getAdminMenu(isOpen, anchorEl, () => setAnchorEl(null))
+        : getUserMenu(isOpen, anchorEl, () => setAnchorEl(null))}
     </>
   );
 }
