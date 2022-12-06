@@ -26,7 +26,7 @@ import { AccountType } from '../API';
 }
 
 interface AccountMenuProps {
-  Account: AccountType | null;
+  account: AccountType | null;
 }
 
 // function to remove the cookie
@@ -190,7 +190,7 @@ export default function AccountSettings(props: AccountMenuProps) {
     setAnchorEl(null);
   };
 
-  const isAdminMenu = props.Account?.isAdmin === true;
+  const isAdminMenu = props.account?.isAdmin === true;
 
   const [cookies, setCookie, removeCookie] = useCookies(['email']);
   const navigate = useNavigate();
