@@ -9,17 +9,6 @@ import { Box, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/mat
 
 import { AccountType } from '../API';
 
-{
-  /* TODO */
-}
-{
-  /*  */
-}
-
-{
-  /* Note: */
-}
-
 interface AccountMenuProps {
   account: AccountType | null;
 }
@@ -44,6 +33,7 @@ function getAdminMenu(
 ) {
   const [,, removeCookie] = useCookies(['email']);
   const navigate = useNavigate();
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
@@ -52,6 +42,7 @@ function getAdminMenu(
       alert('something went wrong');
     }
   };
+
   return (
     <Menu
       anchorEl={anchorEl}
@@ -110,6 +101,7 @@ function getUserMenu(
 ) {
   const [,, removeCookie] = useCookies(['email']);
   const navigate = useNavigate();
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
@@ -118,6 +110,7 @@ function getUserMenu(
       alert('something went wrong');
     }
   };
+
   return (
     <Menu
       anchorEl={anchorEl}
