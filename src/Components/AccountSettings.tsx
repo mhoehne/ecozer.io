@@ -40,11 +40,8 @@ export async function deauthenticate(
 function getAdminMenu(
   open: boolean,
   anchorEl: null | HTMLElement,
-  setAnchorEl: Function
+  handleDropdownMenuClose: Function,
 ) {
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
   const [,, removeCookie] = useCookies(['email']);
   const navigate = useNavigate();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -59,8 +56,8 @@ function getAdminMenu(
     <Menu
       anchorEl={anchorEl}
       open={open}
-      onClose={handleClose}
-      onClick={handleClose}
+      onClose={() => handleDropdownMenuClose()}
+      onClick={() => handleDropdownMenuClose()}
       PaperProps={{
         elevation: 0,
         sx: {
@@ -109,11 +106,8 @@ function getAdminMenu(
 function getUserMenu(
   open: boolean,
   anchorEl: null | HTMLElement,
-  setAnchorEl: Function
+  handleDropdownMenuClose: Function,
 ) {
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
   const [,, removeCookie] = useCookies(['email']);
   const navigate = useNavigate();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -128,8 +122,8 @@ function getUserMenu(
     <Menu
       anchorEl={anchorEl}
       open={open}
-      onClose={handleClose}
-      onClick={handleClose}
+      onClose={() => handleDropdownMenuClose()}
+      onClick={() => handleDropdownMenuClose()}
       PaperProps={{
         elevation: 0,
         sx: {
@@ -197,8 +191,8 @@ export default function AccountSettings(props: AccountMenuProps) {
         </Tooltip>
       </Box>
       {isAdminMenu
-        ? getAdminMenu(open, anchorEl, setAnchorEl)
-        : getUserMenu(open, anchorEl, setAnchorEl)}
+        ? getAdminMenu(open, anchorEl, () => setAnchorEl(null))
+        : getUserMenu(open, anchorEl, () => setAnchorEl(null))}
     </React.Fragment>
   );
 }
