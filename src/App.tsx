@@ -31,21 +31,17 @@ export default function App() {
   const [account, setAccount] = useState<AccountType | null>(null);
   const [cookies] = useCookies(['email']);
 
+  if (!cookies.email) {
+    setAccount(null);
+  }
+
   useEffect(() => {
-    if (cookies.email === null || cookies.email === undefined) {
-      setAccount(null);
-
-      return;
-    }
-
-    if (account === null) {
+    if (account === null && cookies.email) {
       GetAccountByEmail(cookies.email)
-        .then((result) => {
-          setAccount(result.data.account);
-        })
+        .then(({ data: { account } }) => setAccount(account))
         .catch();
     }
-  }, [account, cookies]);
+  }, [account]);
 
   return (
     <Router>
