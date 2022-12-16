@@ -12,20 +12,8 @@ import AccountMenu from './AccountMenu';
 import AccountSettings from './AccountSettings';
 import NotificationMenu from './NotificationMenu';
 
-{
-  /* TODO */
-}
-{
-  /*  */
-}
-
-{
-  /* Note: */
-}
-
 interface AppBarTopProps {
-  Account: AccountType | null;
-  // Notification: NotificationType | null;
+  account: AccountType | null;
 }
 
 const drawerWidth = 240;
@@ -52,7 +40,7 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-function loggedoutbox() {
+function loggedOutBox() {
   return (
     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
       <Stack direction="row" spacing={2}>
@@ -79,20 +67,19 @@ function loggedoutbox() {
   );
 }
 
-function loggedoinbox(account: AccountType | null) {
+function loggedInBox(account: AccountType) {
   return (
     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-      <NotificationMenu Account={account} />
-      <AccountMenu Account={account} />
-      <AccountSettings Account={account} />
+      <NotificationMenu account={account} />
+      <AccountMenu account={account} />
+      <AccountSettings account={account} />
     </Box>
   );
 }
 
-export default function AppBarTop(props: AppBarTopProps) {
+export default function AppBarTop({ account }: AppBarTopProps) {
   // check if cookie received from signin page
-
-  const isLoggedOut = props.Account === null;
+  const isLoggedIn = account !== null;
 
   return (
     <Box sx={{ display: 'flex', padding: 0 }}>
@@ -111,8 +98,7 @@ export default function AppBarTop(props: AppBarTopProps) {
             </Tooltip>
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
-
-          {isLoggedOut ? loggedoutbox() : loggedoinbox(props.Account)}
+          {isLoggedIn ? loggedInBox(account) : loggedOutBox() }
         </Toolbar>
       </AppBar>
     </Box>

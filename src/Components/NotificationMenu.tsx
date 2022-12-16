@@ -33,7 +33,7 @@ import MultiStepSurvey from './Survey/MultiStepSurvey';
 }
 
 interface NotificationMenuProps {
-  Account: AccountType | null;
+  account: AccountType | null;
   // Notification: NotificationType | null;
 }
 

@@ -1,15 +1,12 @@
 import * as React from 'react';
-import { useCookies } from 'react-cookie';
-import { Link, NavigateFunction, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import DashboardCustomizeOutlinedIcon from '@mui/icons-material/DashboardCustomizeOutlined';
 import FactCheckOutlinedIcon from '@mui/icons-material/FactCheckOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import ListAltOutlinedIcon from '@mui/icons-material/ListAltOutlined';
 import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
-import Logout from '@mui/icons-material/Logout';
 import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import PollOutlinedIcon from '@mui/icons-material/PollOutlined';
@@ -17,58 +14,21 @@ import { Box, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } from 
 
 import { AccountType } from '../API';
 
-{
-  /* TODO */
-}
-{
-  /*  */
-}
-
-{
-  /* Note: */
-}
-
 interface AccountMenuProps {
-  Account: AccountType | null;
-}
-
-// function to remove the cookie
-export async function deauthenticate(
-  navigate: NavigateFunction,
-  removeCookie: Function
-) {
-  try {
-    removeCookie('email', { path: '/' });
-    return navigate('/');
-  } catch (e) {
-    console.log(e);
-  }
+  account: AccountType | null;
 }
 
 function getAdminMenu(
-  open: boolean,
+  isOpen: boolean,
   anchorEl: null | HTMLElement,
-  setAnchorEl: Function
+  handleDropdownMenuClose: Function,
 ) {
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const [cookies, setCookie, removeCookie] = useCookies(['email']);
-  const navigate = useNavigate();
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    try {
-      await deauthenticate(navigate, removeCookie);
-    } catch {
-      alert('something went wrong');
-    }
-  };
   return (
     <Menu
       anchorEl={anchorEl}
-      open={open}
-      onClose={handleClose}
-      onClick={handleClose}
+      open={isOpen}
+      onClose={() => handleDropdownMenuClose()}
+      onClick={() => handleDropdownMenuClose()}
       PaperProps={{
         elevation: 0,
         sx: {
@@ -110,12 +70,6 @@ function getAdminMenu(
         </ListItemIcon>
         Produktsuche
       </MenuItem>
-      {/* <MenuItem component={Link} to="/dashboard">
-        <ListItemIcon>
-          <DashboardIcon fontSize="small" />
-        </ListItemIcon>
-        Dashboard
-      </MenuItem> */}
       <MenuItem component={Link} to="/my-products">
         <ListItemIcon>
           <DashboardCustomizeOutlinedIcon fontSize="small" />
@@ -159,29 +113,16 @@ function getAdminMenu(
 }
 
 function getUserMenu(
-  open: boolean,
+  isOpen: boolean,
   anchorEl: null | HTMLElement,
-  setAnchorEl: Function
+  handleDropdownMenuClose: Function
 ) {
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const [cookies, setCookie, removeCookie] = useCookies(['email']);
-  const navigate = useNavigate();
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    try {
-      await deauthenticate(navigate, removeCookie);
-    } catch {
-      alert('something went wrong');
-    }
-  };
   return (
     <Menu
       anchorEl={anchorEl}
-      open={open}
-      onClose={handleClose}
-      onClick={handleClose}
+      open={isOpen}
+      onClose={() => handleDropdownMenuClose()}
+      onClick={() => handleDropdownMenuClose()}
       PaperProps={{
         elevation: 0,
         sx: {
@@ -223,12 +164,6 @@ function getUserMenu(
         </ListItemIcon>
         Produktsuche
       </MenuItem>
-      {/* <MenuItem component={Link} to="/dashboard">
-        <ListItemIcon>
-          <DashboardIcon fontSize="small" />
-        </ListItemIcon>
-        Dashboard
-      </MenuItem> */}
       <MenuItem component={Link} to="/my-products">
         <ListItemIcon>
           <DashboardCustomizeOutlinedIcon fontSize="small" />
@@ -239,41 +174,28 @@ function getUserMenu(
   );
 }
 
-export default function AccountMenu(props: AccountMenuProps) {
+export default function AccountMenu({ account }: AccountMenuProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
-  const isAdminMenu = props.Account?.isAdmin === true;
-
-  const [cookies, setCookie, removeCookie] = useCookies(['email']);
-  const navigate = useNavigate();
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    try {
-      await deauthenticate(navigate, removeCookie);
-    } catch {
-      alert('something went wrong');
-    }
-  };
+  const isOpen = Boolean(anchorEl);
+  const isAdminMenu = account?.isAdmin === true;
 
   return (
-    <React.Fragment>
+    <>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Tooltip title="Menü">
-          <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
+          <IconButton
+            onClick={(event) => setAnchorEl(event.currentTarget)}
+            size="small"
+            sx={{ ml: 2 }}
+          >
             <MenuRoundedIcon fontSize="large" color="info" />
           </IconButton>
         </Tooltip>
       </Box>
       {isAdminMenu
-        ? getAdminMenu(open, anchorEl, setAnchorEl)
-        : getUserMenu(open, anchorEl, setAnchorEl)}
-    </React.Fragment>
+        ? getAdminMenu(isOpen, anchorEl, () => setAnchorEl(null))
+        : getUserMenu(isOpen, anchorEl, () => setAnchorEl(null))}
+    </>
   );
 }

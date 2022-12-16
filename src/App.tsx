@@ -11,7 +11,6 @@ import Account from './Pages/Account';
 import AddProduct from './Pages/AddProduct';
 import AdminApproval from './Pages/AdminApproval';
 import AdminApprovalDetail from './Pages/AdminApprovalDetail';
-import Dashboard from './Pages/Dashboard';
 import Glossar from './Pages/Glossar';
 import HomePage from './Pages/HomePage';
 import MyProducts from './Pages/MyProducts';
@@ -27,42 +26,24 @@ import SignUpFormik from './Pages/SignUpFormik';
 import UserList from './Pages/UserList';
 import UserSurveyList from './Pages/UserSurveyList';
 
-{
-  /* TODO */
-}
-{
-  /*  */
-}
-
-{
-  /* Note: */
-}
-
 export default function App() {
   const [account, setAccount] = useState<AccountType | null>(null);
-  const [cookies, setCookies] = useCookies(['email']);
+  const [cookies] = useCookies(['email']);
 
+  if (!cookies.email && account !== null) {
+    setAccount(null);
+  }
   useEffect(() => {
-    console.log(cookies);
-    if (cookies.email === null || cookies.email === undefined) {
-      setAccount(null);
-
-      return;
-    }
-
-    if (account === null) {
+    if (account === null && cookies.email) {
       GetAccountByEmail(cookies.email)
-        .then((result) => {
-          setAccount(result.data.account);
-          console.log(result);
-        })
+        .then(({ data: { account } }) => setAccount(account))
         .catch();
     }
   }, [account, cookies]);
 
   return (
     <Router>
-      <AppBarTop Account={account} />
+      <AppBarTop account={account} />
       <Container maxWidth={false} disableGutters={true} sx={{ mt: 8 }}>
         {/* A <Switch> or <Routes> (in react-router-dom v6) looks through its children <Route>s and
         renders the first one that matches the current URL. */}
@@ -83,63 +64,55 @@ export default function App() {
           {/* User */}
           <Route path="/account" element={<Account account={account} />} />
           <Route path="/notification-log" element={<NotificationLog />} />
-          {account ? (
-            <Route
-              path="/my-products"
-              element={<MyProducts tab="published" account={account} />}
-            />
-          ) : null}
-          {account ? (
-            <Route
-              path="/my-products/rejection"
-              element={<MyProducts tab="rejected" account={account} />}
-            />
-          ) : null}
+          {account && (
+            <>
+              <Route
+                path="/my-products"
+                element={<MyProducts tab="published" account={account} />}
+              />
+              <Route
+                path="/my-products/rejection"
+                element={<MyProducts tab="rejected" account={account} />}
+              />
+              <Route
+                path="/my-products/add-product"
+                element={<AddProduct account={account} />}
+              />
+              <Route
+                path={`/my-products/:id/edit`}
+                element={<MyProductsEdit account={account} />}
+              />
 
-          {account ? (
-            <Route
-              path="/my-products/add-product"
-              element={<AddProduct account={account} />}
-            />
-          ) : null}
-          {account ? (
-            <Route
-              path={`/my-products/:id/edit`}
-              element={<MyProductsEdit account={account} />}
-            />
-          ) : null}
-
-          {/* Admin */}
-          {account ? (
-            <Route
-              path="/approval"
-              element={<AdminApproval account={account} />}
-            />
-          ) : null}
+              {/* Admin */}
+              <Route
+                path="/approval"
+                element={<AdminApproval account={account} />}
+              />
+            </>
+          )}
 
           <Route
             path={`/approval/detail/:id`}
             element={<AdminApprovalDetail />}
           />
-          {account ? <Route path="/user-list" element={<UserList />} /> : null}
-          {account ? (
-            <Route
-              path="/product-list"
-              element={<ProductList account={account} />}
-            />
-          ) : null}
-          {account ? (
-            <Route
-              path="/user-survey"
-              element={<UserSurveyList account={account} />}
-            />
-          ) : null}
-          {account ? (
-            <Route
-              path="/reportings"
-              element={<ReportingList account={account} />}
-            />
-          ) : null}
+
+          {account && (
+            <>
+              <Route path="/user-list" element={<UserList />} />
+              <Route
+                path="/product-list"
+                element={<ProductList account={account} />}
+              />
+              <Route
+                path="/user-survey"
+                element={<UserSurveyList account={account} />}
+              />
+              <Route
+                path="/reportings"
+                element={<ReportingList account={account} />}
+              />
+            </>
+          )}
           <Route path="/*" element={<PageNotFound />} />
         </Routes>
       </Container>

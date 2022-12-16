@@ -4,33 +4,16 @@ import { Link, NavigateFunction, useNavigate } from 'react-router-dom';
 
 import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import BadgeIcon from '@mui/icons-material/Badge';
-import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
-import FactCheckIcon from '@mui/icons-material/FactCheck';
-import HomeIcon from '@mui/icons-material/Home';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
-import ViewListIcon from '@mui/icons-material/ViewList';
 import { Box, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material';
 
 import { AccountType } from '../API';
 
-{
-  /* TODO */
-}
-{
-  /*  */
-}
-
-{
-  /* Note: */
-}
-
 interface AccountMenuProps {
-  Account: AccountType | null;
+  account: AccountType | null;
 }
 
-// function to remove the cookie
-export async function deauthenticate(
+export async function logOutAndRedirectToHomePage(
   navigate: NavigateFunction,
   removeCookie: Function
 ) {
@@ -45,27 +28,26 @@ export async function deauthenticate(
 function getAdminMenu(
   open: boolean,
   anchorEl: null | HTMLElement,
-  setAnchorEl: Function
+  handleDropdownMenuClose: Function,
 ) {
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const [cookies, setCookie, removeCookie] = useCookies(['email']);
+  const [,, removeCookie] = useCookies(['email']);
   const navigate = useNavigate();
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      await deauthenticate(navigate, removeCookie);
+      await logOutAndRedirectToHomePage(navigate, removeCookie);
     } catch {
       alert('something went wrong');
     }
   };
+
   return (
     <Menu
       anchorEl={anchorEl}
       open={open}
-      onClose={handleClose}
-      onClick={handleClose}
+      onClose={() => handleDropdownMenuClose()}
+      onClick={() => handleDropdownMenuClose()}
       PaperProps={{
         elevation: 0,
         sx: {
@@ -114,27 +96,26 @@ function getAdminMenu(
 function getUserMenu(
   open: boolean,
   anchorEl: null | HTMLElement,
-  setAnchorEl: Function
+  handleDropdownMenuClose: Function,
 ) {
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const [cookies, setCookie, removeCookie] = useCookies(['email']);
+  const [,, removeCookie] = useCookies(['email']);
   const navigate = useNavigate();
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      await deauthenticate(navigate, removeCookie);
+      await logOutAndRedirectToHomePage(navigate, removeCookie);
     } catch {
       alert('something went wrong');
     }
   };
+
   return (
     <Menu
       anchorEl={anchorEl}
       open={open}
-      onClose={handleClose}
-      onClick={handleClose}
+      onClose={() => handleDropdownMenuClose()}
+      onClick={() => handleDropdownMenuClose()}
       PaperProps={{
         elevation: 0,
         sx: {
@@ -180,28 +161,14 @@ function getUserMenu(
   );
 }
 
-export default function AccountSettings(props: AccountMenuProps) {
+export default function AccountSettings({ account }: AccountMenuProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
-  const isAdminMenu = props.Account?.isAdmin === true;
-
-  const [cookies, setCookie, removeCookie] = useCookies(['email']);
-  const navigate = useNavigate();
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    try {
-      await deauthenticate(navigate, removeCookie);
-    } catch {
-      alert('something went wrong');
-    }
-  };
+  const isAdminMenu = account?.isAdmin === true;
 
   return (
     <React.Fragment>
@@ -213,8 +180,8 @@ export default function AccountSettings(props: AccountMenuProps) {
         </Tooltip>
       </Box>
       {isAdminMenu
-        ? getAdminMenu(open, anchorEl, setAnchorEl)
-        : getUserMenu(open, anchorEl, setAnchorEl)}
+        ? getAdminMenu(open, anchorEl, () => setAnchorEl(null))
+        : getUserMenu(open, anchorEl, () => setAnchorEl(null))}
     </React.Fragment>
   );
 }
