@@ -61,11 +61,14 @@ export default function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUpFormik />} />
 
-          {/* User */}
-          <Route path="/account" element={<Account account={account} />} />
-          <Route path="/notification-log" element={<NotificationLog />} />
           {account && (
             <>
+              {/* User */}
+              <Route path="/account" element={<Account account={account} />} />
+              <Route
+                path="/notification-log"
+                element={<NotificationLog account={account} />}
+              />
               <Route
                 path="/my-products"
                 element={<MyProducts tab="published" account={account} />}

@@ -13,17 +13,6 @@ import { AccountType, DeleteProduct, GetProducts, ProductType, PutProducts } fro
 import Account from '../../Pages/Account';
 import AssignProduct from '../AssignProduct';
 
-{
-  /* TODO */
-}
-{
-  /*  */
-}
-
-{
-  /* Note: */
-}
-
 function CustomToolbar() {
   return (
     <GridToolbarContainer>
