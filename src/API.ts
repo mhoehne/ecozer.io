@@ -333,13 +333,18 @@ export type NotificationType = {
   isRead: boolean;
 };
 
+export type NotificationsType = {
+  notifications: NotificationType[];
+};
+
 /* NOTIFICATIONS */
 
-export function GetNotifications(): Promise<AxiosResponse<NotificationType>> {
-  return axios.get<NotificationType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/notifications?limit=5`
+export function GetNotifications(): Promise<AxiosResponse<NotificationsType>> {
+  return axios.get<NotificationsType>(
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/notifications?limit=5`, {withCredentials: true}
   );
 }
+
 
 /* REPORTING */
 export type ReportingType = {

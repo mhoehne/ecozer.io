@@ -17,69 +17,22 @@ import {
 import { AccountType, GetNotifications, NotificationType } from '../API';
 import MultiStepSurvey from './Survey/MultiStepSurvey';
 
-{
-  /* TODO */
-}
-{
-  /* trigger list item when notification is triggered */
-}
-
-{
-  /* Note: */
-}
-
-{
-  /*  */
-}
-
 interface NotificationMenuProps {
   account: AccountType | null;
   // Notification: NotificationType | null;
 }
 
 export default function NotificationMenu(props: NotificationMenuProps) {
-  const [notifications, setNotifications] = React.useState<NotificationType[]>([
-    {
-      _id: 1,
-      account_id: 0,
-      productName: 'Test',
-      message: 'pending',
-      messageType: 'pending',
-      rejectReason: 'null',
-      createdAt: new Date(),
-      isRead: false,
-    },
-    {
-      _id: 2,
-      account_id: 0,
-      productName: 'null',
-      message: 'rejected',
-      messageType: 'rejected',
-      rejectReason: 'rejected',
-      createdAt: new Date(),
-      isRead: false,
-    },
-    {
-      _id: 3,
-      account_id: 0,
-      productName: 'null',
-      message: 'published',
-      messageType: 'published',
-      rejectReason: 'null',
-      createdAt: new Date(),
-      isRead: false,
-    },
-    {
-      _id: 4,
-      account_id: 0,
-      productName: 'null',
-      message: 'assigned',
-      messageType: 'assigned',
-      rejectReason: 'null',
-      createdAt: new Date(),
-      isRead: false,
-    },
-  ]);
+  const [notifications, setNotifications] = React.useState<NotificationType[] | null>(null);
+
+React.useEffect(() => {
+  if(notifications == null) {
+    GetNotifications().then((result) => {
+      setNotifications(result.data.notifications)
+  }).catch()
+}
+} )
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [surveyOpen, setsurveyOpen] = React.useState(false);
   const open = Boolean(anchorEl);
@@ -160,7 +113,7 @@ export default function NotificationMenu(props: NotificationMenuProps) {
             bgcolor: 'background.paper',
           }}
         >
-          {notifications.map((notification) => {
+          {notifications?.map((notification) => {
             let backgroundColor = '#292929';
             let avatarIcon = <NotificationsOutlinedIcon />;
             let notificationTextPrimary = '';
@@ -203,7 +156,7 @@ export default function NotificationMenu(props: NotificationMenuProps) {
             }
 
             return (
-              <>
+              <div key={notification._id}>
                 <Divider variant="fullWidth" component="li" />
 
                 <ListItem
@@ -239,7 +192,7 @@ export default function NotificationMenu(props: NotificationMenuProps) {
                     />
                   </ListItemButton>
                 </ListItem>
-              </>
+              </div>
             );
           })}
         </List>
