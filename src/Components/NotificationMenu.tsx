@@ -31,7 +31,21 @@ React.useEffect(() => {
       setNotifications(result.data.notifications)
   }).catch()
 }
-} )
+},[] )
+
+
+// dirty implementation
+// better use redux to listen for events (notification)
+const [timer, setTimer] = React.useState<NodeJS.Timer | null>(null)
+if (timer == null) {
+  const newTimer = setInterval(() => {
+  
+    GetNotifications().then((result) => {
+      setNotifications(result.data.notifications)
+    }).catch();
+}, 60000 );
+  setTimer(newTimer);
+}
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [surveyOpen, setsurveyOpen] = React.useState(false);
