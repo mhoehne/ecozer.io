@@ -30,13 +30,13 @@ interface NotificationLogProps {
 
 export default function NotificationLog(props: NotificationLogProps) {
   const [pageSize, setPageSize] = useState<number>(20);
-  const [notifications, setNotifications] = useState<NotificationsType[]>([]);
+  const [notifications, setNotifications] = useState<NotificationType[]>([]);
   const [notification, setNotification] = useState<NotificationType>();
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
   const handleClickOpen = (id: number) => () => {
-    let notification = notifications.find((p) => p.notifications === id);
+    let notification = notifications.find((p) => p._id === id);
     if (notification === undefined) {
       console.error(
         `Could not find a product with ID "${id}". This is most likely a bug.`
