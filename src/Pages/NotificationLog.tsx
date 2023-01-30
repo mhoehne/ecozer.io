@@ -81,9 +81,6 @@ export default function NotificationLog(props: NotificationLogProps) {
         color="text.primary"
         alignItems="center"
       >
-        <Typography alignItems="center">
-          Hier entsteht bald ein Log mit all deinen Notifications
-        </Typography>
       </Box>
 
       <Box
