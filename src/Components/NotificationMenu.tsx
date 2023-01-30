@@ -24,18 +24,18 @@ interface NotificationMenuProps {
 
 export default function NotificationMenu(props: NotificationMenuProps) {
   const [notifications, setNotifications] = React.useState<NotificationType[] | null>(null);
-
+console.log(notifications)
 React.useEffect(() => {
   if(notifications == null) {
     GetNotifications().then((result) => {
       setNotifications(result.data.notifications)
   }).catch()
+
 }
 },[] )
 
 
-// dirty implementation
-// better use redux to listen for events (notification)
+// improvement: use redux to listen for events (notification)
 const [timer, setTimer] = React.useState<NodeJS.Timer | null>(null)
 if (timer == null) {
   const newTimer = setInterval(() => {
@@ -56,12 +56,23 @@ if (timer == null) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+const isNotificationListEmpty = notifications?.filter((notification) => {
+  if (notification.isRead === false) {
+    return true
+  }
+  return false;}).length == 0
+
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Tooltip title="Benachrichtigungen">
           <IconButton onClick={handleClick} size="medium" color="inherit">
-            <Badge
+            
+            {isNotificationListEmpty ? (
+            
+              <NotificationsIcon color="info" />
+            ) : (<Badge
               color="secondary"
               variant="dot"
               anchorOrigin={{
@@ -70,7 +81,7 @@ if (timer == null) {
               }}
             >
               <NotificationsIcon color="info" />
-            </Badge>
+            </Badge>)} 
           </IconButton>
         </Tooltip>
       </Box>
@@ -78,7 +89,7 @@ if (timer == null) {
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
-        onClick={handleClose}
+        
         PaperProps={{
           elevation: 0,
           sx: {
@@ -108,7 +119,6 @@ if (timer == null) {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        {/* trigger list item when notification is triggered */}
 
         <ListItem disablePadding={true} alignItems="center">
           <ListItemButton component={Link} to={'/notification-log'}>
@@ -127,7 +137,13 @@ if (timer == null) {
             bgcolor: 'background.paper',
           }}
         >
-          {notifications?.map((notification) => {
+
+          {notifications?.filter((notification) => {
+            if (notification.isRead === false) {
+              return true
+            }
+            return false;
+          }).map((notification) => {
             let backgroundColor = '#292929';
             let avatarIcon = <NotificationsOutlinedIcon />;
             let notificationTextPrimary = '';
@@ -179,8 +195,11 @@ if (timer == null) {
                   secondaryAction={
                     <IconButton
                       edge="end"
-                      aria-label="delete"
-                      onClick={() => {}}
+                      aria-label="markAsIsRead"
+                      onClick={() => {notification.isRead = true
+                      setNotifications((prev) => prev?.map((notification) => {return notification})?? [])
+                    }}
+                      
                     >
                       <CancelOutlinedIcon />
                     </IconButton>
@@ -193,6 +212,7 @@ if (timer == null) {
                       if (notification.messageType === 'assigned') {
                         setsurveyOpen(true);
                       }
+                      
                     }}
                   >
                     <ListItemAvatar>
@@ -203,6 +223,7 @@ if (timer == null) {
                     <ListItemText
                       primary={notificationTextPrimary}
                       secondary={notificationTextSecondary}
+                      onClick={handleClose}
                     />
                   </ListItemButton>
                 </ListItem>

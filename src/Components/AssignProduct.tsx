@@ -69,7 +69,8 @@ export default function AssignProduct(props: AssignProductProps) {
           <Button
             variant="contained"
             color="primary"
-            onClick={() => props.handleClose()}
+            onClick={() => props.handleClose() // call API to update the product.account_ID and then close it
+            }
             autoFocus
             sx={{ color: 'background.paper' }}
           >
