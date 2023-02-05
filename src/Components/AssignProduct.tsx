@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import {
     Autocomplete, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle,
     TextField
 } from '@mui/material';
 
-import { AccountType, GetAccounts, ProductType } from '../API';
+import { AccountType, GetAccounts, getProduct, ProductType, PutProducts } from '../API';
 
 {
   /* TODO */
@@ -69,8 +70,18 @@ export default function AssignProduct(props: AssignProductProps) {
           <Button
             variant="contained"
             color="primary"
-            onClick={() => props.handleClose() // call API to update the product.account_ID and then close it
-            }
+            // call API to update the product.account_ID and then close it
+            onClick={() => {
+              // const params = useParams();
+
+              // const [product, setProduct] = useState<ProductType>();
+              // useEffect(() => {
+              //   getProduct(params.id ?? '-1').then((result) => {
+              //     setProduct(result.data);
+              //   });
+              // }, []);
+            }} 
+            
             autoFocus
             sx={{ color: 'background.paper' }}
           >
