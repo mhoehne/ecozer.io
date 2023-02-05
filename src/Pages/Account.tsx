@@ -28,7 +28,7 @@ export default function Account(props: AccountProps) {
     alert('Error: Account ID is not expected to be undefined');
     return null;
   }
-
+  // something wrong here, try to update account with new values
   // const [account, setAccount] = useState<AccountType>();
   // useEffect(() => {
   //   getAccount(params.id ?? '-1').then((result) => {
