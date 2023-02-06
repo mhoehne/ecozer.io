@@ -32,7 +32,7 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "export REACT_APP_API_HOSTNAME=141.45.92.203 && react-scripts start",
+    "start": "export REACT_APP_API_HOSTNAME=141.45.204.38 && react-scripts start",
     "startdev": "export REACT_APP_API_HOSTNAME=localhost && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
