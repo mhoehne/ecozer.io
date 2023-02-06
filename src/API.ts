@@ -260,7 +260,7 @@ export function PublishProduct(
   productID: string
 ): Promise<AxiosResponse<ProductType>> {
   return axios.post<ProductType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/${productID}/publish`
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/${productID}/publish`, {withCredentials: true}
   );
 }
 
@@ -268,7 +268,7 @@ export function RejectProduct(
   productID: string
 ): Promise<AxiosResponse<ProductType>> {
   return axios.post<ProductType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/${productID}/reject`
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/${productID}/reject`, {} ,{withCredentials: true}
   );
 }
 

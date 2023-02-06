@@ -72,14 +72,14 @@ export default function AssignProduct(props: AssignProductProps) {
             color="primary"
             // call API to update the product.account_ID and then close it
             onClick={() => {
-              // const params = useParams();
+              const params = useParams();
 
-              // const [product, setProduct] = useState<ProductType>();
-              // useEffect(() => {
-              //   getProduct(params.id ?? '-1').then((result) => {
-              //     setProduct(result.data);
-              //   });
-              // }, []);
+              const [product, setProduct] = useState<ProductType>();
+              useEffect(() => {
+                getProduct(params.id ?? '-1').then((result) => {
+                  setProduct(result.data);
+                });
+              }, []);
             }} 
             
             autoFocus

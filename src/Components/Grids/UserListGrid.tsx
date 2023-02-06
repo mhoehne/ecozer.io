@@ -11,17 +11,6 @@ import {
 
 import { AccountType, DeleteAccount, GetAccounts, PutAccount } from '../../API';
 
-{
-  /* TODO */
-}
-{
-  /*  */
-}
-
-{
-  /* Note: */
-}
-
 function CustomToolbar() {
   return (
     <GridToolbarContainer>
