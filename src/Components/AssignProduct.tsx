@@ -78,8 +78,13 @@ export default function AssignProduct(props: AssignProductProps) {
               useEffect(() => {
                 getProduct(params.id ?? '-1').then((result) => {
                   setProduct(result.data);
+                  // AssignProduct(product?.account_id);
+// error: const product: ProductType | undefined
+// Argument of type 'number | undefined' is not assignable to parameter of type 'AssignProductProps'.
+// Type 'undefined' is not assignable to type 'AssignProductProps'.
                 });
               }, []);
+              props.handleClose();
             }} 
             
             autoFocus
