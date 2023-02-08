@@ -261,8 +261,8 @@ export function RejectProduct(
   );
 }
 
-export function AssignProduct(productID: string): Promise<AxiosResponse<ProductType>> {
-  return axios.post<ProductType>(`http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/assign`, {withCredentials: true})
+export function AssignProduct(product: ProductType): Promise<AxiosResponse<ProductType>> {
+  return axios.post<ProductType>(`http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/assign`, product)
   
 }
 
