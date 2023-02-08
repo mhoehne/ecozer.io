@@ -106,10 +106,10 @@ export default function App() {
                 path="/product-list"
                 element={<ProductList account={account} />}
               />
-              <Route
+              {/* <Route
                 path="/user-survey"
                 element={<UserSurveyList account={account} />}
-              />
+              /> */}
               <Route
                 path="/reportings"
                 element={<ReportingList account={account} />}
