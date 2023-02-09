@@ -1,10 +1,10 @@
 import { Field, Form, Formik } from 'formik';
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { Box, Button, Container, createTheme, Grid, TextField, Typography } from '@mui/material';
 
-import { AccountType } from '../API';
+import { AccountType, GetAccounts, PutAccount } from '../API';
 
 {
   /* TODO */
@@ -29,22 +29,29 @@ export default function Account(props: AccountProps) {
     return null;
   }
   // something wrong here, try to update account with new values
-  // const [account, setAccount] = useState<AccountType>();
+  const [account, setAccount] = useState<AccountType>();
   // useEffect(() => {
-  //   getAccount(params.id ?? '-1').then((result) => {
+  //   GetAccounts(params.id ?? '-1').then((result) => {
+  //     // error for params.id ?? ... 
+  //     // Expected 0 arguments, but got 1
   //     setAccount(result.data);
+  //     // error for result.data
+  //     // Argument of type 'AccountsResultType' is not assignable to parameter of type 'SetStateAction<AccountType | undefined>'.
   //   });
   // }, []);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    if (account === undefined) {
+      return;
+    }
+    PutAccount(account)
+      .then(() => {
+        return;
+      })
+      .catch((msg) => {
+        alert('error');
+      });
   };
 
   const params = useParams();
