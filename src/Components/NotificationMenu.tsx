@@ -154,7 +154,7 @@ const isNotificationListEmpty = notifications?.filter((notification) => {
               backgroundColor = '#fc998d';
               avatarIcon = <CloseOutlinedIcon />;
               notificationTextPrimary = 'Produkt abgelehnt';
-              notificationTextSecondary = '{RejectReason}';
+              notificationTextSecondary = `Dein Produkt: ${notification.productName} wurde abgelehnt. Begründung: ${notification.rejectReason}`;
               linkTo = '/my-products/rejection';
             }
             if (notification.messageType === 'published') {
@@ -162,16 +162,14 @@ const isNotificationListEmpty = notifications?.filter((notification) => {
               avatarIcon = <CheckOutlinedIcon />;
               notificationTextPrimary = 'Produkt veröffentlicht';
               notificationTextSecondary =
-                'Ihr Produkt' +
-                {} +
-                'wurde veröffentlicht und ist nun für alle sichtbar.';
+                `Dein Produkt: ${notification.productName} wurde veröffentlicht und ist nun für alle sichtbar.`;
               linkTo = '/my-products';
             }
             if (notification.messageType === 'pending') {
               backgroundColor = '#ffbf03';
               avatarIcon = <AccessTimeOutlinedIcon />;
               notificationTextPrimary = 'Überprüfung ausstehend';
-              notificationTextSecondary = `Dein Produkt ${notification.productName} wird in kürze von einem Administrator überprüft. Bitte habe etwas Geduld.`;
+              notificationTextSecondary = `Dein Produkt: ${notification.productName} wird in kürze von einem Administrator überprüft. Bitte habe etwas Geduld.`;
               linkTo = '/my-products';
             }
             if (notification.messageType === 'assigned') {
@@ -179,10 +177,8 @@ const isNotificationListEmpty = notifications?.filter((notification) => {
               avatarIcon = <PollOutlinedIcon />;
               notificationTextPrimary = 'Produkt zugewiesen';
               notificationTextSecondary =
-                'Dir wurde Produkt' +
-                {} +
-                'zugewiesen. Nehme gern zusätzlich an unserer kurzen Umfrage teil.';
-              linkTo = '#';
+                `Dir wurde Produkt: ${notification.productName} zugewiesen.`;
+              linkTo = '/my-products';
             }
 
             return (
