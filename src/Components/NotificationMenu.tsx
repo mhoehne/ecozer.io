@@ -204,12 +204,7 @@ const isNotificationListEmpty = notifications?.filter((notification) => {
                   <ListItemButton
                     component={Link}
                     to={linkTo}
-                    onClick={() => {
-                      if (notification.messageType === 'assigned') {
-                        setsurveyOpen(true);
-                      }
-                      
-                    }}
+                    
                   >
                     <ListItemAvatar>
                       <Avatar sx={{ backgroundColor: backgroundColor }}>
@@ -228,7 +223,7 @@ const isNotificationListEmpty = notifications?.filter((notification) => {
           })}
         </List>
       </Menu>
-      <MultiStepSurvey open={surveyOpen} setOpen={setsurveyOpen} />
+      
     </React.Fragment>
   );
 }
