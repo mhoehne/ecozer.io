@@ -118,7 +118,7 @@ export default function ReportingListGrid() {
     {
       field: 'feedbackField',
       headerName: 'Feedback/Beschreibung',
-      width: 200,
+      width: 400,
       editable: true,
     },
     {
