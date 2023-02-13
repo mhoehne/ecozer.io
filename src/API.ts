@@ -371,6 +371,15 @@ export function GetReportings(): Promise<AxiosResponse<ReportingsResultType>> {
   );
 }
 
+export function DeleteReporting(reporting: ReportingType): Promise<AxiosResponse> {
+  return axios.delete<ReportingType>(
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/reportings`,
+    {
+      data: { ...reporting },
+    }
+  );
+}
+
 /* SURVEY ###################################################################### */
 export type SurveyType = {
   _id: number | undefined;
