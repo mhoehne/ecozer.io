@@ -43,15 +43,19 @@ export default function Footer() {
             </Grid>
             <Grid item xs={12} sm={3}>
               <Box>
-                <Link href="/signupformik" underline="none" color="inherit">
-                  SignUpFormikTest
-                </Link>
+                
               </Box>
             </Grid>
 
             <Grid item xs={12} sm={3}>
               <Box>
-                <Link
+                
+              </Box>
+            </Grid>
+
+            <Grid item xs={12} sm={3}>
+              <Box>
+              <Link
                   onClick={() => {
                     setContactOpen(true);
                   }}
@@ -63,14 +67,6 @@ export default function Footer() {
                 </Link>
               </Box>
             </Grid>
-
-            <Grid item xs={12} sm={3}>
-              <Box>
-                <Link href="/glossar" underline="none" color="inherit">
-                  Glossar
-                </Link>
-              </Box>
-            </Grid>
           </Grid>
         </Container>
 
@@ -78,17 +74,19 @@ export default function Footer() {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12} height="2rem" borderBottom="solid 1px" />
             <Grid item xs={2} sm={2}>
-              HTW Berlin
+              <Link href="https://www.htw-berlin.de/" underline="none" color="inherit">
+                HTW Berlin
+                </Link>
             </Grid>
             <Grid item xs={2} sm={2} sx={{ mx: 1 }}>
-              <Link href="#" underline="none" color="inherit" sx={{ px: 4 }}>
+              <Link href="https://www.htw-berlin.de/impressum/" underline="none" color="inherit" sx={{ px: 4 }}>
                 Impressum
               </Link>{' '}
               -
             </Grid>
             <Grid item xs={2} sm={2}>
-              <Link href="#" underline="none" color="inherit">
-                Datenschutzerklärung
+              <Link href="https://www.htw-berlin.de/datenschutz/" underline="none" color="inherit">
+                Datenschutzhinweise
               </Link>
             </Grid>
           </Grid>
