@@ -96,12 +96,6 @@ function getAdminMenu(
         </ListItemIcon>
         Produktliste
       </MenuItem>
-      <MenuItem component={Link} to="/user-survey">
-        <ListItemIcon>
-          <PollOutlinedIcon fontSize="small" />
-        </ListItemIcon>
-        Umfragedaten
-      </MenuItem>
       <MenuItem component={Link} to="/reportings">
         <ListItemIcon>
           <ListAltOutlinedIcon fontSize="small" />

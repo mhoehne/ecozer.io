@@ -1,26 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Box } from '@mui/material';
-import MuiAlert from '@mui/material/Alert';
 import {
     DataGrid, deDE, GridActionsCellItem, GridEditRowsModel, GridRowId, GridToolbarContainer,
     GridToolbarDensitySelector
 } from '@mui/x-data-grid';
 
-import { GetReportings, ReportingType } from '../../API';
-
-{
-  /* TODO */
-}
-{
-  /*  */
-}
-
-{
-  /* Note: */
-}
+import { DeleteReporting, GetReportings, ReportingType } from '../../API';
 
 function CustomToolbar() {
   return (
@@ -63,6 +50,28 @@ export default function ReportingListGrid() {
 
   const [reportings, setReportings] = useState<ReportingType[]>([]);
 
+  const deleteReporting = useCallback(
+    (id) => () => {
+      let reporting = reportings.find((acc) => acc._id === id);
+      if (reporting === undefined) {
+        console.error(
+          `Could not find an account with ID "${id}". This is most likely a bug.`
+        );
+        return;
+      }
+      DeleteReporting(reporting)
+        .then(() => {
+          setTimeout(() => {
+            setReportings((prevRows) => prevRows.filter((row) => row._id !== id));
+          });
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+    [reportings]
+  );
+
   const columns = [
     {
       field: 'actions',
@@ -72,7 +81,7 @@ export default function ReportingListGrid() {
         <GridActionsCellItem
           icon={<DeleteIcon />}
           label="Löschen"
-          //onClick={}
+          onClick={deleteReporting(params.id)}
           showInMenu
         />,
       ],
@@ -118,7 +127,7 @@ export default function ReportingListGrid() {
     {
       field: 'feedbackField',
       headerName: 'Feedback/Beschreibung',
-      width: 200,
+      width: 400,
       editable: true,
     },
     {

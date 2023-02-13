@@ -6,20 +6,10 @@ import {
     TextField
 } from '@mui/material';
 
-import { AccountType, GetAccounts, getProduct, ProductType, PutProducts } from '../API';
-
-{
-  /* TODO */
-}
-{
-  /* 
-# check new grid v2 component from MUI, could be a better for the footer  
-  */
-}
-
-{
-  /* Note: */
-}
+import {
+    AccountType, AssignProduct as assignProduct, GetAccounts, getProduct, ProductType, PutProducts
+} from '../API';
+import ProductDetail from '../Pages/ProductDetail';
 
 interface AssignProductProps {
   Account: AccountType | null;
@@ -37,8 +27,13 @@ export default function AssignProduct(props: AssignProductProps) {
   }, []);
 
   const options = accounts.map(({ emailAddress, _id }) => {
-    return 'ID: ' + _id + ' ' + 'E-Mail: ' + emailAddress;
+    // return 'ID: ' + _id + ' ' + 'E-Mail: ' + emailAddress;
+    return {label: 'E-Mail: ' + emailAddress, ID: _id}
   });
+
+  const [newAccountID, setNewAccountID] = useState<number>();
+    
+  
 
   return (
     <>
@@ -53,12 +48,16 @@ export default function AssignProduct(props: AssignProductProps) {
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Hier kannst du bald ein Produkt einem anderen Benutzer zuweisen.
+            Produkt einem anderen Benutzer zuweisen.
           </DialogContentText>
           <Autocomplete
             disablePortal
             id="autocomplete-account"
             options={options}
+            onChange={(e, newValue) => {
+              setNewAccountID(newValue?.ID)
+            }
+            }
             sx={{ width: 'maxWidth', minHeight: 320, mt: 3 }}
             renderInput={(params) => <TextField {...params} label="Benutzer" />}
           />
@@ -72,14 +71,16 @@ export default function AssignProduct(props: AssignProductProps) {
             color="primary"
             // call API to update the product.account_ID and then close it
             onClick={() => {
-              const params = useParams();
-
-              const [product, setProduct] = useState<ProductType>();
-              useEffect(() => {
-                getProduct(params.id ?? '-1').then((result) => {
-                  setProduct(result.data);
-                });
-              }, []);
+              if (props.Product === null){
+                return
+              }
+              if (newAccountID === undefined) {
+                return
+              }
+              props.Product.account_id = newAccountID;
+              assignProduct(props.Product);
+              props.handleClose();
+              
             }} 
             
             autoFocus

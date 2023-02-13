@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
@@ -14,8 +14,7 @@ import {
     ListItemText, Menu, Tooltip
 } from '@mui/material';
 
-import { AccountType, GetNotifications, NotificationType } from '../API';
-import MultiStepSurvey from './Survey/MultiStepSurvey';
+import { AccountType, GetNotifications, markAsReadNotification, NotificationType } from '../API';
 
 interface NotificationMenuProps {
   account: AccountType | null;
@@ -23,9 +22,9 @@ interface NotificationMenuProps {
 }
 
 export default function NotificationMenu(props: NotificationMenuProps) {
-  const [notifications, setNotifications] = React.useState<NotificationType[] | null>(null);
+  const [notifications, setNotifications] = useState<NotificationType[] | null>(null);
 console.log(notifications)
-React.useEffect(() => {
+useEffect(() => {
   if(notifications == null) {
     GetNotifications().then((result) => {
       setNotifications(result.data.notifications)
@@ -36,7 +35,7 @@ React.useEffect(() => {
 
 
 // improvement: use redux to listen for events (notification)
-const [timer, setTimer] = React.useState<NodeJS.Timer | null>(null)
+const [timer, setTimer] = useState<NodeJS.Timer | null>(null)
 if (timer == null) {
   const newTimer = setInterval(() => {
   
@@ -47,8 +46,8 @@ if (timer == null) {
   setTimer(newTimer);
 }
 
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [surveyOpen, setsurveyOpen] = React.useState(false);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [surveyOpen, setsurveyOpen] = useState(false);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -64,7 +63,7 @@ const isNotificationListEmpty = notifications?.filter((notification) => {
   return false;}).length == 0
 
   return (
-    <React.Fragment>
+    <>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Tooltip title="Benachrichtigungen">
           <IconButton onClick={handleClick} size="medium" color="inherit">
@@ -154,7 +153,7 @@ const isNotificationListEmpty = notifications?.filter((notification) => {
               backgroundColor = '#fc998d';
               avatarIcon = <CloseOutlinedIcon />;
               notificationTextPrimary = 'Produkt abgelehnt';
-              notificationTextSecondary = '{RejectReason}';
+              notificationTextSecondary = `Dein Produkt: ${notification.productName} wurde abgelehnt. Begründung: ${notification.rejectReason}`;
               linkTo = '/my-products/rejection';
             }
             if (notification.messageType === 'published') {
@@ -162,16 +161,14 @@ const isNotificationListEmpty = notifications?.filter((notification) => {
               avatarIcon = <CheckOutlinedIcon />;
               notificationTextPrimary = 'Produkt veröffentlicht';
               notificationTextSecondary =
-                'Ihr Produkt' +
-                {} +
-                'wurde veröffentlicht und ist nun für alle sichtbar.';
+                `Dein Produkt: ${notification.productName} wurde veröffentlicht und ist nun für alle sichtbar.`;
               linkTo = '/my-products';
             }
             if (notification.messageType === 'pending') {
               backgroundColor = '#ffbf03';
               avatarIcon = <AccessTimeOutlinedIcon />;
               notificationTextPrimary = 'Überprüfung ausstehend';
-              notificationTextSecondary = `Dein Produkt ${notification.productName} wird in kürze von einem Administrator überprüft. Bitte habe etwas Geduld.`;
+              notificationTextSecondary = `Dein Produkt: ${notification.productName} wird in kürze von einem Administrator überprüft. Bitte habe etwas Geduld.`;
               linkTo = '/my-products';
             }
             if (notification.messageType === 'assigned') {
@@ -179,10 +176,8 @@ const isNotificationListEmpty = notifications?.filter((notification) => {
               avatarIcon = <PollOutlinedIcon />;
               notificationTextPrimary = 'Produkt zugewiesen';
               notificationTextSecondary =
-                'Dir wurde Produkt' +
-                {} +
-                'zugewiesen. Nehme gern zusätzlich an unserer kurzen Umfrage teil.';
-              linkTo = '#';
+                `Dir wurde Produkt: ${notification.productName} zugewiesen.`;
+              linkTo = '/my-products';
             }
 
             return (
@@ -197,8 +192,10 @@ const isNotificationListEmpty = notifications?.filter((notification) => {
                       edge="end"
                       aria-label="markAsIsRead"
                       onClick={() => {notification.isRead = true
-                      setNotifications((prev) => prev?.map((notification) => {return notification})?? [])
-                    }}
+                      
+                        markAsReadNotification(notification._id).then(() => {setNotifications((prev) => prev?.map((notification) => {return notification})?? [])});
+                    }
+                  }
                       
                     >
                       <CancelOutlinedIcon />
@@ -208,12 +205,7 @@ const isNotificationListEmpty = notifications?.filter((notification) => {
                   <ListItemButton
                     component={Link}
                     to={linkTo}
-                    onClick={() => {
-                      if (notification.messageType === 'assigned') {
-                        setsurveyOpen(true);
-                      }
-                      
-                    }}
+                    
                   >
                     <ListItemAvatar>
                       <Avatar sx={{ backgroundColor: backgroundColor }}>
@@ -232,7 +224,7 @@ const isNotificationListEmpty = notifications?.filter((notification) => {
           })}
         </List>
       </Menu>
-      <MultiStepSurvey open={surveyOpen} setOpen={setsurveyOpen} />
-    </React.Fragment>
+      
+    </>
   );
 }

@@ -1,16 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
 
-{
-  /* TODO */
-}
-{
-  /*  */
-}
-
-{
-  /* Note: */
-}
-
 export type AccountType = {
   _id: number | undefined;
   isAdmin: boolean;
@@ -265,11 +254,16 @@ export function PublishProduct(
 }
 
 export function RejectProduct(
-  productID: string
+  productID: string, rejectionReason: string
 ): Promise<AxiosResponse<ProductType>> {
   return axios.post<ProductType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/${productID}/reject`, {} ,{withCredentials: true}
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/${productID}/reject`, {rejectionReason} ,{withCredentials: true}
   );
+}
+
+export function AssignProduct(product: ProductType): Promise<AxiosResponse<ProductType>> {
+  return axios.post<ProductType>(`http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/assign`, product)
+  
 }
 
 /*DELETE*************************************************************************************************/
@@ -345,6 +339,12 @@ export function GetNotifications(): Promise<AxiosResponse<NotificationsType>> {
   );
 }
 
+export function markAsReadNotification(notification: number): Promise<AxiosResponse<NotificationsType>> {
+  return axios.post<NotificationsType>(
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/notifications`, notification
+  );
+}
+
 
 /* REPORTING */
 export type ReportingType = {
@@ -374,6 +374,15 @@ export function CreateReporting(
 export function GetReportings(): Promise<AxiosResponse<ReportingsResultType>> {
   return axios.get<ReportingsResultType>(
     `http://${process.env.REACT_APP_API_HOSTNAME}:8000/reportings`
+  );
+}
+
+export function DeleteReporting(reporting: ReportingType): Promise<AxiosResponse> {
+  return axios.delete<ReportingType>(
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/reportings`,
+    {
+      data: { ...reporting },
+    }
   );
 }
 
