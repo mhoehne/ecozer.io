@@ -6,17 +6,6 @@ import { Box, Button, Container, createTheme, Grid, TextField, Typography } from
 
 import { AccountType, GetAccounts, PutAccount } from '../API';
 
-{
-  /* TODO */
-}
-{
-  /*  */
-}
-
-{
-  /* Note: */
-}
-
 interface AccountProps {
   account: AccountType | null;
 }
@@ -75,7 +64,7 @@ export default function Account(props: AccountProps) {
           <Typography component="h1" variant="h5">
             Account
           </Typography>
-          <Formik initialValues={{}} onSubmit={() => {}}>
+          <Formik initialValues={{Vorname: props.account.firstName}} onSubmit={() => {}}>
             {({ values, errors, touched }) => (
               <Form>
                 <Box sx={{ mt: 3 }}>
@@ -89,7 +78,6 @@ export default function Account(props: AccountProps) {
                         fullWidth
                         id="firstName"
                         label="Vorname"
-                        value={props.account?.firstName}
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
@@ -99,7 +87,6 @@ export default function Account(props: AccountProps) {
                         fullWidth
                         id="lastName"
                         label="Nachname"
-                        value={props.account?.lastName}
                         name="lastName"
                         autoComplete="family-name"
                       />
@@ -111,7 +98,6 @@ export default function Account(props: AccountProps) {
                         fullWidth
                         id="email"
                         label="E-Mail-Adresse"
-                        value={props.account?.emailAddress}
                         name="email"
                         autoComplete="email"
                       />

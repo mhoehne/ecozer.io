@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import CloseIcon from '@mui/icons-material/Close';
@@ -13,17 +13,6 @@ import {
 } from '../API';
 import MorphologicalBoxVertical from '../Components/MorphologicalBoxVertical';
 import ProductDetailViewCard from '../Components/ProductDetailViewCard';
-
-{
-  /* TODO */
-}
-{
-  /*  */
-}
-
-{
-  /* Note: */
-}
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   '& .MuiToggleButtonGroup-grouped': {
@@ -47,19 +36,13 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
 }));
 
 export default function AdminApprovalDetail() {
-  {
-    /* when rejected button is clicked => show popup and enter a reason for the rejection => then click again on send button and call rejectProduct */
-  }
-  {
-    /* call publishProduct and set product state to published */
-  }
 
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
   const params = useParams();
 
-  const [product, setProduct] = React.useState<ProductType>();
-  React.useEffect(() => {
+  const [product, setProduct] = useState<ProductType>();
+  useEffect(() => {
     getProduct(params.id ?? '-1').then((result) => {
       IncrementProductViewCount(params.id ?? '-1').then(() => {
         setProduct(result.data);
@@ -67,7 +50,7 @@ export default function AdminApprovalDetail() {
     });
   }, []);
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -89,11 +72,14 @@ export default function AdminApprovalDetail() {
       });
   };
 
+  const [rejectionReason, setRejectionReason] = useState<string>();
+
   const setRejected = () => {
-    if (params.id === undefined) {
+    if (params.id === undefined || rejectionReason === undefined) {
       return;
     }
-    RejectProduct(params.id)
+
+    RejectProduct(params.id, rejectionReason)
       .then((product) => {
         return;
       })
@@ -682,6 +668,10 @@ export default function AdminApprovalDetail() {
             variant="outlined"
             multiline
             rows={8}
+            onChange={(e) => {
+              setRejectionReason(e.target.value)
+            }
+            }
             focused
           />
         </DialogContent>

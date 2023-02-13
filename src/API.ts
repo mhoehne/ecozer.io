@@ -254,10 +254,10 @@ export function PublishProduct(
 }
 
 export function RejectProduct(
-  productID: string
+  productID: string, rejectionReason: string
 ): Promise<AxiosResponse<ProductType>> {
   return axios.post<ProductType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/${productID}/reject`, {} ,{withCredentials: true}
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/${productID}/reject`, {rejectionReason} ,{withCredentials: true}
   );
 }
 
@@ -336,6 +336,12 @@ export type NotificationsType = {
 export function GetNotifications(): Promise<AxiosResponse<NotificationsType>> {
   return axios.get<NotificationsType>(
     `http://${process.env.REACT_APP_API_HOSTNAME}:8000/notifications?limit=5`, {withCredentials: true}
+  );
+}
+
+export function markAsReadNotification(notification: number): Promise<AxiosResponse<NotificationsType>> {
+  return axios.post<NotificationsType>(
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/notifications`, notification
   );
 }
 
