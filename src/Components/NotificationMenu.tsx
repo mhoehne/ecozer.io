@@ -18,7 +18,6 @@ import { AccountType, GetNotifications, markAsReadNotification, NotificationType
 
 interface NotificationMenuProps {
   account: AccountType | null;
-  // Notification: NotificationType | null;
 }
 
 export default function NotificationMenu(props: NotificationMenuProps) {
@@ -47,7 +46,6 @@ if (timer == null) {
 }
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [surveyOpen, setsurveyOpen] = useState(false);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -192,9 +190,9 @@ const isNotificationListEmpty = notifications?.filter((notification) => {
                       edge="end"
                       aria-label="markAsIsRead"
                       onClick={() => {notification.isRead = true
-                      
                         markAsReadNotification(notification._id).then(() => {setNotifications((prev) => prev?.map((notification) => {return notification})?? [])});
-                    }
+                    // useCallback to rerender the notification menu list, after marking a notification isRead=true
+                      }
                   }
                       
                     >
