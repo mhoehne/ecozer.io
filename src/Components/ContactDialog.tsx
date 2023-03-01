@@ -1,33 +1,12 @@
-import { Field, Form, Formik, useFormik } from 'formik';
-import * as React from 'react';
+import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 
-import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
-import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import {
     Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, MenuItem, TextField
 } from '@mui/material';
 
-import { CreateReporting, ReportingType } from '../API';
-
-{
-  /* TODO */
-}
-{
-  /* 
-  # add formik
-  */
-}
-
-{
-  /* Note: */
-}
-{
-  /* 
-  
-  */
-}
+import { CreateReporting } from '../API';
 
 interface ContactDialogProps {
   open: boolean;

@@ -341,7 +341,7 @@ export function GetNotifications(): Promise<AxiosResponse<NotificationsType>> {
 
 export function markAsReadNotification(notification: number): Promise<AxiosResponse<NotificationsType>> {
   return axios.post<NotificationsType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/notifications`, notification
+    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/notifications/${notification}`, {}, {withCredentials: true}
   );
 }
 
