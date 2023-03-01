@@ -1,8 +1,9 @@
-import { Field, Form, Formik } from 'formik';
+import { Field, Form, Formik, useFormik } from 'formik';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import * as yup from 'yup';
 
-import { Box, Button, Container, createTheme, Grid, TextField, Typography } from '@mui/material';
+import { Box, Button, Container, Grid, TextField, Typography } from '@mui/material';
 
 import { AccountType, GetAccounts, PutAccount } from '../API';
 
@@ -10,24 +11,61 @@ interface AccountProps {
   account: AccountType | null;
 }
 
-const theme = createTheme();
-
 export default function Account(props: AccountProps) {
   if (props.account?._id === undefined) {
     alert('Error: Account ID is not expected to be undefined');
     return null;
   }
-  // something wrong here, try to update account with new values
-  const [account, setAccount] = useState<AccountType>();
+
+  // const [accounts, setAccounts] = useState<AccountType[]>([]);
   // useEffect(() => {
-  //   GetAccounts(params.id ?? '-1').then((result) => {
-  //     // error for params.id ?? ... 
-  //     // Expected 0 arguments, but got 1
-  //     setAccount(result.data);
-  //     // error for result.data
-  //     // Argument of type 'AccountsResultType' is not assignable to parameter of type 'SetStateAction<AccountType | undefined>'.
+  //   GetAccounts().then((result) => {
+  //     setAccounts(result.data.accounts);
   //   });
   // }, []);
+
+  // const [newAccountDetails, setNewAccountDetails] = useState<number>();
+
+  const validationSchema = yup.object({
+    emailAddress: yup
+      .string()
+      .email('Bitte vollständige E-Mail-Adresse eingeben!')
+      .required('E-Mail-Adresse ist erforderlich.'),
+    firstname: yup
+      .string()
+      .min(3, 'Name should be of minimum 3 characters length')
+      .required('Name ist erforderlich.'),
+      lastname: yup
+      .string()
+      .min(3, 'Name should be of minimum 3 characters length')
+      .required('Name ist erforderlich.'),
+  });
+
+  // const formik = useFormik({
+  //   initialValues: {
+  //     _id: undefined,
+  //     firstName: '',
+  //     lastName: '',
+  //     emailAddress: '',
+  //     isAdmin: '',
+  //     password: '',
+  //     companyName: '',
+  //     lastLogin: '',
+  //     acceptedTermAndConditions: ''
+  //   },
+  //   validationSchema: validationSchema,
+
+  //   onSubmit: (values) => {
+  //     PutAccount(values)
+  //       .then()
+  //       .catch((msg) => {
+  //         alert('error');
+  //       });
+  //   },
+  // });
+ 
+  const [account, setAccount] = useState<AccountType>();
+
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -64,7 +102,11 @@ export default function Account(props: AccountProps) {
           <Typography component="h1" variant="h5">
             Account
           </Typography>
-          <Formik initialValues={{Vorname: props.account.firstName}} onSubmit={() => {}}>
+          <Formik initialValues={{
+            Vorname: props.account.firstName,
+            Nachname: props.account.lastName,
+            "E-Mail-Adresse": props.account.emailAddress,
+            }} onSubmit={() => {}}>
             {({ values, errors, touched }) => (
               <Form>
                 <Box sx={{ mt: 3 }}>
@@ -98,7 +140,7 @@ export default function Account(props: AccountProps) {
                         fullWidth
                         id="email"
                         label="E-Mail-Adresse"
-                        name="email"
+                        name="E-Mail-Adresse"
                         autoComplete="email"
                       />
                     </Grid>

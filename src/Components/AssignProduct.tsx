@@ -27,7 +27,6 @@ export default function AssignProduct(props: AssignProductProps) {
   }, []);
 
   const options = accounts.map(({ emailAddress, _id }) => {
-    // return 'ID: ' + _id + ' ' + 'E-Mail: ' + emailAddress;
     return {label: 'E-Mail: ' + emailAddress, ID: _id}
   });
 

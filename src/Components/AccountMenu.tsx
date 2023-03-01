@@ -9,7 +9,6 @@ import ListAltOutlinedIcon from '@mui/icons-material/ListAltOutlined';
 import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
 import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
-import PollOutlinedIcon from '@mui/icons-material/PollOutlined';
 import { Box, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material';
 
 import { AccountType } from '../API';
