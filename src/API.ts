@@ -29,7 +29,7 @@ export function CreateAccount(
   account: AccountType
 ): Promise<AxiosResponse<AccountCreatedResultType>> {
   return axios.post<AccountCreatedResultType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/accounts`,
+    `http://${process.env.REACT_APP_API_HOSTNAME}/accounts`,
     account
   );
 }
@@ -38,7 +38,7 @@ export function CreateAccount(
 
 export function GetAccounts(): Promise<AxiosResponse<AccountsResultType>> {
   return axios.get<AccountsResultType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/accounts`
+    `http://${process.env.REACT_APP_API_HOSTNAME}/accounts`
   );
 }
 
@@ -46,7 +46,7 @@ export function GetAccountByEmail(
   email: string
 ): Promise<AxiosResponse<AccountResultType>> {
   return axios.get<AccountResultType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/accounts/${email}`
+    `http://${process.env.REACT_APP_API_HOSTNAME}/accounts/${email}`
   );
 }
 
@@ -56,7 +56,7 @@ export function PutAccount(
   account: AccountType
 ): Promise<AxiosResponse<AccountResultType>> {
   return axios.put<AccountResultType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/accounts`,
+    `http://${process.env.REACT_APP_API_HOSTNAME}/accounts`,
     account
   );
 }
@@ -65,7 +65,7 @@ export function PutAccount(
 
 export function DeleteAccount(account: AccountType): Promise<AxiosResponse> {
   return axios.delete<AccountType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/accounts`,
+    `http://${process.env.REACT_APP_API_HOSTNAME}/accounts`,
     {
       data: { emailAddress: account.emailAddress },
     }
@@ -149,7 +149,7 @@ export function CreateProduct(
   product: ProductType
 ): Promise<AxiosResponse<ProductCreatedResultType>> {
   return axios.post<ProductCreatedResultType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products`,
+    `http://${process.env.REACT_APP_API_HOSTNAME}/products`,
     product
   );
 }
@@ -168,7 +168,7 @@ export function GetProducts(
   state: string | null
 ): Promise<AxiosResponse<ProductsResultType>> {
   const url = new URL(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products`
+    `http://${process.env.REACT_APP_API_HOSTNAME}/products`
   );
   if (account_id !== null) {
     url.searchParams.append('account_id', String(account_id));
@@ -206,7 +206,7 @@ export function ListNewestProducts(): Promise<
   AxiosResponse<ProductsResultType>
 > {
   return axios.get<ProductsResultType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products?limit=3&sortBy=createdAt&sortOrder=desc&state=published`
+    `http://${process.env.REACT_APP_API_HOSTNAME}/products?limit=3&sortBy=createdAt&sortOrder=desc&state=published`
   );
 }
 
@@ -214,7 +214,7 @@ export function ListMostViewedProducts(): Promise<
   AxiosResponse<ProductsResultType>
 > {
   return axios.get<ProductsResultType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products?limit=3&sortBy=viewCounter&sortOrder=desc&state=published`
+    `http://${process.env.REACT_APP_API_HOSTNAME}/products?limit=3&sortBy=viewCounter&sortOrder=desc&state=published`
   );
 }
 
@@ -222,7 +222,7 @@ export function IncrementProductViewCount(
   productID: string
 ): Promise<AxiosResponse<ProductType>> {
   return axios.post<ProductType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/${productID}/view`
+    `http://${process.env.REACT_APP_API_HOSTNAME}/products/${productID}/view`
   );
 }
 
@@ -230,7 +230,7 @@ export function getProduct(
   productID: string
 ): Promise<AxiosResponse<ProductType>> {
   return axios.get<ProductType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/${productID}`
+    `http://${process.env.REACT_APP_API_HOSTNAME}/products/${productID}`
   );
 }
 
@@ -240,7 +240,7 @@ export function PutProducts(
   product: ProductType
 ): Promise<AxiosResponse<ProductsResultType>> {
   return axios.put<ProductsResultType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products`,
+    `http://${process.env.REACT_APP_API_HOSTNAME}/products`,
     product
   );
 }
@@ -249,7 +249,7 @@ export function PublishProduct(
   productID: string
 ): Promise<AxiosResponse<ProductType>> {
   return axios.post<ProductType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/${productID}/publish`, {withCredentials: true}
+    `http://${process.env.REACT_APP_API_HOSTNAME}/products/${productID}/publish`, {withCredentials: true}
   );
 }
 
@@ -257,12 +257,12 @@ export function RejectProduct(
   productID: string, rejectionReason: string
 ): Promise<AxiosResponse<ProductType>> {
   return axios.post<ProductType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/${productID}/reject`, {rejectionReason} ,{withCredentials: true}
+    `http://${process.env.REACT_APP_API_HOSTNAME}/products/${productID}/reject`, {rejectionReason} ,{withCredentials: true}
   );
 }
 
 export function AssignProduct(product: ProductType): Promise<AxiosResponse<ProductType>> {
-  return axios.post<ProductType>(`http://${process.env.REACT_APP_API_HOSTNAME}:8000/products/assign`, product)
+  return axios.post<ProductType>(`http://${process.env.REACT_APP_API_HOSTNAME}/products/assign`, product)
   
 }
 
@@ -271,7 +271,7 @@ export function AssignProduct(product: ProductType): Promise<AxiosResponse<Produ
 export function DeleteProduct(product: ProductType): Promise<AxiosResponse> {
   //change data identificator
   return axios.delete<ProductType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/products`,
+    `http://${process.env.REACT_APP_API_HOSTNAME}/products`,
     {
       data: { ...product },
     }
@@ -289,7 +289,7 @@ export function checkAuthentication(
   password: string
 ): Promise<AxiosResponse<string>> {
   return axios.post<string>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/authentication`,
+    `http://${process.env.REACT_APP_API_HOSTNAME}/authentication`,
     {
       emailaddress,
       password,
@@ -301,7 +301,7 @@ export function checkDeAuthentication(
   emailaddress: string
 ): Promise<AxiosResponse<string>> {
   return axios.post<string>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/authentication`,
+    `http://${process.env.REACT_APP_API_HOSTNAME}/authentication`,
     {
       emailaddress,
     }
@@ -335,13 +335,13 @@ export type NotificationsType = {
 
 export function GetNotifications(): Promise<AxiosResponse<NotificationsType>> {
   return axios.get<NotificationsType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/notifications?limit=5`, {withCredentials: true}
+    `http://${process.env.REACT_APP_API_HOSTNAME}/notifications?limit=5`, {withCredentials: true}
   );
 }
 
 export function markAsReadNotification(notification: number): Promise<AxiosResponse<NotificationsType>> {
   return axios.post<NotificationsType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/notifications/${notification}`, {}, {withCredentials: true}
+    `http://${process.env.REACT_APP_API_HOSTNAME}/notifications/${notification}`, {}, {withCredentials: true}
   );
 }
 
@@ -366,20 +366,20 @@ export function CreateReporting(
   reporting: ReportingType
 ): Promise<AxiosResponse<ReportingCreatedResultType>> {
   return axios.post<ReportingCreatedResultType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/reportings`,
+    `http://${process.env.REACT_APP_API_HOSTNAME}/reportings`,
     reporting
   );
 }
 
 export function GetReportings(): Promise<AxiosResponse<ReportingsResultType>> {
   return axios.get<ReportingsResultType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/reportings`
+    `http://${process.env.REACT_APP_API_HOSTNAME}/reportings`
   );
 }
 
 export function DeleteReporting(reporting: ReportingType): Promise<AxiosResponse> {
   return axios.delete<ReportingType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/reportings`,
+    `http://${process.env.REACT_APP_API_HOSTNAME}/reportings`,
     {
       data: { ...reporting },
     }
@@ -408,7 +408,7 @@ export function CreateSurveyEntry(
   surveyEntry: SurveyType
 ): Promise<AxiosResponse<SurveyEntryCreatedResultType>> {
   return axios.post<SurveyEntryCreatedResultType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/user-survey`,
+    `http://${process.env.REACT_APP_API_HOSTNAME}/user-survey`,
     surveyEntry
   );
 }
@@ -417,6 +417,6 @@ export function GetSurveyEntries(): Promise<
   AxiosResponse<SurveyEntriesResultType>
 > {
   return axios.get<SurveyEntriesResultType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}:8000/user-survey`
+    `http://${process.env.REACT_APP_API_HOSTNAME}/user-survey`
   );
 }
