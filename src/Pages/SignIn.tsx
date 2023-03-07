@@ -16,17 +16,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
 import { checkAuthentication } from '../API';
-
-{
-  /* TODO */
-}
-{
-  /*  */
-}
-
-{
-  /* Note: */
-}
+import ContactDialog from '../Components/ContactDialog';
 
 // TODO:
 // - negative response when email or password is wrong, show error message!
@@ -38,13 +28,9 @@ export async function authenticate(
   setCookie: Function,
   setAlert: Function
 ) {
-  // send form data to API
-
   try {
     const response = await checkAuthentication(emailaddress, password);
     if (response.data === 'OK') {
-      // create cookie to pass boolean to AppBarTop IsLoggedOut function
-
       setCookie('email', emailaddress, { path: '/' });
       return navigate('/my-products');
     }
@@ -57,6 +43,7 @@ export async function authenticate(
 
 export default function SignIn() {
   const [showAlert, setAlert] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
   const [cookies, setCookie] = useCookies(['email']);
   const navigate = useNavigate();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -73,7 +60,6 @@ export default function SignIn() {
         setAlert
       );
     } else {
-      // alert('something went wrong');
       setAlert(true);
     }
   };
@@ -132,10 +118,6 @@ export default function SignIn() {
               variant="outlined"
               color="primary"
             />
-            {/* <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Anmeldedaten merken"
-            /> */}
             <Button
               type="submit"
               fullWidth
@@ -155,9 +137,14 @@ export default function SignIn() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link 
+                  onClick={() => {
+                    setContactOpen(true);
+                  }} 
+                  href="#" variant="body2">
                   {'Hast du dein Passwort vergessen?'}
                 </Link>
+                <ContactDialog open={contactOpen} setOpen={setContactOpen} />
               </Grid>
             </Grid>
           </Box>

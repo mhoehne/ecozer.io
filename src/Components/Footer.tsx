@@ -5,21 +5,7 @@ import { Box, CardMedia, Container, Grid, Link } from '@mui/material';
 import LogoFooter from '../images/S20_HTW_Berlin_Logo_neg_WEISS_RGB.png';
 import ContactDialog from './ContactDialog';
 
-{
-  /* TODO */
-}
-{
-  /* 
-# check new grid v2 component from MUI, could be a better for the footer
-  */
-}
-
-{
-  /* Note: */
-}
-
 export default function Footer() {
-  // set to false later, just true for testing
   const [contactOpen, setContactOpen] = React.useState(false);
 
   return (

@@ -13,17 +13,6 @@ import MorphologicalBoxVertical from '../Components/MorphologicalBoxVertical';
 import ProductDetailViewCard from '../Components/ProductDetailViewCard';
 import SampleImg from '../images/sample-img.png';
 
-{
-  /* TODO */
-}
-{
-  /*  */
-}
-
-{
-  /* Note: */
-}
-
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   '& .MuiToggleButtonGroup-grouped': {
     margin: theme.spacing(0),

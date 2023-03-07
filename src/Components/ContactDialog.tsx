@@ -42,6 +42,10 @@ export default function ContactDialog(props: ContactDialogProps) {
       value: 'Feature Request',
       label: 'Feature anfragen',
     },
+    {
+      value: 'Request new password',
+      label: 'Passwort vergessen',
+    },
   ];
   const navigate = useNavigate();
 
@@ -129,7 +133,6 @@ export default function ContactDialog(props: ContactDialogProps) {
               ))}
             </TextField>
             <TextField
-              autoFocus
               name="browser"
               value={formik.values.browser}
               onChange={formik.handleChange}
@@ -140,7 +143,6 @@ export default function ContactDialog(props: ContactDialogProps) {
               sx={{ mb: 1 }}
             />
             <TextField
-              autoFocus
               name="pageName"
               value={formik.values.pageName}
               onChange={formik.handleChange}
@@ -152,7 +154,6 @@ export default function ContactDialog(props: ContactDialogProps) {
               sx={{ mb: 1 }}
             />
             <TextField
-              autoFocus
               name="feedbackField"
               value={formik.values.feedbackField}
               onChange={formik.handleChange}

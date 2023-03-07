@@ -85,8 +85,6 @@ export default function Account(props: AccountProps) {
 
   return (
     <>
-      {/*CHANGE ACCOUNT DETAILS FORM*/}
-
       <Container component="main" maxWidth="xs">
         <Box
           sx={{
@@ -106,7 +104,7 @@ export default function Account(props: AccountProps) {
             Vorname: props.account.firstName,
             Nachname: props.account.lastName,
             "E-Mail-Adresse": props.account.emailAddress,
-            }} onSubmit={() => {}}>
+            }} onSubmit={() => {handleSubmit}}>
             {({ values, errors, touched }) => (
               <Form>
                 <Box sx={{ mt: 3 }}>
@@ -129,7 +127,7 @@ export default function Account(props: AccountProps) {
                         fullWidth
                         id="lastName"
                         label="Nachname"
-                        name="lastName"
+                        name="Nachname"
                         autoComplete="family-name"
                       />
                     </Grid>

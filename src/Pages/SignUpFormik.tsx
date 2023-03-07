@@ -76,11 +76,12 @@ export default function SignUpFormik() {
 
   return (
     <>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="sm">
         <Box
           sx={{
             my: 15,
             p: 5,
+            width: '40vw',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -188,13 +189,14 @@ export default function SignUpFormik() {
                 <Grid item xs={12}>
                   <FormControlLabel
                     control={<Checkbox name="acceptedTermAndConditions" />}
-                    label="Ich habe die Datenschutzrichtlinien gelesen und bin damit einverstanden."
+                    label="Hiermit erkläre mich einverstanden, dass meine Daten gespeichert und nur für diese Zwecke verwendet werden."
                     value={formik.values.acceptedTermAndConditions}
                     onChange={formik.handleChange}
                   />
                 </Grid>
               </Grid>
-              <pre>{JSON.stringify(formik.values, null, 4)}</pre>
+              {/* uncomment to display values */}
+              {/* <pre>{JSON.stringify(formik.values, null, 4)}</pre> */}
               <Button
                 type="submit"
                 fullWidth
@@ -215,11 +217,11 @@ export default function SignUpFormik() {
                 {'Du besitzt bereits einen Account?'}
               </Link>
             </Grid>
-            <Grid item>
+            {/* <Grid item>
               <Link href="/passwort-vergessen" variant="body2">
                 {'Hast du dein Passwort vergessen?'}
               </Link>
-            </Grid>
+            </Grid> */}
           </Grid>
         </Box>
       </Container>
