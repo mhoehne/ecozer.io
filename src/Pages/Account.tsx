@@ -17,15 +17,6 @@ export default function Account(props: AccountProps) {
     return null;
   }
 
-  // const [accounts, setAccounts] = useState<AccountType[]>([]);
-  // useEffect(() => {
-  //   GetAccounts().then((result) => {
-  //     setAccounts(result.data.accounts);
-  //   });
-  // }, []);
-
-  // const [newAccountDetails, setNewAccountDetails] = useState<number>();
-
   const validationSchema = yup.object({
     emailAddress: yup
       .string()
@@ -41,47 +32,21 @@ export default function Account(props: AccountProps) {
       .required('Name ist erforderlich.'),
   });
 
-  // const formik = useFormik({
-  //   initialValues: {
-  //     _id: undefined,
-  //     firstName: '',
-  //     lastName: '',
-  //     emailAddress: '',
-  //     isAdmin: '',
-  //     password: '',
-  //     companyName: '',
-  //     lastLogin: '',
-  //     acceptedTermAndConditions: ''
-  //   },
-  //   validationSchema: validationSchema,
+  const formik = useFormik({
+    initialValues: {
+      ...props.account,
+    },
+    // validationSchema: validationSchema,
 
-  //   onSubmit: (values) => {
-  //     PutAccount(values)
-  //       .then()
-  //       .catch((msg) => {
-  //         alert('error');
-  //       });
-  //   },
-  // });
- 
-  const [account, setAccount] = useState<AccountType>();
-
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (account === undefined) {
-      return;
-    }
-    PutAccount(account)
-      .then(() => {
-        return;
-      })
-      .catch((msg) => {
-        alert('error');
-      });
-  };
-
-  const params = useParams();
+    onSubmit: (values) => {
+      console.log(values)
+      PutAccount(values)
+        .then()
+        .catch((msg) => {
+          alert('error');
+        });
+    },
+  });
 
   return (
     <>
@@ -100,46 +65,45 @@ export default function Account(props: AccountProps) {
           <Typography component="h1" variant="h5">
             Account
           </Typography>
-          <Formik initialValues={{
-            Vorname: props.account.firstName,
-            Nachname: props.account.lastName,
-            "E-Mail-Adresse": props.account.emailAddress,
-            }} onSubmit={() => {handleSubmit}}>
-            {({ values, errors, touched }) => (
-              <Form>
+          <Box 
+          component="form"
+            onSubmit={formik.handleSubmit}>
                 <Box sx={{ mt: 3 }}>
                   <Grid container spacing={2}>
                     <Grid item xs={12} sm={6}>
-                      <Field
-                        as={TextField}
+                      <TextField
                         autoComplete="given-name"
-                        name="Vorname"
+                        name="firstName"
                         required
                         fullWidth
                         id="firstName"
                         label="Vorname"
+                        value={formik.values.firstName}
+                        onChange={formik.handleChange}
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                      <Field
-                        as={TextField}
+                      <TextField
                         required
                         fullWidth
                         id="lastName"
                         label="Nachname"
-                        name="Nachname"
+                        name="lastName"
                         autoComplete="family-name"
+                        value={formik.values.lastName}
+                        onChange={formik.handleChange}
                       />
                     </Grid>
                     <Grid item xs={12}>
-                      <Field
-                        as={TextField}
+                      <TextField
                         required
                         fullWidth
                         id="email"
                         label="E-Mail-Adresse"
-                        name="E-Mail-Adresse"
+                        name="emailAddress"
                         autoComplete="email"
+                        value={formik.values.emailAddress}
+                        onChange={formik.handleChange}
                       />
                     </Grid>
                   </Grid>
@@ -157,10 +121,8 @@ export default function Account(props: AccountProps) {
                   </Button>
                   <Grid container justifyContent="flex-end"></Grid>
                 </Box>
-                <pre>{JSON.stringify({ values, errors }, null, 4)}</pre>
-              </Form>
-            )}
-          </Formik>
+                {/* <pre>{JSON.stringify({ values, errors }, null, 4)}</pre> */}
+          </Box>
         </Box>
       </Container>
 
@@ -182,7 +144,7 @@ export default function Account(props: AccountProps) {
           <Box
             component="form"
             noValidate
-            onSubmit={handleSubmit}
+            // onSubmit={}
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>

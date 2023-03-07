@@ -13,17 +13,6 @@ import { createTheme } from '@mui/material/styles';
 import { CreateAccount } from '../API';
 import Account from './Account';
 
-{
-  /* TODO */
-}
-{
-  /*  */
-}
-
-{
-  /* Note: */
-}
-
 export default function SignUpFormik() {
   const [cookies, setCookie] = useCookies(['email']);
   const navigate = useNavigate();
