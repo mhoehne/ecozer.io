@@ -1,5 +1,21 @@
 import axios, { AxiosResponse } from 'axios';
 
+function getCookie(cname: string) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
 export type AccountType = {
   _id: number | undefined;
   isAdmin: boolean;
@@ -249,7 +265,11 @@ export function PublishProduct(
   productID: string
 ): Promise<AxiosResponse<ProductType>> {
   return axios.post<ProductType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}/products/${productID}/publish`, {withCredentials: true}
+    `http://${process.env.REACT_APP_API_HOSTNAME}/products/${productID}/publish`, {
+      headers: {
+        authorization: getCookie('email')
+      }
+    }
   );
 }
 
@@ -257,7 +277,11 @@ export function RejectProduct(
   productID: string, rejectionReason: string
 ): Promise<AxiosResponse<ProductType>> {
   return axios.post<ProductType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}/products/${productID}/reject`, {rejectionReason} ,{withCredentials: true}
+    `http://${process.env.REACT_APP_API_HOSTNAME}/products/${productID}/reject`, {rejectionReason} ,{
+      headers: {
+        authorization: getCookie('email')
+      }
+    }
   );
 }
 
@@ -288,6 +312,7 @@ export function checkAuthentication(
   emailaddress: string,
   password: string
 ): Promise<AxiosResponse<string>> {
+  
   return axios.post<string>(
     `http://${process.env.REACT_APP_API_HOSTNAME}/authentication`,
     {
@@ -335,13 +360,23 @@ export type NotificationsType = {
 
 export function GetNotifications(): Promise<AxiosResponse<NotificationsType>> {
   return axios.get<NotificationsType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}/notifications?limit=5`, {withCredentials: true}
+    `http://${process.env.REACT_APP_API_HOSTNAME}/notifications?limit=5`,
+    
+    {
+      headers: {
+        authorization: getCookie('email')
+      }
+    }
   );
 }
 
 export function markAsReadNotification(notification: number): Promise<AxiosResponse<NotificationsType>> {
   return axios.post<NotificationsType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}/notifications/${notification}`, {}, {withCredentials: true}
+    `http://${process.env.REACT_APP_API_HOSTNAME}/notifications/${notification}`, {}, {
+      headers: {
+        authorization: getCookie('email')
+      }
+    }
   );
 }
 
