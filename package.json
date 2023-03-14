@@ -34,7 +34,7 @@
   "scripts": {
     "start": "export REACT_APP_API_HOSTNAME=api.buis.f2.htw-berlin.de && react-scripts start",
     "startdev": "export REACT_APP_API_HOSTNAME=localhost:8000 && react-scripts start",
-    "build": "react-scripts build",
+    "build": "export REACT_APP_API_HOSTNAME=api.buis.f2.htw-berlin.de && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
