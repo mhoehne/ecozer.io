@@ -46,17 +46,43 @@ export default function NotificationLog(props: NotificationLogProps) {
   };
 
   const columns = [
+    // {
+    //   field: '_id',
+    //   headerName: 'ID',
+    //   type: 'string',
+    //   width: 50,
+    //   editable: false,
+    // },
     {
-      field: '_id',
-      headerName: 'ID',
-      type: 'string',
-      width: 50,
+      field: 'isRead',
+      headerName: 'gelesen',
+      type: 'boolean',
+      width: 80,
       editable: false,
     },
     {
       field: 'messageType',
       headerName: 'Status',
       width: 100,
+      editable: false,
+    },
+    {
+      field: 'createdAt',
+      headerName: 'Datum',
+      type: 'date',
+      width: 200,
+      editable: false,
+    },
+    {
+      field: 'productName',
+      headerName: 'Produktname',
+      width: 200,
+      editable: false,
+    },
+    {
+      field: 'rejectReason',
+      headerName: 'Nachricht',
+      width: 400,
       editable: false,
     },
   ];
