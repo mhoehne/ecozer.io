@@ -69,7 +69,7 @@ export default function NotificationLog(props: NotificationLogProps) {
     {
       field: 'createdAt',
       headerName: 'Datum',
-      type: 'date',
+      type: 'dateTime',
       width: 200,
       editable: false,
     },
@@ -98,16 +98,16 @@ export default function NotificationLog(props: NotificationLogProps) {
   return (
     <>
       <Box
+        mx={{ xs: 4, sm: 4 }}
+        mt={{ xs: 2, sm: 12 }}
+        mb={{ xs: 2, sm: 5 }}
         px={{ xs: 2, sm: 2 }}
         py={{ xs: 2, sm: 2 }}
-        mx={{ xs: 0, sm: 0 }}
-        mt={{ xs: 10, sm: 10 }}
-        mb={{ xs: 10, sm: 10 }}
         bgcolor="background.paper"
         color="text.primary"
         alignItems="center"
       >
-      </Box>
+      
 
       <Box
         px={{ xs: 2, sm: 2 }}
@@ -115,6 +115,9 @@ export default function NotificationLog(props: NotificationLogProps) {
         bgcolor="background.paper"
         color="text.primary"
       >
+        <Typography variant="h4" sx={{ mb: 2 }}>
+          Benachrichtigungen
+        </Typography>
         <div style={{ height: '80vh', width: '100%' }}>
           <DataGrid
             localeText={deDE.components.MuiDataGrid.defaultProps.localeText}
@@ -131,6 +134,7 @@ export default function NotificationLog(props: NotificationLogProps) {
             rowsPerPageOptions={[20, 40, 60]}
           />
         </div>
+      </Box>
       </Box>
     </>
   );

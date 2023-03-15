@@ -36,7 +36,7 @@ export default function ReportingList(props: ReportingListProps) {
         bgcolor="background.paper"
         color="text.primary"
       >
-        <Typography variant="h4" sx={{ mx: 2 }}>
+        <Typography variant="h4" sx={{ mx: 2, mb: 2 }}>
           Reportings
         </Typography>
         {/* <SearchBarBoxed
