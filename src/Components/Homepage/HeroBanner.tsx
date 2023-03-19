@@ -6,26 +6,15 @@ import Typography from '@mui/material/Typography';
 
 import HeroBlobSVG from '../../images/blob-scene-haikei.svg';
 
-{
-  /* TODO */
-}
-{
-  /*  */
-}
-
-{
-  /* Note: */
-}
-
 export default function HeroBanner() {
   return (
     <>
       {/* Hero unit */}
       <Box
+      height="92vh"
+      paddingY="14vh"
         sx={{
           bgcolor: 'background.paper',
-          pt: 26,
-          pb: 26,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
@@ -34,21 +23,22 @@ export default function HeroBanner() {
       >
         <Container>
           <Typography
-            component="h1"
             variant="h1"
             align="center"
             color="text.primary"
-            font-weight="bold"
-            gutterBottom
+            fontWeight="600"
+            fontSize="9rem"
+            sx={{mb:2}}
           >
-            BUIS
+            ecozer
           </Typography>
           <Typography
             variant="h3"
             align="center"
             width="fit-content"
             color="text.primary"
-            paragraph
+            fontWeight="500"
+            fontSize="4rem"
           >
             Software-Plattform für betriebliche Umweltinformationssysteme!
           </Typography>
