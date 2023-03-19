@@ -27,7 +27,7 @@ export default function HeroBanner() {
             align="center"
             color="text.primary"
             fontWeight="600"
-            fontSize="9rem"
+            fontSize="9.5rem"
             sx={{mb:2}}
           >
             ecozer
