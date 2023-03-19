@@ -5,17 +5,6 @@ import ProductListGrid from '../Components/Grids/ProductListGrid';
 import SearchBarBoxed from '../Components/SearchBarBoxed';
 import Account from './Account';
 
-{
-  /* TODO */
-}
-{
-  /*  */
-}
-
-{
-  /* Note: */
-}
-
 interface UserListProps {
   account: AccountType | null;
 }
