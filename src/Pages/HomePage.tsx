@@ -6,17 +6,6 @@ import HowItWorks from '../Components/Homepage/HowItWorks';
 import MostClickedProducts from '../Components/Homepage/MostClickedProducts';
 import NewestProducts from '../Components/Homepage/NewestPorducts';
 
-{
-  /* TODO */
-}
-{
-  /*  */
-}
-
-{
-  /* Note: */
-}
-
 export default function Home() {
   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
