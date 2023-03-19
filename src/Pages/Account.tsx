@@ -24,12 +24,16 @@ export default function Account(props: AccountProps) {
       .required('E-Mail-Adresse ist erforderlich.'),
     firstname: yup
       .string()
-      .min(3, 'Name should be of minimum 3 characters length')
-      .required('Name ist erforderlich.'),
-      lastname: yup
+      .min(3, 'Vorname sollte mindestens 3 Zeichen haben!')
+      .required('Vorname ist erforderlich.'),
+    lastname: yup
       .string()
-      .min(3, 'Name should be of minimum 3 characters length')
-      .required('Name ist erforderlich.'),
+      .min(3, 'Nachname sollte mindestens 3 Zeichen haben!')
+      .required('Nachname ist erforderlich.'),
+    password: yup
+      .string()
+      .min(6, 'Passwort sollte mindestens 6 Zeichen haben!')
+      .required('Passwort ist erforderlich.'),
   });
 
   const formik = useFormik({
@@ -67,7 +71,7 @@ export default function Account(props: AccountProps) {
           </Typography>
           <Box 
           component="form"
-            onSubmit={formik.handleSubmit}>
+          onSubmit={formik.handleSubmit}>
                 <Box sx={{ mt: 3 }}>
                   <Grid container spacing={2}>
                     <Grid item xs={12} sm={6}>
@@ -143,8 +147,8 @@ export default function Account(props: AccountProps) {
           </Typography>
           <Box
             component="form"
+            onSubmit={formik.handleSubmit}
             noValidate
-            // onSubmit={}
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
@@ -156,7 +160,7 @@ export default function Account(props: AccountProps) {
                   label="altes Passwort"
                   type="password"
                   id="password"
-                  autoComplete="new-password"
+                  autoComplete="old-password"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -166,8 +170,9 @@ export default function Account(props: AccountProps) {
                   name="password"
                   label="neues Passwort"
                   type="password"
-                  id="password"
+                  id="newPassword"
                   autoComplete="new-password"
+                  onChange={formik.handleChange}
                 />
               </Grid>
             </Grid>

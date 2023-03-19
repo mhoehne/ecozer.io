@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 
 import {
-    Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, MenuItem, TextField
+    Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, MenuItem, TextField, Typography
 } from '@mui/material';
 
 import { CreateReporting } from '../API';
@@ -76,13 +76,15 @@ export default function ContactDialog(props: ContactDialogProps) {
   return (
     <>
       <Dialog open={props.open}>
-        <DialogTitle>Kontakt</DialogTitle>
+        <DialogTitle>
+          <Typography variant="h4">Kontakt</Typography></DialogTitle>
         <Box
           component="form"
           noValidate
           justifyContent="center"
           alignItems="center"
           onSubmit={formik.handleSubmit}
+          sx={{mb: 2}}
         >
           <DialogContent>
             <TextField
@@ -166,7 +168,7 @@ export default function ContactDialog(props: ContactDialogProps) {
               rows={8}
             />
           </DialogContent>
-          <DialogActions>
+          <DialogActions sx={{m: 2}}>
             <Button
               onClick={() => {
                 props.setOpen(false);
