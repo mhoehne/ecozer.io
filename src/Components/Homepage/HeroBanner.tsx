@@ -37,7 +37,7 @@ export default function HeroBanner() {
             align="center"
             width="fit-content"
             color="text.primary"
-            fontWeight="500"
+            fontWeight="600"
             fontSize="4rem"
           >
             Software-Plattform für betriebliche Umweltinformationssysteme!
