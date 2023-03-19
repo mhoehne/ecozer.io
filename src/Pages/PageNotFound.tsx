@@ -27,7 +27,7 @@ export default function PageNotFound() {
                   <Typography variant="h1">404</Typography>
                 </Grid>
                 <Grid item xs={12} sm={12} textAlign="center">
-                  <Typography variant="h3">OOPS! Leider können wir diese Seite nicht finden. Auf der Homepage gibt es viel zu entdecken.</Typography>
+                  <Typography variant="h3">Oops! Leider können wir diese Seite nicht finden. Auf der Homepage gibt es viel zu entdecken.</Typography>
                 </Grid>
                 <Grid item xs={12} sm={12} textAlign="center">
                   <Button variant="contained" size="large" color="secondary" sx={{m:2}}>Starseite</Button>
