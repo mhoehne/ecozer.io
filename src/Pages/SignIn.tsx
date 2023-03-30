@@ -15,7 +15,7 @@ import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
-import { checkAuthentication } from '../API';
+import { checkAuthenticate } from '../API';
 import ContactDialog from '../Components/ContactDialog';
 
 // TODO:
@@ -29,11 +29,12 @@ export async function authenticate(
   setAlert: Function
 ) {
   try {
-    const response = await checkAuthentication(emailaddress, password);
-    if (response.data === 'OK') {
-      setCookie('email', emailaddress, { path: '/' });
+    const response = await checkAuthenticate(emailaddress, password);
+    if (response.status === 200) {
+      setCookie('token', response.data, { path: '/' });
       return navigate('/my-products');
     }
+    console.log(response)
   } catch (e) {
     // alert(e);
     setAlert(true);

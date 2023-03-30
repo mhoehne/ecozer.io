@@ -1,3 +1,4 @@
+import jwt from 'jsonwebtoken';
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -24,20 +25,24 @@ import Search from './Pages/Search';
 import SignIn from './Pages/SignIn';
 import SignUpFormik from './Pages/SignUpFormik';
 import UserList from './Pages/UserList';
-import UserSurveyList from './Pages/UserSurveyList';
 
 export default function App() {
   const [account, setAccount] = useState<AccountType | null>(null);
-  const [cookies] = useCookies(['email']);
+  const [cookies] = useCookies(['token']);
 
-  if (!cookies.email && account !== null) {
+  if (!cookies.token && account !== null) {
     setAccount(null);
   }
   useEffect(() => {
-    if (account === null && cookies.email) {
-      GetAccountByEmail(cookies.email)
+    if (account === null && cookies.token) {
+      const jwttoken = jwt.decode(cookies.token);
+      if (jwttoken)  {
+        const payload = {emailaddress: ''}
+        Object.assign(payload, jwttoken);
+        GetAccountByEmail(payload.emailaddress)
         .then(({ data: { account } }) => setAccount(account))
         .catch();
+      }
     }
   }, [account, cookies]);
 

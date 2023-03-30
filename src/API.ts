@@ -46,7 +46,11 @@ export function CreateAccount(
 ): Promise<AxiosResponse<AccountCreatedResultType>> {
   return axios.post<AccountCreatedResultType>(
     `http://${process.env.REACT_APP_API_HOSTNAME}/accounts`,
-    account
+    account, {
+      headers: {
+        authorization: getCookie('token')
+      }
+    }
   );
 }
 
@@ -73,7 +77,11 @@ export function PutAccount(
 ): Promise<AxiosResponse<AccountResultType>> {
   return axios.put<AccountResultType>(
     `http://${process.env.REACT_APP_API_HOSTNAME}/accounts`,
-    account
+    account, {
+      headers: {
+        authorization: getCookie('token')
+      }
+    }
   );
 }
 
@@ -84,7 +92,8 @@ export function DeleteAccount(account: AccountType): Promise<AxiosResponse> {
     `http://${process.env.REACT_APP_API_HOSTNAME}/accounts`,
     {
       data: { emailAddress: account.emailAddress },
-    }
+    },
+    
   );
 }
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ACCOUNT*CRUD*SECTION*/
@@ -166,7 +175,11 @@ export function CreateProduct(
 ): Promise<AxiosResponse<ProductCreatedResultType>> {
   return axios.post<ProductCreatedResultType>(
     `http://${process.env.REACT_APP_API_HOSTNAME}/products`,
-    product
+    product, {
+      headers: {
+        authorization: getCookie('token')
+      }
+    }
   );
 }
 
@@ -257,7 +270,11 @@ export function PutProducts(
 ): Promise<AxiosResponse<ProductsResultType>> {
   return axios.put<ProductsResultType>(
     `http://${process.env.REACT_APP_API_HOSTNAME}/products`,
-    product
+    product, {
+      headers: {
+        authorization: getCookie('token')
+      }
+    }
   );
 }
 
@@ -267,19 +284,20 @@ export function PublishProduct(
   return axios.post<ProductType>(
     `http://${process.env.REACT_APP_API_HOSTNAME}/products/${productID}/publish`, {
       headers: {
-        authorization: getCookie('email')
+        authorization: getCookie('token')
       }
     }
   );
 }
 
 export function RejectProduct(
-  productID: string, rejectionReason: string
+  productID: string, 
+  rejectionReason: string
 ): Promise<AxiosResponse<ProductType>> {
   return axios.post<ProductType>(
     `http://${process.env.REACT_APP_API_HOSTNAME}/products/${productID}/reject`, {rejectionReason} ,{
       headers: {
-        authorization: getCookie('email')
+        authorization: getCookie('token')
       }
     }
   );
@@ -308,30 +326,36 @@ export function DeleteProduct(product: ProductType): Promise<AxiosResponse> {
 /*USER AUTHENTICATION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 /*LOGIN *************************************************************************************************/
 
-export function checkAuthentication(
+// authentication
+// check for the jwt token
+
+export function checkAuthenticate(
   emailaddress: string,
-  password: string
+  password: string,
 ): Promise<AxiosResponse<string>> {
   
   return axios.post<string>(
     `http://${process.env.REACT_APP_API_HOSTNAME}/authentication`,
-    {
-      emailaddress,
-      password,
-    }
+    { emailaddress, password},
   );
 }
 
+
+
 export function checkDeAuthentication(
-  emailaddress: string
 ): Promise<AxiosResponse<string>> {
   return axios.post<string>(
     `http://${process.env.REACT_APP_API_HOSTNAME}/authentication`,
     {
-      emailaddress,
+      headers: {
+        authorization: getCookie('token')
+      }
     }
   );
 }
+
+// create new endpoint to revalidate token
+// create new postman call to check revalidate authentication and get new token
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<PRODUCT*CRUD*SECTION*/
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
@@ -364,7 +388,7 @@ export function GetNotifications(): Promise<AxiosResponse<NotificationsType>> {
     
     {
       headers: {
-        authorization: getCookie('email')
+        authorization: getCookie('token')
       }
     }
   );
@@ -374,7 +398,7 @@ export function markAsReadNotification(notification: number): Promise<AxiosRespo
   return axios.post<NotificationsType>(
     `http://${process.env.REACT_APP_API_HOSTNAME}/notifications/${notification}`, {}, {
       headers: {
-        authorization: getCookie('email')
+        authorization: getCookie('token')
       }
     }
   );
@@ -421,37 +445,3 @@ export function DeleteReporting(reporting: ReportingType): Promise<AxiosResponse
   );
 }
 
-/* SURVEY ###################################################################### */
-export type SurveyType = {
-  _id: number | undefined;
-  role: string;
-  companySize: string;
-  corporateSector: string;
-  Q1: string;
-  Q2: string;
-  Q3: string;
-  Q4: string;
-  feedbackField: string;
-};
-export type SurveyEntriesResultType = {
-  surveyEntries: SurveyType[];
-};
-
-export type SurveyEntryCreatedResultType = SurveyType | string;
-
-export function CreateSurveyEntry(
-  surveyEntry: SurveyType
-): Promise<AxiosResponse<SurveyEntryCreatedResultType>> {
-  return axios.post<SurveyEntryCreatedResultType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}/user-survey`,
-    surveyEntry
-  );
-}
-
-export function GetSurveyEntries(): Promise<
-  AxiosResponse<SurveyEntriesResultType>
-> {
-  return axios.get<SurveyEntriesResultType>(
-    `http://${process.env.REACT_APP_API_HOSTNAME}/user-survey`
-  );
-}

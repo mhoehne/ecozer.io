@@ -11,8 +11,8 @@ export default function HeroBanner() {
     <>
       {/* Hero unit */}
       <Box
-      height="92vh"
-      paddingY="14vh"
+      height="94vh"
+      paddingY="10%"
         sx={{
           bgcolor: 'background.paper',
           backgroundSize: 'cover',
