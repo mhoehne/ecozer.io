@@ -18,7 +18,7 @@ export async function logOutAndRedirectToHomePage(
   removeCookie: Function
 ) {
   try {
-    removeCookie('email', { path: '/' });
+    removeCookie('token', { path: '/' });
     return navigate('/');
   } catch (e) {
     console.log(e);
