@@ -9,19 +9,6 @@ import ImgMediaCard from '../Components/ImgMediaCard';
 import SearchBarBoxed from '../Components/SearchBarBoxed';
 import BannerBackgroundImage from '../images/layered-waves-haikei_1.svg';
 
-{
-  /* TODO */
-}
-{
-  /* 
-  
-  */
-}
-
-{
-  /* Note: */
-}
-
 interface SearchProps {
   account: AccountType | null;
 }
@@ -40,7 +27,7 @@ export default function Search(props: SearchProps) {
   useEffect(() => {
     GetProducts(
       searchterm,
-      account_id ?? null,
+      null,
       zielgruppe,
       anwendungsbereich,
       gradDerIntegrierung,
