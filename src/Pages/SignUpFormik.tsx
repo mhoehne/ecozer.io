@@ -1,17 +1,36 @@
 import { Field, Form, Formik, useFormik } from 'formik';
 import * as React from 'react';
 import { useCookies } from 'react-cookie';
-import { useNavigate } from 'react-router-dom';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 
 import {
     Box, Button, CardContent, Checkbox, Container, FormControlLabel, Grid, Link, TextField,
     Typography
 } from '@mui/material';
-import { createTheme } from '@mui/material/styles';
 
-import { CreateAccount } from '../API';
+import { checkAuthenticate, CreateAccount } from '../API';
 import Account from './Account';
+
+export async function authenticate(
+  emailaddress: string,
+  password: string,
+  navigate: NavigateFunction,
+  setCookie: Function,
+  setAlert: Function
+) {
+  try {
+    const response = await checkAuthenticate(emailaddress, password);
+    if (response.status === 200) {
+      setCookie('token', response.data, { path: '/' });
+      return navigate('/my-products');
+    }
+  } catch (e) {
+    // alert(e);
+    setAlert(true);
+    console.log(e);
+  }
+}
 
 export default function SignUpFormik() {
   const [cookies, setCookie] = useCookies(['email']);
@@ -55,6 +74,19 @@ export default function SignUpFormik() {
       CreateAccount(values)
         .then((values) => {
           setCookie('email', formik.values.emailAddress, { path: '/' });
+          const emailaddress = formik.values.emailAddress;
+          const password = formik.values.password;
+          if (emailaddress != null && password != null) {
+            authenticate(
+            emailaddress.toString(),
+            password.toString(),
+            navigate,
+            setCookie,
+            setAlert
+            );
+          } else {
+            setAlert(true);
+          }
           return navigate('/my-products');
         })
         .catch((msg) => {
@@ -217,3 +249,7 @@ export default function SignUpFormik() {
     </>
   );
 }
+function setAlert(arg0: boolean) {
+  throw new Error('Function not implemented.');
+}
+

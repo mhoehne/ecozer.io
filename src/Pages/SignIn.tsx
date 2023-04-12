@@ -34,7 +34,6 @@ export async function authenticate(
       setCookie('token', response.data, { path: '/' });
       return navigate('/my-products');
     }
-    console.log(response)
   } catch (e) {
     // alert(e);
     setAlert(true);

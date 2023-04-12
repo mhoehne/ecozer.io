@@ -7,17 +7,6 @@ import Typography from '@mui/material/Typography';
 import { ListNewestProducts, ProductType } from '../../API';
 import ImgMediaCard from '../ImgMediaCard';
 
-{
-  /* TODO */
-}
-{
-  /*  */
-}
-
-{
-  /* Note: */
-}
-
 export default function NewestProducts() {
   const [products, setProducts] = useState<ProductType[]>([]);
 
