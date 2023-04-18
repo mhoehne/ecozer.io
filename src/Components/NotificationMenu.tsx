@@ -36,11 +36,16 @@ useEffect(() => {
 // improvement: use redux to listen for events (notification)
 const [timer, setTimer] = useState<NodeJS.Timer | null>(null)
 if (timer == null) {
-  const newTimer = setInterval(() => {
-  
+  const refreshNotificationsCallback = () => {
     GetNotifications().then((result) => {
       setNotifications(result.data.notifications)
     }).catch();
+  }
+
+document.addEventListener("refreshNotifications", refreshNotificationsCallback)
+
+  const newTimer = setInterval(() => {
+    document.dispatchEvent(new CustomEvent('refreshNotifications'));
 }, 60000 );
   setTimer(newTimer);
 }

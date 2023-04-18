@@ -340,6 +340,18 @@ export function checkAuthenticate(
   );
 }
 
+export function renewToken(): Promise<AxiosResponse<string>> {
+
+  return axios.post<string>(
+    `http://${process.env.REACT_APP_API_HOSTNAME}/renewauthentication`, {},
+    {
+      headers: {
+      authorization: getCookie('token')
+    }
+  }
+  )
+}
+
 
 
 export function checkDeAuthentication(

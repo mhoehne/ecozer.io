@@ -92,6 +92,7 @@ export default function AddProduct(props: AddProductProps) {
     // onSubmit call createProduct
     CreateProduct(product)
       .then((product) => {
+        document.dispatchEvent(new CustomEvent('refreshNotifications'));
         return navigate('/my-products');
       })
       .catch((msg) => {

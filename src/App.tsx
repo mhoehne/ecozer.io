@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Container from '@mui/material/Container';
 
-import { AccountType, GetAccountByEmail } from './API';
+import { AccountType, GetAccountByEmail, renewToken } from './API';
 import AppBarTop from './Components/AppBarTop';
 import Footer from './Components/Footer';
 import Account from './Pages/Account';
@@ -28,7 +28,7 @@ import UserList from './Pages/UserList';
 
 export default function App() {
   const [account, setAccount] = useState<AccountType | null>(null);
-  const [cookies] = useCookies(['token']);
+  const [cookies, setCookies] = useCookies(['token']);
 
   if (!cookies.token && account !== null) {
     setAccount(null);
@@ -45,6 +45,17 @@ export default function App() {
       }
     }
   }, [account, cookies]);
+
+  const [timer, setTimer] = useState<NodeJS.Timer | null>(null)
+  if (timer == null) {
+    const newTimer = setInterval(() => {
+      renewToken().then((result) => {
+        setCookies('token', result.data, { path: '/' });
+      }).catch();
+  }, 6000 );
+    setTimer(newTimer);
+  }
+
 
   return (
     <Router>
