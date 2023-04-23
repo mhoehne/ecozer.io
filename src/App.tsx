@@ -52,7 +52,7 @@ export default function App() {
       renewToken().then((result) => {
         setCookies('token', result.data, { path: '/' });
       }).catch();
-  }, 6000 );
+  }, 60000 );
     setTimer(newTimer);
   }
 
